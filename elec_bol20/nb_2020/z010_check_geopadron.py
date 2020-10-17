@@ -31,26 +31,26 @@ dn = pd.read_excel(path, sheet_name=i)
 de = pd.read_excel(path,sheet_name=e)
 
 
-# %% hidden=true
+# %%
 # Verificar no duplicados
 dn['RECI'].duplicated().sum()
 
-# %% hidden=true
+# %%
 dn['RECI_GEO_FID'].duplicated().sum()
 
-# %% hidden=true
+# %%
 de['RECI'].duplicated().sum()
 
-# %% hidden=true
+# %%
 de['RECI_GEO_FID'].duplicated().sum()
 
-# %% hidden=true
+# %%
 dn['País'].value_counts()
 
-# %% hidden=true
+# %%
 len(dn)
 
-# %% hidden=true
+# %%
 len(de)
 
 # %% [markdown]

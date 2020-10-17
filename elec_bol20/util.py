@@ -191,7 +191,9 @@ TOOL_TIPS1 = [
 import bokeh.palettes
 
 P_MAS = bokeh.palettes.PuBu9[::-1]
-P_DIF = bokeh.palettes.RdYlBu11
+# P_DIF = bokeh.palettes.RdYlBu11
+P_DIF = [*bokeh.palettes.Oranges7[1:],
+         *bokeh.palettes.Blues6[::-1]]
 
 
 # %%

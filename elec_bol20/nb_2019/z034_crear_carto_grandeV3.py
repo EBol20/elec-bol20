@@ -36,11 +36,43 @@ import bokeh.tile_providers
 # abrimos los datos del padrón de votación del 2019
 
 # %%
+#DEFINICIONES
+MYE = -5
+MYS = -25
+MXE = -50
+MXS = -75
+CYE = -5
+CYS = -25
+CXE = -50
+CXS = -75
+BAR_TITLE = "MAS-CC%"
+FIG_WIDTH = 700
+C_BAR_HIGH = 80
+C_BAR_LOW = -80
+PALETTE = ebu.P_DIF
+CART_SLIDER_INIT = .5
+FILE_OUT = ebu.DIR+'/../docs/Ejemplos/carto_map_mas_cc.html'
+MAP_CIRCLE_SIZE_OFFSET = 5
+RATIO_CIRCLE_MAP = 7
+RATIO_CIRCLE_CARTO = 500
+TOOL_TIP = [
+    ('Inscritos', '@HAB'),
+    ('PAIS', '@PAIS'),
+    ('Municipalidad', '@MUN'),
+    ('Recinto', '@REC'),
+    ('MAS-CC [%]', '@d_mas_cc')
+    # ('DEN %', '@DEN')
+    # ('PAIS', '@PAIS'),
+]
+#
+
+
+
 df = ebu.open_combine_2019()
 _mean = ['X', 'Y', 'LAT', 'LON', 'DEN', ]
 _sum = ['HAB', 'CC', 'MAS', 'PDC', 'VV']
 _first = ['PAIS', 'REC', 'MUN', 'BOL']
-#agrupamos por recinto
+# agrupamos por recinto
 _gr = df.groupby('ID_RECI')
 rec_df = _gr[_mean].mean()
 rec_df[_sum] = _gr[_sum].sum()
@@ -48,8 +80,8 @@ rec_df[_first] = _gr[_first].first()
 
 rec_df['D_MAS_CC'] = rec_df['MAS'] - rec_df['CC']
 rec_df['d_mas_cc'] = rec_df['D_MAS_CC'] / rec_df['VV'] * 100
-rec_df['r'] = np.sqrt(rec_df['HAB']) / 500
-rec_df['r2'] = np.sqrt(rec_df['HAB']) /7 + 5
+rec_df['r'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_CARTO
+rec_df['r2'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_MAP + MAP_CIRCLE_SIZE_OFFSET
 
 res = ebu.lola_to_cart(rec_df['LON'].values, rec_df['LAT'].values)
 rec_df['GX'] = res[0]
@@ -86,8 +118,8 @@ rec_df_spl = rec_df.copy()
 # %%
 # DATA
 # bokeh.plotting.output_notebook()
-bokeh.plotting.output_file('../../docs/Ejemplos/carto_map_mas_cc.html')
-cart_init_val = .5
+bokeh.plotting.output_file(FILE_OUT)
+cart_init_val = CART_SLIDER_INIT
 data = rec_df_spl.copy()
 data['x'] = data['LON'] * (1 - cart_init_val) + data['X'] * cart_init_val
 data['y'] = data['LAT'] * (1 - cart_init_val) + data['Y'] * cart_init_val
@@ -97,7 +129,7 @@ data['y'] = data['LAT'] * (1 - cart_init_val) + data['Y'] * cart_init_val
 from bokeh.transform import linear_cmap
 from bokeh.transform import log_cmap
 
-cm = linear_cmap('d_mas_cc', palette=ebu.P_DIF[::-1], low=-80, high=80)
+cm = linear_cmap('d_mas_cc', palette=PALETTE, low=C_BAR_LOW, high=C_BAR_HIGH)
 # cm = log_cmap('DEN', palette=bokeh.palettes.Viridis11, low=1, high=10000)
 
 # %%
@@ -113,7 +145,7 @@ source_bol = ColumnDataSource({'la': la, 'lo': lo})
 code_draw_red_map = """
 const data = {'gx': [], 'gy': []}
 const indices = cb_data.index.indices
-for (var i = 0; i < indices.length; i++) {
+for (var i = 0; i < indices.length; i++ ) {
         data['gx'].push(source_master.data.GX[indices[i]])
         data['gy'].push(source_master.data.GY[indices[i]])
 }
@@ -161,8 +193,8 @@ code_slider = """
 """
 
 # FIGURES
-pw = 700
-cart_fig = Figure(plot_width=pw + int(.2 * pw), plot_height=pw, output_backend="webgl")
+pw = FIG_WIDTH
+cart_fig = Figure(plot_width=pw, plot_height=pw, output_backend="webgl")
 map_fig = Figure(plot_width=pw, plot_height=pw,
                  x_axis_type='mercator',
                  y_axis_type='mercator',
@@ -195,14 +227,14 @@ cart_fig.scatter('x', 'y', source=source_master, radius='r',
                  )
 
 red_scat_map = map_fig.circle_cross('gx', 'gy',
-                               source=source_red_map, 
-#                                color='red',
-                                    fill_color= None,
-#                                line_color='green',
-                               size=20,
-                               line_color="#dd1c77",
+                                    source=source_red_map,
+                                    #                                color='red',
+                                    fill_color=None,
+                                    #                                line_color='green',
+                                    size=20,
+                                    line_color="#dd1c77",
                                     line_width=3
-                               )
+                                    )
 # red_scat_car = cart_fig.scatter('lo', 'la',
 # source=source_red_car, color='green')
 
@@ -223,18 +255,10 @@ callback_red_map = CustomJS(
 
 # tools
 
-ebu.TOOL_TIPS1 = [
-    ('Inscritos', '@HAB'),
-    ('PAIS', '@PAIS'),
-    ('Municipalidad', '@MUN'),
-    ('Recinto', '@REC'),
-    ('MAS-CC%' ,'@d_mas_cc')
-    # ('DEN %', '@DEN')
-    # ('PAIS', '@PAIS'),
-]
+
 
 hover_cart = bokeh.models.HoverTool(
-    tooltips=ebu.TOOL_TIPS1,
+    tooltips=TOOL_TIP,
     callback=callback_red_map,
     # renderers = [red_scat_car]
 
@@ -242,7 +266,7 @@ hover_cart = bokeh.models.HoverTool(
 cart_fig.add_tools(hover_cart, )
 
 hover_map = bokeh.models.HoverTool(
-    tooltips=ebu.TOOL_TIPS1,
+    tooltips=TOOL_TIP,
     # callback=callback_red_car,
     # renderers = [red_scat_map]
 )
@@ -259,16 +283,21 @@ slider.js_on_change('value', callback_slider)
 # COLOR BAR
 
 cb = bokeh.models.ColorBar(
-    color_mapper=cm['transform'], width=30,
+    color_mapper=cm['transform'],
+    width=int(.9*FIG_WIDTH),
     location=(0, 0),
-#     title="DEN (N/km^2)",
-    title = "MAS-CC%",
+    #     title="DEN (N/km^2)",
+    title=(BAR_TITLE),
     # margin=0,padding=0,
     title_standoff=10,
-    # ticker=bokeh.models.LogTicker()
-)
+    # ticker=bokeh.models.LogTicker(),
+    orientation='horizontal',
 
-cart_fig.add_layout(cb, 'left')
+
+)
+cb.title.align='center'
+
+cart_fig.add_layout(cb, 'above')
 
 # layout = row(column(slider, cart_f),map_f)
 layout = bokeh.layouts.gridplot(
@@ -277,12 +306,12 @@ layout = bokeh.layouts.gridplot(
 )
 # layout = bokeh.layouts.column([slider, cart_fig])
 
-cart_fig.x_range.start = -75
-cart_fig.x_range.end = -50
-cart_fig.y_range.start = -25
-cart_fig.y_range.end = -5
+cart_fig.x_range.start = CXS
+cart_fig.x_range.end = CXE
+cart_fig.y_range.start = CYS
+cart_fig.y_range.end = CYE
 
-_ll = ebu.lola_to_cart(lo=[-75, -50], la=[-25, -5])
+_ll = ebu.lola_to_cart(lo=[MXS, MXE], la=[MYS, MYE])
 map_fig.x_range.start = _ll[0][0]
 map_fig.x_range.end = _ll[0][1]
 map_fig.y_range.start = _ll[1][0]
