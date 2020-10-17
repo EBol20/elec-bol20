@@ -17,8 +17,9 @@ library(stringr)
 dir(here::here())
 dir(paste0(here::here(),"/../datos_0_crudos/2019"))
 
-dat_2019_final = fread(paste0(here::here(),"/../datos_0_crudos/2019/final_comp.csv"))
-
+dat_2019_final = read.csv(paste0(here::here(),"/../datos_0_crudos/2019/final_comp.csv"), 
+                          colClasses = "character")
+  
 ```
 
 ```{r}
@@ -35,17 +36,145 @@ clean_headers = function(headervec){
 
 names(dat_2019_final)=clean_headers(names(dat_2019_final))
 head(dat_2019_final)
+
+dat_2019_final = dat_2019_final%>%
+  mutate_at(c("Inscritos","CC","MAS...IPSP","PDC","Votos.Vi.lidos","Blancos","Nulos"), as.numeric)
 ```
+```{r}
+get_perc = function(vec, totvec){
+  return(vec/totvec*100)
+}
+
+#checking the end result
+quickcheck = dat_2019_final %>%
+  dplyr::summarise(MAS_tot = sum(MAS...IPSP,na.rm=T),
+                   CC_tot = sum(CC,na.rm=T),
+                   validos_tot = sum(Votos.Vi.lidos,na.rm=T))%>%
+  dplyr::mutate_at(c("MAS_tot","CC_tot"), .funs = list(perc = ~ get_perc(.,validos_tot)))
+
+quickcheck
+
+
+nrow(dat_2019_final)
+length(unique(dat_2019_final$Codigo.Mesa))
+```
+
 
 ```{r}
 dat_2019_cluster = dat_2019_final %>%
   #select("Numero_Mesa", "CC", "MAS_-_IPSP","PDC", "Votos_Validos")%>%
-  arrange(Numero_Mesa)
+  arrange(Numero.Mesa)
 
-any(duplicated(dat_2019_cluster$Numero_Mesa))
+any(duplicated(dat_2019_cluster$Numero.Mesa))
+any(duplicated(dat_2019_cluster$Codigo.Mesa))
+```
+```{r}
+get_perc = function(vec, totvec){
+  return(vec/totvec*100)
+}
+
+Inf_to_NA = function(vec){
+  out = ifelse(is.infinite(vec),NA,vec)
+  return(out)
+}
+# 
+# dat_2019_recinto.s = dat_2019_final %>%
+#   dplyr::group_by(id_rec)%>%
+#   dplyr::summarise_at(c("CC","MAS...IPSP", "PDC", "Votos.Vi.lidos","Blancos","Nulos"), .funs = sum)%>%
+#   mutate_at(c("CC","MAS...IPSP", "PDC", "Votos.Vi.lidos"), .funs = list(perc =~ get_perc(.,Votos.Vi.lidos)))
+
 ```
 
 ```{r}
+dat_2019_final_m = dat_2019_final %>%
+  mutate_at(c("CC","MAS...IPSP", "PDC", "Votos.Vi.lidos"), .funs = list(perc =~ get_perc(.,Votos.Vi.lidos)))
+
+
+cluster_and_bind = function(dataframe, IDcolumn, usecols, nclusters){
+  myframe = dataframe %>%
+    dplyr::rename("IDcol"=IDcolumn)
+  
+  myframe = myframe %>%
+    arrange(IDcol)%>%
+    dplyr::select(c(IDcol,usecols))%>%
+    mutate_all(Inf_to_NA)%>%
+    na.omit()
+  
+  mymatrix = myframe %>%
+    dplyr::select(usecols)%>%
+    as.matrix()
+  
+  kmeans_output = kmeans(mymatrix, nclusters)
+  outframe = data.frame(IDcol = myframe$IDcol, cluster = kmeans_output$cluster)
+  names(outframe)[1] = IDcolumn
+
+  return(list(kmeans_output, outframe))
+}#cluster_and_bind
+```
+
+```{r}
+cluster_results= cluster_and_bind(dat_2019_final_m, "Codigo.Mesa", 
+                                     c("CC_perc","MAS...IPSP_perc", "PDC_perc"),10)
+cluster_mask = cluster_results[[2]]
+
+
+dat_2019_trep = read.csv(paste0(here::here(),"/../datos_0_crudos/2019/percentil_trep.csv"),
+                         colClasses = "character")%>%
+  dplyr::rename("Codigo.Mesa"=CÃ³digo.Mesa)
+
+dat_2019_comp = read.csv(paste0(here::here(),"/../datos_0_crudos/2019/percentil_trep.csv"),
+                         colClasses = "character")%>%
+  dplyr::rename("Codigo.Mesa"=CÃ³digo.Mesa)
+
+dat_2019_combined = dplyr::full_join(cluster_mask, dat_2019_trep, by = "Codigo.Mesa" )%>%
+  dplyr::full_join(.,dat_2019_final_m, by = "Codigo.Mesa" )
+
+
+total_by_cluster = dat_2019_combined %>%
+  dplyr::group_by(cluster)%>%
+  dplyr::summarise(habilitados = sum(Inscritos),
+                   validos = sum(Votos.Vi.lidos))%>%
+  na.omit()
+
+````
+
+```{r}
+predict_from_percentage = function(clusterperc, total_habilitados){
+  return(clusterperc/100*total_habilitados)
+}
+
+mytest = dat_2019_combined %>%
+  dplyr::filter(pj < 20)%>%
+  dplyr::group_by(cluster)%>%
+  dplyr::summarise_at(c("CC_perc","MAS...IPSP_perc","PDC_perc"),
+                      .funs = list(mean =~ mean(.,na.rm=T),
+                                   sd = ~ sd(.,na.rm=T),
+                                   sterr = ~ sd(.,na.rm=T)/sqrt(sum(!is.na(.)))))
+
+
+myprediction = dplyr::full_join(total_by_cluster,mytest,by="cluster")%>%
+  na.omit()%>%
+  mutate_at(vars(contains("mean")), .funs = list(predicted_votes = ~ predict_from_percentage(., habilitados)))%>%
+  dplyr::select(contains("predicted_votes"))%>%
+  dplyr::summarise_all(sum)
+
+myprediction = myprediction/allvotes
+myprediction
+```
+
+```{r}
+# mesa_data = read.csv(paste0(here::here(),"/../datos_0_crudos/2019/estad_nac.csv"),skip=0)
+# 
+# mesa_data_comb = dplyr::full_join(mesa_data, cluster_mask, by = "Codigo.Mesa")
+```
+
+
+
+
+
+```{r}
+
+
 dat_2019_cluster = dat_2019_cluster %>%
   arrange(Numero_Mesa)%>%
   mutate(perc_MAS = `MAS_-_IPSP`/Votos_Validos*100,
@@ -113,7 +242,7 @@ wssplot(dat_2019_cluster_2, nc = 20)
 # ```
 
 ```{r}
-kmeans_output = kmeans(dat_2019_cluster_2, 6)
+kmeans_output = kmeans(dat_2019_cluster_2, 10)
 
 clustered_mask = data.frame(cluster=kmeans_output$cluster,Numero_Mesa = mesa_vector )
 
