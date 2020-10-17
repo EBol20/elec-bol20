@@ -9,5 +9,6 @@ elec_bol20/cart_
 elec_bol20.egg-info
 elec_bol20/aux/
 .Rproj.user
+venv_elecbol20/
 .Rhistory
 *.egg-info

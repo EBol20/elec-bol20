@@ -53,8 +53,8 @@ mesa_info = rbind(mesa_info_nac, mesa_info_ext)
 dat_2019_final = dat_2019_final %>%
   dplyr::mutate_at(c("MAS","CC","PDC","BL","NL","VV", "HAB"), .funs = as.numeric)
 
-```
 
+```
 ```{r}
 get_perc = function(vec, totvec){
   return(vec/totvec*100)
