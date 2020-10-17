@@ -1,5 +1,24 @@
 # intro 
 Este es un modelo simple para visualizar y predecir resultados de las elecciones 2020 de Bolivia
+
+# instrucciones de instalación
+descargar requerimientos
+- clonar el repositorio
+- Instalar anaconda o miniconda 
+- correr los siguientes comando en la terminal  
+```shell script
+conda env create --file ./requirements.txt --name ebol20
+conda activate ebol20
+cd path_to_ebol20
+```
+instalar ebol20 en modo desarollo
+```shell script 
+pip intall -e . 
+
+```  
+- instalar el programa cart de [acá](http://www.umich.edu/~mejn/cart/)
+  - copiar el binario a ./cart/cart
+  
 # contenidos
 - elec_bol20
     - README
@@ -20,24 +39,6 @@ Este es un modelo simple para visualizar y predecir resultados de las elecciones
     funciones reusables  
 
 
-# instrucciones de instalación
-descargar requerimientos
-- clonar el repositorio
-- Instalar anaconda o miniconda 
-- correr los siguientes comando en la terminal  
-```shell script
-conda env create --file ./requirements.txt --name ebol20
-conda activate ebol20
-cd path_to_ebol20
-```
-instalar ebol20 en modo desarollo
-```shell script 
-pip intall -e . 
-
-```  
-- instalar el programa cart de [acá](http://www.umich.edu/~mejn/cart/)
-  - copiar el binario a ./cart/cart
-
 # hoja de ruta 
 nb_2020 -> elecciones del 2020  
 nb_2019 -> prototipo elecciones 2019 
@@ -48,7 +49,7 @@ crear cartogramas nacionales
 crear cartogramas internacionales
 
 - z020_procesador_datos  
-libreria agnostica para transforamr datos crudos de entrada, combinarlos con output de z010,z015 
+libreria agnóstica para transformar datos crudos de entrada, combinarlos con output de z010,z015 
 y crear un file standard
   - definir cual va a ser el estandard de file i.e que columnas, convención de nombres y identificadores (id)
   
