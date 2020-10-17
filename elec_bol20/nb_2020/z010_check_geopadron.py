@@ -75,5 +75,22 @@ dic_e = {a:b for a,b in zip(je,te) }
 dic_n = {a:b for a,b in zip(jn,tn) }
 
 # %%
+s='Hab_Inhab_depu_X_Mesa'
+pn = os.path.join(ebu.DATA_PATH0,'2020',
+                  'padron_oep','ESTADISTICAS_NACIONAL_EG_2020.xlsx')
+pn = pd.read_excel(pn,sheet_name=s,skiprows=5)
+
+# %%
+pn1 = pn.iloc[:-1]
+
+# %%
+pn1
+
+# %%
+pn1[[*dic_n.values(),'nummesa']]
+pn1['N_MESA'] = pn1['nummesa'].astype(np.int64)
+
+# %%
+pn1['nummesa'].astype()
 
 # %%
