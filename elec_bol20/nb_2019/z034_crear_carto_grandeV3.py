@@ -295,9 +295,9 @@ cb = bokeh.models.ColorBar(
 
 
 )
-cb.title.align='center'
 
 cart_fig.add_layout(cb, 'above')
+cb.title_text_align = 'left'
 
 # layout = row(column(slider, cart_f),map_f)
 layout = bokeh.layouts.gridplot(
