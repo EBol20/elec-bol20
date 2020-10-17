@@ -111,6 +111,7 @@ cluster_and_bind = function(dataframe, IDcolumn, usecols, nclusters){
 ```
 
 ```{r}
+#here, it would probably be more correct to obtain all the percentages by dividing through the "VT" (Votos totales) column, but I saw that there are big irregularities in that column. There seem to be less irregularities in the valid votes (VV) column, that's why I will select this. 
 dat_2019_final_m = dat_2019_final %>%
   mutate_at(c("CC","MAS", "PDC", "VV"), .funs = list(perc =~ get_perc(.,VV)))%>%
   mutate_at(c("BL","NL"),.funs = list(perc =~ get_perc(.,VV)))
@@ -121,7 +122,7 @@ names(dat_2019_final_m) = plyr::revalue(names(dat_2019_final_m),
 
 
 cluster_results = cluster_and_bind(dat_2019_final_m, "ID_MESA", 
-                                     c("cc","mas","pdc","BL_perc","NL_perc"),10)
+                                     c("cc","mas","pdc","BL_perc","NL_perc"),18)
 cluster_mask = cluster_results[[2]]
 
 #####output here
@@ -130,9 +131,9 @@ clustermask_out = cluster_mask %>%
   dplyr::full_join(., mesa_info, by = "ID_RECI")%>%
   dplyr::select(ID_MESA, LAT, LON, cluster)
 
-# write.csv(clustermask_out, file =
-#             paste0(here::here(),
-#                    "/../datos_1_intermedios/cluster_definition/2019_clustered_10.csv"),
-#           row.names = FALSE)
+write.csv(clustermask_out, file =
+            paste0(here::here(),
+                   "/../datos_1_intermedios/cluster_definition/2019_clustered_18.csv"),
+          row.names = FALSE)
 
 ```
