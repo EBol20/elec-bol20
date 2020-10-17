@@ -57,16 +57,18 @@ FILE_OUT = ebu.DIR+'/../docs/Ejemplos/carto_map_mas_cc_movil.html'
 MAP_CIRCLE_SIZE_OFFSET = 5
 RATIO_CIRCLE_MAP = 7
 RATIO_CIRCLE_CARTO = 500
-TOOL_TIP = [
-    ('Inscritos', '@HAB'),
-    ('PAIS', '@PAIS'),
-    ('Municipalidad', '@MUN'),
-    ('Recinto', '@REC'),
-    ('MAS-CC [%]', '@d_mas_cc{int}')
-    # ('DEN %', '@DEN')
-    # ('PAIS', '@PAIS'),
-]
 #
+TOOL_TIP = """
+    <div>        
+        <div>
+            <span style="font-size: 17px; font-weight: bold;">País: @PAIS, Municipio: @MUN, Recinto: @REC</span>
+            <span style="font-size: 17px; font-weight: bold;">MAS-CC [%]: @d_mas_cc{0.0}</span>
+            <span style="font-size: 17px; font-weight: bold;">Inscritos: @HAB</span>
+        </div>
+    </div>
+"""
+
+
 
 
 
