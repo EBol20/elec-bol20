@@ -60,7 +60,7 @@ TOOL_TIP = [
     ('PAIS', '@PAIS'),
     ('Municipalidad', '@MUN'),
     ('Recinto', '@REC'),
-    ('MAS-CC [%]', '@d_mas_cc')
+    ('MAS-CC [%]', '@d_mas_cc{int}')
     # ('DEN %', '@DEN')
     # ('PAIS', '@PAIS'),
 ]
