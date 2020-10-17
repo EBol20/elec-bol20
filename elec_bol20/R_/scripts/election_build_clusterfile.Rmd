@@ -1,5 +1,5 @@
 ---
-title: "R Notebook"
+title: "Election-2019_clustering"
 output:
   html_document:
     df_print: paged
@@ -51,10 +51,10 @@ mesa_info_nac = mesa_info_nac%>%
 mesa_info = rbind(mesa_info_nac, mesa_info_ext)
 
 dat_2019_final = dat_2019_final %>%
-  dplyr::mutate_at(c("MAS","CC","PDC","BL","NL","VV", "HAB"), .funs = as.numeric)
-
+  dplyr::mutate_at(c("MAS","CC","PDC","BL","NL","VV","VT", "HAB"), .funs = as.numeric)
 
 ```
+
 ```{r}
 get_perc = function(vec, totvec){
   return(vec/totvec*100)
@@ -112,7 +112,8 @@ cluster_and_bind = function(dataframe, IDcolumn, usecols, nclusters){
 
 ```{r}
 dat_2019_final_m = dat_2019_final %>%
-  mutate_at(c("CC","MAS", "PDC", "VV"), .funs = list(perc =~ get_perc(.,VV)))
+  mutate_at(c("CC","MAS", "PDC", "VV"), .funs = list(perc =~ get_perc(.,VV)))%>%
+  mutate_at(c("BL","NL"),.funs = list(perc =~ get_perc(.,VV)))
 names(dat_2019_final_m) = plyr::revalue(names(dat_2019_final_m),
                                               c("MAS_perc" = "mas",
                                                 "CC_perc" = "cc",
@@ -120,7 +121,7 @@ names(dat_2019_final_m) = plyr::revalue(names(dat_2019_final_m),
 
 
 cluster_results = cluster_and_bind(dat_2019_final_m, "ID_MESA", 
-                                     c("cc","mas","pdc","BL","NL"),10)
+                                     c("cc","mas","pdc","BL_perc","NL_perc"),10)
 cluster_mask = cluster_results[[2]]
 
 #####output here
@@ -129,84 +130,9 @@ clustermask_out = cluster_mask %>%
   dplyr::full_join(., mesa_info, by = "ID_RECI")%>%
   dplyr::select(ID_MESA, LAT, LON, cluster)
 
-write.csv(clustermask_out, file =
-            paste0(here::here(),
-                   "/../datos_1_intermedios/cluster_definition/2019_clustered_10.csv"),
-          row.names = FALSE)
+# write.csv(clustermask_out, file =
+#             paste0(here::here(),
+#                    "/../datos_1_intermedios/cluster_definition/2019_clustered_10.csv"),
+#           row.names = FALSE)
 
 ```
-
-```{r}
-#some more data inport for testing
-dat_2019_trep = read.csv(paste0(here::here(),"/../datos_0_crudos/2019/percentil_trep.csv"),
-                         colClasses = "character")%>%
-  dplyr::rename("ID_MESA"=CÃ³digo.Mesa)
-
-dat_2019_comp = read.csv(paste0(here::here(),"/../datos_0_crudos/2019/percentil_trep.csv"),
-                         colClasses = "character")%>%
-  dplyr::rename("ID_MESA"=CÃ³digo.Mesa)
-##
-
-dat_2019_combined = dplyr::full_join(cluster_mask, dat_2019_trep, by = "ID_MESA" )%>%
-  dplyr::full_join(.,dat_2019_final_m, by = "ID_MESA")
-
-
-total_by_cluster = dat_2019_combined %>%
-  dplyr::group_by(cluster)%>%
-  dplyr::summarise(habilitados = sum(HAB),
-                   validos = sum(VV))%>%
-  na.omit()
-
-````
-
-```{r}
-predict_by_cluster = function(vote_data, mesa_info, cluster_def, identifier){
-  #total habilitados for all votes.
-  allvotes = sum(mesa_info$HAB)
-  
-  #getting total habilitados by mesa
-  total_by_cluster = dplyr::full_join(mesa_info, cluster_def, by = identifier) %>%
-    dplyr::group_by(cluster)%>%
-    dplyr::summarise_at(c("HAB","VV"),.funs = sum)%>%
-    na.omit()
-  
-  #combining
-  mydata_combined = dplyr::full_join(vote_data, cluster_def, by = identifier)
-  
-  #getting the mean (along with sd and standard error) vote for already counted clusters
-  cluster_mean_vote = mydata_combined %>%
-    dplyr::group_by(cluster)%>%
-    dplyr::summarise_at(c("cc","mas","pdc"),
-                        .funs = list(mean =~ mean(.,na.rm=T),
-                                     sd = ~ sd(.,na.rm=T),
-                                     sterr = ~ sd(.,na.rm=T)/sqrt(sum(!is.na(.)))))%>%
-    na.omit()
-  
-  #help functions
-  predict_from_percentage = function(clusterperc, total_habilitados){
-    return(clusterperc/100*total_habilitados)
-  }
-  error_propagation = function(vec){
-    return(sqrt(vec^2))
-  }
-  
-  #end result prediction.
-  myprediction = dplyr::full_join(total_by_cluster,cluster_mean_vote,by="cluster")%>%
-    na.omit()%>%
-    mutate_at(vars(contains("mean")), 
-              .funs = list(pred = ~ predict_from_percentage(., HAB)))%>%
-    dplyr::select(contains("mean_pred"))%>%
-    dplyr::summarise_all(sum)
-  
-  myprediction = myprediction/allvotes
-  
-  
-  return(list(total_by_cluster, cluster_mean_vote, myprediction))
-}
-testprediction = predict_by_cluster(dat_2019_final_m, dat_2019_final, cluster_mask, "ID_MESA")
-
-testprediction[[3]]
-```
-
-
-
