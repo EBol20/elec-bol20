@@ -83,6 +83,7 @@ rec_df['d_mas_cc'] = rec_df['D_MAS_CC'] / rec_df['VV'] * 100
 rec_df['r'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_CARTO
 rec_df['r2'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_MAP + MAP_CIRCLE_SIZE_OFFSET
 
+
 res = ebu.lola_to_cart(rec_df['LON'].values, rec_df['LAT'].values)
 rec_df['GX'] = res[0]
 rec_df['GY'] = res[1]
@@ -126,6 +127,7 @@ data['y'] = data['LAT'] * (1 - cart_init_val) + data['Y'] * cart_init_val
 
 # %%
 # COLOR
+
 from bokeh.transform import linear_cmap
 from bokeh.transform import log_cmap
 
@@ -221,7 +223,8 @@ map_fig.scatter(
     color=cm
 )
 
-cart_fig.line('lo', 'la', source=source_bol, color='black')
+#todo if we wont use map then we nee to delete the source
+# cart_fig.line('lo', 'la', source=source_bol, color='black')
 cart_fig.scatter('x', 'y', source=source_master, radius='r',
                  color=cm
                  )
@@ -232,8 +235,18 @@ red_scat_map = map_fig.circle_cross('gx', 'gy',
                                     fill_color=None,
                                     #                                line_color='green',
                                     size=20,
-                                    line_color="#dd1c77",
-                                    line_width=3
+                                    line_color="white",
+                                    line_width=4
+                                    )
+
+red_scat_map = map_fig.circle_cross('gx', 'gy',
+                                    source=source_red_map,
+                                    #                                color='red',
+                                    fill_color=None,
+                                    #                                line_color='green',
+                                    size=20,
+                                    line_color="red",
+                                    line_width=1
                                     )
 # red_scat_car = cart_fig.scatter('lo', 'la',
 # source=source_red_car, color='green')
