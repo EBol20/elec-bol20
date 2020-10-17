@@ -337,6 +337,12 @@ map_fig.x_range.end = _ll[0][1]
 map_fig.y_range.start = _ll[1][0]
 map_fig.y_range.end = _ll[1][1]
 
+cart_fig.xaxis.major_tick_line_color = None  # turn off x-axis major ticks
+cart_fig.xaxis.minor_tick_line_color = None  # turn off x-axis minor ticks
+cart_fig.yaxis.major_tick_line_color = None  # turn off y-axis major ticks
+cart_fig.yaxis.minor_tick_line_color = None
+cart_fig.xaxis.major_label_text_font_size = '0pt'  # turn off x-axis tick labels
+cart_fig.yaxis.major_label_text_font_size = '0pt'  # turn off y-axis tick labels
 # %% [markdown]
 # ###### gráfica
 
