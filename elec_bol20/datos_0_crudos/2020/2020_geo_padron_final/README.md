@@ -15,3 +15,10 @@ I matched the OEP's Padrón (See: https://www.oep.org.bo/elecciones-generales-20
 * 'tipo_de_area' comes from matching coordinates against 'Categoria de accesibilidad de comunidades a centros poblados, 2013' (See: https://geo.gob.bo/geonetwork/srv/spa/catalog.search#/metadata/ba74ed29-8015-4b62-bd9c-3f6c9dbaab55). Results are mostly OK, but not always, and some areas are unmapped. Usually these are isolated rural areas, but not always! You could resolve these by finding closest polygon, rather than enclosing one.
 
 * The 'denspop' field comes from matching coordinates against 'Densidad de población por comunidad en km2, 2001'. (See: https://geo.gob.bo/geonetwork/srv/spa/catalog.search#/metadata/83408d25-6384-4668-8359-fbd01a7728ba) I looked for a similar national population density map based on 2012, but didn't find one.
+
+
+
+
+EXTRA INFO: 
+
+I just wanted to clarify, since I'm not sure I explained it well: Those tables ('reci_interior', 'reci_exterior') were just the padrón data the OEP released on the 8th, then I found coordinates for all of them, in nearly all cases from GeoElectoral. The ones like 'reci_interior_geo' and 'reci_exterior_geo' are GeoElectoral's maps but not combined with any padrón data. The GeoElectoral maps are probably more reliable for where the polling places will be, but there isn't padrón data for all of them. In those '*_geo' tables, there's a column at the end like 'in_padron' which tells you if that entry was in the padrón data or not. And you can match entries from both types of tables against each other based on 'RECI_GEO_FID'.

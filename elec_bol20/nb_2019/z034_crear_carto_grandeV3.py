@@ -45,7 +45,8 @@ CYE = -5
 CYS = -25
 CXE = -50
 CXS = -75
-BAR_TITLE = "CC  < diferencia >  MAS"
+BAR_TITLE = "CC  < diferencia [%] >  MAS"
+# PIXELS
 FIG_WIDTH = 700
 C_BAR_HIGH = 80
 C_BAR_LOW = -80
