@@ -45,7 +45,7 @@ CYE = -5
 CYS = -25
 CXE = -50
 CXS = -75
-BAR_TITLE = "MAS-CC%"
+BAR_TITLE = "CC  < diferencia >  MAS"
 FIG_WIDTH = 700
 C_BAR_HIGH = 80
 C_BAR_LOW = -80
@@ -281,23 +281,26 @@ slider.js_on_change('value', callback_slider)
 
 # %%
 # COLOR BAR
-
+ml = {int(i):str(np.abs(i)) for i in np.arange(-80,81,20)}
 cb = bokeh.models.ColorBar(
     color_mapper=cm['transform'],
     width=int(.9*FIG_WIDTH),
     location=(0, 0),
     #     title="DEN (N/km^2)",
-    title=(BAR_TITLE),
+    # title=(BAR_TITLE),
     # margin=0,padding=0,
     title_standoff=10,
     # ticker=bokeh.models.LogTicker(),
     orientation='horizontal',
+    major_label_overrides=ml
 
 
 )
 
 cart_fig.add_layout(cb, 'above')
-cb.title_text_align = 'left'
+# cb.title_text_align = 'left'
+cart_fig.title.text=BAR_TITLE
+cart_fig.title.align='center'
 
 # layout = row(column(slider, cart_f),map_f)
 layout = bokeh.layouts.gridplot(
