@@ -8,5 +8,6 @@ bokeh~=2.2.1
 seaborn~=0.11.0
 ipython~=5.8.0
 xlrd~=1.2.0
-
+cartopy
+geopandas
 
