@@ -1,0 +1,13 @@
+.idea
+*.ipynb_checkpoints
+__pycache__
+.DS_Store
+elec-bol20.iml
+~$*.xlsx
+elec_bol20/cart/cart
+elec_bol20/cart_
+elec_bol20.egg-info
+elec_bol20/aux/
+.Rproj.user
+.Rhistory
+*.egg-info

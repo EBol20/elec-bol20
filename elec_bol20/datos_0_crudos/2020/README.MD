@@ -1,0 +1,12 @@
+- asientos_electorales_exterior.xls  
+  - from TSE
+- recintos_electorales.xls
+  - from TSE
+- ESTADISTICAS_EXTERIOR_EG_2020.xlsx
+  - from TSE
+- ESTADISTICAS_NACIONAL_EG_2020.xlsx
+  - from TSE
+- geo2020.xlsx
+  - joshua  version 1 
+- recintos_2020_v2.xlsx
+  - joshua version 2  (van a llegar más versiones)
