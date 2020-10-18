@@ -47,6 +47,8 @@ WIDTH = 500
 CB_VALS = [0, 1, 2, 3]
 CB_LIMS = [0, 50, 500, 1500, 10000]
 CB_LABS = {s:str(l) for s,l in enumerate(CB_LIMS[:])}
+FILE_OUT = os.path.join(ebu.DIR,'htlml_1_intermedios/2020/z040_densidad2020.html')
+bokeh.plotting.output_file(FILE_OUT)
 df0 = pd.read_csv(os.path.join(
     ebu.DATA_PATH1_2020,'z020_geopadron_recintos_2020_ALL_DEN.csv'),
     # encoding='ISO-8859-1'
