@@ -19,12 +19,12 @@
 
 
 ## Elecciones generales Bolivia 2020 
-1. [Cartograma diferencia MAS - CC (2020)](Ejemplos/carto_map_mas_cc.html)
-1. [Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
+[Cartograma diferencia MAS - CC 2020](Ejemplos/carto_map_mas_cc.html)
+[Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
 
 
 ## Cómo votamos en octubre de 2019
-1. [Diferencia MAS - CC (2019)](Ejemplos/carto_map_mas_cc.html)  
-1. [Diferencia MAS - CC (2019 (móvil))](Ejemplos/carto_map_mas_cc_movil.html) 
-1. [En el cómputo de 2019, ¿de dónde llegaron las mesas y en qué orden?](Ejemplos/z050_mostrar_mesas_faltantes.html)
-1. [En el TREP de 2019, ¿de dónde llegaron las mesas y en qué orden?](Ejemplos/z050_mostrar_mesas_faltantes.html)
+[Diferencia MAS - CC 2019](Ejemplos/carto_map_mas_cc.html)  
+[Diferencia MAS - CC 2019 (móvil)](Ejemplos/carto_map_mas_cc_movil.html) 
+[En el cómputo de 2019, ¿de dónde llegaron las mesas y en qué orden?](Ejemplos/z050_mostrar_mesas_faltantes.html)
+[En el TREP de 2019, ¿de dónde llegaron las mesas y en qué orden?](Ejemplos/z050_mostrar_mesas_faltantes.html)
