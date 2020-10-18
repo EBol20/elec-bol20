@@ -45,7 +45,8 @@ CYE = -5
 CYS = -25
 CXE = -50
 CXS = -75
-BAR_TITLE = "CC  < diferencia >  MAS"
+BAR_TITLE = "CC  < diferencia [%] >  MAS"
+# PIXELS
 FIG_WIDTH = 700
 C_BAR_HIGH = 80
 C_BAR_LOW = -80
@@ -60,7 +61,7 @@ TOOL_TIP = [
     ('PAIS', '@PAIS'),
     ('Municipalidad', '@MUN'),
     ('Recinto', '@REC'),
-    ('MAS-CC [%]', '@d_mas_cc{int}')
+    ('MAS-CC [%]', '@d_mas_cc{0.0}')
     # ('DEN %', '@DEN')
     # ('PAIS', '@PAIS'),
 ]
@@ -82,6 +83,7 @@ rec_df['D_MAS_CC'] = rec_df['MAS'] - rec_df['CC']
 rec_df['d_mas_cc'] = rec_df['D_MAS_CC'] / rec_df['VV'] * 100
 rec_df['r'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_CARTO
 rec_df['r2'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_MAP + MAP_CIRCLE_SIZE_OFFSET
+
 
 res = ebu.lola_to_cart(rec_df['LON'].values, rec_df['LAT'].values)
 rec_df['GX'] = res[0]
@@ -126,6 +128,7 @@ data['y'] = data['LAT'] * (1 - cart_init_val) + data['Y'] * cart_init_val
 
 # %%
 # COLOR
+
 from bokeh.transform import linear_cmap
 from bokeh.transform import log_cmap
 
@@ -221,7 +224,8 @@ map_fig.scatter(
     color=cm
 )
 
-cart_fig.line('lo', 'la', source=source_bol, color='black')
+#todo if we wont use map then we nee to delete the source
+# cart_fig.line('lo', 'la', source=source_bol, color='black')
 cart_fig.scatter('x', 'y', source=source_master, radius='r',
                  color=cm
                  )
@@ -232,8 +236,18 @@ red_scat_map = map_fig.circle_cross('gx', 'gy',
                                     fill_color=None,
                                     #                                line_color='green',
                                     size=20,
-                                    line_color="#dd1c77",
-                                    line_width=3
+                                    line_color="white",
+                                    line_width=4
+                                    )
+
+red_scat_map = map_fig.circle_cross('gx', 'gy',
+                                    source=source_red_map,
+                                    #                                color='red',
+                                    fill_color=None,
+                                    #                                line_color='green',
+                                    size=20,
+                                    line_color="red",
+                                    line_width=1
                                     )
 # red_scat_car = cart_fig.scatter('lo', 'la',
 # source=source_red_car, color='green')
@@ -320,6 +334,12 @@ map_fig.x_range.end = _ll[0][1]
 map_fig.y_range.start = _ll[1][0]
 map_fig.y_range.end = _ll[1][1]
 
+cart_fig.xaxis.major_tick_line_color = None  # turn off x-axis major ticks
+cart_fig.xaxis.minor_tick_line_color = None  # turn off x-axis minor ticks
+cart_fig.yaxis.major_tick_line_color = None  # turn off y-axis major ticks
+cart_fig.yaxis.minor_tick_line_color = None
+cart_fig.xaxis.major_label_text_font_size = '0pt'  # turn off x-axis tick labels
+cart_fig.yaxis.major_label_text_font_size = '0pt'  # turn off y-axis tick labels
 # %% [markdown]
 # ###### gráfica
 
