@@ -19,40 +19,9 @@
 
 
 ## Elecciones generales Bolivia 2020 
-1. [Diferencia MAS - CC (2020)](Ejemplos/carto_map_mas_cc.html)
-1. [Densidad 2020](Ejemplos/z040_densidad2020.html)
+1. [Cartograma diferencia MAS - CC (2020)](Ejemplos/carto_map_mas_cc.html)
+1. [Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
 
-1. Densidad 2020 oficial, ¿podemos explicar esto? 
-<details>
-  <summary>Click to expand!</summary>
-  
-<iframe src="Ejemplos/z040_densidad2020.html"
-    sandbox="allow-same-origin allow-scripts"
-    width="100%"
-    height="500"
-    scrolling="no"
-    seamless="seamless"
-    frameborder="0">
-</iframe>
-</details>
-
-
-<iframe src="Ejemplos/z040_densidad2020.html"
-    sandbox="allow-same-origin allow-scripts"
-    width="100%"
-    height="500"
-    scrolling="no"
-    seamless="seamless"
-    frameborder="0">
-</iframe>
-
-1. Densidad 2020 oficial, ¿podemos explicar esto? 
-<details>
-  <summary>Click to expand!</summary>
-  
-aqui solo ponemos texto
-</iframe>
-</details>
 
 ## Cómo votamos en octubre de 2019
 1. [Diferencia MAS - CC (2019)](Ejemplos/carto_map_mas_cc.html)  
