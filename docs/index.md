@@ -1,6 +1,7 @@
 Visualización, análisis y predicciones de las Elecciones generales de Bolivia 2020
 
 [¿Qué es un cartograma?](Ejemplos/que_es_un_cartograma.md)
+
 [Guía de uso](Ejemplos/Guia_de_uso.md)
 
 ## 2020 
