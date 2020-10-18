@@ -15,13 +15,16 @@ mybasefile = read.csv(paste0(here::here(),"/../datos_1_intermedios/2020/z010R_ge
 head(mybasefile,3)
 ```
 ```{r}
+
 valid_frac = 0.9
+BL_frac = 0.05
 
 mybasefile = mybasefile %>%
   mutate(ID_RECI = NULL)%>%
   unique()%>%
   mutate(HAB = as.numeric(HAB),
          VV = round(HAB * valid_frac,0))
+
 
 head(mybasefile,3)
 
@@ -58,4 +61,76 @@ write.csv(mybasefile_100 , file = paste0(here::here(),"/../datos_1_intermedios/2
           row.names = FALSE, quote = TRUE)
 
 ```
+
+```{r}
+mybasefile = mybasefile 
+head(mybasefile)
+
+seed_from_ID = function(ID_MESA){
+  return(as.numeric(substr(ID_MESA, nchar(ID_MESA)-8,nchar(ID_MESA))))
+}
+#"MAS", "CC", "Creemos", "FPV", “PAN_BOL”,
+get_votes_from_seed = function(seed, VV){
+  set.seed(seed)
+  x <- rmultinom(n = 1, size = VV, prob = c(0.1, 0.1, 0.7, 0.7,0.15, 0.15, 0.15 ))
+  BL = x[1]
+  NU = x[2]
+  MAS = x[3]
+  CC = x[4]
+  Creemos = x[5]
+  FPV = x[6]
+  PAN_BOL = x[7]
+  
+  return(c(BL,NU,MAS,CC,Creemos,FPV,PAN_BOL))
+}
+get_votes_from_seed(2, 500)
+
+#doing it with a loop. This is slower than vectorized, but otherwise I cant find how to re-set my seed at every row
+mybasefile_2 = mybasefile
+for (i in 1:nrow(mybasefile_2)){
+  rowresults = get_votes_from_seed(seed_from_ID(mybasefile_2[i,"ID_MESA"]),
+                                                          mybasefile_2[i,"VV"])
+  mybasefile_2[i,"BL"] = rowresults[1]
+  mybasefile_2[i,"NU"] = rowresults[2]
+  mybasefile_2[i,"MAS"] = rowresults[3]
+  mybasefile_2[i,"CC"] = rowresults[4]
+  mybasefile_2[i,"Creemos"] = rowresults[5]
+  mybasefile_2[i,"FPV"] = rowresults[6]
+  mybasefile_2[i,"PAN_BOL"] = rowresults[7]
+}
+```
+```{r}
+mybasefile_2_20 = mybasefile_2 %>%
+  sample_frac(., 0.2)
+
+mybasefile_2_40 = mybasefile_2 %>%
+  sample_frac(., 0.4)
+
+mybasefile_2_60 = mybasefile_2 %>%
+  sample_frac(., 0.6)
+
+mybasefile_2_80 = mybasefile_2 %>%
+  sample_frac(., 0.8)
+
+mybasefile_2_100 = mybasefile_2 %>%
+  sample_frac(., 1)
+
+
+write.csv(mybasefile_2_20 , file = paste0(here::here(),"/../datos_1_intermedios/2020/z050R_dummy_votearrival_votes_20.csv"),
+          row.names = FALSE, quote = TRUE)
+
+
+write.csv(mybasefile_2_40 , file = paste0(here::here(),"/../datos_1_intermedios/2020/z050R_dummy_votearrival_votes_40.csv"),
+          row.names = FALSE, quote = TRUE)
+
+write.csv(mybasefile_2_60 , file = paste0(here::here(),"/../datos_1_intermedios/2020/z050R_dummy_votearrival_votes_60.csv"),
+          row.names = FALSE, quote = TRUE)
+
+write.csv(mybasefile_2_80 , file = paste0(here::here(),"/../datos_1_intermedios/2020/z050R_dummy_votearrival_votes_80.csv"),
+          row.names = FALSE, quote = TRUE)
+
+write.csv(mybasefile_2_100 , file = paste0(here::here(),"/../datos_1_intermedios/2020/z050R_dummy_votearrival_votes_100.csv"),
+          row.names = FALSE, quote = TRUE)
+```
+
 
