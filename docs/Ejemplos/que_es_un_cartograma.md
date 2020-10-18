@@ -1,6 +1,11 @@
 # Qué es un cartograma
 
-Un cartograma es un mapa o diagrama que muestra datos de cantidad asociados a sus respectivas áreas. Lo hace modificando los tamaños de las unidades de enumeración. La información se aporta mediante la distorsión de las superficies reales, utilizando cada superficie de enumeración como un símbolo proporcional, que aumenta o disminuye en función de sus valores correspondientes. 
+Un cartograma es una representación gráfica parecida a un mapa o diagrama que muestra datos cuantitativos. Para que su lectura sea más sencilla, el cartograma puede ‘distorsionar’ un mapa y favorecer el dato antes que la precisión cartográfica. 
 
-En este caso, muestra la representación de los recintos electorales donde su tamaño y color están relacionados con la densidad poblacional, la diferencia de puntos porcentuales que tiene un partido por sobre el otro, el lugar y el orden en el que se realiza el cómputo, entre otras. 
+El cartograma que ofrecemos muestra los datos de la diferencia porcentual de votos entre las fuerzas políticas.
+ 
+Para leer mejor este cartograma se debe prestar atención al tamaño, el color y sobre todo a la aglomeración de los puntos. Con la ayuda de la barra superior de la herramienta se puede manejar el nivel de distorsión del cartograma entre 0 y 1 (menos a más distorsionado). Cuando el cartograma está en el máximo de distorsión, los puntos de los recintos electorales se ven casi sin sobreponerse unos a otros y el cartograma parece un gran círculo.
+
+Al colocar el cursor sobre un punto en el cartograma, inmediatamente se marca el mismo punto en la ubicación exacta del mapa de la derecha para mantener una referencia espacial precisa del punto que nos interesa.
+
 
