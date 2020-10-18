@@ -28,7 +28,7 @@ class CartoPlots:
     C_BAR_LOW = -80
     PALETTE = ebu.P_DIF
     CART_SLIDER_INIT = .5
-    FILE_OUT = ebu.DIR + '/htlml_1_intermedios/2019/z036_'
+    FILE_OUT = ebu.DIR + '/htlml_1_intermedios/2020/z036_'
 
     MAP_CIRCLE_SIZE_OFFSET = 5
     RATIO_CIRCLE_MAP = 7
@@ -112,6 +112,8 @@ class CartoPlots:
 
 
 
+
+
     def load_file(self, df, _mean=['X', 'Y', 'LAT', 'LON', 'DEN', ], _sum=['HAB', 'CC', 'MAS','PDC', 'VV'],
                   _first=['PAIS', 'REC', 'MUN', 'BOL']):
         # agrupamos por recinto
@@ -124,10 +126,9 @@ class CartoPlots:
         rec_df['d_mas_cc'] = rec_df['D_MAS_CC'] / rec_df['VV'] * 100
         rec_df['cc']=rec_df['CC']/rec_df['VV']*100
         rec_df['mas']=rec_df['MAS']/rec_df['VV']*100
-        #rec_df['creemos']=rec_df['CREEMOS']/rec_df['VV']*100
-        rec_df['pdc']=rec_df['PDC']/rec_df['VV']*100
-        #rec_df['fpv']=rec_df['FPV']/rec_df['VV']*100
-        #rec_df['panbol']=rec_df['PANBOL']/rec_df['VV']*100
+        rec_df['creemos']=rec_df['CREEMOS']/rec_df['VV']*100
+        rec_df['fpv']=rec_df['FPV']/rec_df['VV']*100
+        rec_df['panbol']=rec_df['PANBOL']/rec_df['VV']*100
 
         rec_df['r'] = np.sqrt(rec_df['HAB']) / self.RATIO_CIRCLE_CARTO
         rec_df['r2'] = np.sqrt(rec_df['HAB']) / self.RATIO_CIRCLE_MAP + self.MAP_CIRCLE_SIZE_OFFSET
@@ -168,10 +169,9 @@ class CartoPlots:
 
         data['mas'] = data['MAS'] / data['VV'] * 100
         data['cc'] = data['CC'] / data['VV'] * 100
-        data['pdc'] = data['PDC'] / data['VV'] * 100
-        #data['creemos'] = data['CREEMOS'] / data['VV'] * 100
-        #data['fpv'] = data['FPV'] / data['VV'] * 100
-        #data['panbol'] = data['PANBOL'] / data['VV'] * 100
+        data['creemos'] = data['CREEMOS'] / data['VV'] * 100
+        data['fpv'] = data['FPV'] / data['VV'] * 100
+        data['panbol'] = data['PANBOL'] / data['VV'] * 100
         data['ad_mas_cc'] = data['d_mas_cc'].abs()
         data['mas_o_cc'] = 'n'
         data.loc[data['d_mas_cc'] >= 0, 'mas_o_cc'] = 'MAS'
