@@ -36,47 +36,11 @@ import bokeh.tile_providers
 # abrimos los datos del padrón de votación del 2019
 
 # %%
-#DEFINICIONES
-MYE = -5
-MYS = -25
-MXE = -50
-MXS = -75
-CYE = -5
-CYS = -25
-CXE = -50
-CXS = -75
-BAR_TITLE = "CC  < diferencia [%] >  MAS"
-
-# PIXELS
-FIG_WIDTH = 400
-C_BAR_HIGH = 80
-C_BAR_LOW = -80
-PALETTE = ebu.P_DIF
-CART_SLIDER_INIT = .5
-FILE_OUT = ebu.DIR+'/../docs/Ejemplos/carto_map_mas_cc_movil.html'
-MAP_CIRCLE_SIZE_OFFSET = 5
-RATIO_CIRCLE_MAP = 7
-RATIO_CIRCLE_CARTO = 500
-#
-TOOL_TIP = TOOL_TIP = [
-    ('Inscritos', '@HAB'),
-    ('PAIS', '@PAIS'),
-    ('Municipalidad', '@MUN'),
-    ('Recinto', '@REC'),
-    ('MAS-CC [%]', '@d_mas_cc{0.0}')
-    # ('DEN %', '@DEN')
-    # ('PAIS', '@PAIS'),
-]
-
-
-
-
-
 df = ebu.open_combine_2019()
 _mean = ['X', 'Y', 'LAT', 'LON', 'DEN', ]
 _sum = ['HAB', 'CC', 'MAS', 'PDC', 'VV']
 _first = ['PAIS', 'REC', 'MUN', 'BOL']
-# agrupamos por recinto
+#agrupamos por recinto
 _gr = df.groupby('ID_RECI')
 rec_df = _gr[_mean].mean()
 rec_df[_sum] = _gr[_sum].sum()
@@ -84,16 +48,8 @@ rec_df[_first] = _gr[_first].first()
 
 rec_df['D_MAS_CC'] = rec_df['MAS'] - rec_df['CC']
 rec_df['d_mas_cc'] = rec_df['D_MAS_CC'] / rec_df['VV'] * 100
-
-['HAB','LON','LAT','Y','X', 'PAIS', 'REC', 'MUN', 'DEN']
-######################
-
-rec_df['r'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_CARTO
-rec_df['r2'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_MAP + MAP_CIRCLE_SIZE_OFFSET
-
-
-
-
+rec_df['r'] = np.sqrt(rec_df['HAB']) / 500
+rec_df['r2'] = np.sqrt(rec_df['HAB']) /7 + 5
 
 res = ebu.lola_to_cart(rec_df['LON'].values, rec_df['LAT'].values)
 rec_df['GX'] = res[0]
@@ -130,19 +86,18 @@ rec_df_spl = rec_df.copy()
 # %%
 # DATA
 # bokeh.plotting.output_notebook()
-bokeh.plotting.output_file(FILE_OUT)
-cart_init_val = CART_SLIDER_INIT
+bokeh.plotting.output_file('../../docs/Ejemplos/carto_map_mas_cc.html')
+cart_init_val = .5
 data = rec_df_spl.copy()
 data['x'] = data['LON'] * (1 - cart_init_val) + data['X'] * cart_init_val
 data['y'] = data['LAT'] * (1 - cart_init_val) + data['Y'] * cart_init_val
 
 # %%
 # COLOR
-
 from bokeh.transform import linear_cmap
 from bokeh.transform import log_cmap
 
-cm = linear_cmap('d_mas_cc', palette=PALETTE, low=C_BAR_LOW, high=C_BAR_HIGH)
+cm = linear_cmap('d_mas_cc', palette=ebu.P_DIF[::-1], low=-80, high=80)
 # cm = log_cmap('DEN', palette=bokeh.palettes.Viridis11, low=1, high=10000)
 
 # %%
@@ -158,7 +113,7 @@ source_bol = ColumnDataSource({'la': la, 'lo': lo})
 code_draw_red_map = """
 const data = {'gx': [], 'gy': []}
 const indices = cb_data.index.indices
-for (var i = 0; i < indices.length; i++ ) {
+for (var i = 0; i < indices.length; i++) {
         data['gx'].push(source_master.data.GX[indices[i]])
         data['gy'].push(source_master.data.GY[indices[i]])
 }
@@ -206,18 +161,9 @@ code_slider = """
 """
 
 # FIGURES
-# -------------------------------- commented
-#pw = FIG_WIDTH
-#cart_fig = Figure(plot_width=pw, plot_height=pw, output_backend="webgl")
-#map_fig = Figure(plot_width=pw, plot_height=pw,
-#                 x_axis_type='mercator',
-#                 y_axis_type='mercator',
-#                 output_backend="webgl",
-#                 )
-#----------------------------------- END commented
-cart_fig = Figure(sizing_mode="scale_both", max_width=700, max_height=700,
-                  output_backend="webgl")
-map_fig = Figure(sizing_mode="scale_both", max_width=700, max_height=700,
+pw = 700
+cart_fig = Figure(plot_width=pw + int(.2 * pw), plot_height=pw, output_backend="webgl")
+map_fig = Figure(plot_width=pw, plot_height=pw,
                  x_axis_type='mercator',
                  y_axis_type='mercator',
                  output_backend="webgl",
@@ -243,31 +189,20 @@ map_fig.scatter(
     color=cm
 )
 
-#todo if we wont use map then we nee to delete the source
-# cart_fig.line('lo', 'la', source=source_bol, color='black')
+cart_fig.line('lo', 'la', source=source_bol, color='black')
 cart_fig.scatter('x', 'y', source=source_master, radius='r',
                  color=cm
                  )
 
 red_scat_map = map_fig.circle_cross('gx', 'gy',
-                                    source=source_red_map,
-                                    #                                color='red',
-                                    fill_color=None,
-                                    #                                line_color='green',
-                                    size=20,
-                                    line_color="white",
-                                    line_width=4
-                                    )
-
-red_scat_map = map_fig.circle_cross('gx', 'gy',
-                                    source=source_red_map,
-                                    #                                color='red',
-                                    fill_color=None,
-                                    #                                line_color='green',
-                                    size=20,
-                                    line_color="red",
-                                    line_width=1
-                                    )
+                               source=source_red_map, 
+#                                color='red',
+                                    fill_color= None,
+#                                line_color='green',
+                               size=20,
+                               line_color="#dd1c77",
+                                    line_width=3
+                               )
 # red_scat_car = cart_fig.scatter('lo', 'la',
 # source=source_red_car, color='green')
 
@@ -288,10 +223,18 @@ callback_red_map = CustomJS(
 
 # tools
 
-
+ebu.TOOL_TIPS1 = [
+    ('Inscritos', '@HAB'),
+    ('PAIS', '@PAIS'),
+    ('Municipalidad', '@MUN'),
+    ('Recinto', '@REC'),
+    ('MAS-CC%' ,'@d_mas_cc{0.0}')
+    # ('DEN %', '@DEN')
+    # ('PAIS', '@PAIS'),
+]
 
 hover_cart = bokeh.models.HoverTool(
-    tooltips=TOOL_TIP,
+    tooltips=ebu.TOOL_TIPS1,
     callback=callback_red_map,
     # renderers = [red_scat_car]
 
@@ -299,7 +242,7 @@ hover_cart = bokeh.models.HoverTool(
 cart_fig.add_tools(hover_cart, )
 
 hover_map = bokeh.models.HoverTool(
-    tooltips=TOOL_TIP,
+    tooltips=ebu.TOOL_TIPS1,
     # callback=callback_red_car,
     # renderers = [red_scat_map]
 )
@@ -309,32 +252,23 @@ map_fig.add_tools(hover_map, )
 callback_slider = CustomJS(args=dict(source=source_master),
                            code=code_slider)
 
-#slider = Slider(start=0, end=1, value=cart_init_val, step=.01, title="carto")
-slider = Slider(start=0, end=1, value=cart_init_val, step=.02, title="carto")
+slider = Slider(start=0, end=1, value=cart_init_val, step=.01, title="carto")
 slider.js_on_change('value', callback_slider)
 
 # %%
 # COLOR BAR
-ml = {int(i):str(np.abs(i)) for i in np.arange(-80,81,20)}
+
 cb = bokeh.models.ColorBar(
-    color_mapper=cm['transform'],
-    width=int(.9*FIG_WIDTH),
+    color_mapper=cm['transform'], width=30,
     location=(0, 0),
-    #     title="DEN (N/km^2)",
-    # title=(BAR_TITLE),
+#     title="DEN (N/km^2)",
+    title = "MAS-CC%",
     # margin=0,padding=0,
     title_standoff=10,
-    # ticker=bokeh.models.LogTicker(),
-    orientation='horizontal',
-    major_label_overrides=ml
-
-
+    # ticker=bokeh.models.LogTicker()
 )
 
-cart_fig.add_layout(cb, 'above')
-# cb.title_text_align = 'left'
-cart_fig.title.text=BAR_TITLE
-cart_fig.title.align='center'
+cart_fig.add_layout(cb, 'left')
 
 # layout = row(column(slider, cart_f),map_f)
 layout = bokeh.layouts.gridplot(
@@ -343,23 +277,17 @@ layout = bokeh.layouts.gridplot(
 )
 # layout = bokeh.layouts.column([slider, cart_fig])
 
-cart_fig.x_range.start = CXS
-cart_fig.x_range.end = CXE
-cart_fig.y_range.start = CYS
-cart_fig.y_range.end = CYE
+cart_fig.x_range.start = -75
+cart_fig.x_range.end = -50
+cart_fig.y_range.start = -25
+cart_fig.y_range.end = -5
 
-_ll = ebu.lola_to_cart(lo=[MXS, MXE], la=[MYS, MYE])
+_ll = ebu.lola_to_cart(lo=[-75, -50], la=[-25, -5])
 map_fig.x_range.start = _ll[0][0]
 map_fig.x_range.end = _ll[0][1]
 map_fig.y_range.start = _ll[1][0]
 map_fig.y_range.end = _ll[1][1]
 
-cart_fig.xaxis.major_tick_line_color = None  # turn off x-axis major ticks
-cart_fig.xaxis.minor_tick_line_color = None  # turn off x-axis minor ticks
-cart_fig.yaxis.major_tick_line_color = None  # turn off y-axis major ticks
-cart_fig.yaxis.minor_tick_line_color = None
-cart_fig.xaxis.major_label_text_font_size = '0pt'  # turn off x-axis tick labels
-cart_fig.yaxis.major_label_text_font_size = '0pt'  # turn off y-axis tick labels
 # %% [markdown]
 # ###### gráfica
 

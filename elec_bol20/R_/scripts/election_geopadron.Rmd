@@ -1,0 +1,143 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+library(data.table)
+```
+
+
+```{r}
+
+sheet_nacional_recinto = read_excel(paste0(here::here(),"/../datos_0_crudos/2020/padron_oep/ESTADISTICAS_NACIONAL_EG_2020.xlsx"), sheet = 4, skip=5) 
+
+```
+
+```{r}
+rename_vector = c("NÃºmero.Mesa" = "N_MESAS",
+                  "CÃ³digo.Mesa" = "ID_MESA",
+                  "id_rec" = "ID_RECI",
+                  "Inscritos" = "HAB",
+                  "latitud" = "LAT",
+                  "longitud" = "LON",
+                  "nummesa" = "ID_MESA",
+                  "Habilitados" = "HAB",
+                  "habilitados" = "HAB",
+                  "Inhabilitados\r\n(Ciudadanos \r\nNo votantes)" = "INHAB")
+
+names(sheet_nacional_recinto) = plyr::revalue(names(sheet_nacional_recinto), rename_vector)
+```
+
+```{r}
+sheet_cumpa_bol1 = read_excel(paste0(here::here(),"/../datos_0_crudos/2020/2020_geo_padron_final/2020_geo_padron_final.xlsx"), sheet = 1) 
+
+sheet_cumpa_ext1 = read_excel(paste0(here::here(),"/../datos_0_crudos/2020/2020_geo_padron_final/2020_geo_padron_final.xlsx"), sheet = 2) 
+
+# sheet_cumpa_bol2 = read_excel(paste0(here::here(),"/../datos_0_crudos/2020/2020_geo_padron_final/2020_geo_padron_final.xlsx"), sheet = 3) 
+# 
+# cumpa_bol = dplyr::full_join(sheet_cumpa_bol1, sheet_cumpa_bol2, by = "RECI_GEO_FID")
+
+```
+
+#the national sheet.
+
+```{r}
+sheet_nacional_mesa = read_excel(paste0(here::here(),"/../datos_0_crudos/2020/padron_oep/ESTADISTICAS_NACIONAL_EG_2020.xlsx"), sheet = 5, skip=5) 
+names(sheet_nacional_mesa) = plyr::revalue(names(sheet_nacional_mesa), rename_vector)
+
+#building the reci-file
+sheet_nacional_reci =  sheet_nacional_mesa %>%
+  mutate(ID_RECI = substr(ID_MESA,1,16))
+
+sheet_nacional_reci.s = sheet_nacional_reci %>%
+  dplyr::group_by(ID_RECI)%>%
+  dplyr::summarise(HAB = sum(HAB),
+                   INHAB = sum(INHAB))%>%
+  na.omit() %>%
+  arrange(HAB)
+
+sheet_nacional_reci.s2 = sheet_nacional_reci %>%
+  dplyr::group_by(ID_RECI)%>%
+  dplyr::summarise_at(vars(!one_of(c("HAB","INHAB","ID_MESA"))), first)%>%
+  na.omit()
+
+sheet_nacional_reci.comb = dplyr::full_join(sheet_nacional_reci.s2,sheet_nacional_reci.s)
+
+
+#the file with the lat-long information
+sheet_cumpa_bol1 = read_excel(paste0(here::here(),"/../datos_0_crudos/2020/2020_geo_padron_final/2020_geo_padron_final.xlsx"), sheet = 1) 
+
+
+rename_vector_2 = c("pais" ="NumPaís","dep" = "NumDep", "PROV" = "NumProv", "sec" = "NumMuni", 
+                    "idloc" = "idloc", "dist" = "NumDist", "zona" = "NumZona",
+                    "CIRCUNDIST" = "CIRCUNDIST", "RECI" = "RECI", "denspop" = "DEN",
+                    "latitud" = "LAT", "longitud" = "LON", "Municipio" = "MUN",
+                    "País" = "PAIS")
+names(sheet_nacional_reci.comb) = plyr::revalue(names(sheet_nacional_reci.comb),
+                                               rename_vector_2)
+names(sheet_cumpa_bol1)= plyr::revalue(names(sheet_cumpa_bol1),
+                                               rename_vector_2)
+
+#finally combining
+recinto_combined_bol = dplyr::full_join(sheet_nacional_reci.comb, sheet_cumpa_bol1)%>%
+  mutate(BOL = TRUE)
+
+write.csv(recinto_combined_bol, file = paste0(here::here(),"/../datos_1_intermedios/2020/geopadron_recintos_2020_bolivia.csv"),
+          row.names = FALSE, quote = TRUE)
+```
+
+
+#now the international sheet
+```{r}
+sheet_exterior_mesa = read_excel(paste0(here::here(),"/../datos_0_crudos/2020/padron_oep/ESTADISTICAS_EXTERIOR_EG_2020.xlsx"), sheet = 5, skip=5) 
+names(sheet_exterior_mesa) = plyr::revalue(names(sheet_exterior_mesa), c(rename_vector,
+                                                                         "nummesa "="ID_MESA"))
+
+
+#building the reci-file
+sheet_exterior_reci =  sheet_exterior_mesa %>%
+  mutate(ID_RECI = substr(ID_MESA,1,16))
+
+sheet_exterior_reci.s = sheet_exterior_reci %>%
+  dplyr::group_by(ID_RECI)%>%
+  dplyr::summarise(HAB = sum(HAB),
+                   INHAB = sum(INHAB))%>%
+  na.omit() %>%
+  arrange(HAB)
+
+
+
+sheet_exterior_reci.s2 = sheet_exterior_reci %>%
+  dplyr::group_by(ID_RECI)%>%
+  dplyr::summarise_at(vars(!one_of(c("HAB","INHAB","ID_MESA"))), first)%>%
+  na.omit()
+
+sheet_exterior_reci.comb = dplyr::full_join(sheet_exterior_reci.s2,sheet_exterior_reci.s)
+
+
+#the file with the lat-long information
+sheet_cumpa_ext1 = read_excel(paste0(here::here(),"/../datos_0_crudos/2020/2020_geo_padron_final/2020_geo_padron_final.xlsx"), sheet = 2) %>%
+  select(!one_of("CIRCUNDIST"))
+
+
+
+
+names(sheet_exterior_reci.comb) = plyr::revalue(names(sheet_exterior_reci.comb),
+                                               rename_vector_2)
+names(sheet_cumpa_ext1) = plyr::revalue(names(sheet_cumpa_ext1),
+                                               rename_vector_2)
+
+
+#finally combining
+recinto_combined_ext = dplyr::full_join(sheet_exterior_reci.comb, sheet_cumpa_ext1)%>%
+  mutate(BOL = FALSE)
+
+write.csv(recinto_combined_ext , file = paste0(here::here(),"/../datos_1_intermedios/2020/geopadron_recintos_2020_exterior.csv"),
+          row.names = FALSE, quote = TRUE)
+```
+
+
+
+
