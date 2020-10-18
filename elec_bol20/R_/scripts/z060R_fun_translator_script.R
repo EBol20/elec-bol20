@@ -3,7 +3,7 @@ library(data.table)
 library(readxl)
 
 ###----USER INPUT ONLY HERE #####
-filename = "exportacion_EG2020_20201018_184655_6036973977742226983" # name of file to be translated
+filename = "exportacion_EG2020_20201018_194655_5832433228734805349" # name of file to be translated
 file_ext = ".csv" #either ".csv" or ".xlsx". 
 filepath = paste0(here::here(),"/../datos_0_crudos/2020/comp/") #path to file to be translated
 savepath = paste0(here::here(),"/../datos_1_intermedios/2020/comp/") #path to where the file is to be saved
@@ -48,7 +48,7 @@ translate_and_export_comp_dat = function(filename, file_ext,filepath, savepath){
   names(mydata) = plyr::revalue(names(mydata), translator_vector)
   
   mydata = mydata %>%
-    dplyr::mutate_at(c("Creemos","ADN","MAS","FPV","PAN_BOL","LIBRE_21","CC","JUNTOS"),as.numeric)%>%
+    dplyr::mutate_at(c("CREEMOS","ADN","MAS","FPV","PAN_BOL","LIBRE_21","CC","JUNTOS"),as.numeric)%>%
     dplyr::mutate(NUA = ADN + LIBRE_21 + JUNTOS)%>%
     mutate(ADN = NULL, LIBRE_21 = NULL, JUNTOS = NULL)
   
