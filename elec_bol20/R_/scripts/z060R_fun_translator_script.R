@@ -1,12 +1,21 @@
 library(tidyverse)
 library(data.table)
+library(readxl)
 
-filename = "exportacion_EG2020_20201018_184655_6036973977742226983.csv" # name of file to be translated
+###----USER INPUT ONLY HERE #####
+filename = "exportacion_EG2020_20201018_184655_6036973977742226983" # name of file to be translated
+file_ext = ".csv" #either ".csv" or ".xlsx". 
 filepath = paste0(here::here(),"/../datos_0_crudos/2020/comp/") #path to file to be translated
 savepath = paste0(here::here(),"/../datos_1_intermedios/2020/comp/") #path to where the file is to be saved
 
+# filename = "exportacion_EG2020_20201018_191655_1997065378804403743"
+# file_ext = ".xlsx"
+
+###-------------------------#####
+
 #function
-translate_and_export_comp_dat = function(filename, filepath, savepath){
+translate_and_export_comp_dat = function(filename, file_ext,filepath, savepath){
+  filename = paste0(filename, file_ext)
   archive_name = paste0(substr(filename,1,34),".csv")
   name_active = paste0(substr(filename,1,18),"_actual.csv")
   
@@ -29,9 +38,13 @@ translate_and_export_comp_dat = function(filename, filepath, savepath){
                         "VOTO_BLANCO" = "BL",
                         "VOTO_NULO" = "NU")
   
-  #NUA = #ADN #libre21 #Juntos
-  mydata = read.csv(paste0(filepath, filename),
-                    colClasses = "character")
+  if (file_ext == ".csv"){
+    mydata = read.csv(paste0(filepath, filename),
+                      colClasses = "character")
+  } else if (file_ext == ".xlsx"){
+    mydata = readxl::read_xlsx(paste0(filepath, filename))
+  } else {warning("Unsupported file extension. Aborting."); return()}
+
   names(mydata) = plyr::revalue(names(mydata), translator_vector)
   
   mydata = mydata %>%
@@ -47,7 +60,8 @@ translate_and_export_comp_dat = function(filename, filepath, savepath){
   write.csv(mydata , file = paste0(savepath,name_active),
             row.names = FALSE, quote = TRUE)
   
+  return(mydata)
 }#translate_and_export_comp_dat
 
 #running the function
-translate_and_export_comp_dat(filename, filepath,savepath)
+controldata = translate_and_export_comp_dat(filename, file_ext, filepath, savepath)
