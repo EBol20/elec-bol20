@@ -4,17 +4,18 @@
 
 ## Principales datos representados
 
-* [Diferencia de votos entre MAS - CC](Ejemplos/que_es_un_cartograma.md)
+* [Diferencia de votos entre MAS - CC](Ejemplos/Diferencia_MAS_CC.md)
 
-* [Densidad de votantes en el territorio](Ejemplos/que_es_un_cartograma.md)
+* [Densidad de votantes en el territorio](Ejemplos/Densidad.md)
 
-* [Cronología de mesas contabilizadas](Ejemplos/que_es_un_cartograma.md)
 
 ## Cómo explorar la información de la página
 
 [¿Qué es un cartograma?](Ejemplos/que_es_un_cartograma.md)
 
-[Guía de uso](Ejemplos/Guia_de_uso.md)
+[Guía de uso de los cartogramas](Ejemplos/Guia_de_uso.md)
+
+[Recintos georeferenciados](Ejemplos/Recintos_georeferenciados.md)
 
 
 ## 2020 
