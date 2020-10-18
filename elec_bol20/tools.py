@@ -1,5 +1,3 @@
-# %%
-# import
 from elec_bol20 import *
 import elec_bol20.util as ebu
 import bokeh.layouts
@@ -96,13 +94,13 @@ class CartoPlots:
             ('------', '------')
         ],
         "panbol":
-        [
-            ('Inscritos', '@HAB'),
-            ('PAIS, Municipalidad', '@PAIS, @MUN'),
-            ('Recinto', '@REC'),
-            ('PANBOL [%]', '@panbol{0.0}'),
-            ('------', '------')
-        ]
+            [
+                ('Inscritos', '@HAB'),
+                ('PAIS, Municipalidad', '@PAIS, @MUN'),
+                ('Recinto', '@REC'),
+                ('PANBOL [%]', '@panbol{0.0}'),
+                ('------', '------')
+            ]
 
     }
     #
