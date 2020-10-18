@@ -1,4 +1,4 @@
-[¿Qué es un cartograma?]
+# Qué es un cartograma
 
 Un cartograma es un mapa o diagrama que muestra datos de cantidad asociados a sus respectivas áreas. Lo hace modificando los tamaños de las unidades de enumeración. La información se aporta mediante la distorsión de las superficies reales, utilizando cada superficie de enumeración como un símbolo proporcional, que aumenta o disminuye en función de sus valores correspondientes. 
 
