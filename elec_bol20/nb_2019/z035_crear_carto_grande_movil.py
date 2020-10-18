@@ -84,8 +84,15 @@ rec_df[_first] = _gr[_first].first()
 
 rec_df['D_MAS_CC'] = rec_df['MAS'] - rec_df['CC']
 rec_df['d_mas_cc'] = rec_df['D_MAS_CC'] / rec_df['VV'] * 100
+
+['HAB','LON','LAT','Y','X', 'PAIS', 'REC', 'MUN', 'DEN']
+######################
+
 rec_df['r'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_CARTO
 rec_df['r2'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_MAP + MAP_CIRCLE_SIZE_OFFSET
+
+
+
 
 
 res = ebu.lola_to_cart(rec_df['LON'].values, rec_df['LAT'].values)
