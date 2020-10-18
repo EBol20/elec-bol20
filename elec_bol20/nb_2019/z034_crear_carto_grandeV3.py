@@ -61,7 +61,10 @@ TOOL_TIP = [
     ('PAIS', '@PAIS'),
     ('Municipalidad', '@MUN'),
     ('Recinto', '@REC'),
-    ('MAS-CC [%]', '@d_mas_cc{0.0}')
+    ('MAS [%]', '@mas{0.0}'),
+    ('CC [%]','@cc{0.0}'),
+    ('Diferencia [%]', '@ad_mas_cc{0.0} (@mas_o_cc)'),
+    ('------','------')
     # ('DEN %', '@DEN')
     # ('PAIS', '@PAIS'),
 ]
@@ -137,6 +140,15 @@ cm = linear_cmap('d_mas_cc', palette=PALETTE, low=C_BAR_LOW, high=C_BAR_HIGH)
 
 # %%
 # SOURCES
+data['mas'] = data['MAS']/data['VV'] * 100
+data['cc'] = data['CC']/data['VV'] * 100
+data['ad_mas_cc'] = data['d_mas_cc'].abs()
+data['mas_o_cc'] = 'n'
+data.loc[data['d_mas_cc']>=0,'mas_o_cc'] = 'MAS'
+data.loc[data['d_mas_cc']<0,'mas_o_cc'] = 'CC'
+
+#%%
+
 source_master = ColumnDataSource(data)
 source_red_map = ColumnDataSource({'gx': [], 'gy': []})
 la, lo = ebu.get_la_lo_bolivia()
