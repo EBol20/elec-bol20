@@ -140,7 +140,8 @@ predict_by_cluster = function(vote_data, mesa_info, cluster_def, identifier){
 }#predict_by_cluster
 
 ```
-
+\
+\
 A testrun on this:
 ```{r}
 #importing the cluster mask
@@ -162,7 +163,7 @@ dat_2019_comp = read.csv(paste0(here::here(),"/../datos_0_crudos/2019/percentil_
 names(dat_2019_comp) = plyr::revalue(names(dat_2019_comp), rename_vector)
 #####
 
-test_comb_dat = dplyr::full_join(dat_2019_final, dat_2019_trep, by = "ID_MESA")
+test_comb_dat = dplyr::full_join(dat_2019_final, dat_2019_comp, by = "ID_MESA")
 
 
 outlist = list()
@@ -192,6 +193,7 @@ outframe = outframe %>%
 
 
 test_p = ggplot(data=outframe, aes(x= thresh, y = MASmCC))+
+  geom_hline(yintercept = 10, col = "red")+
   geom_ribbon(aes(ymin = MASmCC - diff_unc_sterr, ymax = MASmCC + diff_unc_sterr), alpha = 0.3)+
   geom_point()+
   geom_line()+
@@ -200,7 +202,8 @@ test_p = ggplot(data=outframe, aes(x= thresh, y = MASmCC))+
 
 test_p
 
-ggplot(data=outframe %>% dplyr::filter(thresh > 50), aes(x= thresh, y = MASmCC))+
+ggplot(data=outframe %>% dplyr::filter(thresh > 30), aes(x= thresh, y = MASmCC))+
+  geom_hline(yintercept = 10, col = "red")+
   geom_ribbon(aes(ymin = MASmCC - diff_unc_sterr, ymax = MASmCC + diff_unc_sterr), alpha = 0.3)+
   geom_point()+
   geom_line()+
