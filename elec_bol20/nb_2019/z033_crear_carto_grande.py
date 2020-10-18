@@ -86,7 +86,7 @@ rec_df_spl = rec_df.copy()
 # %%
 # DATA
 # bokeh.plotting.output_notebook()
-bokeh.plotting.output_file('../../docs/Ejemplos/carto_map_mas_cc.html')
+# bokeh.plotting.output_file('../../docs/Ejemplos/carto_map_mas_cc.html')
 cart_init_val = .5
 data = rec_df_spl.copy()
 data['x'] = data['LON'] * (1 - cart_init_val) + data['X'] * cart_init_val

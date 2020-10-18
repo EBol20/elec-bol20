@@ -54,21 +54,23 @@ C_BAR_LOW = -80
 PALETTE = ebu.P_DIF
 CART_SLIDER_INIT = .5
 FILE_OUT = ebu.DIR+'/htlml_1_intermedios/2019/z035_carto_map_mas_cc_movil.html'
+
 MAP_CIRCLE_SIZE_OFFSET = 5
 RATIO_CIRCLE_MAP = 7
 RATIO_CIRCLE_CARTO = 500
 #
 TOOL_TIP = TOOL_TIP = [
     ('Inscritos', '@HAB'),
-    ('PAIS', '@PAIS'),
-    ('Municipalidad', '@MUN'),
+    ('PAIS, Municipalidad', '@PAIS, @MUN'),
     ('Recinto', '@REC'),
-    ('MAS-CC [%]', '@d_mas_cc{0.0}')
+    ('MAS [%]', '@mas{0.0}'),
+    ('CC [%]','@cc{0.0}'),
+    ('Diferencia [%]', '@ad_mas_cc{0.0} (@mas_o_cc)'),
+    ('------','------')
     # ('DEN %', '@DEN')
     # ('PAIS', '@PAIS'),
 ]
-
-
+#
 
 
 
@@ -84,15 +86,8 @@ rec_df[_first] = _gr[_first].first()
 
 rec_df['D_MAS_CC'] = rec_df['MAS'] - rec_df['CC']
 rec_df['d_mas_cc'] = rec_df['D_MAS_CC'] / rec_df['VV'] * 100
-
-['HAB','LON','LAT','Y','X', 'PAIS', 'REC', 'MUN', 'DEN']
-######################
-
 rec_df['r'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_CARTO
 rec_df['r2'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_MAP + MAP_CIRCLE_SIZE_OFFSET
-
-
-
 
 
 res = ebu.lola_to_cart(rec_df['LON'].values, rec_df['LAT'].values)
@@ -147,6 +142,15 @@ cm = linear_cmap('d_mas_cc', palette=PALETTE, low=C_BAR_LOW, high=C_BAR_HIGH)
 
 # %%
 # SOURCES
+data['mas'] = data['MAS']/data['VV'] * 100
+data['cc'] = data['CC']/data['VV'] * 100
+data['ad_mas_cc'] = data['d_mas_cc'].abs()
+data['mas_o_cc'] = 'n'
+data.loc[data['d_mas_cc']>=0,'mas_o_cc'] = 'MAS'
+data.loc[data['d_mas_cc']<0,'mas_o_cc'] = 'CC'
+
+#%%
+
 source_master = ColumnDataSource(data)
 source_red_map = ColumnDataSource({'gx': [], 'gy': []})
 la, lo = ebu.get_la_lo_bolivia()
@@ -206,18 +210,9 @@ code_slider = """
 """
 
 # FIGURES
-# -------------------------------- commented
-#pw = FIG_WIDTH
-#cart_fig = Figure(plot_width=pw, plot_height=pw, output_backend="webgl")
-#map_fig = Figure(plot_width=pw, plot_height=pw,
-#                 x_axis_type='mercator',
-#                 y_axis_type='mercator',
-#                 output_backend="webgl",
-#                 )
-#----------------------------------- END commented
-cart_fig = Figure(sizing_mode="scale_both", max_width=700, max_height=700,
-                  output_backend="webgl")
-map_fig = Figure(sizing_mode="scale_both", max_width=700, max_height=700,
+pw = FIG_WIDTH
+cart_fig = Figure(plot_width=pw, plot_height=pw, output_backend="webgl")
+map_fig = Figure(plot_width=pw, plot_height=pw,
                  x_axis_type='mercator',
                  y_axis_type='mercator',
                  output_backend="webgl",
@@ -309,8 +304,7 @@ map_fig.add_tools(hover_map, )
 callback_slider = CustomJS(args=dict(source=source_master),
                            code=code_slider)
 
-#slider = Slider(start=0, end=1, value=cart_init_val, step=.01, title="carto")
-slider = Slider(start=0, end=1, value=cart_init_val, step=.02, title="carto")
+slider = Slider(start=0, end=1, value=cart_init_val, step=.01, title="carto")
 slider.js_on_change('value', callback_slider)
 
 # %%
@@ -338,7 +332,7 @@ cart_fig.title.align='center'
 
 # layout = row(column(slider, cart_f),map_f)
 layout = bokeh.layouts.gridplot(
-    [[slider, None], [cart_fig, map_fig]]
+    [[slider], [cart_fig],[map_fig]]
     , merge_tools=False
 )
 # layout = bokeh.layouts.column([slider, cart_fig])
