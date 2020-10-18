@@ -1,8 +1,21 @@
 Visualización y análisis de las Elecciones generales de Bolivia 2020
 
+[Nuestro aporte](Ejemplos/Nuestro_aporte.md)
+
+## Principales datos representados
+
+*[Diferencia de votos entre MAS - CC](Ejemplos/que_es_un_cartograma.md)
+
+*[Densidad de votantes en el territorio](Ejemplos/que_es_un_cartograma.md)
+
+*[Cronología de mesas contabilizadas](Ejemplos/que_es_un_cartograma.md)
+
+## Cómo explorar la información de la página
+
 [¿Qué es un cartograma?](Ejemplos/que_es_un_cartograma.md)
 
 [Guía de uso](Ejemplos/Guia_de_uso.md)
+
 
 ## 2020 
 1. [Diferencia MAS - CC (2020)](Ejemplos/carto_map_mas_cc.html)
