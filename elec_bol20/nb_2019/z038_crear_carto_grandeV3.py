@@ -28,42 +28,65 @@ from elec_bol20 import *
 import elec_bol20.util as ebu
 import bokeh.layouts
 from bokeh.models import ColumnDataSource, CustomJS, Slider
-from bokeh.plotting import Figure
-# output_file, show
+from bokeh.plotting import Figure, output_file, show
 import bokeh.tile_providers
-
-# %% [markdown]
-# # Introducción
-# En este notebook introducimos el cartograma de Bolivia basado en la cantidad de votantes. 
-# Lo que esta transformación hace, es agrandar en al mapa los lugares con alta densidad y reducir los lugares
-# con baja densidad de votantes
 
 # %% [markdown]
 # ###### abrir los datos
 # abrimos los datos del padrón de votación del 2019
 
 # %%
-WIDTH = 500
-CB_VALS = [0, 1, 2, 3]
-CB_LIMS = ebu.DEN_LIMS
-CB_LABS = {s:str(l) for s,l in enumerate(CB_LIMS[:])}
-FILE_OUT = os.path.join(ebu.DIR,'htlml_1_intermedios/2020/z040_densidad2020.html')
-bokeh.plotting.output_file(FILE_OUT)
-df0 = pd.read_csv(os.path.join(
-    ebu.DATA_PATH1_2020,'z020_geopadron_recintos_2020_ALL_DEN.csv'),
-    # encoding='ISO-8859-1'
-).set_index('ID_RECI')
+#DEFINICIONES
+MYE = -5
+MYS = -25
+MXE = -50
+MXS = -75
+CYE = -5
+CYS = -25
+CXE = -50
+CXS = -75
+BAR_TITLE = "CC  < diferencia [%] >  MAS"
+# PIXELS
+FIG_WIDTH = 700
+C_BAR_HIGH = 80
+C_BAR_LOW = -80
+PALETTE = ebu.P_DIF
+CART_SLIDER_INIT = .5
+FILE_OUT = ebu.DIR+'/htlml_1_intermedios/2019/z038_carto_map_mas_cc.html'
 
-df1 = pd.read_csv(os.path.join(
-    ebu.DATA_PATH1_2020,'z030_carto_xy.csv')).set_index('ID_RECI')
+MAP_CIRCLE_SIZE_OFFSET = 5
+RATIO_CIRCLE_MAP = 7
+RATIO_CIRCLE_CARTO = 500
+TOOL_TIP = [
+    ('Inscritos', '@HAB'),
+    ('PAIS, Municipalidad', '@PAIS, @MUN'),
+    ('Recinto', '@REC'),
+    ('MAS [%]', '@mas{0.0}'),
+    ('CC [%]','@cc{0.0}'),
+    ('Diferencia [%]', '@ad_mas_cc{0.0} (@mas_o_cc)'),
+    ('------','------')
+    # ('DEN %', '@DEN')
+    # ('PAIS', '@PAIS'),
+]
+#
 
-rec_df = pd.merge(df0,df1,left_index=True,right_index=True,validate='1:1')
 
-# %%
-len(rec_df)
 
-# %%
-rec_df['r'] = np.sqrt(rec_df['HAB']) / 10
+df = ebu.open_combine_2019()
+_mean = ['X', 'Y', 'LAT', 'LON', 'DEN', ]
+_sum = ['HAB', 'CC', 'MAS', 'PDC', 'VV']
+_first = ['PAIS', 'REC', 'MUN', 'BOL']
+# agrupamos por recinto
+_gr = df.groupby('ID_RECI')
+rec_df = _gr[_mean].mean()
+rec_df[_sum] = _gr[_sum].sum()
+rec_df[_first] = _gr[_first].first()
+
+rec_df['D_MAS_CC'] = rec_df['MAS'] - rec_df['CC']
+rec_df['d_mas_cc'] = rec_df['D_MAS_CC'] / rec_df['VV'] * 100
+rec_df['r'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_CARTO
+rec_df['r2'] = np.sqrt(rec_df['HAB']) / RATIO_CIRCLE_MAP + MAP_CIRCLE_SIZE_OFFSET
+
 
 res = ebu.lola_to_cart(rec_df['LON'].values, rec_df['LAT'].values)
 rec_df['GX'] = res[0]
@@ -73,40 +96,16 @@ needed_cols = ['X', 'Y', 'd_mas_cc', 'r', 'LAT', 'LON', 'PAIS', 'REC', 'MUN', 'D
                                                                               'GX', 'GY']
 
 # %%
-len(rec_df)
-
-# %%
 # order by density
 rec_df = rec_df.sort_values('DEN', axis=0, ascending=True)
 
 # %%
 # remove nans
-# rec_df = rec_df.dropna(axis=0)
-# assert rec_df.isna().sum().sum() == 0
-
-# %%
-len(rec_df)
-
-# %%
-# cut = pd.IntervalIndex.from_tuples([(0, 50), (50, 500), (500, 1500),(1500,3000),(3000,4000),(4000,7000)])
-
-# %%
-# lab = ['B','M','X','A']
-lab = CB_VALS
-lims = CB_LIMS
-NL = len(lims)
-c = pd.cut(rec_df['DEN'], lims,
-           labels=lab,
-           #              retbins=True
-           )
-
-# %%
-rec_df['DEN_CUT'] = c.astype(int)
-
-# %%
+rec_df = rec_df.dropna(axis=0)
+assert rec_df.isna().sum().sum() == 0
 
 # %% [markdown]
-# ## Carto Densidad
+# ## Carto MAS - CC
 
 # %% [markdown]
 # ###### código
@@ -120,24 +119,36 @@ rec_df['DEN_CUT'] = c.astype(int)
 rec_df_spl = rec_df.copy()
 
 # %%
+
+# %%
 # DATA
-bokeh.plotting.output_notebook()
-cart_init_val = .0
+# bokeh.plotting.output_notebook()
+bokeh.plotting.output_file(FILE_OUT)
+cart_init_val = CART_SLIDER_INIT
 data = rec_df_spl.copy()
 data['x'] = data['LON'] * (1 - cart_init_val) + data['X'] * cart_init_val
 data['y'] = data['LAT'] * (1 - cart_init_val) + data['Y'] * cart_init_val
 
 # %%
 # COLOR
+
 from bokeh.transform import linear_cmap
 from bokeh.transform import log_cmap
 
-# cm = linear_cmap('d_mas_cc', palette=ebu.P_DIF[::-1], low=-80, high=80)
+cm = linear_cmap('d_mas_cc', palette=PALETTE, low=C_BAR_LOW, high=C_BAR_HIGH)
 # cm = log_cmap('DEN', palette=bokeh.palettes.Viridis11, low=1, high=10000)
-cm = linear_cmap('DEN_CUT', palette=bokeh.palettes.Viridis[NL-1], low=0, high=NL-1)
 
 # %%
 # SOURCES
+data['mas'] = data['MAS']/data['VV'] * 100
+data['cc'] = data['CC']/data['VV'] * 100
+data['ad_mas_cc'] = data['d_mas_cc'].abs()
+data['mas_o_cc'] = 'n'
+data.loc[data['d_mas_cc']>=0,'mas_o_cc'] = 'MAS'
+data.loc[data['d_mas_cc']<0,'mas_o_cc'] = 'CC'
+
+#%%
+
 source_master = ColumnDataSource(data)
 source_red_map = ColumnDataSource({'gx': [], 'gy': []})
 la, lo = ebu.get_la_lo_bolivia()
@@ -149,7 +160,7 @@ source_bol = ColumnDataSource({'la': la, 'lo': lo})
 code_draw_red_map = """
 const data = {'gx': [], 'gy': []}
 const indices = cb_data.index.indices
-for (var i = 0; i < indices.length; i++) {
+for (var i = 0; i < indices.length; i++ ) {
         data['gx'].push(source_master.data.GX[indices[i]])
         data['gy'].push(source_master.data.GY[indices[i]])
 }
@@ -196,15 +207,16 @@ code_slider = """
     source.change.emit();
 """
 
-# %%
 # FIGURES
-pw = WIDTH
-cart_fig = Figure(plot_width=pw + int(.2 * pw), plot_height=pw, output_backend="webgl")
-# map_fig = Figure(plot_width=pw, plot_height=pw,
-#                  x_axis_type='mercator',
-#                  y_axis_type='mercator',
-#                  output_backend="webgl",
-#                  )
+pw = FIG_WIDTH
+cart_fig = Figure(plot_width=pw, plot_height=pw, output_backend="webgl")
+map_fig = Figure(plot_width=pw, plot_height=pw,
+                 x_axis_type='mercator',
+                 y_axis_type='mercator',
+                 output_backend="webgl",
+                 )
+cart_fig.background_fill_color = "grey"
+cart_fig.background_fill_alpha = .5
 # cb_fig = bokeh.plotting.Figure(plot_height=pw,plot_width=)
 # cb_fig.toolbar.logo = None
 # cb_fig.toolbar_location = None
@@ -216,24 +228,39 @@ cart_fig = Figure(plot_width=pw + int(.2 * pw), plot_height=pw, output_backend="
 # add tiles
 tile_provider = bokeh.tile_providers.get_provider(
     bokeh.tile_providers.Vendors.CARTODBPOSITRON)
-# map_fig.add_tile(tile_provider)
+map_fig.add_tile(tile_provider)
 
 # scatter in map
-# map_fig.scatter(
-#     'GX', 'GY', source=source_master, size='r',
-#     color=cm
-# )
+map_fig.scatter(
+    'GX', 'GY', source=source_master, size='r2',
+    color=cm
+)
 
+#todo if we wont use map then we nee to delete the source
 # cart_fig.line('lo', 'la', source=source_bol, color='black')
-cart_fig.scatter('x', 'y', source=source_master, size='r',
+cart_fig.scatter('x', 'y', source=source_master, radius='r',
                  color=cm
                  )
 
-# red_scat_map = map_fig.scatter('gx', 'gy',
-#                                source=source_red_map, color='red',
-#                                line_color='green',
-#                                size=10
-#                                )
+red_scat_map = map_fig.circle_cross('gx', 'gy',
+                                    source=source_red_map,
+                                    #                                color='red',
+                                    fill_color=None,
+                                    #                                line_color='green',
+                                    size=20,
+                                    line_color="white",
+                                    line_width=4
+                                    )
+
+red_scat_map = map_fig.circle_cross('gx', 'gy',
+                                    source=source_red_map,
+                                    #                                color='red',
+                                    fill_color=None,
+                                    #                                line_color='green',
+                                    size=20,
+                                    line_color="red",
+                                    line_width=1
+                                    )
 # red_scat_car = cart_fig.scatter('lo', 'la',
 # source=source_red_car, color='green')
 
@@ -254,18 +281,10 @@ callback_red_map = CustomJS(
 
 # tools
 
-ebu.TOOL_TIPS1 = [
-    ('Inscritos', '@HAB'),
-    ('País', '@PAIS'),
-    ('Municipio', '@MUN'),
-    ('Recinto', '@REC'),
-    ('Votantes/km^2', '@DEN{0}'),
-    ('--------','------')
-    # ('PAIS', '@PAIS'),
-]
+
 
 hover_cart = bokeh.models.HoverTool(
-    tooltips=ebu.TOOL_TIPS1,
+    tooltips=TOOL_TIP,
     callback=callback_red_map,
     # renderers = [red_scat_car]
 
@@ -273,11 +292,11 @@ hover_cart = bokeh.models.HoverTool(
 cart_fig.add_tools(hover_cart, )
 
 hover_map = bokeh.models.HoverTool(
-    tooltips=ebu.TOOL_TIPS1,
+    tooltips=TOOL_TIP,
     # callback=callback_red_car,
     # renderers = [red_scat_map]
 )
-# map_fig.add_tools(hover_map, )
+map_fig.add_tools(hover_map, )
 
 # slider
 callback_slider = CustomJS(args=dict(source=source_master),
@@ -288,51 +307,68 @@ slider.js_on_change('value', callback_slider)
 
 # %%
 # COLOR BAR
-
+ml = {int(i):str(np.abs(i)) for i in np.arange(-80,81,20)}
 cb = bokeh.models.ColorBar(
-    color_mapper=cm['transform'], width=30,
+    color_mapper=cm['transform'],
+    width=int(.9*FIG_WIDTH),
     location=(0, 0),
-    title="Den. (V./km^2)",
+    #     title="DEN (N/km^2)",
+    # title=(BAR_TITLE),
     # margin=0,padding=0,
     title_standoff=10,
-    #     ticker=bokeh.models.LogTicker(),
-    major_label_overrides=CB_LABS,
-    ticker = bokeh.models.FixedTicker(ticks=list(CB_LABS.keys()))
+    # ticker=bokeh.models.LogTicker(),
+    orientation='horizontal',
+    major_label_overrides=ml
+
+
 )
 
-cart_fig.add_layout(cb, 'left')
+cart_fig.add_layout(cb, 'above')
+# cb.title_text_align = 'left'
+cart_fig.title.text=BAR_TITLE
+cart_fig.title.align='center'
 
 # layout = row(column(slider, cart_f),map_f)
-# layout = bokeh.layouts.gridplot(
-#     [[slider, None], [cart_fig, map_fig]]
-#     , merge_tools=False
-# )
-layout = bokeh.layouts.column([slider, cart_fig], sizing_mode='scale_width')
+layout = bokeh.layouts.gridplot(
+    [[slider, None], [cart_fig, map_fig]]
+    , merge_tools=False,
+    sizing_mode='scale_width'
+)
 layout.width = 800
+# layout = bokeh.layouts.column([slider, cart_fig])
 
-cart_fig.x_range.start = -80
-cart_fig.x_range.end = -45
-cart_fig.y_range.start = -30
-cart_fig.y_range.end = 0
+cart_fig.x_range.start = CXS
+cart_fig.x_range.end = CXE
+cart_fig.y_range.start = CYS
+cart_fig.y_range.end = CYE
 
-_ll = ebu.lola_to_cart(lo=[-80, -45], la=[-30, 0])
-# map_fig.x_range.start = _ll[0][0]
-# map_fig.x_range.end = _ll[0][1]
-# map_fig.y_range.start = _ll[1][0]
-# map_fig.y_range.end = _ll[1][1]
+_ll = ebu.lola_to_cart(lo=[MXS, MXE], la=[MYS, MYE])
+map_fig.x_range.start = _ll[0][0]
+map_fig.x_range.end = _ll[0][1]
+map_fig.y_range.start = _ll[1][0]
+map_fig.y_range.end = _ll[1][1]
 
+cart_fig.xaxis.major_tick_line_color = None  # turn off x-axis major ticks
+cart_fig.xaxis.minor_tick_line_color = None  # turn off x-axis minor ticks
+cart_fig.yaxis.major_tick_line_color = None  # turn off y-axis major ticks
+cart_fig.yaxis.minor_tick_line_color = None
+cart_fig.xaxis.major_label_text_font_size = '0pt'  # turn off x-axis tick labels
+cart_fig.yaxis.major_label_text_font_size = '0pt'  # turn off y-axis tick labels
 # %% [markdown]
 # ###### gráfica
 
 # %% [markdown]
-# En el mapa de abajo, cada punto corresponde un recinto electoral, su color está relacionado con la densidad de votantes, y su tamaño con la cantidad de votos.
-# Mueve el slider (carto) para ver la deformación. 
-
-# %%
-
+# Y también podemos hacer correspondencia entre el cartograma (derecha) y el mapa real(izquierda)
 
 # %%
 bokeh.plotting.show(layout)
 
+# %%
+
+# %%
+
+# %%
+
+# %%
 
 # %%

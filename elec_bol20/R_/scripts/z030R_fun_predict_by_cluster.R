@@ -22,7 +22,7 @@ predict_by_cluster = function(vote_data, mesa_info, cluster_def, identifier, sum
   #getting total habilitados by cluster
   total_by_cluster = dplyr::full_join(mesa_info, cluster_def, by = identifier) %>%
     dplyr::group_by(cluster)%>%
-    dplyr::summarise_at(c("HAB"),.funs = sum)%>%
+    dplyr::summarise(HAB = sum(HAB,na.rm=T))%>%
     na.omit()
   
   #allvalid = sum(total_by_cluster$VV) # usually not used. We use the estimated total VV instead

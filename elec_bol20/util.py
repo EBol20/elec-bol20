@@ -32,6 +32,9 @@ GEO_PATH_V1 = os.path.join(DATA_PATH0, '2020', 'geo2020.xlsx')
 CSV_CART_2019 = os.path.join(DATA_PATH1, '2019', 'cart_reci.csv')
 CSV_RES_2019_COMP = os.path.join(DATA_PATH0, '2019', 'final_comp.csv')
 
+DEN_LIMS  = [0, 50, 500, 1500, 10000]
+DEN_CODES = [0,1,2,3]
+
 COL_STANDARD = [
     "LAT", "LON",
     "ID_MESA",  # id mesa  e.g 11111
