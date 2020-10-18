@@ -45,7 +45,7 @@ import bokeh.tile_providers
 # %%
 WIDTH = 500
 CB_VALS = [0, 1, 2, 3]
-CB_LIMS = [0, 50, 500, 1500, 10000]
+CB_LIMS = ebu.DEN_LIMS
 CB_LABS = {s:str(l) for s,l in enumerate(CB_LIMS[:])}
 FILE_OUT = os.path.join(ebu.DIR,'htlml_1_intermedios/2020/z040_densidad2020.html')
 bokeh.plotting.output_file(FILE_OUT)
