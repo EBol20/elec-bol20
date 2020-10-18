@@ -1,6 +1,8 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 ```{r}
@@ -76,6 +78,7 @@ rename_vector_2 = c("pais" ="NumPaís","dep" = "NumDep", "PROV" = "NumProv", "se
                     "CIRCUNDIST" = "CIRCUNDIST", "RECI" = "RECI", "denspop" = "DEN_C",
                     "latitud" = "LAT", "longitud" = "LON", "Municipio" = "MUN",
                     "País" = "PAIS", "Departamento" = "DEP",
+                    "Pa�s" = "PAIS",
                     "NomCiudad" = "CIU", "Provincia" = "PROV",
                     "rural_urbano"  = "URB", "tipo_de_area" = "URB",
                     "Mesas" = "N_MESAS", "nombrerecinto" = "REC")
@@ -88,7 +91,7 @@ names(sheet_cumpa_bol1)= plyr::revalue(names(sheet_cumpa_bol1),
 recinto_combined_bol = dplyr::full_join(sheet_nacional_reci.comb, sheet_cumpa_bol1)%>%
   mutate(BOL = TRUE)
 
-write.csv(recinto_combined_bol, file = paste0(here::here(),"/../datos_1_intermedios/2020/geopadron_recintos_2020_bolivia.csv"),
+write.csv(recinto_combined_bol, file = paste0(here::here(),"/../datos_1_intermedios/2020/z010R_geopadron_recintos_2020_bolivia.csv"),
           row.names = FALSE, quote = TRUE)
 ```
 
@@ -138,7 +141,7 @@ names(sheet_cumpa_ext1) = plyr::revalue(names(sheet_cumpa_ext1),
 recinto_combined_ext = dplyr::full_join(sheet_exterior_reci.comb, sheet_cumpa_ext1)%>%
   mutate(BOL = FALSE)
 
-write.csv(recinto_combined_ext , file = paste0(here::here(),"/../datos_1_intermedios/2020/geopadron_recintos_2020_exterior.csv"),
+write.csv(recinto_combined_ext , file = paste0(here::here(),"/../datos_1_intermedios/2020/z010R_geopadron_recintos_2020_exterior.csv"),
           row.names = FALSE, quote = TRUE)
 ```
 see if I can do a combined frame
@@ -162,7 +165,7 @@ recinto_combined_ext_2 = recinto_combined_ext %>%
 
 recinto_combined_all = rbind(recinto_combined_bol_2, recinto_combined_ext_2)
 
-write.csv(recinto_combined_all , file = paste0(here::here(),"/../datos_1_intermedios/2020/geopadron_recintos_2020_ALL.csv"),
+write.csv(recinto_combined_all , file = paste0(here::here(),"/../datos_1_intermedios/2020/z010R_geopadron_recintos_2020_ALL.csv"),
           row.names = FALSE, quote = TRUE)
 ```
 \
@@ -177,7 +180,7 @@ sheet_exterior_mesa_2 = sheet_exterior_mesa %>%
 mesa_combined_all = rbind(sheet_nacional_mesa_2, sheet_exterior_mesa_2) %>%
   mutate(ID_RECI = substr(ID_MESA,1,nchar(ID_MESA) - 2), .before = ID_MESA)
 
-write.csv(mesa_combined_all , file = paste0(here::here(),"/../datos_1_intermedios/2020/geopadron_mesas_2020_ALL.csv"),
+write.csv(mesa_combined_all , file = paste0(here::here(),"/../datos_1_intermedios/2020/z010R_geopadron_mesas_2020_ALL.csv"),
           row.names = FALSE, quote = TRUE)
 ```
 
