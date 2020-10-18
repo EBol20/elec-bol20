@@ -1,0 +1,61 @@
+---
+title: "Create_votearrival_dummy"
+output: html_notebook
+---
+
+
+```{r}
+library(tidyverse)
+library(data.table)
+
+dir(paste0(here::here(),"/../datos_1_intermedios/2020/"))
+
+mybasefile = read.csv(paste0(here::here(),"/../datos_1_intermedios/2020/z010R_geopadron_mesas_2020_ALL.csv"),colClasses = "character")
+
+head(mybasefile,3)
+```
+```{r}
+valid_frac = 0.9
+
+mybasefile = mybasefile %>%
+  mutate(ID_RECI = NULL)%>%
+  unique()%>%
+  mutate(HAB = as.numeric(HAB),
+         VV = round(HAB * valid_frac,0))
+
+head(mybasefile,3)
+
+mybasefile_20 = mybasefile %>%
+  sample_frac(., 0.2)
+
+mybasefile_40 = mybasefile %>%
+  sample_frac(., 0.4)
+
+mybasefile_60 = mybasefile %>%
+  sample_frac(., 0.6)
+
+mybasefile_80 = mybasefile %>%
+  sample_frac(., 0.8)
+
+mybasefile_100 = mybasefile %>%
+  sample_frac(., 1)
+
+
+write.csv(mybasefile_20 , file = paste0(here::here(),"/../datos_1_intermedios/2020/z050R_dummy_votearrival_20.csv"),
+          row.names = FALSE, quote = TRUE)
+
+
+write.csv(mybasefile_40 , file = paste0(here::here(),"/../datos_1_intermedios/2020/z050R_dummy_votearrival_40.csv"),
+          row.names = FALSE, quote = TRUE)
+
+write.csv(mybasefile_60 , file = paste0(here::here(),"/../datos_1_intermedios/2020/z050R_dummy_votearrival_60.csv"),
+          row.names = FALSE, quote = TRUE)
+
+write.csv(mybasefile_80 , file = paste0(here::here(),"/../datos_1_intermedios/2020/z050R_dummy_votearrival_80.csv"),
+          row.names = FALSE, quote = TRUE)
+
+write.csv(mybasefile_100 , file = paste0(here::here(),"/../datos_1_intermedios/2020/z050R_dummy_votearrival_100.csv"),
+          row.names = FALSE, quote = TRUE)
+
+```
+
