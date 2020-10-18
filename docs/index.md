@@ -1,4 +1,4 @@
-Visualización, análisis y predicciones de las Elecciones generales de Bolivia 2020
+Visualización y análisis de las Elecciones generales de Bolivia 2020
 
 [¿Qué es un cartograma?](Ejemplos/que_es_un_cartograma.md)
 
