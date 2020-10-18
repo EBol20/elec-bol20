@@ -61,7 +61,7 @@ write.csv(mybasefile_100 , file = paste0(here::here(),"/../datos_1_intermedios/2
           row.names = FALSE, quote = TRUE)
 
 ```
-
+# now I do the same, but with randomly generated votes (votes are weighted roughly by expected outcome)
 ```{r}
 mybasefile = mybasefile 
 head(mybasefile)
@@ -86,10 +86,11 @@ get_votes_from_seed = function(seed, VV){
 get_votes_from_seed(2, 500)
 
 #doing it with a loop. This is slower than vectorized, but otherwise I cant find how to re-set my seed at every row
-mybasefile_2 = mybasefile
+mybasefile_2 = mybasefile %>%
+  mutate(VV = NULL)
 for (i in 1:nrow(mybasefile_2)){
   rowresults = get_votes_from_seed(seed_from_ID(mybasefile_2[i,"ID_MESA"]),
-                                                          mybasefile_2[i,"VV"])
+                                                          mybasefile_2[i,"HAB"])
   mybasefile_2[i,"BL"] = rowresults[1]
   mybasefile_2[i,"NU"] = rowresults[2]
   mybasefile_2[i,"MAS"] = rowresults[3]
@@ -98,7 +99,10 @@ for (i in 1:nrow(mybasefile_2)){
   mybasefile_2[i,"FPV"] = rowresults[6]
   mybasefile_2[i,"PAN_BOL"] = rowresults[7]
 }
+mybasefile_2 = mybasefile_2 %>%
+  mutate(VV = HAB - BL - NU)
 ```
+
 ```{r}
 mybasefile_2_20 = mybasefile_2 %>%
   sample_frac(., 0.2)
