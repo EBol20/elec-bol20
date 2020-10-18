@@ -6,6 +6,7 @@ output: html_notebook
 ```{r}
 library(tidyverse)
 library(data.table)
+library(readxl)
 ```
 
 
@@ -49,7 +50,7 @@ names(sheet_nacional_mesa) = plyr::revalue(names(sheet_nacional_mesa), rename_ve
 
 #building the reci-file
 sheet_nacional_reci =  sheet_nacional_mesa %>%
-  mutate(ID_RECI = substr(ID_MESA,1,16))
+  mutate(ID_RECI = substr(ID_MESA,1,nchar(ID_MESA) - 2), .before = ID_MESA)
 
 sheet_nacional_reci.s = sheet_nacional_reci %>%
   dplyr::group_by(ID_RECI)%>%
@@ -72,9 +73,12 @@ sheet_cumpa_bol1 = read_excel(paste0(here::here(),"/../datos_0_crudos/2020/2020_
 
 rename_vector_2 = c("pais" ="NumPaís","dep" = "NumDep", "PROV" = "NumProv", "sec" = "NumMuni", 
                     "idloc" = "idloc", "dist" = "NumDist", "zona" = "NumZona",
-                    "CIRCUNDIST" = "CIRCUNDIST", "RECI" = "RECI", "denspop" = "DEN",
+                    "CIRCUNDIST" = "CIRCUNDIST", "RECI" = "RECI", "denspop" = "DEN_C",
                     "latitud" = "LAT", "longitud" = "LON", "Municipio" = "MUN",
-                    "País" = "PAIS")
+                    "País" = "PAIS", "Departamento" = "DEP",
+                    "NomCiudad" = "CIU", "Provincia" = "PROV",
+                    "rural_urbano"  = "URB", "tipo_de_area" = "URB",
+                    "Mesas" = "N_MESAS", "nombrerecinto" = "REC")
 names(sheet_nacional_reci.comb) = plyr::revalue(names(sheet_nacional_reci.comb),
                                                rename_vector_2)
 names(sheet_cumpa_bol1)= plyr::revalue(names(sheet_cumpa_bol1),
@@ -98,7 +102,7 @@ names(sheet_exterior_mesa) = plyr::revalue(names(sheet_exterior_mesa), c(rename_
 
 #building the reci-file
 sheet_exterior_reci =  sheet_exterior_mesa %>%
-  mutate(ID_RECI = substr(ID_MESA,1,16))
+  mutate(ID_RECI = substr(ID_MESA,1,nchar(ID_MESA) - 2), .before = ID_MESA)
 
 sheet_exterior_reci.s = sheet_exterior_reci %>%
   dplyr::group_by(ID_RECI)%>%
@@ -137,6 +141,48 @@ recinto_combined_ext = dplyr::full_join(sheet_exterior_reci.comb, sheet_cumpa_ex
 write.csv(recinto_combined_ext , file = paste0(here::here(),"/../datos_1_intermedios/2020/geopadron_recintos_2020_exterior.csv"),
           row.names = FALSE, quote = TRUE)
 ```
+see if I can do a combined frame
+```{r}
+names(recinto_combined_ext)
+names(recinto_combined_bol)
+```
+\
+Combining bolivia and exterior on RECINTO level into one single file
+```{r}
+colselect = c("LAT","LON", "ID_RECI","HAB","INHAB","PAIS","N_MESAS",
+              "REC","MUN","BOL","CIU","PROV","DEP","URB","DEN_C")
+
+
+recinto_combined_bol_2 = recinto_combined_bol %>%
+  mutate(CIU = NA)%>%
+  dplyr::select(colselect)
+
+recinto_combined_ext_2 = recinto_combined_ext %>%
+  dplyr::select(colselect)
+
+recinto_combined_all = rbind(recinto_combined_bol_2, recinto_combined_ext_2)
+
+write.csv(recinto_combined_all , file = paste0(here::here(),"/../datos_1_intermedios/2020/geopadron_recintos_2020_ALL.csv"),
+          row.names = FALSE, quote = TRUE)
+```
+\
+The MESA-level file, for bolivia and exterior
+```{r}
+sheet_nacional_mesa_2 = sheet_nacional_mesa %>%
+  dplyr::select(ID_MESA, HAB, INHAB)
+
+sheet_exterior_mesa_2 = sheet_exterior_mesa %>%
+  dplyr::select(ID_MESA, HAB, INHAB)
+
+mesa_combined_all = rbind(sheet_nacional_mesa_2, sheet_exterior_mesa_2) %>%
+  mutate(ID_RECI = substr(ID_MESA,1,nchar(ID_MESA) - 2), .before = ID_MESA)
+
+write.csv(mesa_combined_all , file = paste0(here::here(),"/../datos_1_intermedios/2020/geopadron_mesas_2020_ALL.csv"),
+          row.names = FALSE, quote = TRUE)
+```
+
+
+
 
 
 

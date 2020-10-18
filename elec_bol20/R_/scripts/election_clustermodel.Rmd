@@ -62,11 +62,19 @@ allvotes = sum(dat_2019_final$HAB)
 
 
 ```{r}
-predict_by_cluster = function(vote_data, mesa_info, cluster_def, identifier){
-  # vote_data : counted vote dataframe. Must contain "cc" , "mas", "pdc" and "VV_perc". Must also contain the identifier
-  # mesa_info : this has to contain the number of "habilitados" (HAB) per identifier
-  # cluster_def : this has to contain the cluster assignation of the mesas. Has to contain  a cluster column and an identifier column
+predict_by_cluster = function(vote_data, mesa_info, cluster_def, identifier, summarized_cols){
+  # vote_data : Dataframe containing the counted votes. Must contain the columns given in the "summarized_cols" arguments. Must imparatively contain one column giving the percentage of valid votes (valid votes/total habilitados*100), named "vv". Must also contain an identifier column given in the "identifier" argument.
+  # mesa_info : this has to contain the number of "habilitados" per identifier (given in the identifier argument), under the name of "HAB"
+  # cluster_def : this has to contain the cluster assignation of the "mesas". Has to contain  a "cluster"" column and an identifier column, normally "ID_MESA"
   # identifier: by which identifier should the above frames be merged? Usually "ID_MESA"
+  # summarized_cols : at which columns should be summarized? Usually, enter here the names of the PERCENTAGE columns for the different parties, for example "cc", "mas", etc.
+  
+  #returns: A list of 4 elements:
+  #First element: Total habilitados by cluster
+  #Second element: mean votes per cluster for the parties given in "summarized_cols"
+  #Third element: The prediction of the end result, as one row of a dataframe, coming with standard deviation and standard error. CARE: Those measures of uncertainty seem to be not suitable to correctly assess the uncertainty of the final result estimation. 
+  #Fourth element: The predicted total number of valid votes, at a count of 100% (this will be lower than the total number of "habilitados")
+  #In most of the cases, you will be interested in the third element.
   
   #getting total habilitados by cluster
   total_by_cluster = dplyr::full_join(mesa_info, cluster_def, by = identifier) %>%
@@ -83,7 +91,7 @@ predict_by_cluster = function(vote_data, mesa_info, cluster_def, identifier){
   #getting the mean (along with sd and standard error) vote for already counted clusters
   cluster_mean_vote = mydata_combined %>%
     dplyr::group_by(cluster)%>%
-    dplyr::summarise_at(c("cc","mas","pdc","vv"),
+    dplyr::summarise_at(c(summarized_cols,"vv"),
                         .funs = list(mean =~ mean(.,na.rm=T),
                                      sd = ~ sd(.,na.rm=T),
                                      sterr = ~ sd(.,na.rm=T)/sqrt(sum(!is.na(.)))))%>%
@@ -111,7 +119,6 @@ predict_by_cluster = function(vote_data, mesa_info, cluster_def, identifier){
     dplyr::select(contains("mean_pred"))%>%
     dplyr::summarise_all(sum)
 
-  
    #end result standard deviation prediction
   myprediction_sd = myframe %>%
     na.omit()%>%
@@ -167,19 +174,21 @@ test_comb_dat = dplyr::full_join(dat_2019_final, dat_2019_comp, by = "ID_MESA")
 
 
 outlist = list()
-testbreaks = seq(4,100,2)
+testbreaks = seq(4,100,4)
 for (i in 1:length(testbreaks)){
   mybreak = testbreaks[i]
   mydata = test_comb_dat %>%
     dplyr::filter(pm < mybreak)%>%
     mutate_at(c("CC","MAS", "PDC"), .funs = list(perc =~ get_perc(.,VV)))%>%
-    mutate(VV_perc = get_perc(VV,HAB))
+    mutate(VV_perc = get_perc(VV,HAB))%>%
+    dplyr::select(!one_of("VV"))
   names(mydata) = plyr::revalue(names(mydata),
                                           c("MAS_perc" = "mas",
                                             "CC_perc" = "cc",
                                             "PDC_perc" = "pdc",
                                             "VV_perc" = "vv"))
-  outlist[[i]] = predict_by_cluster(mydata, dat_2019_final, cluster_mask, "ID_MESA")[[3]]%>%
+  outlist[[i]] = predict_by_cluster(mydata, dat_2019_final, cluster_mask, "ID_MESA",
+                                    c("cc","mas","pdc"))[[3]]%>%
     mutate(thresh = mybreak)
 }
 outframe = do.call("rbind", outlist)
