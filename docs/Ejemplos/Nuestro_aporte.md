@@ -1,7 +1,7 @@
 # Nuestro aporte
 Con el objetivo de informar responsablemente a la población, buscamos desplegar información gráfica de los datos oficiales del conteo de votos en las Elecciones Generales en Bolivia 2020. 
 
-Para monitorear y analizar el comportamiento electoral se decidió trabajar con información proveniente del Sistema de Difusión de Resultados Preliminares (DIREPRE) sin embargo, debido a la decisión del Tribunal Supremo Electoral (TSE) de no poner en funcionamiento el servicio del DIREPRE, se ha optado por emplear los datos del conteo oficial de votos disponibles en: [OEP](https://www.computo.oep.org.bo/)   
+Para monitorear y analizar el comportamiento electoral se decidió trabajar con información proveniente del Sistema de Difusión de Resultados Preliminares (DIREPRE) sin embargo, debido a la decisión del Tribunal Supremo Electoral (TSE) de no poner en funcionamiento el servicio del DIREPRE, se ha optado por emplear los datos del conteo oficial de votos disponibles en: [OEP](https://computo.oep.org.bo/)   
 
 Publicaremos datos y visualizaciones a medida que avance el conteo oficial. Cabe resaltar que en ningún momento, esta iniciativa conducirá a un análisis de la integridad del proceso electoral.
  
