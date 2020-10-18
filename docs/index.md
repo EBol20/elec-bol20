@@ -27,7 +27,7 @@ Cartograma diferencia MAS - CC 2020 (Datos en proceso)
 ## Cómo votamos en octubre de 2019
 [Diferencia MAS - CC 2019](Ejemplos/z038_carto_map_mas_cc.html)  
 
-[Diferencia MAS - CC 2019 (versión móvil)](Ejemplos/carto_map_mas_cc_movil.html) 
+[Diferencia MAS - CC 2019 (versión móvil)](Ejemplos/z035_carto_map_mas_cc_movil.html) 
 
 [En el cómputo oficial de 2019, ¿de dónde llegaron las mesas y en qué orden?](Ejemplos/z050_mostrar_mesas_faltantes.html)
 
