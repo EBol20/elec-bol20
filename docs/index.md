@@ -2,7 +2,7 @@ Visualización, análisis y predicciones de las Elecciones generales de Bolivia 
 
 [¿Qué es un cartograma?](Ejemplos/que_es_un_cartograma.md)
 
-[Guía de uso](Ejemplos/que_es_un_cartograma.md)
+[Guía de uso](Ejemplos/Guia_de_uso.md)
 
 ## 2020 
 1. [Diferencia MAS - CC (2020)](Ejemplos/carto_map_mas_cc.html)
