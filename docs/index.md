@@ -31,4 +31,3 @@
 
 [En el cómputo oficial de 2019, ¿de dónde llegaron las mesas y en qué orden?](Ejemplos/z050_mostrar_mesas_faltantes.html)
 
-[En el TREP de 2019, ¿de dónde llegaron las mesas y en qué orden?](Ejemplos/z050_mostrar_mesas_faltantes.html)
