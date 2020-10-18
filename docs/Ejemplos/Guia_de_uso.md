@@ -16,7 +16,7 @@ Es el mapa comparativo entre las dos fuerzas políticas con mayor intención de 
 * Slider (carto):
 ![Slider 1](../img/Slider_carto1.png)  
 Encima de la gráfica existe una línea horizontal (slider) que va de 0 a 1. Cuando está en 0 (totalmente a la izquierda), muestra el lugar exacto de cada recinto electoral en el mapa de Bolivia, la densidad (tamaño del círculo) y la preferencia electoral (color e intensidad). A medida que se desliza hacia la derecha, el mapa se deforma y los recintos electorales se separan para que observarlos de manera individual sea más fácil, manteniendo los mismos elementos descritos anteriormente.
-* Wheel zoom: 
+* Wheel zoom:   
 ![Wheel zoom](../img/Wheelzoom.png)  
 haga clic sobre el ícono para activarlo, coloque el cursor en cualquier parte del mapa, gire la rueda del mouse hacia adelante para acercarse y hacia atrás para alejarse. Si se aleja lo suficiente, puede observar la votación en recintos electorales ubicados en otros países. 
 ![Wheel zoom](../img/Slider_progresion.png)  
