@@ -79,7 +79,7 @@ predict_by_cluster = function(vote_data, mesa_info, cluster_def, identifier, sum
   #getting total habilitados by cluster
   total_by_cluster = dplyr::full_join(mesa_info, cluster_def, by = identifier) %>%
     dplyr::group_by(cluster)%>%
-    dplyr::summarise_at(c("HAB"),.funs = sum)%>%
+    dplyr::summarise(HAB = sum(HAB,na.rm=T))%>%
     na.omit()
   
   #allvalid = sum(total_by_cluster$VV) # usually not used. We use the estimated total VV instead
@@ -219,7 +219,42 @@ ggplot(data=outframe %>% dplyr::filter(thresh > 30), aes(x= thresh, y = MASmCC))
   labs(y="MAS - CC")
 
 ```
+```{r}
+mesas_2020 = read.csv(paste0(here::here(),"/../datos_1_intermedios/2020/z010R_geopadron_mesas_2020_ALL.csv"),colClasses = "character")%>%
+  mutate_at(c("HAB"),as.numeric)
 
+
+mydata = read.csv(paste0(here::here(),"/../datos_1_intermedios/2020/z050R_dummy_votearrival_votes_100.csv"),colClasses = "character")
+
+mydata = mydata %>%
+  mutate_at(vars(!one_of("ID_MESA")),.funs = as.numeric)%>%
+  mutate(vv = get_perc(VV,HAB))%>%
+  mutate_at(c("BL","NU","MAS","CC","Creemos","FPV","PAN_BOL"), 
+            .funs = list(perc = ~ get_perc(., VV)))
+
+test = predict_by_cluster(mydata, dat_2019_final, cluster_mask, "ID_MESA",
+                                    c("CC_perc","MAS_perc","Creemos_perc"))
+test2 = predict_by_cluster(mydata, mesas_2020, cluster_mask, "ID_MESA",
+                                    c("CC_perc","MAS_perc","Creemos_perc","PAN_BOL_perc"))
+
+
+mytest=dplyr::full_join(mesas_2020, cluster_mask, by = "ID_MESA") %>%
+    dplyr::group_by(cluster)%>%
+    dplyr::summarise(HAB = sum(HAB,na.rm=T))
+
+test[[1]]
+
+test2[[1]]
+
+sum(test[[1]]$HAB)
+sum(mesas_2020$HAB)
+sum(test2[[1]]$HAB)
+
+comparison = dplyr::full_join(test[[1]],test2[[1]], by ="cluster") %>%
+  mutate(HAB_frac = HAB.y/HAB.x)
+```
+So there has been a change in the mesa asignation. Ok. Gotta adress this.
+To do. 
 
 
 

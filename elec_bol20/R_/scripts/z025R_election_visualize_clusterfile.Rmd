@@ -1,0 +1,120 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+#importing the cluster mask
+cluster_mask = read.csv(paste0(here::here(),"/../datos_1_intermedios/cluster_definition/2019_clustered_6.csv"), colClasses = "character")%>%
+  mutate_at(c("LON","LAT"),as.numeric)%>%
+  na.omit()
+
+#now, 
+
+```
+
+```{r}
+library(tidyr)
+library(plyr)
+library(dplyr)
+library(ggplot2)
+library(circular)
+library(lubridate)
+library(viridis)
+library(scales)
+library(ggnewscale)
+library(patchwork)
+library(RColorBrewer)
+```
+
+
+```{r}
+
+# plot limits (which part of the worldmap to plot)
+xlim = c(-85,-45)
+ylim = c(-25,-10)
+
+#worldmap
+worldmap = map_data("world")
+worldmap=subset(worldmap,region %in%c("Peru","Chile", "Paraguay","Bolivia","Brazil"))
+data.table::setnames(worldmap, c("X","Y","PID","POS","region","subregion"))
+worldmap=PBSmapping::clipPolys(worldmap,xlim=xlim,ylim=ylim,keepExtra=T)
+
+
+#avoid_clipping_error. When jumping from 0 to 360 in polar, a "circle" is
+#introduced when using geom_path. As quick fix, I assign those "border crossing lines"
+#total transparency - they will not show up in the plot.
+extreme_alpha=function(vector, lower,upper){
+  alpha=ifelse(vector >= lower & vector <= upper,1,0)
+  return(factor(alpha))
+}
+
+```
+
+```{r}
+plotdata = cluster_mask %>%
+  sample_frac(., 0.1)
+
+p_test=ggplot()+
+  # geom_rect(data=cluster_mask,aes(xmin=angle.inf,xmax=angle.sup,
+  # ymin=rad.inf,ymax=rad.sup,
+  #     fill=rel_numb),inherit.aes=F,alpha=1)+
+  # facet_wrap(~season_ord,ncol=2)+
+  # scale_fill_viridis(option="C",direction=1,oob=squish, 
+  #                    trans="log10",
+  #                    #limits=c(80,25000),
+  #                    limits=c(0.005,1),
+  #                    )+
+  
+  scale_y_continuous(limits = ylim)+ 
+  scale_x_continuous(limits = xlim)+
+   geom_path(data=worldmap,aes(x=X,y=Y,group=PID),
+             color="black",size=1)+
+  geom_point(data=plotdata, aes(x=LON, y = LAT, col = cluster),position="jitter",
+             shape = 1)+
+  scale_colour_brewer(type = "qual", palette = "Paired")
+p_test
+```
+
+```{r}
+library(proj.TGM.CHC.package)
+
+lonbreaks = seq(-100,100,0.05)
+latbreaks = seq(-100,100,0.05)
+
+cluster_mask_cutted = cluster_mask %>%
+  dplyr::mutate(LAT_cut = cut(LAT, breaks = latbreaks),
+                LON_cut = cut(LON, breaks = lonbreaks))
+
+test2 = cluster_mask_cutted%>%
+  dplyr::group_by(LAT_cut, LON_cut)%>%
+  dplyr::summarise(cluster = names(table(cluster))[which.max(table(cluster))])%>%
+  mutate(LAT.inf = convertToLimit(LAT_cut,0),
+         LAT.sup = convertToLimit(LAT_cut,1),
+         LON.inf = convertToLimit(LON_cut,0),
+         LON.sup = convertToLimit(LON_cut,1))
+```
+
+```{r}
+plotdata = test2 
+
+p_test=ggplot()+
+  geom_rect(data=plotdata,aes(xmin=LON.inf,xmax=LON.sup,
+  ymin=LAT.inf,ymax=LAT.sup,
+      fill=cluster),inherit.aes=F,alpha=1)+
+  #scale_fill_discrete()+
+  scale_y_continuous(limits = ylim)+ 
+  scale_x_continuous(limits = xlim)+
+   geom_path(data=worldmap,aes(x=X,y=Y,group=PID),
+             color="black",size=1)+
+  #geom_point(data=plotdata, aes(x=LON, y = LAT, col = cluster),shape = 1)+
+  scale_colour_brewer(type = "qual", palette = "Paired")
+
+p_test
+
+```
+
+```{r}
+
+```
+

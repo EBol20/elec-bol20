@@ -201,7 +201,11 @@ P_MAS = bokeh.palettes.PuBu9[::-1]
 # P_DIF = bokeh.palettes.RdYlBu11
 P_DIF = [*bokeh.palettes.Oranges7[1:],
          *bokeh.palettes.Blues6[::-1]]
-
+P_GRAD_CC = [*bokeh.palettes.Oranges7[::-1]]
+P_GRAD_FPV = [*bokeh.palettes.YlGn7[::-1]]
+P_GRAD_MAS = [*bokeh.palettes.Blues7[::-1]]
+P_GRAD_CREEMOS = [*bokeh.palettes.Reds8[::-1]]
+P_GRAD_PANBOL = [*bokeh.palettes.YlOrRd8[::-1]]
 
 # %%
 # FUNCTIONS
@@ -436,7 +440,6 @@ def open_combine_2019() -> pd.DataFrame:
     df = df.reset_index().set_index('ID_MESA')
     return df
 
-
 def partition_df(df, p, random_state=None):
     '''
 
@@ -588,12 +591,6 @@ def get_dens_from_hab(f: pd.DataFrame):
     f_out = f.copy()
     f_out['DEN'] = res['DEN']
     return f_out
-
-
-
-###########################
-
-
 
 
 

@@ -5,6 +5,8 @@ output:
     df_print: paged
 ---
 
+Assign "clusters" to mesas, based on the vote in the 2019 vote.
+
 ```{r}
 library(tidyverse)
 library(data.table)
