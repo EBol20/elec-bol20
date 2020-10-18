@@ -7,7 +7,7 @@ Visualización, análisis y predicciones de las Elecciones generales de Bolivia 
 1. [¿de dónde están llegando las mesas y en qué orden?]
 1. [Densidad 2020](Ejemplos/z040_densidad2020.html)
 
-1. montar un bokeh  
+1. Densidad 2020 oficial, ¿podemos explicar esto? 
 <iframe src="Ejemplos/z040_densidad2020.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
