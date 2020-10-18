@@ -5,6 +5,7 @@ Visualización, análisis y predicciones de las Elecciones generales de Bolivia 
 ## 2020 
 1. [Diferencia MAS - CC (2020)](Ejemplos/carto_map_mas_cc.html)
 1. [¿de dónde están llegando las mesas y en qué orden?]
+1. [Densidad 2020](Ejemplos/z040_densidad2020.html)
 
 ## 2019
 1. [Diferencia MAS - CC (2019)](Ejemplos/carto_map_mas_cc.html)  
