@@ -4,9 +4,9 @@
 
 ## Principales datos representados
 
-* [Diferencia de votos entre MAS - CC](Ejemplos/Diferencia_MAS_CC.md)
+[Diferencia de votos entre MAS - CC](Ejemplos/Diferencia_MAS_CC.md)
 
-* [Densidad de votantes en el territorio](Ejemplos/Densidad.md)
+[Densidad de votantes en el territorio](Ejemplos/Densidad.md)
 
 
 ## Cómo explorar la información de la página
@@ -20,7 +20,6 @@
 
 ## 2020 
 1. [Diferencia MAS - CC (2020)](Ejemplos/carto_map_mas_cc.html)
-1. [¿de dónde están llegando las mesas y en qué orden?]
 1. [Densidad 2020](Ejemplos/z040_densidad2020.html)
 
 1. Densidad 2020 oficial, ¿podemos explicar esto? 
