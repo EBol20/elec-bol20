@@ -58,8 +58,7 @@ FILE_OUT = ebu.DIR+'/htlml_1_intermedios/2019/z035_carto_map_mas_cc_movil.html'
 MAP_CIRCLE_SIZE_OFFSET = 5
 RATIO_CIRCLE_MAP = 7
 RATIO_CIRCLE_CARTO = 500
-#
-TOOL_TIP = TOOL_TIP = [
+TOOL_TIP = [
     ('Inscritos', '@HAB'),
     ('PAIS, Municipalidad', '@PAIS, @MUN'),
     ('Recinto', '@REC'),
@@ -333,8 +332,10 @@ cart_fig.title.align='center'
 # layout = row(column(slider, cart_f),map_f)
 layout = bokeh.layouts.gridplot(
     [[slider], [cart_fig],[map_fig]]
-    , merge_tools=False
+    , merge_tools=False,
+    sizing_mode='scale_width'
 )
+layout.width = 800
 # layout = bokeh.layouts.column([slider, cart_fig])
 
 cart_fig.x_range.start = CXS
