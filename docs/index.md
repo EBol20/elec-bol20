@@ -7,6 +7,9 @@ Visualización, análisis y predicciones de las Elecciones generales de Bolivia 
 1. [¿de dónde están llegando las mesas y en qué orden?]
 1. [Densidad 2020](Ejemplos/z040_densidad2020.html)
 
+1. montar un bokeh 
+    <embed type="text/html" src="Ejemplos/z040_densidad2020.html" width="600" height="400"></embed>
+
 ## 2019
 1. [Diferencia MAS - CC (2019)](Ejemplos/carto_map_mas_cc.html)  
 1. [Diferencia MAS - CC (2019 (móvil))](Ejemplos/carto_map_mas_cc_movil.html) 
