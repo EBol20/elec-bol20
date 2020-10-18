@@ -22,7 +22,7 @@ import elec_bol20.util as ebu
 
 # %%
 path = ebu.DATA_PATH1
-path = os.path.join(path,'2020','geopadron_recintos_2020_ALL.csv')
+path = os.path.join(path,'2020','z010r_geopadron_recintos_2020_ALL.csv')
 df = pd.read_csv(path,encoding='ISO-8859-1').set_index('ID_RECI')
 
 # %%

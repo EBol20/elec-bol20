@@ -19,6 +19,10 @@ DATA_PATH1 = os.path.join(DIR, 'datos_1_intermedios')
 DATA_PATH2 = os.path.join(DIR, 'datos_2_finales')
 DATA_FIG_OUT = os.path.join(DIR, 'figuras_out')
 
+DATA_PATH0_2020 = os.path.join(DATA_PATH0,'2020')
+DATA_PATH1_2020 = os.path.join(DATA_PATH1,'2020')
+DATA_PATH2_2020 = os.path.join(DATA_PATH2,'2020')
+
 CSV_EST_NAC_2019 = os.path.join(DATA_PATH0, '2019', 'estad_nac.csv')
 CSV_EST_EXT_2019 = os.path.join(DATA_PATH0, '2019', 'estad_ext.csv')
 GEO_PATH_V1 = os.path.join(DATA_PATH0, '2020', 'geo2020.xlsx')
