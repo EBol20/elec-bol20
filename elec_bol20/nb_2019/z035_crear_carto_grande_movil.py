@@ -53,7 +53,7 @@ C_BAR_HIGH = 80
 C_BAR_LOW = -80
 PALETTE = ebu.P_DIF
 CART_SLIDER_INIT = .5
-FILE_OUT = ebu.DIR+'/htlml_1_intermedios/2019/z035_carto_map_mas_cc_movil.html'
+FILE_OUT = ebu.DIR+'/htlml_1_intermedios/2019/z035_carto_map_mas_cc_movil_2019.html'
 
 MAP_CIRCLE_SIZE_OFFSET = 5
 RATIO_CIRCLE_MAP = 7
@@ -311,7 +311,7 @@ slider.js_on_change('value', callback_slider)
 ml = {int(i):str(np.abs(i)) for i in np.arange(-80,81,20)}
 cb = bokeh.models.ColorBar(
     color_mapper=cm['transform'],
-    width=int(.9*FIG_WIDTH),
+    # width=int(.9*FIG_WIDTH),
     location=(0, 0),
     #     title="DEN (N/km^2)",
     # title=(BAR_TITLE),
@@ -335,7 +335,9 @@ layout = bokeh.layouts.gridplot(
     , merge_tools=False,
     sizing_mode='scale_width'
 )
-layout.width = 800
+layout.width = 640
+layout.max_width = 640
+# layout.max_height =
 # layout = bokeh.layouts.column([slider, cart_fig])
 
 cart_fig.x_range.start = CXS
