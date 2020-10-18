@@ -19,7 +19,7 @@
 
 
 ## Elecciones generales Bolivia 2020 
-[Cartograma diferencia MAS - CC 2020](Ejemplos/carto_map_mas_cc.html)
+Cartograma diferencia MAS - CC 2020 (Datos en proceso)
 
 [Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
 
