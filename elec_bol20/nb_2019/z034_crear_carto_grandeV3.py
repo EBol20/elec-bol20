@@ -52,7 +52,7 @@ C_BAR_HIGH = 80
 C_BAR_LOW = -80
 PALETTE = ebu.P_DIF
 CART_SLIDER_INIT = .5
-FILE_OUT = ebu.DIR+'/htlml_1_intermedios/2019/z034_carto_map_mas_cc.html'
+FILE_OUT = ebu.DIR+'/htlml_1_intermedios/2020/z034_carto_map_mas_cc.html'
 
 MAP_CIRCLE_SIZE_OFFSET = 5
 RATIO_CIRCLE_MAP = 7
@@ -331,7 +331,7 @@ cart_fig.title.align='center'
 # layout = row(column(slider, cart_f),map_f)
 layout = bokeh.layouts.gridplot(
     [[slider, None], [cart_fig, map_fig]]
-    , merge_tools=False
+    , sizing_mode='scale_width', merge_tools=False
 )
 # layout = bokeh.layouts.column([slider, cart_fig])
 
