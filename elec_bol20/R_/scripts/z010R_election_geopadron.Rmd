@@ -49,6 +49,9 @@ sheet_cumpa_ext1 = read_excel(paste0(here::here(),"/../datos_0_crudos/2020/2020_
 ```{r}
 sheet_nacional_mesa = read_excel(paste0(here::here(),"/../datos_0_crudos/2020/padron_oep/ESTADISTICAS_NACIONAL_EG_2020.xlsx"), sheet = 5, skip=5) 
 names(sheet_nacional_mesa) = plyr::revalue(names(sheet_nacional_mesa), rename_vector)
+sheet_nacional_mesa = sheet_nacional_mesa %>%
+  dplyr::filter(!is.na(ID_MESA))
+
 
 #building the reci-file
 sheet_nacional_reci =  sheet_nacional_mesa %>%
@@ -78,7 +81,7 @@ rename_vector_2 = c("pais" ="NumPaís","dep" = "NumDep", "PROV" = "NumProv", "se
                     "CIRCUNDIST" = "CIRCUNDIST", "RECI" = "RECI", "denspop" = "DEN_C",
                     "latitud" = "LAT", "longitud" = "LON", "Municipio" = "MUN",
                     "País" = "PAIS", "Departamento" = "DEP",
-                    "Pa�s" = "PAIS",
+                    "Pa?s" = "PAIS",
                     "NomCiudad" = "CIU", "Provincia" = "PROV",
                     "rural_urbano"  = "URB", "tipo_de_area" = "URB",
                     "Mesas" = "N_MESAS", "nombrerecinto" = "REC")
@@ -101,6 +104,8 @@ write.csv(recinto_combined_bol, file = paste0(here::here(),"/../datos_1_intermed
 sheet_exterior_mesa = read_excel(paste0(here::here(),"/../datos_0_crudos/2020/padron_oep/ESTADISTICAS_EXTERIOR_EG_2020.xlsx"), sheet = 5, skip=5) 
 names(sheet_exterior_mesa) = plyr::revalue(names(sheet_exterior_mesa), c(rename_vector,
                                                                          "nummesa "="ID_MESA"))
+sheet_exterior_mesa = sheet_exterior_mesa %>%
+  dplyr::filter(!is.na(ID_MESA))
 
 
 #building the reci-file
@@ -171,6 +176,7 @@ write.csv(recinto_combined_all , file = paste0(here::here(),"/../datos_1_interme
 \
 The MESA-level file, for bolivia and exterior
 ```{r}
+
 sheet_nacional_mesa_2 = sheet_nacional_mesa %>%
   dplyr::select(ID_MESA, HAB, INHAB)
 
