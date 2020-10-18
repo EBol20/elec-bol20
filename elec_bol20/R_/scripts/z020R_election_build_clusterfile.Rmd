@@ -122,7 +122,7 @@ names(dat_2019_final_m) = plyr::revalue(names(dat_2019_final_m),
 
 
 cluster_results = cluster_and_bind(dat_2019_final_m, "ID_MESA", 
-                                     c("cc","mas","pdc","BL_perc","NL_perc"),18)
+                                     c("cc","mas","pdc","BL_perc","NL_perc"),4)
 cluster_mask = cluster_results[[2]]
 
 #####output here
@@ -133,7 +133,7 @@ clustermask_out = cluster_mask %>%
 
 write.csv(clustermask_out, file =
             paste0(here::here(),
-                   "/../datos_1_intermedios/cluster_definition/2019_clustered_18.csv"),
+                   "/../datos_1_intermedios/cluster_definition/z020R_2019_clustered_4.csv"),
           row.names = FALSE)
 
 ```
