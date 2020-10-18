@@ -27,5 +27,6 @@ import bokeh.models
 import bokeh.plotting
 import bokeh.palettes
 import bokeh.colors
+import bokeh.palettes
 import seaborn as sns
 import matplotlib

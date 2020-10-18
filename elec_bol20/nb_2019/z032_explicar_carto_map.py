@@ -28,7 +28,8 @@ from elec_bol20 import *
 import elec_bol20.util as ebu
 import bokeh.layouts
 from bokeh.models import ColumnDataSource, CustomJS, Slider
-from bokeh.plotting import Figure, output_file, show
+from bokeh.plotting import Figure
+# output_file, show
 import bokeh.tile_providers
 
 # %% [markdown]
@@ -72,15 +73,17 @@ rec_df = rec_df.dropna(axis=0)
 assert rec_df.isna().sum().sum() == 0
 
 # %%
-cut = pd.IntervalIndex.from_tuples([(0, 50), (50, 500), (500, 1500),(1500,3000),(3000,4000),(4000,7000)])
+# cut = pd.IntervalIndex.from_tuples([(0, 50), (50, 500), (500, 1500),(1500,3000),(3000,4000),(4000,7000)])
 
 # %%
-lab = ['A','B','C','D','E','F']
-lab = [0,1,2,3,4,5]
-c = pd.cut(rec_df['DEN'],[0,50,500,1500,3000,4000,7000],
-              labels = lab  ,
-#              retbins=True
-            )
+# lab = ['B','M','X','A']
+lab = [0, 1, 2, 3]
+lims = [0, 50, 500, 1500, 10000]
+NL = len(lims)
+c = pd.cut(rec_df['DEN'], lims,
+           labels=lab,
+           #              retbins=True
+           )
 
 # %%
 rec_df['DEN_CUT'] = c.astype(int)
@@ -115,8 +118,8 @@ from bokeh.transform import linear_cmap
 from bokeh.transform import log_cmap
 
 # cm = linear_cmap('d_mas_cc', palette=ebu.P_DIF[::-1], low=-80, high=80)
-cm = log_cmap('DEN', palette=bokeh.palettes.Viridis11, low=1, high=10000)
-cm = linear_cmap('DEN_CUT', palette=bokeh.palettes.Viridis[6], low=0, high=6)
+# cm = log_cmap('DEN', palette=bokeh.palettes.Viridis11, low=1, high=10000)
+cm = linear_cmap('DEN_CUT', palette=bokeh.palettes.Viridis[NL], low=0, high=NL)
 
 # %%
 # SOURCES
@@ -276,17 +279,17 @@ cb = bokeh.models.ColorBar(
     title="DEN (N/km^2)",
     # margin=0,padding=0,
     title_standoff=10,
-#     ticker=bokeh.models.LogTicker(),
-    major_label_overrides = {0:"0",1:"50",2:"500",3:"1500",4:"3000",5:"4000",6:"7000"}
+    #     ticker=bokeh.models.LogTicker(),
+    major_label_overrides={0: "0", 1: "50", 2: "500", 3: "1500", 4: "3000", 5: "4000", 6: "7000"}
 )
 
 cart_fig.add_layout(cb, 'left')
 
 # layout = row(column(slider, cart_f),map_f)
-layout = bokeh.layouts.gridplot(
-    [[slider, None], [cart_fig, map_fig]]
-    , merge_tools=False
-)
+# layout = bokeh.layouts.gridplot(
+#     [[slider, None], [cart_fig, map_fig]]
+#     , merge_tools=False
+# )
 layout = bokeh.layouts.column([slider, cart_fig])
 
 cart_fig.x_range.start = -80
@@ -308,7 +311,6 @@ map_fig.y_range.end = _ll[1][1]
 # Mueve el slider (carto) para ver la deformación. 
 
 # %%
-
 
 
 # %%
@@ -339,7 +341,8 @@ data['y'] = data['LAT'] * (1 - cart_init_val) + data['Y'] * cart_init_val
 # %%
 # COLOR
 from bokeh.transform import linear_cmap
-from bokeh.transform import log_cmap
+
+# from bokeh.transform import log_cmap
 
 cm = linear_cmap('d_mas_cc', palette=ebu.P_DIF[::-1], low=-80, high=80)
 # cm = log_cmap('DEN', palette=bokeh.palettes.Viridis11, low=1, high=10000)
@@ -466,8 +469,8 @@ ebu.TOOL_TIPS1 = [
     ('PAIS', '@PAIS'),
     ('MUN', '@MUN'),
     ('REC', '@REC'),
-#     ('DEN %', '@DEN')
-    ('MAS-CC','@d_mas_cc')
+    #     ('DEN %', '@DEN')
+    ('MAS-CC', '@d_mas_cc')
     # ('PAIS', '@PAIS'),
 ]
 
@@ -499,20 +502,20 @@ slider.js_on_change('value', callback_slider)
 cb = bokeh.models.ColorBar(
     color_mapper=cm['transform'], width=30,
     location=(0, 0),
-#     title="DEN (N/km^2)",
-    title = "MAS-CC%",
+    #     title="DEN (N/km^2)",
+    title="MAS-CC%",
     # margin=0,padding=0,
     title_standoff=10,
-#     ticker=bokeh.models.LogTicker()
+    #     ticker=bokeh.models.LogTicker()
 )
 
 cart_fig.add_layout(cb, 'left')
 
 # layout = row(column(slider, cart_f),map_f)
-layout = bokeh.layouts.gridplot(
-    [[slider, None], [cart_fig, map_fig]]
-    , merge_tools=False
-)
+# layout = bokeh.layouts.gridplot(
+#     [[slider, None], [cart_fig, map_fig]]
+#     , merge_tools=False
+# )
 layout = bokeh.layouts.column([slider, cart_fig])
 
 cart_fig.x_range.start = -80
@@ -534,7 +537,6 @@ map_fig.y_range.end = _ll[1][1]
 
 # %%
 bokeh.plotting.show(layout)
-
 
 # %% [markdown]
 # ## Carto MAS - CC
@@ -688,7 +690,7 @@ ebu.TOOL_TIPS1 = [
     ('PAIS', '@PAIS'),
     ('MUN', '@MUN'),
     ('REC', '@REC'),
-    ('MAS-CC%' ,'@d_mas_cc')
+    ('MAS-CC%', '@d_mas_cc')
     # ('DEN %', '@DEN')
     # ('PAIS', '@PAIS'),
 ]
@@ -721,8 +723,8 @@ slider.js_on_change('value', callback_slider)
 cb = bokeh.models.ColorBar(
     color_mapper=cm['transform'], width=30,
     location=(0, 0),
-#     title="DEN (N/km^2)",
-    title = "MAS-CC%",
+    #     title="DEN (N/km^2)",
+    title="MAS-CC%",
     # margin=0,padding=0,
     title_standoff=10,
     # ticker=bokeh.models.LogTicker()
