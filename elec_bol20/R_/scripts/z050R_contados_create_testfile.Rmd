@@ -21,7 +21,7 @@ mybasefile = mybasefile %>%
   mutate(ID_RECI = NULL)%>%
   unique()%>%
   mutate(HAB = as.numeric(HAB),
-         VV = round(HAB * valid_frac),0)
+         VV = round(HAB * valid_frac,0))
 
 head(mybasefile,3)
 

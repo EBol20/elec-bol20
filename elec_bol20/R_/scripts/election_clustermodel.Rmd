@@ -1,0 +1,226 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+library(tidyverse)
+library(data.table)
+library(here)
+library(stringr)
+```
+
+
+```{r}
+rename_vector = c("MAS...IPSP" = "MAS",
+                  "CC" = "CC",
+                  "Votos.VÃ.lidos"="VV",
+                  "total_votes"="VT",
+                  "Blancos" = "BL",
+                  "Nulos" = "NL",
+                  "NÃºmero.Mesa" = "N_MESAS",
+                  "CÃ³digo.Mesa" = "ID_MESA",
+                  "id_rec" = "ID_RECI",
+                  "Inscritos" = "HAB",
+                  "latitud" = "LAT",
+                  "longitud" = "LON")
+
+
+dat_2019_final = read.csv(paste0(here::here(),"/../datos_0_crudos/2019/final_comp.csv"), 
+                          colClasses = "character")
+
+
+names(dat_2019_final) = plyr::revalue(names(dat_2019_final), rename_vector)
+
+dat_2019_final = dat_2019_final %>%
+  dplyr::mutate_at(c("MAS","CC","PDC","BL","NL","VV", "HAB"), .funs = as.numeric)
+
+```
+
+```{r}
+get_perc = function(vec, totvec){
+  return(vec/totvec*100)
+}
+
+#checking the end result
+end_result = dat_2019_final %>%
+  dplyr::summarise(MAS_tot = sum(MAS,na.rm=T),
+                   CC_tot = sum(CC,na.rm=T),
+                   validos_tot = sum(VV,na.rm=T))%>%
+  dplyr::mutate_at(c("MAS_tot","CC_tot"), .funs = list(perc = ~ get_perc(.,validos_tot)))
+
+end_result
+
+#some tests
+nrow(dat_2019_final)
+length(unique(dat_2019_final$ID_MESA))
+
+allvotes = sum(dat_2019_final$HAB)
+```
+
+
+```{r}
+predict_by_cluster = function(vote_data, mesa_info, cluster_def, identifier, summarized_cols){
+  # vote_data : Dataframe containing the counted votes. Must contain the columns given in the "summarized_cols" arguments. Must imparatively contain one column giving the percentage of valid votes (valid votes/total habilitados*100), named "vv". Must also contain an identifier column given in the "identifier" argument.
+  # mesa_info : this has to contain the number of "habilitados" per identifier (given in the identifier argument), under the name of "HAB"
+  # cluster_def : this has to contain the cluster assignation of the "mesas". Has to contain  a "cluster"" column and an identifier column, normally "ID_MESA"
+  # identifier: by which identifier should the above frames be merged? Usually "ID_MESA"
+  # summarized_cols : at which columns should be summarized? Usually, enter here the names of the PERCENTAGE columns for the different parties, for example "cc", "mas", etc.
+  
+  #returns: A list of 4 elements:
+  #First element: Total habilitados by cluster
+  #Second element: mean votes per cluster for the parties given in "summarized_cols"
+  #Third element: The prediction of the end result, as one row of a dataframe, coming with standard deviation and standard error. CARE: Those measures of uncertainty seem to be not suitable to correctly assess the uncertainty of the final result estimation. 
+  #Fourth element: The predicted total number of valid votes, at a count of 100% (this will be lower than the total number of "habilitados")
+  #In most of the cases, you will be interested in the third element.
+  
+  #getting total habilitados by cluster
+  total_by_cluster = dplyr::full_join(mesa_info, cluster_def, by = identifier) %>%
+    dplyr::group_by(cluster)%>%
+    dplyr::summarise_at(c("HAB"),.funs = sum)%>%
+    na.omit()
+  
+  #allvalid = sum(total_by_cluster$VV) # usually not used. We use the estimated total VV instead
+  allvotes = sum(total_by_cluster$HAB) # usually not used. We use the estimated total VV instead
+  
+  #combining
+  mydata_combined = dplyr::full_join(vote_data, cluster_def, by = identifier)
+  
+  #getting the mean (along with sd and standard error) vote for already counted clusters
+  cluster_mean_vote = mydata_combined %>%
+    dplyr::group_by(cluster)%>%
+    dplyr::summarise_at(c(summarized_cols,"vv"),
+                        .funs = list(mean =~ mean(.,na.rm=T),
+                                     sd = ~ sd(.,na.rm=T),
+                                     sterr = ~ sd(.,na.rm=T)/sqrt(sum(!is.na(.)))))%>%
+    na.omit()
+  
+  #help functions
+  predict_from_percentage = function(clusterperc, total){
+    return(clusterperc/100*total)
+  }
+  error_propagation = function(vec){
+    return(sqrt(sum(vec^2)))
+  }
+  
+  
+  #merging
+  myframe = dplyr::full_join(total_by_cluster,cluster_mean_vote,by="cluster")
+  #getting total predicted valid votes
+  total_predicted_VV = sum(myframe$HAB * myframe$vv_mean/100,na.rm=T)
+  
+  #end result prediction.
+  myprediction_mean = myframe %>%
+    na.omit()%>%
+    mutate_at(vars(contains("mean")),
+              .funs = list(pred = ~ predict_from_percentage(., vv_mean/100*HAB)))%>%
+    dplyr::select(contains("mean_pred"))%>%
+    dplyr::summarise_all(sum)
+
+   #end result standard deviation prediction
+  myprediction_sd = myframe %>%
+    na.omit()%>%
+    mutate_at(vars(contains("sd")),
+              .funs = list(pred = ~ predict_from_percentage(., vv_mean/100*HAB)))%>%
+    dplyr::select(contains("sd_pred"))%>%
+    dplyr::summarise_all(sum)
+  
+   #end result standard error prediction
+  myprediction_sterr = myframe %>%
+    na.omit()%>%
+    mutate_at(vars(contains("sterr")),
+              .funs = list(pred = ~ predict_from_percentage(., vv_mean/100*HAB)))%>%
+    dplyr::select(contains("sterr_pred"))%>%
+    dplyr::summarise_all(sum)
+  
+  
+  myprediction_mean = myprediction_mean/total_predicted_VV
+  myprediction_sd = myprediction_sd/total_predicted_VV
+  myprediction_sterr = myprediction_sterr/total_predicted_VV
+
+
+  myprediction = cbind(myprediction_mean, myprediction_sd,myprediction_sterr)
+  
+  return(list(total_by_cluster, cluster_mean_vote, myprediction, total_predicted_VV))
+}#predict_by_cluster
+
+```
+\
+\
+A testrun on this:
+```{r}
+#importing the cluster mask
+cluster_mask = read.csv(paste0(here::here(),"/../datos_1_intermedios/cluster_definition/2019_clustered_10.csv"), colClasses = "character")%>%
+  dplyr::select(ID_MESA, cluster)
+
+
+#################
+#some more data import for testing
+dat_2019_trep = read.csv(paste0(here::here(),"/../datos_0_crudos/2019/percentil_trep.csv"),
+                         colClasses = "character")%>%
+  dplyr::mutate_at(c("p1","p2","pm","pj"),as.numeric)
+names(dat_2019_trep) = plyr::revalue(names(dat_2019_trep), rename_vector)
+
+
+dat_2019_comp = read.csv(paste0(here::here(),"/../datos_0_crudos/2019/percentil_comp.csv"),
+                         colClasses = "character")%>%
+  dplyr::mutate_at(c("p1","p2","pm","pj"),as.numeric)
+names(dat_2019_comp) = plyr::revalue(names(dat_2019_comp), rename_vector)
+#####
+
+test_comb_dat = dplyr::full_join(dat_2019_final, dat_2019_comp, by = "ID_MESA")
+
+
+outlist = list()
+testbreaks = seq(4,100,4)
+for (i in 1:length(testbreaks)){
+  mybreak = testbreaks[i]
+  mydata = test_comb_dat %>%
+    dplyr::filter(pm < mybreak)%>%
+    mutate_at(c("CC","MAS", "PDC"), .funs = list(perc =~ get_perc(.,VV)))%>%
+    mutate(VV_perc = get_perc(VV,HAB))%>%
+    dplyr::select(!one_of("VV"))
+  names(mydata) = plyr::revalue(names(mydata),
+                                          c("MAS_perc" = "mas",
+                                            "CC_perc" = "cc",
+                                            "PDC_perc" = "pdc",
+                                            "VV_perc" = "vv"))
+  outlist[[i]] = predict_by_cluster(mydata, dat_2019_final, cluster_mask, "ID_MESA",
+                                    c("cc","mas","pdc"))[[3]]%>%
+    mutate(thresh = mybreak)
+}
+outframe = do.call("rbind", outlist)
+```
+
+```{r}
+outframe = outframe %>%
+  dplyr::mutate(MASmCC = (mas_mean_pred - cc_mean_pred)*100,
+                diff_unc_sterr = sqrt(mas_sterr_pred^2 + cc_sterr_pred^2)*100,
+                diff_unc_sd = sqrt(mas_sd_pred^2 + cc_sd_pred^2)*100)
+
+
+test_p = ggplot(data=outframe, aes(x= thresh, y = MASmCC))+
+  geom_hline(yintercept = 10, col = "red")+
+  geom_ribbon(aes(ymin = MASmCC - diff_unc_sterr, ymax = MASmCC + diff_unc_sterr), alpha = 0.3)+
+  geom_point()+
+  geom_line()+
+  scale_y_continuous(breaks = seq(0,100,1))+
+  labs(y="MAS - CC")
+
+test_p
+
+ggplot(data=outframe %>% dplyr::filter(thresh > 30), aes(x= thresh, y = MASmCC))+
+  geom_hline(yintercept = 10, col = "red")+
+  geom_ribbon(aes(ymin = MASmCC - diff_unc_sterr, ymax = MASmCC + diff_unc_sterr), alpha = 0.3)+
+  geom_point()+
+  geom_line()+
+  labs(y="MAS - CC")
+
+```
+
+
+
+
+
