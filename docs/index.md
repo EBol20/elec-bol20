@@ -18,7 +18,7 @@
 [Recintos georeferenciados](Ejemplos/Recintos_georeferenciados.md)
 
 
-## 2020 
+## Elecciones generales Bolivia 2020 
 1. [Diferencia MAS - CC (2020)](Ejemplos/carto_map_mas_cc.html)
 1. [Densidad 2020](Ejemplos/z040_densidad2020.html)
 
@@ -54,7 +54,7 @@ aqui solo ponemos texto
 </iframe>
 </details>
 
-## 2019
+## Cómo votamos en octubre de 2019
 1. [Diferencia MAS - CC (2019)](Ejemplos/carto_map_mas_cc.html)  
 1. [Diferencia MAS - CC (2019 (móvil))](Ejemplos/carto_map_mas_cc_movil.html) 
 1. [En el cómputo de 2019, ¿de dónde llegaron las mesas y en qué orden?](Ejemplos/z050_mostrar_mesas_faltantes.html)
