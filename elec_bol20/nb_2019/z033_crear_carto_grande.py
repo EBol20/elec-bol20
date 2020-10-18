@@ -159,23 +159,15 @@ code_slider = """
     }
     source.change.emit();
 """
-#sizing_mode="scale_width"
+
 # FIGURES
 pw = 700
-#cart_fig = Figure(plot_width=pw + int(.2 * pw), plot_height=pw, output_backend="webgl")
-#map_fig = Figure(plot_width=pw, plot_height=pw,
-#                 x_axis_type='mercator',
-#                 y_axis_type='mercator',
-#                 output_backend="webgl",
-#                 )
-cart_fig = Figure(sizing_mode="scale_both", max_width=700, max_height=700, output_backend="webgl")
-map_fig = Figure(sizing_mode="scale_both",max_width=700, max_height=700,
-x_axis_type='mercator',
-y_axis_type='mercator',
-output_backend="webgl",
-)
-
-
+cart_fig = Figure(plot_width=pw + int(.2 * pw), plot_height=pw, output_backend="webgl")
+map_fig = Figure(plot_width=pw, plot_height=pw,
+                 x_axis_type='mercator',
+                 y_axis_type='mercator',
+                 output_backend="webgl",
+                 )
 cart_fig.background_fill_color = "grey"
 cart_fig.background_fill_alpha = .5
 # cb_fig = bokeh.plotting.Figure(plot_height=pw,plot_width=)

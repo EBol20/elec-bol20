@@ -534,3 +534,50 @@ def get_la_lo_bolivia():
     lo = lo.tolist()
     la = la.tolist()
     return la, lo
+
+
+def get_dens_from_hab(f: pd.DataFrame):
+
+    lam = f['LAT'].min()
+    laM = f['LAT'].max()
+    lom = f['LON'].min()
+    loM = f['LON'].max()
+
+    R = .05
+    lam = np.floor(lam/R)* R - R
+    laM = np.ceil(laM/R)* R + R
+
+    lom = np.floor(lom/R)* R - R
+    loM = np.ceil(loM/R)* R + R
+
+    # %%
+    lo_range = np.arange(lom,loM+R/2,R)
+    la_range = np.arange(lam,laM+R/2,R)
+    lo_lab = lo_range[:-1] + R/2
+    la_lab = la_range[:-1] + R/2
+
+    # %%
+
+    # %%
+    d,_,_ = np.histogram2d(f['LON'],f['LAT'],bins=(lo_range,la_range),weights=f['HAB'])
+
+    from scipy.ndimage import gaussian_filter as gf
+    d1 = gf(d,sigma=.5)
+
+    # %%
+    ar = xr.DataArray(d1.T,dims= ['LAT','LON'] , coords={'LAT':la_lab,'LON':lo_lab})
+
+    # %%
+    de = ar/(R*R * 100 * 100)
+
+
+    # %%
+    LA = xr.DataArray(f['LAT'], dims=f.index.name)
+    LO = xr.DataArray(f['LON'], dims=f.index.name)
+
+    # %%
+    de.name = 'DEN'
+    res = de.interp({'LAT':LA,'LON':LO}).to_dataframe()
+    f_out = f.copy()
+    f_out['DEN'] = res['DEN']
+    return f_out
