@@ -1,6 +1,6 @@
 # **Guía de uso** 
 ## Gráfica Carto MAS-CC:
-Es el mapa comparativo entre las dos principales fuerzas políticas (de acuerdo con la mayoría de las encuestas y tendencias difundidas en diversos medios de comunicación). Mide principalmente la diferencia de puntos porcentuales que tiene un partido por sobre el otro.
+Es el mapa comparativo entre las dos fuerzas políticas con mayor intención de voto (de acuerdo con las encuestas y tendencias difundidas en diversos medios de comunicación). Mide principalmente la diferencia de puntos porcentuales que tiene un partido por sobre el otro.
 * Cada punto representa un recinto electoral.
 * El tamaño de cada círculo representa la cantidad de votantes en cada recinto, mientras más grande, más densamente poblado.
 * Al colocar el cursor sobre cualquier punto aparecerá un cuadro con la siguiente información: 
