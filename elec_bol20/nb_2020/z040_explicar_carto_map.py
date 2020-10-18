@@ -307,7 +307,8 @@ cart_fig.add_layout(cb, 'left')
 #     [[slider, None], [cart_fig, map_fig]]
 #     , merge_tools=False
 # )
-layout = bokeh.layouts.column([slider, cart_fig])
+layout = bokeh.layouts.column([slider, cart_fig], sizing_mode='scale_width')
+layout.width = 800
 
 cart_fig.x_range.start = -80
 cart_fig.x_range.end = -45
