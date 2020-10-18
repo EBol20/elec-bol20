@@ -199,9 +199,18 @@ code_slider = """
 """
 
 # FIGURES
-pw = FIG_WIDTH
-cart_fig = Figure(plot_width=pw, plot_height=pw, output_backend="webgl")
-map_fig = Figure(plot_width=pw, plot_height=pw,
+# -------------------------------- commented
+#pw = FIG_WIDTH
+#cart_fig = Figure(plot_width=pw, plot_height=pw, output_backend="webgl")
+#map_fig = Figure(plot_width=pw, plot_height=pw,
+#                 x_axis_type='mercator',
+#                 y_axis_type='mercator',
+#                 output_backend="webgl",
+#                 )
+#----------------------------------- END commented
+cart_fig = Figure(sizing_mode="scale_both", max_width=700, max_height=700,
+                  output_backend="webgl")
+map_fig = Figure(sizing_mode="scale_both", max_width=700, max_height=700,
                  x_axis_type='mercator',
                  y_axis_type='mercator',
                  output_backend="webgl",
@@ -293,7 +302,8 @@ map_fig.add_tools(hover_map, )
 callback_slider = CustomJS(args=dict(source=source_master),
                            code=code_slider)
 
-slider = Slider(start=0, end=1, value=cart_init_val, step=.01, title="carto")
+#slider = Slider(start=0, end=1, value=cart_init_val, step=.01, title="carto")
+slider = Slider(start=0, end=1, value=cart_init_val, step=.02, title="carto")
 slider.js_on_change('value', callback_slider)
 
 # %%
@@ -321,7 +331,7 @@ cart_fig.title.align='center'
 
 # layout = row(column(slider, cart_f),map_f)
 layout = bokeh.layouts.gridplot(
-    [[slider], [cart_fig], [map_fig]]
+    [[slider, None], [cart_fig, map_fig]]
     , merge_tools=False
 )
 # layout = bokeh.layouts.column([slider, cart_fig])
