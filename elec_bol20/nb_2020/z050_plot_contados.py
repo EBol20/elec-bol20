@@ -142,26 +142,36 @@ p.title.text = ''
 x = den1[den1.index>=0]['mid'].mean()
 p.text(x=[x],y=[120],text=['Nacional'])
 
+an = .4
 x = den1[den1.index==0]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad baja'],angle=.5, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad baja'],angle=an, text_font_size="8pt")
 
 x = den1[den1.index==1]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad media'],angle=.5, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad media'],angle=an, text_font_size="8pt")
 
 x = den1[den1.index==2]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad moderada'],angle=.5, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad moderada'],angle=an, text_font_size="8pt")
 
 x = den1[den1.index==3]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad alta'],angle=.5, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad alta'],angle=an, text_font_size="8pt")
 
 x = den1[den1.index<0]['mid'].mean()
 p.text(x=[x],y=[110],text=['Exterior'],text_align='center')
 p.xaxis.visible = False
 p.xgrid.visible = False
 p.ygrid.visible = False
+f.yaxis.visible = False
+f.yaxis.visible = False
 p.y_range.start=0
 p.y_range.end=130
+p.yaxis.axis_label="Porcentage"
+ppp=den1['counted'].sum()/den1['HAB'].sum() * 100
+p.title.text = f'Porcentage de votos computados divididos por densidad (total computado={ppp:0.1f}%)'
+p.xaxis.axis_label=f'Porcentage total de votos computados = ({ppp:0.1f}%)'
+p.toolbar.logo = None
+p.toolbar_location = None
 
+f.title.text = "Cartolocación de las mesas"
 
 for l,r in den1.iterrows():
     if l ==-1:
@@ -175,14 +185,49 @@ lay = bokeh.layouts.row([p,f])
 # lay = p 
 bokeh.plotting.show(lay)
 # %%
-den1
+_c = ['CREEMOS',	'MAS',	'FPV',	'PAN_BOL',	'CC']
+dd= df2[[*_c,'VV']].copy()
+res = dd[_c].sum()/dd['VV'].sum()*100
+res.name = 'per'
+res.index.name ='party'
+res= res.reset_index()
+res
 
+
+
+# %%
+from bokeh.io import output_file, show
+from bokeh.models import ColumnDataSource
+from bokeh.palettes import Spectral6
+from bokeh.plotting import figure
+from bokeh.transform import factor_cmap
+
+# output_file("bar_colormapped.html")
+
+fruits = ['Apples', 'Pears', 'Nectarines', 'Plums', 'Grapes', 'Strawberries']
+counts = [5, 3, 4, 2, 4, 6]
+
+source = ColumnDataSource(res)
+
+p = figure(x_range=fruits, plot_height=350, toolbar_location=None, title="Fruit Counts")
+p.vbar(x='index', top='per', width=0.9, source=source, legend_field="party",
+       line_color='white', fill_color=factor_cmap('party', palette=Spectral6, factors=res['party']))
+
+p.xgrid.grid_line_color = None
+p.y_range.start = 0
+p.y_range.end = 9
+p.legend.orientation = "horizontal"
+p.legend.location = "top_center"
+
+show(p)
+
+# %%
+den1['tc']=den1['top_c'].apply(_t)
+den1['tv']=den1['counted'].apply(_t1)
+den1['text'] = den1.apply(_t2,axis=1)
 
 # %%
 
 # %%
-
-# %%
-den1
 
 # %%
