@@ -15,7 +15,10 @@ y = z.load_file(df0, _mean=['X', 'Y', 'LAT', 'LON', 'DEN', ], _sum=['HAB', 'CC',
 bot_time = ebu.get_bolivian_time(-3)["str_val"]
 #print(bot_time)
 
-goal_dir = os.path.join(os.getcwd(), "../../my_dir")
+goal_dir = os.path.join(ebu.DIR)
+
+#par dir ya esta en elec-bol20
+par_dir = os.path.pardir(goal_dir)
 
 
 #path_cart_maps=os.path.join(os.getcwd().,"../../carto_maps")

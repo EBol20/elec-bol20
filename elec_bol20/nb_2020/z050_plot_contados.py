@@ -23,6 +23,8 @@
 # datos para que luego sean procesados
 
 # %%
+
+# %%
 # import
 from elec_bol20 import *
 import elec_bol20.util as ebu
@@ -35,53 +37,17 @@ import bokeh.tile_providers
 
 
 # %%
-p = os.path.join(ebu.DATA_PATH1_2020,'z050R_dummy_votearrival_20.csv')
-df_comp = pd.read_csv(p).set_index('ID_MESA')
-['ID_MESA', 'HAB', 'INHAB', 'VV']
-
-df_comp['ID_RECI'] = (df_comp.index/100).astype(np.int64)
-df_comp['COUNT'] = True
-
-p = os.path.join(ebu.DATA_PATH1_2020,'z010R_geopadron_mesas_2020_ALL.csv')
-df_all = pd.read_csv(p).set_index('ID_MESA')
-['ID_RECI', 'ID_MESA', 'HAB', 'INHAB']
-
-df_all['VV'] = 0
-df_all['COUNT'] = False
-# %%
-p = os.path.join(ebu.DATA_PATH1_2020,'z020_geopadron_recintos_2020_ALL_DEN.csv')
-df_den = pd.read_csv(p).set_index('ID_RECI')
-['ID_RECI', 'LAT', 'LON', 'HAB', 'INHAB', 'PAIS', 'N_MESAS', 'REC',
- 'MUN', 'BOL', 'CIU', 'PROV', 'DEP', 'URB', 'DEN_C', 'DEN']
-
-df_den = df_den[['LAT', 'LON', 'PAIS', 'N_MESAS', 'REC',
-                 'MUN', 'BOL', 'CIU', 'PROV', 'DEP', 'URB', 'DEN_C', 'DEN']]
+bokeh.plotting.output_file(os.path.join(ebu.DIR,'htlml_1_intermedios/2020/z050_panel.html'))
 
 # %%
-_s  = df_comp.index.isin(df_all.index)
-assert (~_s).sum() == 0
-# %%
-b = ~df_all.index.isin(df_comp.index)
-df_trim = df_all[b]
-assert len(df_all) - len(df_comp) == len(df_trim)
-# %%
-df_concat = pd.concat([df_comp,df_trim])
-
-# %%
-df_full = df_concat.join(df_den,how='left',on='ID_RECI')
-# %%
-p = os.path.join(ebu.DATA_PATH1_2020,'z030_carto_xy.csv')
-df_xy = pd.read_csv(p).set_index('ID_RECI')
-df2 = df_full.join(df_xy,on='ID_RECI',how='left')
-# %%
-res = pd.cut(df2['DEN'],ebu.DEN_LIMS,labels=ebu.DEN_CODES)
-df2['DEN_CODES'] = res.astype(int)
-
-# %%
-
+df2= ebu.get_dataframe_2020()
 
 
 # %%
+df2['COUNT'].sum()
+
+# %%
+df2['HAB']
 
 # %%
 bokeh.plotting.output_notebook()
@@ -102,18 +68,13 @@ sr1 = bokeh.models.ColumnDataSource(s1)
 sr2 = bokeh.models.ColumnDataSource(s2)
 
 
-f = bokeh.plotting.figure(output_backend="webgl")
-f.scatter(x='xj',y='yj',source = sr2,color=COL_FALTA,radius=.05, alpha=1, legend_label='Mesas faltantes')
-f.scatter(x='xj',y='yj',source = sr1,color=COL_LLEGO,radius=.05, alpha=1, legend_label='Mesas computadas')
+f = bokeh.plotting.figure(output_backend="webgl",height=500,width=500)
+f.scatter(x='xj',y='yj',source = sr2,color=COL_FALTA,radius=.05, alpha=1, legend_label='Mesas por computar (haz click)')
+f.scatter(x='xj',y='yj',source = sr1,color=COL_LLEGO,radius=.05, alpha=1, legend_label='Mesas computadas (haz click)')
 f.legend.click_policy="hide"
 
 
 
-
-
-bokeh.plotting.show(f)
-# %%
-df2
 
 # %%
 dfn = df2.copy()
@@ -142,7 +103,10 @@ den['width'] = den['HAB']-(tot*.01)
 den2 = den.copy()
 
 # %%
-den1['counted'] = den['HAB']
+dfn['HAB']
+
+# %%
+den1['counted'] = den2['HAB'].astype(np.int64)
 
 # %%
 den1['top_c'] =den1['counted']/den1['HAB']*100
@@ -153,40 +117,116 @@ den1.loc[-1,'mid'] = den1.loc[-1,'mid'] - 1000000
 # %%
 df2[df2['COUNT']]['HAB'].sum()
 
+def _t(s): 
+    if np.isnan(s): s=0
+    return f'{s:0.1f}'
+
+def _t1(s): 
+    if np.isnan(s): s=0
+    return f'{s:0.0f}'
+
+def _t2(r):
+#     return f'{r["tv"]} ({r["tc"]} %)'
+    return f'{r["tc"]}%'
+
+den1['tc']=den1['top_c'].apply(_t)
+den1['tv']=den1['counted'].apply(_t1)
+den1['text'] = den1.apply(_t2,axis=1)
+
 # %%
 
 
-p = bokeh.plotting.figure(height=400)
+p = bokeh.plotting.figure(height=250)
 # fi = bokeh.plotting.figure()
 p.vbar(x=den1['mid'],width=den1['width'],top=den1['top'],color=COL_FALTA)
 p.vbar(x=den1['mid'],width=den1['width'],top=den1['top_c'],color=COL_LLEGO)
 p.title.text = ''
 
 x = den1[den1.index>=0]['mid'].mean()
-p.text(x=[x],y=[120],text=['Nacional'])
+p.text(x=[x],y=[140],text=['Nacional'])
 
+an = .35
 x = den1[den1.index==0]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad baja'],angle=.5, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad baja (0-50)'],angle=an, text_font_size="8pt")
 
 x = den1[den1.index==1]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad media'],angle=.5, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad media (50-500)'],angle=an, text_font_size="8pt")
 
 x = den1[den1.index==2]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad moderada'],angle=.5, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad moderada (500-1500)'],angle=an, text_font_size="8pt")
 
 x = den1[den1.index==3]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad alta'],angle=.5, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad alta > 1500'],angle=an, text_font_size="8pt")
 
 x = den1[den1.index<0]['mid'].mean()
 p.text(x=[x],y=[110],text=['Exterior'],text_align='center')
+p.xaxis.visible = False
+p.xgrid.visible = False
+p.ygrid.visible = False
+f.yaxis.visible = False
+f.yaxis.visible = False
+p.y_range.start=0
+p.y_range.end=160
+p.yaxis.axis_label="Porcentaje"
+ppp=den1['counted'].sum()/den1['HAB'].sum() * 100
+p.title.text = f'Porcentaje de votos computados por densidad (total computado={ppp:0.1f}%)'
+p.xaxis.axis_label=f'Porcentaje total de votos computados = ({ppp:0.1f}%)'
+p.toolbar.logo = None
+p.toolbar_location = None
 
-# lay = bokeh.layouts.row([fi,p])
-lay = p 
+f.title.text = "Cartolocación de las mesas"
+
+for l,r in den1.iterrows():
+    if l ==-1:
+        x = r['mid'] + 400000
+    else:
+        x = r['mid']
+    
+    p.text(x=x,y=[r['tc']],text=[r['text']],text_align='center',text_font_size="8pt")
+    
+    
+    
+_c = ['CREEMOS',	'MAS',	'FPV',	'PAN_BOL',	'CC']
+dd= df2[[*_c,'VV']].copy()
+res = dd[_c].sum()/dd['VV'].sum()*100
+res.name = 'per'
+res.index.name ='party'
+res= res.reset_index()
+res['i'] =  res.index+.5
+se = pd.Series(ebu.C_DIC)
+se.name='colors'
+res = pd.merge(res,se,left_on='party',right_index=True)
+
+source = ColumnDataSource(res)
+
+r = bokeh.plotting.figure(x_range=res['party'], toolbar_location=None,height=250)
+r.vbar(x='i', top='per', width=0.9, source=source,
+       line_color='white', fill_color=bokeh.transform.factor_cmap('party', palette=res['colors'], factors=res['party']))
+
+r.xgrid.grid_line_color = None
+r.y_range.start = 0
+r.y_range.end = np.ceil(res['per'].max()/20)*20
+r.title.text = f'Porcentaje sobre el total de votos válidos computados ({ppp:0.1f}%)'
+
+l0 = bokeh.layouts.column(p,r)
+lay = bokeh.layouts.row([l0,f])
+# lay = p 
 bokeh.plotting.show(lay)
 # %%
-den1[den1.index>=0]['mid'].mean()
+
 
 # %%
-x
+
+
+
+
+
+# %%
+
+# %%
+
+# %%
+
+# %%
 
 # %%

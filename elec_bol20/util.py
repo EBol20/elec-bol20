@@ -207,6 +207,14 @@ P_GRAD_MAS = [*bokeh.palettes.Blues7[::-1]]
 P_GRAD_CREEMOS = [*bokeh.palettes.Reds8[::-1]]
 P_GRAD_PANBOL = [*bokeh.palettes.YlOrRd8[::-1]]
 
+C_DIC = {
+    'CC':P_GRAD_CC[-2],
+    'FPV':P_GRAD_FPV[-2],
+    'MAS':P_GRAD_MAS[-1],
+    'CREEMOS':P_GRAD_CREEMOS[-1],
+    'PAN_BOL':P_GRAD_PANBOL[-1],
+}
+
 # %%
 # FUNCTIONS
 
@@ -607,7 +615,7 @@ def get_dataframe_2020():
     b_ = df_comp["CANDIDATURA"] == "PRESIDENTE"
     df_comp = df_comp[b_]
     co = ['VV', 'BL', 'NU', 'VOTO_EMITIDO','CREEMOS', 'MAS', 'FPV',
-          'PAN_BOL', 'CC','NUA']
+          'PAN_BOL', 'CC','NUA','HAB']
     df_comp = df_comp[co]
 
     df_comp['ID_RECI'] = (df_comp.index/100).astype(np.int64)
