@@ -28,7 +28,7 @@ class CartoPlots:
     C_BAR_LOW = -80
     PALETTE = ebu.P_DIF
     CART_SLIDER_INIT = .5
-    FILE_OUT = ebu.DIR + '/htlml_1_intermedios/2020/z036_'
+    FILE_OUT = ebu.DIR + '/htlml_1_intermedios/2020/'
 
     MAP_CIRCLE_SIZE_OFFSET = 5
     RATIO_CIRCLE_MAP = 7
@@ -140,7 +140,7 @@ class CartoPlots:
         assert rec_df.isna().sum().sum() == 0
         return rec_df
 
-    def plot_carto_single(self, data, frente, palette, name_file="test.html", low=0, high=100):
+    def plot_carto_single(self, data, frente, palette, path=FILE_OUT, name_file="test", low=0, high=100, show_plot=True):
         """
 
         :param data: df loaded by data_load
@@ -157,7 +157,7 @@ class CartoPlots:
             frente="d_mas_cc"
 
 
-        bokeh.plotting.output_file(self.FILE_OUT+'_'+frente+'_'+name_file)
+        bokeh.plotting.output_file(path+'z037_'+frente+'_'+name_file+'.html')
         cart_init_val = self.CART_SLIDER_INIT # add slider
         data['x'] = data['LON'] * (1 - cart_init_val) + data['X'] * cart_init_val
         data['y'] = data['LAT'] * (1 - cart_init_val) + data['Y'] * cart_init_val
@@ -369,6 +369,7 @@ class CartoPlots:
         cart_fig.yaxis.minor_tick_line_color = None
         cart_fig.xaxis.major_label_text_font_size = '0pt'  # turn off x-axis tick labels
         cart_fig.yaxis.major_label_text_font_size = '0pt'  # turn off y-axis tick labels
+        if show_plot:
+            bokeh.plotting.show(layout)
 
-        bokeh.plotting.show(layout)
         return data

@@ -1,7 +1,7 @@
 import elec_bol20 as eb
 from elec_bol20 import *
 from scipy.ndimage import gaussian_filter
-
+import datetime
 # %%
 # CONSTANTS
 
@@ -651,3 +651,23 @@ def get_dataframe_2020():
     res = pd.cut(df2['DEN'],eb.util.DEN_LIMS,labels=eb.util.DEN_CODES)
     df2['DEN_CODES'] = res.astype(int)
     return df2
+
+
+def get_bolivian_time(diff_utc):
+    """
+    :param:
+        diff_utc -- input localtime difference in hours from UTC: e.g. if Argentina (UTC-3): diff_utc:-3
+    : return:
+         dictionary: str_val, datetime_val
+    """
+    diff = -4 -diff_utc
+    current_time_LOC = datetime.datetime.now()
+    horas_added = datetime.timedelta(hours=diff)
+    current_time_BOT = current_time_LOC + horas_added
+    timeBOT = current_time_BOT.strftime("%Y%m%d%H%M%S")
+    bolivian_time = {
+        "str_val":timeBOT,
+        "datetime_val": current_time_BOT
+    }
+    return bolivian_time
+
