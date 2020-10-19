@@ -39,9 +39,8 @@ import bokeh.tile_providers
 # %%
 df2= ebu.get_dataframe_2020()
 
+
 # %%
-
-
 
 # %%
 
@@ -65,17 +64,12 @@ sr2 = bokeh.models.ColumnDataSource(s2)
 
 
 f = bokeh.plotting.figure(output_backend="webgl")
-f.scatter(x='xj',y='yj',source = sr2,color=COL_FALTA,radius=.05, alpha=1, legend_label='Mesas faltantes')
-f.scatter(x='xj',y='yj',source = sr1,color=COL_LLEGO,radius=.05, alpha=1, legend_label='Mesas computadas')
+f.scatter(x='xj',y='yj',source = sr2,color=COL_FALTA,radius=.05, alpha=1, legend_label='Mesas faltantes (haz click)')
+f.scatter(x='xj',y='yj',source = sr1,color=COL_LLEGO,radius=.05, alpha=1, legend_label='Mesas computadas (haz click)')
 f.legend.click_policy="hide"
 
 
 
-
-
-bokeh.plotting.show(f)
-# %%
-df2
 
 # %%
 dfn = df2.copy()
@@ -142,11 +136,12 @@ p.text(x=[x],y=[101],text=['Densidad alta'],angle=.5, text_font_size="8pt")
 x = den1[den1.index<0]['mid'].mean()
 p.text(x=[x],y=[110],text=['Exterior'],text_align='center')
 
-# lay = bokeh.layouts.row([fi,p])
-lay = p 
+lay = bokeh.layouts.row([p,f])
+# lay = p 
 bokeh.plotting.show(lay)
 # %%
-den1[den1.index>=0]['mid'].mean()
+layout.max_width
+
 
 # %%
 x
