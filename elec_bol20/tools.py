@@ -231,12 +231,14 @@ class CartoPlots:
         """
 
         # FIGURES
+        curr_time= ebu.get_bolivian_time(-3)
         pw = self.FIG_WIDTH
         cart_fig = Figure(plot_width=pw, plot_height=pw, output_backend="webgl")
         map_fig = Figure(plot_width=pw, plot_height=pw,
                          x_axis_type='mercator',
                          y_axis_type='mercator',
                          output_backend="webgl",
+                         title="Última actualización: "+curr_time["datetime_val"].strftime("%Y-%m-%d %H:%M")
                          )
         cart_fig.background_fill_color = "grey"
         cart_fig.background_fill_alpha = .5
