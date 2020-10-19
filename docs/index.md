@@ -19,6 +19,7 @@ El segundo diagrama muestra el avance del cómputo oficial de votos en Bolivia y
 Por último, el cartograma del final muestra de dónde provienen las mesas computadas y dónde están las mesas que aún no se han contabilizado oficialmente. Cada uno de estos gráficos se actualiza constantemente con la información oficial del cómputo que realiza el TSE por lo que la variación en el tiempo depende de la disponibilidad de los datos en la página: 
 [https://computo.oep.org.bo/](https://computo.oep.org.bo/)
 
+## Cartograma diferencia MAS - CC 2020
 
 <iframe src="Ejemplos/z060_carto_map_mas_c0_2020c.html"
     sandbox="allow-same-origin allow-scripts"
@@ -34,7 +35,7 @@ Por último, el cartograma del final muestra de dónde provienen las mesas compu
 
 
 
-Cartograma diferencia MAS - CC 2020 (Datos en proceso)
+
 
 [Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
 
