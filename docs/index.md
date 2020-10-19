@@ -33,8 +33,8 @@ El tercer cartograma muestra de dónde provienen las mesas computadas y dónde e
 
 <iframe src="graficas_htmls/z037_d_mas_cc_latest.html"
     sandbox="allow-same-origin allow-scripts"
-    width="80%"
-    height="850"
+    width="95%"
+    height="600"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
