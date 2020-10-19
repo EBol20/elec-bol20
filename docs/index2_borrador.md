@@ -5,6 +5,13 @@ onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px
 width="100%"
 </iframe>
 
+<iframe 
+src="graficas_htmls/z037_cc_latest.html" 
+    sandbox="allow-same-origin allow-scripts"
+onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">
+width="500"
+</iframe>
+
 
 <iframe src="Ejemplos/z050_panel.html"
     sandbox="allow-same-origin allow-scripts"
