@@ -351,7 +351,7 @@ class CartoPlots:
         ml = {int(i): str(np.abs(i)) for i in np.arange(-80, 81, 20)}
         cb = bokeh.models.ColorBar(
             color_mapper=cm['transform'],
-            width=int(.9 * 500),
+            width=int(.9 * 450),
             location=(0, 0),
             #     title="DEN (N/km^2)",
             # title=(BAR_TITLE),
