@@ -60,7 +60,10 @@ np.random.seed(100)
 df2['xj'] = df2['X'] + np.random.rand(ll) * .5
 np.random.seed(200)
 df2['yj'] = df2['Y'] + np.random.rand(ll) * .5
-cols = ['yj','xj']
+cols = ['yj','xj','PAIS','MUN','REC','HAB','COU']
+
+df2['COU'] = 'No'
+df2.loc[df2['COUNT'],'COU'] = 'Sí'
 
 s1 = df2[df2['COUNT']][cols]
 s2 = df2[~df2['COUNT']][cols]
@@ -98,7 +101,7 @@ den = gr[['HAB']].sum()
 den['cum'] = den['HAB'].cumsum()
 tot = den['HAB'].sum()
 den['mid'] = den['cum'] - den['HAB']/2
-den['top'] = 1 
+den['top'] = 1
 den['width'] = den['HAB']-(tot*.01)
 den2 = den.copy()
 
@@ -117,11 +120,11 @@ den1.loc[-1,'mid'] = den1.loc[-1,'mid'] - 1000000
 # %%
 df2[df2['COUNT']]['HAB'].sum()
 
-def _t(s): 
+def _t(s):
     if np.isnan(s): s=0
     return f'{s:0.1f}'
 
-def _t1(s): 
+def _t1(s):
     if np.isnan(s): s=0
     return f'{s:0.0f}'
 
@@ -181,11 +184,11 @@ for l,r in den1.iterrows():
         x = r['mid'] + 400000
     else:
         x = r['mid']
-    
+
     p.text(x=x,y=[r['tc']],text=[r['text']],text_align='center',text_font_size="8pt")
-    
-    
-    
+
+
+
 _c = ['CREEMOS',	'MAS',	'FPV',	'PAN_BOL',	'CC']
 dd= df2[[*_c,'VV']].copy()
 res = dd[_c].sum()/dd['VV'].sum()*100
@@ -208,11 +211,32 @@ r.y_range.start = 0
 r.y_range.end = np.ceil(res['per'].max()/20)*20
 r.title.text = f'Porcentaje sobre el total de votos válidos computados ({ppp:0.1f}%)'
 
-l0 = bokeh.layouts.column([p,r,f],sizing_mode='scale_width')
+
+TOOL_TIP = [
+    ('Inscritos', '@HAB'),
+    ('PAIS, Municipalidad', '@PAIS, @MUN'),
+    ('Recinto', '@REC'),
+    ('Computada','@COU'),
+    # ('MAS [%]', '@mas{0.0}'),
+    # ('CC [%]','@cc{0.0}'),
+    # ('Diferencia [%]', '@ad_mas_cc{0.0} (@mas_o_cc)'),
+    ('------','------')
+    # ('DEN %', '@DEN')
+    # ('PAIS', '@PAIS'),
+]
+
+hover_map = bokeh.models.HoverTool(
+    tooltips=TOOL_TIP,
+    # callback=callback_red_car,
+    # renderers = [red_scat_map]
+)
+f.add_tools(hover_map )
+
+l0 = bokeh.layouts.column([r,p,f],sizing_mode='scale_width')
 lay = l0
 l0.max_width = 700
 # lay = bokeh.layouts.row([l0,f])
-# lay = p 
+# lay = p
 bokeh.plotting.show(lay)
 # %%
 
