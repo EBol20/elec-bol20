@@ -1,5 +1,7 @@
 # Visualización y análisis de las Elecciones generales de Bolivia 2020
 
+###### Sitio optimizado para computadoras de escritorio
+
 ## Elecciones generales Bolivia 2020 
 
 #### Datos en tiempo real
@@ -54,6 +56,7 @@ El tono de color azul o naranja es claro cuando la diferencia en porcentajes es 
 ![Leyenda un recinto](img/Leyenda_un_recinto.png)
 
 
+## Cartograma densidad votacional
 
 [Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
 
@@ -82,4 +85,6 @@ El tono de color azul o naranja es claro cuando la diferencia en porcentajes es 
 
 ## Sobre nosotros
 [Nuestro aporte](Ejemplos/Nuestro_aporte.md)
+
+###### [pruebas](index2_borrador.md) 
 

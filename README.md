@@ -1,5 +1,5 @@
 # intro 
-Este es un modelo simple para visualizar y predecir resultados de las elecciones 2020 de Bolivia
+Repositorio en construcción y continua adaptación. 
 
 # instrucciones de instalación
 descargar requerimientos
