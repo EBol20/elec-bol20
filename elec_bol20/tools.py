@@ -28,7 +28,7 @@ class CartoPlots:
     C_BAR_LOW = -80
     PALETTE = ebu.P_DIF
     CART_SLIDER_INIT = .5
-    FILE_OUT = ebu.DIR + '/htlml_1_intermedios/2020/z037_'
+    FILE_OUT = ebu.DIR + '/htlml_1_intermedios/2020/'
 
     MAP_CIRCLE_SIZE_OFFSET = 5
     RATIO_CIRCLE_MAP = 7
