@@ -25,6 +25,10 @@
 # %%
 
 # %%
+
+# %%
+
+# %%
 # import
 from elec_bol20 import *
 import elec_bol20.util as ebu
@@ -38,6 +42,7 @@ import bokeh.tile_providers
 
 # %%
 bokeh.plotting.output_file(os.path.join(ebu.DIR,'htlml_1_intermedios/2020/z050_panel.html'))
+# bokeh.plotting.output_notebook()
 
 # %%
 df2= ebu.get_dataframe_2020()
@@ -60,7 +65,10 @@ np.random.seed(100)
 df2['xj'] = df2['X'] + np.random.rand(ll) * .5
 np.random.seed(200)
 df2['yj'] = df2['Y'] + np.random.rand(ll) * .5
-cols = ['yj','xj']
+cols = ['yj','xj','PAIS','MUN','REC','HAB','COU']
+
+df2['COU'] = 'No'
+df2.loc[df2['COUNT'],'COU'] = 'Sí'
 
 s1 = df2[df2['COUNT']][cols]
 s2 = df2[~df2['COUNT']][cols]
@@ -98,7 +106,7 @@ den = gr[['HAB']].sum()
 den['cum'] = den['HAB'].cumsum()
 tot = den['HAB'].sum()
 den['mid'] = den['cum'] - den['HAB']/2
-den['top'] = 1 
+den['top'] = 1
 den['width'] = den['HAB']-(tot*.01)
 den2 = den.copy()
 
@@ -117,11 +125,11 @@ den1.loc[-1,'mid'] = den1.loc[-1,'mid'] - 1000000
 # %%
 df2[df2['COUNT']]['HAB'].sum()
 
-def _t(s): 
+def _t(s):
     if np.isnan(s): s=0
     return f'{s:0.1f}'
 
-def _t1(s): 
+def _t1(s):
     if np.isnan(s): s=0
     return f'{s:0.0f}'
 
@@ -181,11 +189,11 @@ for l,r in den1.iterrows():
         x = r['mid'] + 400000
     else:
         x = r['mid']
-    
+
     p.text(x=x,y=[r['tc']],text=[r['text']],text_align='center',text_font_size="8pt")
-    
-    
-    
+
+
+
 _c = ['CREEMOS',	'MAS',	'FPV',	'PAN_BOL',	'CC']
 dd= df2[[*_c,'VV']].copy()
 res = dd[_c].sum()/dd['VV'].sum()*100
@@ -203,16 +211,43 @@ r = bokeh.plotting.figure(x_range=res['party'], toolbar_location=None,height=250
 r.vbar(x='i', top='per', width=0.9, source=source,
        line_color='white', fill_color=bokeh.transform.factor_cmap('party', palette=res['colors'], factors=res['party']))
 
+def _f(p): return f'{p:0.1f}%'
+res['t']=res['per'].apply(_f)
+
+r.text(x=res['i'],y=res['per'],text=res['t'],text_align='center')
+
 r.xgrid.grid_line_color = None
 r.y_range.start = 0
 r.y_range.end = np.ceil(res['per'].max()/20)*20
 r.title.text = f'Porcentaje sobre el total de votos válidos computados ({ppp:0.1f}%)'
 
-l0 = bokeh.layouts.column([p,r,f],sizing_mode='scale_width')
+
+TOOL_TIP = [
+    ('Inscritos', '@HAB'),
+    ('PAIS, Municipalidad', '@PAIS, @MUN'),
+    ('Recinto', '@REC'),
+    ('Computada','@COU'),
+    # ('MAS [%]', '@mas{0.0}'),
+    # ('CC [%]','@cc{0.0}'),
+    # ('Diferencia [%]', '@ad_mas_cc{0.0} (@mas_o_cc)'),
+    ('------','------')
+    # ('DEN %', '@DEN')
+    # ('PAIS', '@PAIS'),
+]
+
+hover_map = bokeh.models.HoverTool(
+    tooltips=TOOL_TIP,
+    # callback=callback_red_car,
+    # renderers = [red_scat_map]
+)
+f.add_tools(hover_map )
+
+l0 = bokeh.layouts.column([r,p,f],sizing_mode='scale_width')
 lay = l0
 l0.max_width = 700
 # lay = bokeh.layouts.row([l0,f])
-# lay = p 
-bokeh.plotting.show(lay)
+# lay = p
 # %%
+bokeh.plotting.show(lay)
 
+# %%
