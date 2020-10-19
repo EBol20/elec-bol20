@@ -610,7 +610,7 @@ def get_dens_from_hab(f: pd.DataFrame):
 ###########################
 
 def get_dataframe_2020():
-    p = os.path.join(eb.util.DATA_PATH1_2020,'comp/exportacion_EG2020_actual.csv')
+    p = os.path.join(DATA_PATH1_2020,'comp/exportacion_EG2020_actual.csv')
     df_comp = pd.read_csv(p).set_index('ID_MESA')
     b_ = df_comp["CANDIDATURA"] == "PRESIDENTE"
     df_comp = df_comp[b_]
