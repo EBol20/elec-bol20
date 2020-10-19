@@ -25,6 +25,10 @@
 # %%
 
 # %%
+
+# %%
+
+# %%
 # import
 from elec_bol20 import *
 import elec_bol20.util as ebu
@@ -38,6 +42,7 @@ import bokeh.tile_providers
 
 # %%
 bokeh.plotting.output_file(os.path.join(ebu.DIR,'htlml_1_intermedios/2020/z050_panel.html'))
+# bokeh.plotting.output_notebook()
 
 # %%
 df2= ebu.get_dataframe_2020()
@@ -206,6 +211,11 @@ r = bokeh.plotting.figure(x_range=res['party'], toolbar_location=None,height=250
 r.vbar(x='i', top='per', width=0.9, source=source,
        line_color='white', fill_color=bokeh.transform.factor_cmap('party', palette=res['colors'], factors=res['party']))
 
+def _f(p): return f'{p:0.1f}%'
+res['t']=res['per'].apply(_f)
+
+r.text(x=res['i'],y=res['per'],text=res['t'],text_align='center')
+
 r.xgrid.grid_line_color = None
 r.y_range.start = 0
 r.y_range.end = np.ceil(res['per'].max()/20)*20
@@ -237,6 +247,7 @@ lay = l0
 l0.max_width = 700
 # lay = bokeh.layouts.row([l0,f])
 # lay = p
-bokeh.plotting.show(lay)
 # %%
+bokeh.plotting.show(lay)
 
+# %%
