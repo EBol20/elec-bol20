@@ -40,7 +40,7 @@ El tercer cartograma muestra de dónde provienen las mesas computadas y dónde e
     frameborder="0">
 </iframe>
 
-[Ver en tamaño completo](Ejemplos/z060_carto_map_mas_c0_2020c.html)
+[Ver en tamaño completo](graficas_htmls/z037_d_mas_cc_latest.html)
 
 
 
