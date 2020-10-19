@@ -3,7 +3,6 @@ src="graficas_htmls/z037_cc_latest.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
 onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">
-
 </iframe>
 
 
@@ -12,8 +11,7 @@ onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px
 src="graficas_htmls/z037_cc_latest.html" 
     sandbox="allow-same-origin allow-scripts"
     width="500"
-onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';"
-
+    onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">
 </iframe>
 
 
@@ -31,7 +29,6 @@ onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px
 src="graficas_htmls/z037_creemos_latest.html" 
 sandbox="allow-same-origin"
 onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">
-width="90%"
 </iframe>
 
 <iframe 
