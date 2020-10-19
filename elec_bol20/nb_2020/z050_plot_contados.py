@@ -33,14 +33,15 @@ import bokeh.tile_providers
 
 
 # %%
-W_CARTO = 500
-H_CARTO = 500
+W_CARTO = 400
+H_CARTO = 400
 ANGLE_DENS = .35
 SIZE_DENS = "8pt"
 HEIGHT_BDENS = 250
 H_FIG_PARTY = 250
+WW = W_CARTO
 BROWSER = 'safari'
-MIN_WITH = 600
+MIN_WITH = 700
 MAX_WITH = 800
 PATH_OUT = 'docs/Ejemplos/z050_panel.html'
 FILE_OUT = os.path.join(os.path.dirname(ebu.DIR),
@@ -159,7 +160,7 @@ den1['text'] = den1.apply(_t2, axis=1)
 # %%
 
 
-fig_bar_dens = bokeh.plotting.figure(height=HEIGHT_BDENS)
+fig_bar_dens = bokeh.plotting.figure(height=HEIGHT_BDENS, width=WW)
 # fi = bokeh.plotting.figure()
 fig_bar_dens.vbar(x=den1['mid'], width=den1['width'], top=den1['top'],
                   color=COL_FALTA)
@@ -229,7 +230,7 @@ res = pd.merge(res, se, left_on='party', right_index=True)
 source = ColumnDataSource(res)
 
 fig_party = bokeh.plotting.figure(x_range=res['party'], toolbar_location=None,
-                                  height=H_FIG_PARTY)
+                                  height=H_FIG_PARTY, width=WW)
 fig_party.vbar(x='i', top='per', width=0.9, source=source,
                line_color='white',
                fill_color=bokeh.transform.factor_cmap('party',
@@ -270,8 +271,11 @@ hover_map = bokeh.models.HoverTool(
 )
 fig_carto.add_tools(hover_map)
 
-l0 = bokeh.layouts.column([fig_party, fig_bar_dens, fig_carto],
-                          sizing_mode='scale_width')
+l0 = bokeh.layouts.column([fig_party, fig_bar_dens,fig_carto],sizing_mode='scale_width')
+# l0 = bokeh.layouts.row([row, fig_carto],
+#                           sizing_mode='scale_width')
+
+fig_party.y_range.end = 70
 lay = l0
 l0.max_width = MAX_WITH
 l0.min_width = MIN_WITH
@@ -294,5 +298,7 @@ bokeh.plotting.save(l0,FILE_OUT)
 
 # %%
 ebu.get_bolivian_time(0)
+
+# %%
 
 # %%
