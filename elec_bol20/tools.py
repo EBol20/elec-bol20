@@ -353,7 +353,7 @@ class CartoPlots:
         # layout = row(column(slider, cart_f),map_f)
         layout = bokeh.layouts.gridplot(
             [[slider, None], [cart_fig, map_fig]]
-            , merge_tools=False
+            , merge_tools=False, sizing_mode='scale_both', max_width=700
         )
         # layout = bokeh.layouts.column([slider, cart_fig])
 
