@@ -64,6 +64,16 @@ assert (~_s).sum() == 0
 b = ~df_all.index.isin(df_comp.index)
 df_trim = df_all[b]
 assert len(df_all) - len(df_comp) == len(df_trim)
+df_concat = pd.concat([df_comp,df_trim])
+df_full = df_concat.join(df_den,how='left',on='ID_RECI')
+p = os.path.join(ebu.DATA_PATH1_2020,'z030_carto_xy.csv')
+df_xy = pd.read_csv(p).set_index('ID_RECI')
+df2 = df_full.join(df_xy,on='ID_RECI',how='left')
+res = pd.cut(df2['DEN'],ebu.DEN_LIMS,labels=ebu.DEN_CODES)
+df2['DEN_CODES'] = res.astype(int)
+
+# %%
+df2
 
 # %%
 #DEFINICIONES
