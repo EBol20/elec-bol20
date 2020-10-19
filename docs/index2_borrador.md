@@ -4,6 +4,7 @@ src="graficas_htmls/z037_cc_latest.html"
 onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">
 </iframe>
 
+
 <iframe src="Ejemplos/z050_panel.html"
     sandbox="allow-same-origin allow-scripts"
     width="90%"
@@ -13,10 +14,12 @@ onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px
     frameborder="0">
 </iframe>
 
+
 <iframe 
 src="graficas_htmls/z037_creemos_latest.html" 
 sandbox="allow-same-origin"
 onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">
+width="90%"
 </iframe>
 
 <iframe 
