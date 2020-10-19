@@ -104,12 +104,12 @@ CXS = -75
 
 MYE = 70
 MYS = -70
-MXE = -
-MXS = -75
-CYE = -5
-CYS = -25
-CXE = -50
-CXS = -75
+MXE = -120
+MXS = 150
+CYE = -0
+CYS = -35
+CXE = -40
+CXS = -85
 
 
 
@@ -120,7 +120,7 @@ C_BAR_HIGH = 80
 C_BAR_LOW = -80
 PALETTE = ebu.P_DIF
 CART_SLIDER_INIT = 1
-FILE_OUT = ebu.DIR+'/htlml_1_intermedios/2020/z060_carto_map_mas_cc.html'
+FILE_OUT = ebu.DIR+'/htlml_1_intermedios/2020/z060_carto_map_mas_c0_2020c.html'
 
 MAP_CIRCLE_SIZE_OFFSET = 5
 RATIO_CIRCLE_MAP = 7
