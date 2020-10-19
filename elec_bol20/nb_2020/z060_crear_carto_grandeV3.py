@@ -36,7 +36,7 @@ import bokeh.tile_providers
 # abrimos los datos del padrón de votación del 2019
 
 # %%
-p = os.path.join(ebu.DATA_PATH1_2020,'z050R_dummy_votearrival_20.csv')
+p = os.path.join(ebu.DATA_PATH1_2020,'comp/exportacion_EG2020_actual.csv',)
 df_comp = pd.read_csv(p).set_index('ID_MESA')
 ['ID_MESA', 'HAB', 'INHAB', 'VV']
 
