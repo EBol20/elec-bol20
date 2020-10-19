@@ -54,6 +54,7 @@ El tono de color azul o naranja es claro cuando la diferencia en porcentajes es 
 ![Leyenda un recinto](img/Leyenda_un_recinto.png)
 
 
+## Cartograma densidad votacional
 
 [Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
 
