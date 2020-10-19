@@ -15,6 +15,9 @@
 
 [Ver en tamaño completo](Ejemplos/z060_carto_map_mas_c0_2020c.html)
 
+
+
+
 Cartograma diferencia MAS - CC 2020 (Datos en proceso)
 
 [Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
