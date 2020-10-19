@@ -37,9 +37,8 @@ El tercer gráfico es un [cartograma](Ejemplos/que_es_un_cartograma.md) que mues
     frameborder="0">
 </iframe>
 
-[Ver en tamaño completo](graficas_htmls/z037_d_mas_cc_latest.html)
+[Ver en tamaño completo, y por partido](graficas_htmls/z037_summary_latest.html)
 
-[Ver la misma gráfica para MAS, CC, CREEMOS, etc](dif_all.md) 
 
 Decidimos graficar y comunicar la diferencia de voto entre las dos principales fuerzas políticas a nivel nacional. Los datos representados por la intensidad del color expresan la diferencia de puntos porcentuales entre ambas fuerzas. Los porcentajes de voto obtenido por las fuerzas políticas en cada recinto se muestran al colocar el cursor sobre alguno de los puntos.
 
