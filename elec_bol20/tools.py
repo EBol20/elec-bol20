@@ -140,7 +140,7 @@ class CartoPlots:
         assert rec_df.isna().sum().sum() == 0
         return rec_df
 
-    def plot_carto_single(self, data, frente, palette, path=FILE_OUT, name_file="test", low=0, high=100, show_plot=True):
+    def plot_carto_single(self, data, frente, palette, path=FILE_OUT, name_file="", low=0, high=100, show_plot=True):
         """
 
         :param data: df loaded by data_load
@@ -353,7 +353,7 @@ class CartoPlots:
         # layout = row(column(slider, cart_f),map_f)
         layout = bokeh.layouts.gridplot(
             [[slider], [cart_fig], [map_fig]], sizing_mode='scale_width', merge_tools=False)
-        layout.max_width = 1024
+        layout.max_width = 800
         # layout = bokeh.layouts.column([slider, cart_fig])
 
         cart_fig.x_range.start = self.CXS
