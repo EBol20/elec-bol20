@@ -607,7 +607,7 @@ def get_dataframe_2020():
     b_ = df_comp["CANDIDATURA"] == "PRESIDENTE"
     df_comp = df_comp[b_]
     co = ['VV', 'BL', 'NU', 'VOTO_EMITIDO','CREEMOS', 'MAS', 'FPV',
-          'PAN_BOL', 'CC','NUA']
+          'PAN_BOL', 'CC','NUA','HAB']
     df_comp = df_comp[co]
 
     df_comp['ID_RECI'] = (df_comp.index/100).astype(np.int64)

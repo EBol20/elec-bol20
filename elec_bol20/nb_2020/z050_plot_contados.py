@@ -41,8 +41,10 @@ df2= ebu.get_dataframe_2020()
 
 
 # %%
+df2['COUNT'].sum()
 
 # %%
+df2['HAB']
 
 # %%
 bokeh.plotting.output_notebook()
@@ -98,7 +100,10 @@ den['width'] = den['HAB']-(tot*.01)
 den2 = den.copy()
 
 # %%
-den1['counted'] = den['HAB']
+dfn['HAB']
+
+# %%
+den1['counted'] = den2['HAB'].astype(np.int64)
 
 # %%
 den1['top_c'] =den1['counted']/den1['HAB']*100
@@ -108,6 +113,22 @@ den1.loc[-1,'mid'] = den1.loc[-1,'mid'] - 1000000
 
 # %%
 df2[df2['COUNT']]['HAB'].sum()
+
+def _t(s): 
+    if np.isnan(s): s=0
+    return f'{s:0.1f}'
+
+def _t1(s): 
+    if np.isnan(s): s=0
+    return f'{s:0.0f}'
+
+def _t2(r):
+#     return f'{r["tv"]} ({r["tc"]} %)'
+    return f'{r["tc"]}%'
+
+den1['tc']=den1['top_c'].apply(_t)
+den1['tv']=den1['counted'].apply(_t1)
+den1['text'] = den1.apply(_t2,axis=1)
 
 # %%
 
@@ -135,17 +156,33 @@ p.text(x=[x],y=[101],text=['Densidad alta'],angle=.5, text_font_size="8pt")
 
 x = den1[den1.index<0]['mid'].mean()
 p.text(x=[x],y=[110],text=['Exterior'],text_align='center')
+p.xaxis.visible = False
+p.xgrid.visible = False
+p.ygrid.visible = False
+p.y_range.start=0
+p.y_range.end=130
+
+
+for l,r in den1.iterrows():
+    if l ==-1:
+        x = r['mid'] + 400000
+    else:
+        x = r['mid']
+    
+    p.text(x=x,y=[r['tc']],text=[r['text']],text_align='center',text_font_size="8pt")
 
 lay = bokeh.layouts.row([p,f])
 # lay = p 
 bokeh.plotting.show(lay)
 # %%
-layout.max_width
+den1
 
 
 # %%
-x
 
 # %%
+
+# %%
+den1
 
 # %%
