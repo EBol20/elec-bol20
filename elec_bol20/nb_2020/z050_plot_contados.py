@@ -23,6 +23,8 @@
 # datos para que luego sean procesados
 
 # %%
+
+# %%
 # import
 from elec_bol20 import *
 import elec_bol20.util as ebu
@@ -188,5 +190,7 @@ den1[den1.index>=0]['mid'].mean()
 
 # %%
 x
+
+# %%
 
 # %%
