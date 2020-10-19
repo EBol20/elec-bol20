@@ -4,7 +4,9 @@
 
 #### Datos en tiempo real
 
-El panel brinda información completa sobre el avance del cómputo oficial de votos. 
+El panel brinda información completa sobre el avance del cómputo oficial de votos. El primer diagrama de barras muestra el porcentaje de votos válidos computados por partido político. El segundo diagrama muestra el avance del cómputo oficial de votos en Bolivia y el exterior en relación a la densidad de votantes habilitados por kilómetro cuadrado. Puede entenderse que las zonas de mayor densidad de votantes (mayor a 1500) son las zonas metropolitanas del país. El tercer cartograma muestra de dónde provienen las mesas computadas y dónde están las mesas que aún no se han contabilizado oficialmente. Cada uno de estos gráficos se actualiza constantemente con la información oficial del cómputo que realiza el TSE por lo que la variación en el tiempo depende de la disponibilidad de los datos en la página: 
+
+
 
 
 
@@ -17,7 +19,6 @@ El panel brinda información completa sobre el avance del cómputo oficial de vo
     frameborder="0">
 </iframe>
 
-Este diagrama de barras muestra el porcentaje de votos válidos computados por partido político. 
 
 ## Cartograma diferencia MAS - CC 2020
 
@@ -30,12 +31,11 @@ Este diagrama de barras muestra el porcentaje de votos válidos computados por p
     frameborder="0">
 </iframe>
 
-Este segundo diagrama muestra el avance del cómputo oficial de votos en Bolivia y el exterior en relación a la densidad de votantes habilitados por kilómetro cuadrado. Puede entenderse que las zonas de mayor densidad de votantes (mayor a 1500) son las zonas metropolitanas del país.
 
 
 [Ver en tamaño completo](Ejemplos/z060_carto_map_mas_c0_2020c.html)
 
-Finalmente este cartograma muestra de dónde provienen las mesas computadas y dónde están las mesas que aún no se han contabilizado oficialmente. Cada uno de estos gráficos se actualiza constantemente con la información oficial del cómputo que realiza el TSE por lo que la variación en el tiempo depende de la disponibilidad de los datos en la página: 
+
 [https://computo.oep.org.bo/](https://computo.oep.org.bo/)
 
 
