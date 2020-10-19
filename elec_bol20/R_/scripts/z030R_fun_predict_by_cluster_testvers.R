@@ -47,8 +47,7 @@ predict_by_cluster_2 = function(vote_data, mesa_info, cluster_def, identifier, s
   #total votes that arrived by cluster
   cluster_total_vote = mydata_combined %>%
     dplyr::group_by(cluster)%>%
-    dplyr::summarise_at(c(summarized_cols,"VV"), .funs = list(sum = ~ sum(.,na.rm=T)))%>%
-    na.omit()
+    dplyr::summarise_at(c(summarized_cols,"VV"), .funs = list(sum = ~ sum(.,na.rm=T)))
   
   #getting the mean (along with sd and standard error) vote for already counted clusters
   cluster_mean_vote = mydata_combined %>%
@@ -56,15 +55,26 @@ predict_by_cluster_2 = function(vote_data, mesa_info, cluster_def, identifier, s
     dplyr::summarise_at(c(percentage_cols,"vv"),
                         .funs = list(mean =~ mean(.,na.rm=T),
                                      sd = ~ sd(.,na.rm=T),
-                                     sterr = ~ sd(.,na.rm=T)/sqrt(sum(!is.na(.)))))%>%
-    na.omit()
+                                     sterr = ~ sd(.,na.rm=T)/sqrt(sum(!is.na(.)))))
+  
+  runlist = list()
+  for (i in 1:100){
+    set.seed(i)
+    runlist[[i]] = mydata_combined %>%
+      dplyr::sample_frac(., 0.5)%>%
+      dplyr::group_by(cluster)%>%
+      dplyr::summarise_at(c(percentage_cols,"vv"),
+                          .funs = list(mean =~ mean(.,na.rm=T),
+                                       sd = ~ sd(.,na.rm=T),
+                                       sterr = ~ sd(.,na.rm=T)/sqrt(sum(!is.na(.)))))
+  }
+  uncertainty_frame = do.call("rbind", runlist)%>%
+    dplyr::group_by(cluster)%>%
+    dplyr::summarise_all(sd)
   
   #help functions
   predict_from_percentage = function(clusterperc, total){
     return(clusterperc/100*total)
-  }
-  error_propagation = function(vec){
-    return(sqrt(sum(vec^2)))
   }
   
   
@@ -106,7 +116,7 @@ predict_by_cluster_2 = function(vote_data, mesa_info, cluster_def, identifier, s
   myprediction = cbind(myprediction_mean, myprediction_sd,myprediction_sterr)
   
   return(list(total_by_cluster, cluster_total_vote,
-              cluster_mean_vote, myprediction, total_predicted_VV))
+              cluster_mean_vote, myprediction, total_predicted_VV, uncertainty_frame))
 }#predict_by_cluster
 
 
@@ -132,3 +142,5 @@ testprediction[[1]]
 testprediction[[2]]
 testprediction[[3]]
 testprediction[[4]]
+
+helpvar = testprediction[[6]] 
