@@ -26,6 +26,7 @@ El tercer cartograma muestra de dónde provienen las mesas computadas y dónde e
 </iframe>
 
 
+
 ## Cartograma diferencia MAS - CC 2020
 
 <iframe src="Ejemplos/z060_carto_map_mas_c0_2020c.html"
