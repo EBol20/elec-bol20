@@ -43,7 +43,7 @@ class CartoPlots:
         "pan_bol": "PAN_BOL [%]"
     }
     TOOL_TIP_DIC = {
-        "d_mas_cc":[
+        "d_mas_cc": [
             ('Inscritos', '@HAB'),
             ('PAIS, Municipalidad', '@PAIS, @MUN'),
             ('Recinto', '@REC'),
@@ -86,7 +86,7 @@ class CartoPlots:
             ('CREEMOS [%]', '@creemos{0.0}'),
             ('------', '------')
         ],
-        "fpv":  [
+        "fpv": [
             ('Inscritos', '@HAB'),
             ('PAIS, Municipalidad', '@PAIS, @MUN'),
             ('Recinto', '@REC'),
@@ -103,6 +103,7 @@ class CartoPlots:
             ]
 
     }
+
     #
     # df = ebu.open_combine_2019()
     # needed_cols = ['X', 'Y', 'd_mas_cc', 'r', 'LAT', 'LON', 'PAIS', 'REC', 'MUN', 'DEN'
@@ -110,7 +111,8 @@ class CartoPlots:
     def __init__(self):
         pass
 
-    def load_file(self, df, _mean=['X', 'Y', 'LAT', 'LON', 'DEN', ], _sum=['HAB', 'CC', 'MAS','PDC', 'VV'],
+    def load_file(self, df, _mean=['X', 'Y', 'LAT', 'LON', 'DEN', ],
+                  _sum=['HAB', 'CC', 'MAS', 'PDC', 'VV'],
                   _first=['PAIS', 'REC', 'MUN', 'BOL']):
         # agrupamos por recinto
         _gr = df.groupby('ID_RECI')
@@ -120,14 +122,15 @@ class CartoPlots:
 
         rec_df['D_MAS_CC'] = rec_df['MAS'] - rec_df['CC']
         rec_df['d_mas_cc'] = rec_df['D_MAS_CC'] / rec_df['VV'] * 100
-        rec_df['cc']=rec_df['CC']/rec_df['VV']*100
-        rec_df['mas']=rec_df['MAS']/rec_df['VV']*100
-        rec_df['creemos']=rec_df['CREEMOS']/rec_df['VV']*100
-        rec_df['fpv']=rec_df['FPV']/rec_df['VV']*100
-        rec_df['pan_bol']=rec_df['PAN_BOL']/rec_df['VV']*100
+        rec_df['cc'] = rec_df['CC'] / rec_df['VV'] * 100
+        rec_df['mas'] = rec_df['MAS'] / rec_df['VV'] * 100
+        rec_df['creemos'] = rec_df['CREEMOS'] / rec_df['VV'] * 100
+        rec_df['fpv'] = rec_df['FPV'] / rec_df['VV'] * 100
+        rec_df['pan_bol'] = rec_df['PAN_BOL'] / rec_df['VV'] * 100
 
         rec_df['r'] = np.sqrt(rec_df['HAB']) / self.RATIO_CIRCLE_CARTO
-        rec_df['r2'] = np.sqrt(rec_df['HAB']) / self.RATIO_CIRCLE_MAP + self.MAP_CIRCLE_SIZE_OFFSET
+        rec_df['r2'] = np.sqrt(
+            rec_df['HAB']) / self.RATIO_CIRCLE_MAP + self.MAP_CIRCLE_SIZE_OFFSET
 
         res = ebu.lola_to_cart(rec_df['LON'].values, rec_df['LAT'].values)
         rec_df['GX'] = res[0]
@@ -140,7 +143,8 @@ class CartoPlots:
         assert rec_df.isna().sum().sum() == 0
         return rec_df
 
-    def plot_carto_single(self, data, frente, palette, path=FILE_OUT, name_file="", low=0, high=100, show_plot=True):
+    def plot_carto_single(self, data, frente, palette, path=FILE_OUT,
+                          name_file="", low=0, high=100, show_plot=True):
         """
 
         :param data: df loaded by data_load
@@ -151,16 +155,25 @@ class CartoPlots:
         :param high: cmap high limit: defauilt: +80.
         :return: df
         """
-        if frente =="diff":
-            low=self.C_BAR_LOW
-            high=self.C_BAR_HIGH
-            frente="d_mas_cc"
+        if frente == "diff":
+            low = self.C_BAR_LOW
+            high = self.C_BAR_HIGH
+            frente = "d_mas_cc"
 
+        bokeh.plotting.output_file(
+            path + 'z037_' + frente + '_' + name_file + '.html')
+        bokeh.plotting.output_file(
+            os.path.join(
+                os.path.dirname(ebu.DIR), 'docs',
+                'graficas_htmls',
+                'z037_' + frente + '_' + 'latest' + '.html'
+            ))
 
-        bokeh.plotting.output_file(path+'z037_'+frente+'_'+name_file+'.html')
-        cart_init_val = self.CART_SLIDER_INIT # add slider
-        data['x'] = data['LON'] * (1 - cart_init_val) + data['X'] * cart_init_val
-        data['y'] = data['LAT'] * (1 - cart_init_val) + data['Y'] * cart_init_val
+        cart_init_val = self.CART_SLIDER_INIT  # add slider
+        data['x'] = data['LON'] * (1 - cart_init_val) + data[
+            'X'] * cart_init_val
+        data['y'] = data['LAT'] * (1 - cart_init_val) + data[
+            'Y'] * cart_init_val
         cm = linear_cmap(frente, palette=palette, low=low, high=high)
 
         data['mas'] = data['MAS'] / data['VV'] * 100
@@ -231,7 +244,10 @@ class CartoPlots:
         """
 
         # FIGURES
-        curr_time= ebu.get_bolivian_time(-3)
+        curr_time = ebu.get_bolivian_time(-3)
+        # from datetime import datetime
+        # curr_time = datetime.utcnow()
+
         pw = self.FIG_WIDTH
         cart_fig = Figure(plot_width=pw, plot_height=pw, output_backend="webgl",
 
@@ -240,7 +256,9 @@ class CartoPlots:
                          x_axis_type='mercator',
                          y_axis_type='mercator',
                          output_backend="webgl",
-                         title="Última actualización: "+curr_time["datetime_val"].strftime("%Y-%m-%d %H:%M")+ "UTC-4",
+                         title="Última actualización: " + curr_time[
+                             "datetime_val"].strftime(
+                             "%Y-%m-%d %H:%M") + "BOT",
                          )
         cart_fig.background_fill_color = "grey"
         cart_fig.background_fill_alpha = .5
@@ -325,9 +343,9 @@ class CartoPlots:
         callback_slider = CustomJS(args=dict(source=source_master),
                                    code=code_slider)
 
-        slider = Slider(start=0, end=1, value=cart_init_val, step=.02, title="carto")
+        slider = Slider(start=0, end=1, value=cart_init_val, step=.02,
+                        title="carto")
         slider.js_on_change('value', callback_slider)
-
 
         # COLOR BAR
         ml = {int(i): str(np.abs(i)) for i in np.arange(-80, 81, 20)}
@@ -352,7 +370,8 @@ class CartoPlots:
 
         # layout = row(column(slider, cart_f),map_f)
         layout = bokeh.layouts.gridplot(
-            [[slider], [cart_fig], [map_fig]], sizing_mode='scale_width', merge_tools=False)
+            [[slider], [cart_fig], [map_fig]], sizing_mode='scale_width',
+            merge_tools=False)
         layout.max_width = 800
         # layout = bokeh.layouts.column([slider, cart_fig])
 
