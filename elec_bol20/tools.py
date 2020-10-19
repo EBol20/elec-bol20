@@ -233,12 +233,14 @@ class CartoPlots:
         # FIGURES
         curr_time= ebu.get_bolivian_time(-3)
         pw = self.FIG_WIDTH
-        cart_fig = Figure(plot_width=pw, plot_height=pw, output_backend="webgl")
+        cart_fig = Figure(plot_width=pw, plot_height=pw, output_backend="webgl",
+
+                          )
         map_fig = Figure(plot_width=pw, plot_height=pw,
                          x_axis_type='mercator',
                          y_axis_type='mercator',
                          output_backend="webgl",
-                         title="Última actualización: "+curr_time["datetime_val"].strftime("%Y-%m-%d %H:%M")+ "UTC-4"
+                         title="Última actualización: "+curr_time["datetime_val"].strftime("%Y-%m-%d %H:%M")+ "UTC-4",
                          )
         cart_fig.background_fill_color = "grey"
         cart_fig.background_fill_alpha = .5
@@ -350,8 +352,8 @@ class CartoPlots:
 
         # layout = row(column(slider, cart_f),map_f)
         layout = bokeh.layouts.gridplot(
-            [[slider, None], [cart_fig, map_fig]], sizing_mode='scale_width', merge_tools=False)
-        layout.max_width = 1400
+            [[slider], [cart_fig], [map_fig]], sizing_mode='scale_width', merge_tools=False)
+        layout.max_width = 1024
         # layout = bokeh.layouts.column([slider, cart_fig])
 
         cart_fig.x_range.start = self.CXS
