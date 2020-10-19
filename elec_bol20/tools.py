@@ -110,10 +110,6 @@ class CartoPlots:
     def __init__(self):
         pass
 
-
-
-
-
     def load_file(self, df, _mean=['X', 'Y', 'LAT', 'LON', 'DEN', ], _sum=['HAB', 'CC', 'MAS','PDC', 'VV'],
                   _first=['PAIS', 'REC', 'MUN', 'BOL']):
         # agrupamos por recinto
@@ -352,7 +348,8 @@ class CartoPlots:
 
         # layout = row(column(slider, cart_f),map_f)
         layout = bokeh.layouts.gridplot(
-            [[slider, None], [cart_fig, map_fig]], sizing_mode='scale_both', merge_tools=False)
+            [[slider, None], [cart_fig, map_fig]], sizing_mode='scale_width', merge_tools=False)
+        layout.max_width = 1400
         # layout = bokeh.layouts.column([slider, cart_fig])
 
         cart_fig.x_range.start = self.CXS
