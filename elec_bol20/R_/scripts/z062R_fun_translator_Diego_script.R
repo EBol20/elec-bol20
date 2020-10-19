@@ -3,11 +3,20 @@ library(data.table)
 library(readxl)
 
 ###----USER INPUT ONLY HERE #####
-filename = "exportacion_EG2020_20201019_114834_5705135782250384117" # name of file to be translated
+filename = "exportacion_EG2020_20201019_123834_76040569669492353411603125667" # name of file to be translated
 file_ext = ".xlsx" #either ".csv" or ".xlsx".
 filepath = paste0(here::here(),"/elec_bol20/datos_0_crudos/2020/comp/") #path to file to be translated
 savepath = paste0(here::here(),"/elec_bol20/datos_1_intermedios/2020/comp/") #path to where the file is to be saved
 
+args = commandArgs(trailingOnly=TRUE)
+
+filename = args[1]
+file_ext = args[2]
+filepath = args[3]
+savepath = args[4]
+
+
+warning(file_ext)
 #example for excel file
 # filename = "exportacion_EG2020_20201018_191655_1997065378804403743"
 # file_ext = ".xlsx"
