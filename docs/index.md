@@ -1,8 +1,10 @@
 # Visualización y análisis de las Elecciones generales de Bolivia 2020
 
-[Nuestro aporte](Ejemplos/Nuestro_aporte.md)
+## Elecciones generales Bolivia 2020 
+Cartograma diferencia MAS - CC 2020 (Datos en proceso)
 
-## Principales datos representados
+[Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
+
 
 
 ### Diferencia de votos entre MAS-CC
@@ -42,10 +44,6 @@ El tono de color azul o naranja es claro cuando la diferencia en porcentajes es 
 [Recintos georeferenciados](Ejemplos/Recintos_georeferenciados.md)
 
 
-## Elecciones generales Bolivia 2020 
-Cartograma diferencia MAS - CC 2020 (Datos en proceso)
-
-[Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
 
 
 ## Cómo votamos en octubre de 2019
@@ -54,4 +52,8 @@ Cartograma diferencia MAS - CC 2020 (Datos en proceso)
 [Diferencia MAS - CC 2019 (versión móvil)](dif_mas_cc_2019.md) 
 
 [En el cómputo oficial de 2019, ¿de dónde llegaron las mesas y en qué orden?](Ejemplos/z050_mostrar_mesas_faltantes.html)
+
+
+## Sobre nosotros
+[Nuestro aporte](Ejemplos/Nuestro_aporte.md)
 
