@@ -44,7 +44,7 @@
       color: #064579;
     }
     hr{
-      width: 80%;
+      width: 100%;
       border: 1px solid black;
     }
 
@@ -56,7 +56,7 @@
 </head>
 <body>
   <div class="sidenav">
-    <a href="#diff">Diferencia CC - MAS</a>
+    <a href="#d_mas_cc">Diferencia CC - MAS</a>
     <a href="#d_mas_creemos">Diferencia CREEMOS - MAS</a>
     <a href="#mas">MAS-IPSP</a>
     <a href="#cc">CC</a>
@@ -68,12 +68,12 @@
   </div>
   <div class="main">
     <div class="contenedor">
-      <div class="titulo">
+      <div class="titulo" id="d_mas_cc">
         <p>Diferencia de votos porcentual (por recinto) entre MAS-IPSP y CC</p>
       </div>
       <hr>
       <div class="carto">
-        <iframe id="diff" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_d_mas_cc_latest.html"
+        <iframe  src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_d_mas_cc_latest.html"
                 sandbox="allow-same-origin allow-scripts"
                 width="80%"
                 height="800"
@@ -84,12 +84,12 @@
       </div>
     </div>
     <div class="contenedor">
-      <div class="titulo">
+      <div class="titulo" id="d_mas_creemos" >
         <p>Diferencia de votos porcentual (por recinto) entre MAS-IPSP y CREEMOS</p>
       </div>
       <hr>
       <div class="carto">
-        <iframe id="d_mas_creemos" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_d_mas_creemos_latest.html"
+        <iframe src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_d_mas_creemos_latest.html"
                 sandbox="allow-same-origin allow-scripts"
                 width="80%"
                 height="800"
@@ -101,12 +101,12 @@
     </div>
 
     <div class="contenedor">
-      <div class="titulo">
+      <div class="titulo" id="mas">
         <p>Porcentaje de votos por recinto para MAS-IPSP</p>
       </div>
       <hr>
       <div class="carto">
-        <iframe id="mas" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_mas_latest.html"
+        <iframe  src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_mas_latest.html"
                 sandbox="allow-same-origin allow-scripts"
                 width="80%"
                 height="800"
@@ -118,12 +118,12 @@
     </div>
 
     <div class="contenedor">
-      <div class="titulo">
+      <div class="titulo" id="cc">
         <p>Porcentaje de votos por recinto para CC</p>
       </div>
       <hr>
       <div class="carto">
-        <iframe id="cc" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_cc_latest.html"
+        <iframe  src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_cc_latest.html"
                 sandbox="allow-same-origin allow-scripts"
                 width="80%"
                 height="800"
@@ -134,13 +134,13 @@
       </div>
     </div>
 
-    <div class="contenedor">
-      <div class="titulo">
+    <div class="contenedor" >
+      <div class="titulo" id="creemos">
         <p>Porcentaje de votos por recinto para CREEMOS</p>
       </div>
       <hr>
       <div class="carto">
-        <iframe id="creemos" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_creemos_latest.html"
+        <iframe  src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_creemos_latest.html"
                 sandbox="allow-same-origin allow-scripts"
                 width="80%"
                 height="800"
@@ -152,12 +152,12 @@
     </div>
 
     <div class="contenedor">
-      <div class="titulo">
+      <div class="titulo" id="fpv">
         <p>Porcentaje de votos por recinto para FPV</p>
       </div>
       <hr>
       <div class="carto">
-        <iframe id="fpv" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_fpv_latest.html"
+        <iframe  src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_fpv_latest.html"
                 sandbox="allow-same-origin allow-scripts"
                 width="80%"
                 height="800"
@@ -168,11 +168,11 @@
       </div>
     </div>
     <div class="contenedor">
-      <div class="titulo">
+      <div class="titulo" class="carto">
         <p>Porcentaje de votos por recinto para PAN-BOL</p>
       </div>
       <hr>
-      <div class="carto">
+      <div >
         <iframe id="pan_bol" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_pan_bol_latest.html"
                 sandbox="allow-same-origin allow-scripts"
                 width="80%"
