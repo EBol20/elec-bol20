@@ -36,6 +36,7 @@ class CartoPlots:
     BAR_TITLE_DIC = {
         "d_mas_cc": "CC < diferencia [%] > MAS",
         "diff": "CC < diferencia [%] > MAS",
+        "d_mas_creemos":"CREEMOS < diferencia [%] > MAS",
         "cc": "CC [%]",
         "mas": "MAS-IPSP [%]",
         "creemos": "CREEMOS [%]",
@@ -61,6 +62,17 @@ class CartoPlots:
             ('MAS [%]', '@mas{0.0}'),
             ('CC [%]', '@cc{0.0}'),
             ('Diferencia [%]', '@ad_mas_cc{0.0} (@mas_o_cc)'),
+            ('------', '------')
+            # ('DEN %', '@DEN')
+            # ('PAIS', '@PAIS'),
+        ],
+        "d_mas_creemos": [
+            ('Inscritos', '@HAB'),
+            ('PAIS, Municipalidad', '@PAIS, @MUN'),
+            ('Recinto', '@REC'),
+            ('MAS [%]', '@mas{0.0}'),
+            ('CREEMOS [%]', '@creemos{0.0}'),
+            ('Diferencia [%]', '@ad_mas_creemos{0.0} (@mas_o_creemos)'),
             ('------', '------')
             # ('DEN %', '@DEN')
             # ('PAIS', '@PAIS'),
@@ -122,6 +134,8 @@ class CartoPlots:
 
         rec_df['D_MAS_CC'] = rec_df['MAS'] - rec_df['CC']
         rec_df['d_mas_cc'] = rec_df['D_MAS_CC'] / rec_df['VV'] * 100
+        rec_df['D_MAS_CREEMOS'] = rec_df['MAS'] - rec_df['CREEMOS']
+        rec_df['d_mas_creemos'] = rec_df['D_MAS_CREEMOS'] / rec_df['VV'] * 100
         rec_df['cc'] = rec_df['CC'] / rec_df['VV'] * 100
         rec_df['mas'] = rec_df['MAS'] / rec_df['VV'] * 100
         rec_df['creemos'] = rec_df['CREEMOS'] / rec_df['VV'] * 100
@@ -159,6 +173,9 @@ class CartoPlots:
             low = self.C_BAR_LOW
             high = self.C_BAR_HIGH
             frente = "d_mas_cc"
+        if frente == "d_mas_creemos":
+            low = self.C_BAR_LOW
+            high = self.C_BAR_HIGH
 
         bokeh.plotting.output_file(
             path + 'z037_' + frente + '_' + name_file + '.html')
@@ -181,10 +198,17 @@ class CartoPlots:
         data['creemos'] = data['CREEMOS'] / data['VV'] * 100
         data['fpv'] = data['FPV'] / data['VV'] * 100
         data['pan_bol'] = data['PAN_BOL'] / data['VV'] * 100
+
         data['ad_mas_cc'] = data['d_mas_cc'].abs()
         data['mas_o_cc'] = 'n'
         data.loc[data['d_mas_cc'] >= 0, 'mas_o_cc'] = 'MAS'
         data.loc[data['d_mas_cc'] < 0, 'mas_o_cc'] = 'CC'
+
+        data['ad_mas_creemos'] = data['d_mas_creemos'].abs()
+        data['mas_o_creemos'] = 'n'
+        data.loc[data['d_mas_creemos'] >= 0, 'mas_o_creemos'] = 'MAS'
+        data.loc[data['d_mas_creemos'] < 0, 'mas_o_creemos'] = 'CREEMOS'
+
 
         source_master = ColumnDataSource(data)
         source_red_map = ColumnDataSource({'gx': [], 'gy': []})
