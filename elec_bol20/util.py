@@ -217,6 +217,14 @@ C_DIC = {
     'PAN_BOL':P_GRAD_PANBOL[-1],
 }
 
+P_DIC = {
+    'CC':P_GRAD_CC,
+    'FPV':P_GRAD_FPV,
+    'MAS':P_GRAD_MAS,
+    'CREEMOS':P_GRAD_CREEMOS,
+    'PAN_BOL':P_GRAD_PANBOL,
+}
+
 # %%
 # FUNCTIONS
 
