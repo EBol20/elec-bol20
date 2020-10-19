@@ -30,7 +30,7 @@ Este diagrama de barras muestra el porcentaje de votos válidos computados por p
     frameborder="0">
 </iframe>
 
-Este segundo segundo diagrama muestra el avance del cómputo oficial de votos en Bolivia y el exterior en relación a la densidad de votantes habilitados por kilómetro cuadrado. Puede entenderse que las zonas de mayor densidad de votantes (mayor a 1500) son las zonas metropolitanas del país.
+Este segundo diagrama muestra el avance del cómputo oficial de votos en Bolivia y el exterior en relación a la densidad de votantes habilitados por kilómetro cuadrado. Puede entenderse que las zonas de mayor densidad de votantes (mayor a 1500) son las zonas metropolitanas del país.
 
 
 [Ver en tamaño completo](Ejemplos/z060_carto_map_mas_c0_2020c.html)
