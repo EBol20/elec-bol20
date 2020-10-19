@@ -40,6 +40,7 @@ p = os.path.join(ebu.DATA_PATH1_2020,'comp/exportacion_EG2020_actual.csv')
 df_comp = pd.read_csv(p).set_index('ID_MESA')
 co = ['VV', 'BL', 'NU', 'VOTO_EMITIDO','CREEMOS', 'MAS', 'FPV',
        'PAN_BOL', 'CC','NUA']
+df_comp = df_comp[co]
 
 # %%
 df_comp.columns
