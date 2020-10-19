@@ -260,6 +260,10 @@ To do.
 
 Checking on the new results
 ```{r}
+#importing the cluster mask
+cluster_mask = read.csv(paste0(here::here(),"/../datos_1_intermedios/cluster_definition/2019_clustered_10.csv"), colClasses = "character")%>%
+  dplyr::select(ID_MESA, cluster)
+
 mesas_2020 = read.csv(paste0(here::here(),"/../datos_1_intermedios/2020/z010R_geopadron_mesas_2020_ALL.csv"),colClasses = "character")%>%
   mutate_at(c("HAB"),as.numeric)
 
