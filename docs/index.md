@@ -25,10 +25,12 @@ El tono de color azul o naranja es claro cuando la diferencia en porcentajes es 
     frameborder="0">
 </iframe>
 
+[Ver en tamaño completo](Ejemplos/z060_carto_map_mas_c0_2020c.html)
 
 
 
-[Densidad de votantes en el territorio](Ejemplos/Densidad.md)
+
+### [Densidad de votantes en el territorio](Ejemplos/Densidad.md)
 
 
 ## Cómo explorar la información de la página
