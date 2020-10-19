@@ -21,7 +21,7 @@ translate_and_export_comp_dat = function(filename, file_ext,filepath, savepath){
     mystring = ifelse(pais == "Bolivia", paste0(mystring,"0"), paste0(mystring,"1"))
     
     mystring =paste0(mystring, str_pad(paisnum, 3, pad = "0"))
-    mystring = paste0(mystring, str_pad(ciunum, 3, pad = "0"))
+    mystring = paste0(mystring, str_pad(ciunum, 2, pad = "0"))
     mystring = paste0(mystring, str_pad(idloc, 4, pad = "0"))
     mystring = paste0(mystring, str_pad(recnum, 5, pad = "0"))
     mystring = paste0(mystring, str_pad(mesanum, 2, pad = "0"))
@@ -78,17 +78,6 @@ translate_and_export_comp_dat = function(filename, file_ext,filepath, savepath){
   return(mydata)
 }#translate_and_export_comp_dat
 
-build_mesa_ID =function(pais, paisnum,ciunum, idloc, recnum, mesanum ){
-  mystring = "1"
-  mystring = ifelse(pais == "Bolivia", paste0(mystring,"0"), paste0(mystring,"1"))
-  
-  mystring =paste0(mystring, str_pad(paisnum, 3, pad = "0"))
-  mystring = paste0(mystring, str_pad(ciunum, 2, pad = "0"))
-  mystring = paste0(mystring, str_pad(idloc, 4, pad = "0"))
-  mystring = paste0(mystring, str_pad(recnum, 5, pad = "0"))
-  mystring = paste0(mystring, str_pad(mesanum, 2, pad = "0"))
-  return(mystring)
-}
 
 
 #running the function
