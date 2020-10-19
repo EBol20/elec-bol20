@@ -78,9 +78,11 @@ build_mesa_ID =function(bolivia, paisnum,ciunum, idloc, recnum, mesanum ){
   return(mystring)
 }
 
-# 
-# #running the function
-# controldata = translate_and_export_comp_dat(filename, file_ext, filepath, savepath)%>%
+
+#running the function
+controldata = translate_and_export_comp_dat(filename, file_ext, filepath, savepath)
+
+#%>%
 #   dplyr::mutate(ID_MESA = build_mesa_ID(TRUE, ID_PAIS, ID_DEPARTAMENTO, ID_LOCALIDAD,
 #                                         ID_RECI, NUMERO_MESA ) )
 # test="23"
