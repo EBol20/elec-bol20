@@ -37,6 +37,9 @@ import bokeh.tile_providers
 
 
 # %%
+bokeh.plotting.output_file(os.path.join(ebu.DIR,''))
+
+# %%
 df2= ebu.get_dataframe_2020()
 
 
@@ -66,7 +69,7 @@ sr2 = bokeh.models.ColumnDataSource(s2)
 
 
 f = bokeh.plotting.figure(output_backend="webgl",height=500,width=500)
-f.scatter(x='xj',y='yj',source = sr2,color=COL_FALTA,radius=.05, alpha=1, legend_label='Mesas faltantes (haz click)')
+f.scatter(x='xj',y='yj',source = sr2,color=COL_FALTA,radius=.05, alpha=1, legend_label='Mesas por computar (haz click)')
 f.scatter(x='xj',y='yj',source = sr1,color=COL_LLEGO,radius=.05, alpha=1, legend_label='Mesas computadas (haz click)')
 f.legend.click_policy="hide"
 
@@ -241,6 +244,8 @@ P_GRAD_FPV
 P_GRAD_MAS 
 P_GRAD_CREEMOS 
 P_GRAD_PANBOL
+
+# %%
 
 # %%
 
