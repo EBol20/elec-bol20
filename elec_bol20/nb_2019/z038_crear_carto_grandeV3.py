@@ -310,7 +310,7 @@ slider.js_on_change('value', callback_slider)
 ml = {int(i):str(np.abs(i)) for i in np.arange(-80,81,20)}
 cb = bokeh.models.ColorBar(
     color_mapper=cm['transform'],
-    width=int(.9*FIG_WIDTH),
+    # width=int(.9*FIG_WIDTH),
     location=(0, 0),
     #     title="DEN (N/km^2)",
     # title=(BAR_TITLE),

@@ -23,6 +23,8 @@
 # datos para que luego sean procesados
 
 # %%
+
+# %%
 # import
 from elec_bol20 import *
 import elec_bol20.util as ebu
@@ -38,6 +40,8 @@ import bokeh.tile_providers
 # %%
 p = os.path.join(ebu.DATA_PATH1_2020,'comp/exportacion_EG2020_actual.csv')
 df_comp = pd.read_csv(p).set_index('ID_MESA')
+b_ = df_comp["CANDIDATURA"] == "PRESIDENTE"
+df_comp = df_comp[b_]
 co = ['VV', 'BL', 'NU', 'VOTO_EMITIDO','CREEMOS', 'MAS', 'FPV',
        'PAN_BOL', 'CC','NUA']
 df_comp = df_comp[co]
@@ -48,6 +52,7 @@ df_comp.columns
 # %%
 df_comp['ID_RECI'] = (df_comp.index/100).astype(np.int64)
 df_comp['COUNT'] = True
+
 
 p = os.path.join(ebu.DATA_PATH1_2020,'z010R_geopadron_mesas_2020_ALL.csv')
 df_all = pd.read_csv(p).set_index('ID_MESA')
@@ -79,7 +84,12 @@ res = pd.cut(df2['DEN'],ebu.DEN_LIMS,labels=ebu.DEN_CODES)
 df2['DEN_CODES'] = res.astype(int)
 
 # %%
-df2
+len(df_all) - len(df_comp)
+
+# %%
+len(df_trim)
+
+# %%
 
 # %%
 #DEFINICIONES
@@ -91,18 +101,30 @@ CYE = -5
 CYS = -25
 CXE = -50
 CXS = -75
+
+MYE = 70
+MYS = -70
+MXE = -
+MXS = -75
+CYE = -5
+CYS = -25
+CXE = -50
+CXS = -75
+
+
+
 BAR_TITLE = "CC  < diferencia [%] >  MAS"
 # PIXELS
 FIG_WIDTH = 700
 C_BAR_HIGH = 80
 C_BAR_LOW = -80
 PALETTE = ebu.P_DIF
-CART_SLIDER_INIT = .5
+CART_SLIDER_INIT = 1
 FILE_OUT = ebu.DIR+'/htlml_1_intermedios/2020/z060_carto_map_mas_cc.html'
 
 MAP_CIRCLE_SIZE_OFFSET = 5
 RATIO_CIRCLE_MAP = 7
-RATIO_CIRCLE_CARTO = 500
+RATIO_CIRCLE_CARTO = 300
 TOOL_TIP = [
     ('Inscritos', '@HAB'),
     ('PAIS, Municipalidad', '@PAIS, @MUN'),
@@ -118,12 +140,12 @@ TOOL_TIP = [
 
 
 
-df = ebu.open_combine_2019()
+
 _mean = ['X', 'Y', 'LAT', 'LON', 'DEN', ]
-_sum = ['HAB', 'CC', 'MAS', 'PDC', 'VV']
+_sum = ['HAB', 'CC', 'MAS', 'VV']
 _first = ['PAIS', 'REC', 'MUN', 'BOL']
 # agrupamos por recinto
-_gr = df.groupby('ID_RECI')
+_gr = df2.groupby('ID_RECI')
 rec_df = _gr[_mean].mean()
 rec_df[_sum] = _gr[_sum].sum()
 rec_df[_first] = _gr[_first].first()
@@ -356,7 +378,7 @@ slider.js_on_change('value', callback_slider)
 ml = {int(i):str(np.abs(i)) for i in np.arange(-80,81,20)}
 cb = bokeh.models.ColorBar(
     color_mapper=cm['transform'],
-    width=int(.9*FIG_WIDTH),
+    # width=int(.9*FIG_WIDTH),
     location=(0, 0),
     #     title="DEN (N/km^2)",
     # title=(BAR_TITLE),
@@ -408,6 +430,10 @@ cart_fig.yaxis.major_label_text_font_size = '0pt'  # turn off y-axis tick labels
 
 # %%
 bokeh.plotting.show(layout)
+
+# %%
+
+# %%
 
 # %%
 
