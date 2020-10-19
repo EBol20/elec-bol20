@@ -2,70 +2,120 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Porcentaje de votos por partido</title>
+  <style>
+    body {
+      font-family: "Lato", sans-serif;
+    }
+
+    .sidenav {
+      width: 300px;
+      position: fixed;
+      z-index: 1;
+      top: 20px;
+      left: 10px;
+      background: #eee;
+      overflow-x: hidden;
+      padding: 8px 0;
+    }
+
+    .sidenav a {
+      padding: 6px 8px 6px 16px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #2196F3;
+      display: block;
+    }
+
+    .sidenav a:hover {
+      color: #064579;
+    }
+
+    .main {
+      margin-left: 300px; /* Same width as the sidebar + left position in px */
+      font-size: 28px; /* Increased text to enable scrolling */
+      padding: 0px 10px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    }
+  </style>
 </head>
 <body>
-<iframe src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_d_mas_cc_latest.html"
-        sandbox="allow-same-origin allow-scripts"
-        width="80%"
-        height="600"
-        scrolling="no"
-        seamless="seamless"
-        frameborder="0">
-</iframe>
+  <div class="sidenav">
+    <a href="#diff">Diferencia CC - MAS</a>
+    <a href="#mas">MAS-IPSP</a>
+    <a href="#cc">CC</a>
+    <a href="#creemos">CREEMOS</a>
+    <a href="#fpv">FPV</a>
+    <a href="#pan_bol">PAN-BOL</a>
+  </div>
+  <div class="main">
+    <iframe id="diff" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_d_mas_cc_latest.html"
+            sandbox="allow-same-origin allow-scripts"
+            width="80%"
+            height="800"
+            scrolling="no"
+            seamless="seamless"
+            frameborder="0">
+    </iframe>
 
 
 
-<iframe src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_mas_latest.html"
-        sandbox="allow-same-origin allow-scripts"
-        width="80%"
-        height="600"
-        scrolling="no"
-        seamless="seamless"
-        frameborder="0">
-</iframe>
+    <iframe id="mas" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_mas_latest.html"
+            sandbox="allow-same-origin allow-scripts"
+            width="80%"
+            height="800"
+            scrolling="no"
+            seamless="seamless"
+            frameborder="0">
+    </iframe>
 
 
 
-<iframe src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_cc_latest.html"
-        sandbox="allow-same-origin allow-scripts"
-        width="80%"
-        height="600"
-        scrolling="no"
-        seamless="seamless"
-        frameborder="0">
-</iframe>
+    <iframe id="cc" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_cc_latest.html"
+            sandbox="allow-same-origin allow-scripts"
+            width="80%"
+            height="800"
+            scrolling="no"
+            seamless="seamless"
+            frameborder="0">
+    </iframe>
 
 
 
-<iframe src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_creemos_latest.html"
-        sandbox="allow-same-origin allow-scripts"
-        width="80%"
-        height="600"
-        scrolling="no"
-        seamless="seamless"
-        frameborder="0">
-</iframe>
+    <iframe id="creemos" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_creemos_latest.html"
+            sandbox="allow-same-origin allow-scripts"
+            width="80%"
+            height="800"
+            scrolling="no"
+            seamless="seamless"
+            frameborder="0">
+    </iframe>
 
 
-<iframe src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_fpv_latest.html"
-        sandbox="allow-same-origin allow-scripts"
-        width="80%"
-        height="600"
-        scrolling="no"
-        seamless="seamless"
-        frameborder="0">
-</iframe>
+    <iframe id="fpv" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_fpv_latest.html"
+            sandbox="allow-same-origin allow-scripts"
+            width="80%"
+            height="800"
+            scrolling="no"
+            seamless="seamless"
+            frameborder="0">
+    </iframe>
 
 
-<iframe src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_pan_bol_latest.html"
-        sandbox="allow-same-origin allow-scripts"
-        width="80%"
-        height="600"
-        scrolling="no"
-        seamless="seamless"
-        frameborder="0">
-</iframe>
+    <iframe id="pan_bol" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_pan_bol_latest.html"
+            sandbox="allow-same-origin allow-scripts"
+            width="80%"
+            height="800"
+            scrolling="no"
+            seamless="seamless"
+            frameborder="0">
+    </iframe>
+
+  </div>
 
 </body>
 </html>
