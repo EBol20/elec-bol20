@@ -3,7 +3,7 @@ library(data.table)
 library(readxl)
 
 ###----USER INPUT ONLY HERE #####
-filename = "exportacion_EG2020_20201018_195655_3608259398789071554" # name of file to be translated
+filename = "exportacion_EG2020_20201018_202655_8014546445166085676" # name of file to be translated
 file_ext = ".csv" #either ".csv" or ".xlsx". 
 filepath = paste0(here::here(),"/../datos_0_crudos/2020/comp/") #path to file to be translated
 savepath = paste0(here::here(),"/../datos_1_intermedios/2020/comp/") #path to where the file is to be saved
@@ -16,11 +16,23 @@ savepath = paste0(here::here(),"/../datos_1_intermedios/2020/comp/") #path to wh
 
 #function
 translate_and_export_comp_dat = function(filename, file_ext,filepath, savepath){
+  build_mesa_ID =function(pais, paisnum,ciunum, idloc, recnum, mesanum ){
+    mystring = "1"
+    mystring = ifelse(pais == "Bolivia", paste0(mystring,"0"), paste0(mystring,"1"))
+    
+    mystring =paste0(mystring, str_pad(paisnum, 3, pad = "0"))
+    mystring = paste0(mystring, str_pad(ciunum, 3, pad = "0"))
+    mystring = paste0(mystring, str_pad(idloc, 4, pad = "0"))
+    mystring = paste0(mystring, str_pad(recnum, 5, pad = "0"))
+    mystring = paste0(mystring, str_pad(mesanum, 2, pad = "0"))
+    return(mystring)
+  }
+  
   filename = paste0(filename, file_ext)
   archive_name = paste0(substr(filename,1,34),".csv")
   name_active = paste0(substr(filename,1,18),"_actual.csv")
   
-  translator_vector = c("CODIGO_MESA" = "ID_MESA",
+  translator_vector = c("CODIGO_MESA" = "CODIGO_MESA",
                         "PAIS" = "PAIS",
                         "DEPARTAMENTO" = "DEP",
                         "PROVINCIA" = "PROV",
@@ -51,7 +63,9 @@ translate_and_export_comp_dat = function(filename, file_ext,filepath, savepath){
   mydata = mydata %>%
     dplyr::mutate_at(c("CREEMOS","ADN","MAS","FPV","PAN_BOL","LIBRE_21","CC","JUNTOS"),as.numeric)%>%
     dplyr::mutate(NUA = ADN + LIBRE_21 + JUNTOS)%>%
-    mutate(ADN = NULL, LIBRE_21 = NULL, JUNTOS = NULL)
+    mutate(ADN = NULL, LIBRE_21 = NULL, JUNTOS = NULL)%>%
+    dplyr::mutate(ID_MESA = build_mesa_ID(PAIS,ID_PAIS, ID_DEPARTAMENTO, ID_LOCALIDAD,
+                                          ID_RECI, NUMERO_MESA))
   
   #ARCHIVE DATA
   write.csv(mydata , file = paste0(savepath,archive_name),
@@ -63,6 +77,19 @@ translate_and_export_comp_dat = function(filename, file_ext,filepath, savepath){
   
   return(mydata)
 }#translate_and_export_comp_dat
+
+build_mesa_ID =function(pais, paisnum,ciunum, idloc, recnum, mesanum ){
+  mystring = "1"
+  mystring = ifelse(pais == "Bolivia", paste0(mystring,"0"), paste0(mystring,"1"))
+  
+  mystring =paste0(mystring, str_pad(paisnum, 3, pad = "0"))
+  mystring = paste0(mystring, str_pad(ciunum, 3, pad = "0"))
+  mystring = paste0(mystring, str_pad(idloc, 4, pad = "0"))
+  mystring = paste0(mystring, str_pad(recnum, 5, pad = "0"))
+  mystring = paste0(mystring, str_pad(mesanum, 2, pad = "0"))
+  return(mystring)
+}
+
 
 #running the function
 controldata = translate_and_export_comp_dat(filename, file_ext, filepath, savepath)

@@ -411,6 +411,11 @@ def calculate_density():
     # todo
     pass
 
+def open_combine_2020()-> pd.DataFrame:
+    '''
+    Combina estadistica nacional y exterior.
+    :return: dataframe
+    '''
 
 def open_combine_2019() -> pd.DataFrame:
     '''
