@@ -238,7 +238,7 @@ class CartoPlots:
                          x_axis_type='mercator',
                          y_axis_type='mercator',
                          output_backend="webgl",
-                         title="Última actualización: "+curr_time["datetime_val"].strftime("%Y-%m-%d %H:%M")
+                         title="Última actualización: "+curr_time["datetime_val"].strftime("%Y-%m-%d %H:%M")+ "UTC-4"
                          )
         cart_fig.background_fill_color = "grey"
         cart_fig.background_fill_alpha = .5
