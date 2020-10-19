@@ -37,7 +37,7 @@ import bokeh.tile_providers
 
 
 # %%
-bokeh.plotting.output_file(os.path.join(ebu.DIR,''))
+bokeh.plotting.output_file(os.path.join(ebu.DIR,'htlml_1_intermedios/2020/z050_panel.html'))
 
 # %%
 df2= ebu.get_dataframe_2020()
@@ -199,9 +199,9 @@ res = pd.merge(res,se,left_on='party',right_index=True)
 
 source = ColumnDataSource(res)
 
-r = figure(x_range=res['party'], toolbar_location=None,height=250)
+r = bokeh.plotting.figure(x_range=res['party'], toolbar_location=None,height=250)
 r.vbar(x='i', top='per', width=0.9, source=source,
-       line_color='white', fill_color=factor_cmap('party', palette=res['colors'], factors=res['party']))
+       line_color='white', fill_color=bokeh.transform.factor_cmap('party', palette=res['colors'], factors=res['party']))
 
 r.xgrid.grid_line_color = None
 r.y_range.start = 0
@@ -214,36 +214,12 @@ lay = bokeh.layouts.row([l0,f])
 bokeh.plotting.show(lay)
 # %%
 
-res
-
 
 # %%
-from bokeh.io import output_file, show
-from bokeh.models import ColumnDataSource
-from bokeh.palettes import Spectral6
-from bokeh.plotting import figure
-from bokeh.transform import factor_cmap
-
-# output_file("bar_colormapped.html")
-
-fruits = ['Apples', 'Pears', 'Nectarines', 'Plums', 'Grapes', 'Strawberries']
-counts = [5, 3, 4, 2, 4, 6]
 
 
 
-show(p)
 
-# %%
-den1['tc']=den1['top_c'].apply(_t)
-den1['tv']=den1['counted'].apply(_t1)
-den1['text'] = den1.apply(_t2,axis=1)
-
-# %%
-P_GRAD_CC 
-P_GRAD_FPV 
-P_GRAD_MAS 
-P_GRAD_CREEMOS 
-P_GRAD_PANBOL
 
 # %%
 
