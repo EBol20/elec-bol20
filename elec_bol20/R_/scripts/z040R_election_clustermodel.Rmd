@@ -258,7 +258,7 @@ To do.
 
 
 
-Checking
+Checking on the new results
 ```{r}
 mesas_2020 = read.csv(paste0(here::here(),"/../datos_1_intermedios/2020/z010R_geopadron_mesas_2020_ALL.csv"),colClasses = "character")%>%
   mutate_at(c("HAB"),as.numeric)
@@ -275,8 +275,14 @@ mydata = mydata %>%
 
 
 testprediction = predict_by_cluster(mydata, mesas_2020, cluster_mask, "ID_MESA",
-                                    c("CC_perc","MAS_perc","CREEMOS_perc","PAN_BOL_perc"))
+                                    c("CC_perc","MAS_perc","CREEMOS_perc","FPV_perc","PAN_BOL_perc"))
 
+testprediction[[2]]
 testprediction[[3]]
+
+timestamp = as.character(Sys.time())
+timestamp=gsub(" ","_",timestamp)
+timestamp=gsub(":","_",timestamp)
+write.csv(testprediction[[3]], file = paste0("D:/predictions/",timestamp,".csv"))
 ```
 
