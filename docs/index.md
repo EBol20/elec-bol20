@@ -4,6 +4,22 @@
 
 #### Datos en tiempo real
 
+<iframe src="Ejemplos/z050_panel.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="500"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
+El panel brinda información completa sobre el avance del cómputo oficial de votos. El primer diagrama de barras muestra el avance del cómputo oficial de votos en Bolivia y el exterior en relación a la densidad de votantes habilitados por kilómetro cuadrado. Puede entenderse que las zonas de mayor densidad de votantes (mayor a 1500) son las zonas metropolitanas del país.
+
+El cartograma de la derecha muestra la misma información del primer diagrama de barras pero se enfoca en mostrar de dónde provienen las mesas computadas y dónde están las mesas que aún no se han contabilizado oficialmente.
+
+Por último, el diagrama de barras restante muestra el porcentaje de votos válidos computados por partido político. Cada uno de estos gráficos se actualiza constantemente con la información oficial del cómputo que realiza el TSE por lo que la variación en el tiempo depende de la disponibilidad de los datos en la página: 
+[https://computo.oep.org.bo/](https://computo.oep.org.bo/)
+
+
 <iframe src="Ejemplos/z060_carto_map_mas_c0_2020c.html"
     sandbox="allow-same-origin allow-scripts"
     width="100%"
