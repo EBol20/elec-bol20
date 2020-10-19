@@ -18,7 +18,7 @@ El tercer gráfico es un [cartograma](Ejemplos/que_es_un_cartograma.md) que mues
 <iframe src="Ejemplos/z050_panel.html"
     sandbox="allow-same-origin allow-scripts"
     width="90%"
-    height="1400"
+    height="1600"
     scrolling="no"
     seamless="seamless"
     frameborder="0">
@@ -39,9 +39,8 @@ El tercer gráfico es un [cartograma](Ejemplos/que_es_un_cartograma.md) que mues
 
 [Ver en tamaño completo](graficas_htmls/z037_d_mas_cc_latest.html)
 
+[Ver la misma gráfica para MAS, CC, CREEMOS, etc](dif_all.md) 
 
-
-### Diferencia de votos entre MAS-CC
 Decidimos graficar y comunicar la diferencia de voto entre las dos principales fuerzas políticas a nivel nacional. Los datos representados por la intensidad del color expresan la diferencia de puntos porcentuales entre ambas fuerzas. Los porcentajes de voto obtenido por las fuerzas políticas en cada recinto se muestran al colocar el cursor sobre alguno de los puntos.
 
 Por ejemplo, si en un recinto el MAS logra el 58% de los votos y CC logra el 40% la diferencia entre ambos es de 18% a favor del MAS (58 - 40 = 18). Así, el punto del recinto se mostrará en un tono de color azul claro. 
