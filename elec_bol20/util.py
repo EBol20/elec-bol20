@@ -201,6 +201,8 @@ P_MAS = bokeh.palettes.PuBu9[::-1]
 # P_DIF = bokeh.palettes.RdYlBu11
 P_DIF = [*bokeh.palettes.Oranges7[1:],
          *bokeh.palettes.Blues6[::-1]]
+P_DIF_MAS_CREEMOS = [*bokeh.palettes.Reds8[1:],
+                     *bokeh.palettes.Blues6[::-1]]
 P_GRAD_CC = [*bokeh.palettes.Oranges7[::-1]]
 P_GRAD_FPV = [*bokeh.palettes.YlGn7[::-1]]
 P_GRAD_MAS = [*bokeh.palettes.Blues7[::-1]]
