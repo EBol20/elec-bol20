@@ -19,16 +19,6 @@
 # ###### init
 
 # %%
-# de los resultados generales crea silmulaciones con % de
-# datos para que luego sean procesados
-
-# %%
-
-# %%
-
-# %%
-
-# %%
 # import
 from elec_bol20 import *
 import elec_bol20.util as ebu
@@ -63,6 +53,7 @@ bokeh.plotting.output_file(os.path.join(os.path.dirname(ebu.DIR),
 
 # %%
 df2 = ebu.get_dataframe_2020()
+
 
 # %%
 
@@ -283,5 +274,8 @@ l0.min_width = MIN_WITH
 # lay = p
 # %%
 bokeh.plotting.show(lay, browser=BROWSER)
+
+
+# %%
 
 # %%
