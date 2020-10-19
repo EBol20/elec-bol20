@@ -41,7 +41,13 @@ import bokeh.tile_providers
 
 
 # %%
-bokeh.plotting.output_file(os.path.join(ebu.DIR,'htlml_1_intermedios/2020/z050_panel.html'))
+# p = os.path.pardir(ebu.DIR)
+
+
+#%%
+
+bokeh.plotting.output_file(os.path.join(os.path.dirname(ebu.DIR),
+                                        'docs/Ejemplos/z050_panel.html'))
 # bokeh.plotting.output_notebook()
 
 # %%
