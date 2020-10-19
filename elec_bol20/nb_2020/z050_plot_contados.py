@@ -199,106 +199,20 @@ res = pd.merge(res,se,left_on='party',right_index=True)
 
 source = ColumnDataSource(res)
 
-r = figure(x_range=res['party'], toolbar_location=None,height=250)
+r = bokeh.plotting.figure(x_range=res['party'], toolbar_location=None,height=250)
 r.vbar(x='i', top='per', width=0.9, source=source,
-       line_color='white', fill_color=factor_cmap('party', palette=res['colors'], factors=res['party']))
+       line_color='white', fill_color=bokeh.transform.factor_cmap('party', palette=res['colors'], factors=res['party']))
 
 r.xgrid.grid_line_color = None
 r.y_range.start = 0
 r.y_range.end = np.ceil(res['per'].max()/20)*20
 r.title.text = f'Porcentaje sobre el total de votos válidos computados ({ppp:0.1f}%)'
 
-l0 = bokeh.layouts.column(p,r)
-lay = bokeh.layouts.row([l0,f])
+l0 = bokeh.layouts.column([p,r,f],sizing_mode='scale_width')
+lay = l0
+l0.max_width = 700
+# lay = bokeh.layouts.row([l0,f])
 # lay = p 
 bokeh.plotting.show(lay)
 # %%
 
-res
-
-
-# %%
-from bokeh.io import output_file, show
-from bokeh.models import ColumnDataSource
-from bokeh.palettes import Spectral6
-from bokeh.plotting import figure
-from bokeh.transform import factor_cmap
-
-# output_file("bar_colormapped.html")
-
-fruits = ['Apples', 'Pears', 'Nectarines', 'Plums', 'Grapes', 'Strawberries']
-counts = [5, 3, 4, 2, 4, 6]
-
-
-
-show(p)
-
-# %%
-den1['tc']=den1['top_c'].apply(_t)
-den1['tv']=den1['counted'].apply(_t1)
-den1['text'] = den1.apply(_t2,axis=1)
-
-# %%
-P_GRAD_CC 
-P_GRAD_FPV 
-P_GRAD_MAS 
-P_GRAD_CREEMOS 
-P_GRAD_PANBOL
-
-# %%
-
-# %%
-
-# %%
-
-# %%
-
-# %%
-p = os.path.join(ebu.DATA_PATH1_2020,'comp/exportacion_EG2020_20201018_205655.csv')
-df_comp = pd.read_csv(p).set_index('ID_MESA')
-b_ = df_comp["CANDIDATURA"] == "PRESIDENTE"
-df_comp = df_comp[b_]
-co = ['VV', 'BL', 'NU', 'VOTO_EMITIDO','CREEMOS', 'MAS', 'FPV',
-      'PAN_BOL', 'CC','NUA','HAB']
-df_comp = df_comp[co]
-
-df_comp['ID_RECI'] = (df_comp.index.astype(np.int64)/100).astype(np.int64)
-df_comp['COUNT'] = True
-
-
-p = os.path.join(ebu.DATA_PATH1_2020,'z010R_geopadron_mesas_2020_ALL.csv')
-df_all = pd.read_csv(p).set_index('ID_MESA')
-#['ID_RECI', 'ID_MESA', 'HAB', 'INHAB']
-
-df_all['VV'] = 0
-df_all['COUNT'] = False
-
-p = os.path.join(ebu.util.DATA_PATH1_2020,'z020_geopadron_recintos_2020_ALL_DEN.csv')
-df_den = pd.read_csv(p).set_index('ID_RECI')
-#['ID_RECI', 'LAT', 'LON', 'HAB', 'INHAB', 'PAIS', 'N_MESAS', 'REC',
-# 'MUN', 'BOL', 'CIU', 'PROV', 'DEP', 'URB', 'DEN_C', 'DEN']
-
-df_den = df_den[['LAT', 'LON', 'PAIS', 'N_MESAS', 'REC',
-                 'MUN', 'BOL', 'CIU', 'PROV', 'DEP', 'URB', 'DEN_C', 'DEN']]
-
-_s  = df_comp.index.isin(df_all.index)
-assert (~_s).sum() == 0
-
-b = ~df_all.index.isin(df_comp.index)
-df_trim = df_all[b]
-assert len(df_all) - len(df_comp) == len(df_trim)
-df_concat = pd.concat([df_comp,df_trim])
-df_full = df_concat.join(df_den,how='left',on='ID_RECI')
-p = os.path.join(eb.util.DATA_PATH1_2020,'z030_carto_xy.csv')
-df_xy = pd.read_csv(p).set_index('ID_RECI')
-df2 = df_full.join(df_xy,on='ID_RECI',how='left')
-res = pd.cut(df2['DEN'],eb.util.DEN_LIMS,labels=eb.util.DEN_CODES)
-df2['DEN_CODES'] = res.astype(int)
-
-# %%
-df_comp = pd.read_csv(p)
-
-# %%
-df_comp['ID_MESA'].astype(np.int64)
-
-# %%
