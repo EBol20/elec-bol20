@@ -40,7 +40,7 @@ class CartoPlots:
         "mas": "MAS-IPSP [%]",
         "creemos": "CREEMOS [%]",
         "fpv": "FPV [%]",
-        "panbol": "PAN-BOL [%]"
+        "pan_bol": "PAN_BOL [%]"
     }
     TOOL_TIP_DIC = {
         "d_mas_cc":[
@@ -93,12 +93,12 @@ class CartoPlots:
             ('FPV [%]', '@fpv{0.0}'),
             ('------', '------')
         ],
-        "panbol":
+        "pan_bol":
             [
                 ('Inscritos', '@HAB'),
                 ('PAIS, Municipalidad', '@PAIS, @MUN'),
                 ('Recinto', '@REC'),
-                ('PANBOL [%]', '@panbol{0.0}'),
+                ('PAN_BOL [%]', '@pan_bol{0.0}'),
                 ('------', '------')
             ]
 
@@ -128,7 +128,7 @@ class CartoPlots:
         rec_df['mas']=rec_df['MAS']/rec_df['VV']*100
         rec_df['creemos']=rec_df['CREEMOS']/rec_df['VV']*100
         rec_df['fpv']=rec_df['FPV']/rec_df['VV']*100
-        rec_df['panbol']=rec_df['PANBOL']/rec_df['VV']*100
+        rec_df['pan_bol']=rec_df['PAN_BOL']/rec_df['VV']*100
 
         rec_df['r'] = np.sqrt(rec_df['HAB']) / self.RATIO_CIRCLE_CARTO
         rec_df['r2'] = np.sqrt(rec_df['HAB']) / self.RATIO_CIRCLE_MAP + self.MAP_CIRCLE_SIZE_OFFSET
@@ -148,7 +148,7 @@ class CartoPlots:
         """
 
         :param data: df loaded by data_load
-        :param frente: string, name of "partido" lowercase: diff, mas, cc, creemos, fpv, panbol
+        :param frente: string, name of "partido" lowercase: diff, mas, cc, creemos, fpv, pan_bol
         :param palette: ej: P_GRAD_CC
         :param name_file: default:test
         :param low: cmap low limit: default: -80
@@ -171,7 +171,7 @@ class CartoPlots:
         data['cc'] = data['CC'] / data['VV'] * 100
         data['creemos'] = data['CREEMOS'] / data['VV'] * 100
         data['fpv'] = data['FPV'] / data['VV'] * 100
-        data['panbol'] = data['PANBOL'] / data['VV'] * 100
+        data['pan_bol'] = data['PAN_BOL'] / data['VV'] * 100
         data['ad_mas_cc'] = data['d_mas_cc'].abs()
         data['mas_o_cc'] = 'n'
         data.loc[data['d_mas_cc'] >= 0, 'mas_o_cc'] = 'MAS'
@@ -352,9 +352,7 @@ class CartoPlots:
 
         # layout = row(column(slider, cart_f),map_f)
         layout = bokeh.layouts.gridplot(
-            [[slider, None], [cart_fig, map_fig]]
-            , merge_tools=False, sizing_mode='scale_both', max_width=700
-        )
+            [[slider, None], [cart_fig, map_fig]], sizing_mode='scale_both', merge_tools=False)
         # layout = bokeh.layouts.column([slider, cart_fig])
 
         cart_fig.x_range.start = self.CXS
