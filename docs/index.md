@@ -19,6 +19,8 @@ Cartograma diferencia MAS - CC 2020 (Datos en proceso)
 
 [Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
 
+[Densidad de votantes en el territorio](Ejemplos/Densidad.md)
+
 
 
 ### Diferencia de votos entre MAS-CC
@@ -33,8 +35,6 @@ El tono de color azul o naranja es claro cuando la diferencia en porcentajes es 
 
 
 
-
-### [Densidad de votantes en el territorio](Ejemplos/Densidad.md)
 
 
 ## Cómo explorar la información de la página
