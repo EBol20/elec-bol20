@@ -43,13 +43,18 @@ BROWSER = 'safari'
 MIN_WITH = 600
 MAX_WITH = 800
 PATH_OUT = 'docs/Ejemplos/z050_panel.html'
+FILE_OUT = os.path.join(os.path.dirname(ebu.DIR),
+                                        PATH_OUT)
 
 COL_LLEGO = '#aaaaaa'
 COL_FALTA = '#db2879'
 
-bokeh.plotting.output_file(os.path.join(os.path.dirname(ebu.DIR),
-                                        PATH_OUT))
+# bokeh.plotting.output_file(os.path.join(os.path.dirname(ebu.DIR),
+#                                         PATH_OUT))
 # bokeh.plotting.output_notebook()
+
+# %% [markdown]
+# ## code
 
 # %%
 df2 = ebu.get_dataframe_2020()
@@ -272,10 +277,22 @@ l0.max_width = MAX_WITH
 l0.min_width = MIN_WITH
 # lay = bokeh.layouts.row([l0,f])
 # lay = p
+# %% [markdown]
+# ## graph
+
+# %%
+
 # %%
 bokeh.plotting.show(lay, browser=BROWSER)
 
 
+# %% [markdown]
+# ## save
+
 # %%
+bokeh.plotting.save(l0,FILE_OUT)
+
+# %%
+ebu.get_bolivian_time(0)
 
 # %%
