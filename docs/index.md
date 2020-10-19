@@ -79,5 +79,4 @@ El tono de color azul o naranja es claro cuando la diferencia en porcentajes es 
 ## Sobre nosotros
 [Nuestro aporte](Ejemplos/Nuestro_aporte.md)
 
-###### [pruebas](index2_borrador.md) 
 
