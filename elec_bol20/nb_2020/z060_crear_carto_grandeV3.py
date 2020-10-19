@@ -102,14 +102,14 @@ CYS = -25
 CXE = -50
 CXS = -75
 
-MYE = 70
-MYS = -70
-MXE = -120
-MXS = 150
-CYE = -0
-CYS = -35
-CXE = -40
-CXS = -85
+# MYE = 70
+# MYS = -70
+# MXE = -120
+# MXS = 150
+# CYE = -0
+# CYS = -35
+# CXE = -40
+# CXS = -85
 
 
 
@@ -119,7 +119,7 @@ FIG_WIDTH = 700
 C_BAR_HIGH = 80
 C_BAR_LOW = -80
 PALETTE = ebu.P_DIF
-CART_SLIDER_INIT = 1
+CART_SLIDER_INIT = .90
 FILE_OUT = ebu.DIR+'/htlml_1_intermedios/2020/z060_carto_map_mas_c0_2020c.html'
 
 MAP_CIRCLE_SIZE_OFFSET = 5
@@ -430,6 +430,8 @@ cart_fig.yaxis.major_label_text_font_size = '0pt'  # turn off y-axis tick labels
 
 # %%
 bokeh.plotting.show(layout)
+
+# %%
 
 # %%
 
