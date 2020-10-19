@@ -280,7 +280,7 @@ mydata = mydata %>%
 
 testprediction = predict_by_cluster(mydata, mesas_2020, cluster_mask, "ID_MESA",
                                     c("CC_perc","MAS_perc","CREEMOS_perc","FPV_perc","PAN_BOL_perc"))
-
+testprediction[[4]]
 testprediction[[2]]
 testprediction[[3]]
 
