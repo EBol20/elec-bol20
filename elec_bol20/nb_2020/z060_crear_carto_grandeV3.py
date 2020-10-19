@@ -36,10 +36,15 @@ import bokeh.tile_providers
 # abrimos los datos del padrón de votación del 2019
 
 # %%
-p = os.path.join(ebu.DATA_PATH1_2020,'comp/exportacion_EG2020_actual.csv',)
+p = os.path.join(ebu.DATA_PATH1_2020,'comp/exportacion_EG2020_actual.csv')
 df_comp = pd.read_csv(p).set_index('ID_MESA')
-['ID_MESA', 'HAB', 'INHAB', 'VV']
+co = ['VV', 'BL', 'NU', 'VOTO_EMITIDO','CREEMOS', 'MAS', 'FPV',
+       'PAN_BOL', 'CC','NUA']
 
+# %%
+df_comp.columns
+
+# %%
 df_comp['ID_RECI'] = (df_comp.index/100).astype(np.int64)
 df_comp['COUNT'] = True
 
