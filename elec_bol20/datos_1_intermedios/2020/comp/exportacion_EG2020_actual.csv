@@ -31,6 +31,7 @@
 1044,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25158,"Colegio Nº 18 Dr. Alberto Larroque",9,220,6,110,3,1,22,142,0,4,146,142,146,0,"110111036112515809"
 1045,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25158,"Colegio Nº 18 Dr. Alberto Larroque",10,220,6,121,0,2,14,143,2,2,147,143,147,0,"110111036112515810"
 1046,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25158,"Colegio Nº 18 Dr. Alberto Larroque",11,122,3,68,0,0,7,78,0,0,78,78,78,0,"110111036112515811"
+1047,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25163,"Escuela De Jornada Completa Nº 08 D.E. 20 Dr. Dalmacio Vélez Sársfield",1,220,0,123,3,0,11,137,3,0,140,137,140,0,"110111036112516301"
 1055,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25166,"Escuela De Jornada Completa Nº 18 D.E. 20 República de Corea ",4,220,6,110,2,0,15,133,0,3,136,133,136,0,"110111036112516604"
 1065,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25167,"Escuela De Jornada Simple Nº 07 D.E. 18 Republica Arabe de Egipto",5,210,6,92,0,2,16,116,0,2,118,116,118,0,"110111036112516705"
 1084,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25174,"Escuela Jornada Simple  N° 22 De 13 Santa Maria de Bs. As",7,220,3,119,3,1,12,138,1,4,143,138,143,0,"110111036112517407"
@@ -39,6 +40,8 @@
 1088,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25174,"Escuela Jornada Simple  N° 22 De 13 Santa Maria de Bs. As",11,220,5,124,1,0,11,141,0,5,146,141,146,0,"110111036112517411"
 1090,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25174,"Escuela Jornada Simple  N° 22 De 13 Santa Maria de Bs. As",13,59,0,38,0,0,4,42,0,1,43,42,43,0,"110111036112517413"
 1091,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25057,"Escuela N° 22 De 11 Hipólito Bouchard",1,220,5,123,2,0,14,144,0,3,147,144,147,0,"110111036112505701"
+1107,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25160,"Escuela N° 12 De 19 José Enrique Rodo",4,220,2,149,3,1,12,167,0,2,169,167,169,0,"110111036112516004"
+1108,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25160,"Escuela N° 12 De 19 José Enrique Rodo",5,220,6,127,2,3,13,151,1,3,155,151,155,0,"110111036112516005"
 1109,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25160,"Escuela N° 12 De 19 José Enrique Rodo",6,220,4,142,0,2,14,162,1,3,166,162,166,0,"110111036112516006"
 1110,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25160,"Escuela N° 12 De 19 José Enrique Rodo",7,220,5,136,2,1,10,154,1,5,160,154,160,0,"110111036112516007"
 1133,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,1,"Buenos Aires",1,"C.A. Buenos Aires",3611,"C.A. Buenos Aires",25164,"Escuela N° 4 De 11 Benjamín Zorrila",7,220,1,114,1,1,10,127,0,7,134,127,134,0,"110111036112516407"
@@ -83,6 +86,7 @@
 1274,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,3,"La Matanza",1,"La Matanza",4130,"Villa Celina",25176,"Escuela Primaria Nº 97 Juana Manso De Noronha",11,114,1,66,1,0,2,70,0,1,71,70,71,0,"110111041302517611"
 1275,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,3,"La Matanza",1,"La Matanza",4130,"Villa Celina",25177,"Escuela de Educación Primaria  Nº 138  Comandante Luis Piedrabuena (Centro de Educación Física CEF 112)",1,220,2,151,0,0,11,164,0,6,170,164,170,0,"110111041302517701"
 1277,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,3,"La Matanza",1,"La Matanza",4130,"Villa Celina",25177,"Escuela de Educación Primaria  Nº 138  Comandante Luis Piedrabuena (Centro de Educación Física CEF 112)",3,220,0,127,3,2,6,138,2,7,147,138,147,0,"110111041302517703"
+1278,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,3,"La Matanza",1,"La Matanza",4130,"Villa Celina",25177,"Escuela de Educación Primaria  Nº 138  Comandante Luis Piedrabuena (Centro de Educación Física CEF 112)",4,220,1,136,4,2,3,146,0,3,149,146,149,0,"110111041302517704"
 1279,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,3,"La Matanza",1,"La Matanza",4130,"Villa Celina",25177,"Escuela de Educación Primaria  Nº 138  Comandante Luis Piedrabuena (Centro de Educación Física CEF 112)",5,220,6,129,1,0,3,139,1,5,145,139,145,0,"110111041302517705"
 1280,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,3,"La Matanza",1,"La Matanza",4130,"Villa Celina",25177,"Escuela de Educación Primaria  Nº 138  Comandante Luis Piedrabuena (Centro de Educación Física CEF 112)",6,220,3,154,0,1,6,164,1,4,169,164,169,0,"110111041302517706"
 1284,"PRESIDENTE",11,"Argentina",10,"Buenos Aires",0,3,"La Matanza",1,"La Matanza",4130,"Villa Celina",25177,"Escuela de Educación Primaria  Nº 138  Comandante Luis Piedrabuena (Centro de Educación Física CEF 112)",10,220,2,119,1,1,11,134,0,9,143,134,143,0,"110111041302517710"
@@ -195,6 +199,10 @@
 1553,"PRESIDENTE",11,"Argentina",11,"Mendoza",0,4,"Luján de Cuyo",1,"Luján de Cuyo",4144,"Ugarteche",25149,"Escuela Luis Baldini",12,60,2,40,1,1,0,44,1,1,46,44,46,0,"110111141442514912"
 1554,"PRESIDENTE",11,"Argentina",11,"Mendoza",0,5,"San Carlos",1,"San Carlos",4145,"Villa San Carlos",25150,"Escuela Fuerte San Carlos",1,220,1,126,10,3,1,141,3,4,148,141,148,0,"110111141452515001"
 1555,"PRESIDENTE",11,"Argentina",11,"Mendoza",0,5,"San Carlos",1,"San Carlos",4145,"Villa San Carlos",25150,"Escuela Fuerte San Carlos",2,220,0,157,3,3,2,165,2,1,168,165,168,0,"110111141452515002"
+<<<<<<< HEAD
+=======
+1556,"PRESIDENTE",11,"Argentina",11,"Mendoza",0,5,"San Carlos",1,"San Carlos",4145,"Villa San Carlos",25150,"Escuela Fuerte San Carlos",3,220,0,138,6,7,1,152,5,7,164,152,164,0,"110111141452515003"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 1557,"PRESIDENTE",11,"Argentina",11,"Mendoza",0,5,"San Carlos",1,"San Carlos",4145,"Villa San Carlos",25150,"Escuela Fuerte San Carlos",4,220,3,142,6,7,1,159,1,4,164,159,164,0,"110111141452515004"
 1558,"PRESIDENTE",11,"Argentina",11,"Mendoza",0,5,"San Carlos",1,"San Carlos",4145,"Villa San Carlos",25150,"Escuela Fuerte San Carlos",5,220,2,134,7,3,0,146,1,7,154,146,154,0,"110111141452515005"
 1559,"PRESIDENTE",11,"Argentina",11,"Mendoza",0,5,"San Carlos",1,"San Carlos",4145,"Villa San Carlos",25150,"Escuela Fuerte San Carlos",6,148,2,97,1,2,1,103,0,6,109,103,109,0,"110111141452515006"
@@ -203,6 +211,10 @@
 1562,"PRESIDENTE",11,"Argentina",11,"Mendoza",0,6,"San Rafael",1,"San Rafael",4146,"Salto de las Rosas",25151,"Escuela “Pedro Goyena”",3,32,0,21,0,2,1,24,2,0,26,24,26,0,"110111141462515103"
 1563,"PRESIDENTE",11,"Argentina",12,"Jujuy",0,3,"Dr. Manuel Belgrano",1,"San Salvador de Jujuy",3613,"San Salvador de Jujuy",25066,"Escuela Normal Superior Juan Ignacio Gorriti",1,220,1,67,3,8,9,88,4,8,100,88,100,0,"110111236132506601"
 1564,"PRESIDENTE",11,"Argentina",12,"Jujuy",0,3,"Dr. Manuel Belgrano",1,"San Salvador de Jujuy",3613,"San Salvador de Jujuy",25066,"Escuela Normal Superior Juan Ignacio Gorriti",2,220,3,79,2,2,6,92,2,8,102,92,102,0,"110111236132506602"
+<<<<<<< HEAD
+=======
+1565,"PRESIDENTE",11,"Argentina",12,"Jujuy",0,3,"Dr. Manuel Belgrano",1,"San Salvador de Jujuy",3613,"San Salvador de Jujuy",25066,"Escuela Normal Superior Juan Ignacio Gorriti",3,220,5,59,2,3,3,72,1,11,84,72,84,0,"110111236132506603"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 1571,"PRESIDENTE",11,"Argentina",12,"Jujuy",0,3,"Dr. Manuel Belgrano",1,"San Salvador de Jujuy",3613,"San Salvador de Jujuy",25066,"Escuela Normal Superior Juan Ignacio Gorriti",9,220,4,80,4,5,4,97,1,5,103,97,103,0,"110111236132506609"
 1575,"PRESIDENTE",11,"Argentina",12,"Jujuy",0,3,"Dr. Manuel Belgrano",1,"San Salvador de Jujuy",3613,"San Salvador de Jujuy",25066,"Escuela Normal Superior Juan Ignacio Gorriti",13,220,0,84,2,7,4,97,0,10,107,97,107,0,"110111236132506613"
 1580,"PRESIDENTE",11,"Argentina",12,"Jujuy",0,3,"Dr. Manuel Belgrano",1,"San Salvador de Jujuy",3613,"San Salvador de Jujuy",25066,"Escuela Normal Superior Juan Ignacio Gorriti",18,220,5,44,1,2,5,57,6,29,92,57,92,0,"110111236132506618"
@@ -216,6 +228,7 @@
 1603,"PRESIDENTE",11,"Argentina",21,"Cordoba",0,5,"Capital",1,"Cordoba",3762,"Cordoba",25087,"IPEM Nº 86 Gabriela Mistral",1,220,7,76,3,2,18,106,0,7,113,106,113,0,"110112137622508701"
 1605,"PRESIDENTE",11,"Argentina",21,"Cordoba",0,5,"Capital",1,"Cordoba",3762,"Cordoba",25087,"IPEM Nº 86 Gabriela Mistral",3,220,6,85,2,5,15,113,0,4,117,113,117,0,"110112137622508703"
 1612,"PRESIDENTE",11,"Argentina",21,"Cordoba",0,5,"Capital",1,"Cordoba",3762,"Cordoba",25154,"CPC Villa El Libertador",1,220,3,92,7,2,6,110,0,2,112,110,112,0,"110112137622515401"
+1613,"PRESIDENTE",11,"Argentina",21,"Cordoba",0,5,"Capital",1,"Cordoba",3762,"Cordoba",25154,"CPC Villa El Libertador",2,220,2,113,2,2,8,127,1,6,134,127,134,0,"110112137622515402"
 1614,"PRESIDENTE",11,"Argentina",21,"Cordoba",0,5,"Capital",1,"Cordoba",3762,"Cordoba",25154,"CPC Villa El Libertador",3,220,3,114,0,1,11,129,1,7,137,129,137,0,"110112137622515403"
 1616,"PRESIDENTE",11,"Argentina",21,"Cordoba",0,5,"Capital",1,"Cordoba",3762,"Cordoba",25154,"CPC Villa El Libertador",5,220,4,132,0,2,10,148,0,3,151,148,151,0,"110112137622515405"
 1617,"PRESIDENTE",11,"Argentina",21,"Cordoba",0,5,"Capital",1,"Cordoba",3762,"Cordoba",25154,"CPC Villa El Libertador",6,220,2,98,2,1,9,112,1,5,118,112,118,0,"110112137622515406"
@@ -359,9 +372,11 @@
 2221,"PRESIDENTE",67,"España",16,"Cataluña",0,2,"Barcelona",1,"Barcelona",3617,"Barcelona",26180,"La Farga (Centro de Eventos)",12,220,36,41,4,3,56,140,0,9,149,140,149,0,"110671636172618012"
 2222,"PRESIDENTE",67,"España",16,"Cataluña",0,2,"Barcelona",1,"Barcelona",3617,"Barcelona",26180,"La Farga (Centro de Eventos)",13,220,33,62,3,1,56,155,0,3,158,155,158,0,"110671636172618013"
 2224,"PRESIDENTE",67,"España",16,"Cataluña",0,2,"Barcelona",1,"Barcelona",3617,"Barcelona",26180,"La Farga (Centro de Eventos)",15,220,28,46,2,0,54,130,0,2,132,130,132,0,"110671636172618015"
+2225,"PRESIDENTE",67,"España",16,"Cataluña",0,2,"Barcelona",1,"Barcelona",3617,"Barcelona",26180,"La Farga (Centro de Eventos)",16,220,19,56,2,2,55,134,0,6,140,134,140,0,"110671636172618016"
 2226,"PRESIDENTE",67,"España",16,"Cataluña",0,2,"Barcelona",1,"Barcelona",3617,"Barcelona",26180,"La Farga (Centro de Eventos)",17,220,17,68,2,3,50,140,0,5,145,140,145,0,"110671636172618017"
 2228,"PRESIDENTE",67,"España",16,"Cataluña",0,2,"Barcelona",1,"Barcelona",3617,"Barcelona",26180,"La Farga (Centro de Eventos)",19,220,38,55,0,0,53,146,1,6,153,146,153,0,"110671636172618019"
 2239,"PRESIDENTE",67,"España",16,"Cataluña",0,2,"Barcelona",1,"Barcelona",3617,"Barcelona",26180,"La Farga (Centro de Eventos)",30,220,37,49,2,0,63,151,0,10,161,151,161,0,"110671636172618030"
+2244,"PRESIDENTE",67,"España",16,"Cataluña",0,2,"Barcelona",1,"Barcelona",3617,"Barcelona",25075,"Sala Polivalent Del Parc Del Nord",1,220,69,26,1,1,32,129,0,8,137,129,137,0,"110671636172507501"
 2245,"PRESIDENTE",67,"España",16,"Cataluña",0,2,"Barcelona",1,"Barcelona",3617,"Barcelona",25075,"Sala Polivalent Del Parc Del Nord",2,220,75,14,1,0,32,122,2,3,127,122,127,0,"110671636172507502"
 2258,"PRESIDENTE",67,"España",17,"Valencia",0,3,"Valencia",1,"Valencia",3618,"Valencia",25076,"Universidad Politécnica De Valencia",1,220,71,31,3,2,23,130,0,7,137,130,137,0,"110671736182507601"
 2259,"PRESIDENTE",67,"España",17,"Valencia",0,3,"Valencia",1,"Valencia",3618,"Valencia",25076,"Universidad Politécnica De Valencia",2,220,79,20,2,1,24,126,0,4,130,126,130,0,"110671736182507602"
@@ -414,6 +429,10 @@
 2393,"PRESIDENTE",124,"Italia",56,"Lazio",0,1,"Roma",1,"Roma",3799,"Roma",25124,"Iglesia Santa Maria Adoloratta",1,220,34,25,5,1,80,145,0,6,151,145,151,0,"111245637992512401"
 2394,"PRESIDENTE",124,"Italia",56,"Lazio",0,1,"Roma",1,"Roma",3799,"Roma",25124,"Iglesia Santa Maria Adoloratta",2,220,33,28,1,0,80,142,0,3,145,142,145,0,"111245637992512402"
 2395,"PRESIDENTE",124,"Italia",56,"Lazio",0,1,"Roma",1,"Roma",3799,"Roma",25124,"Iglesia Santa Maria Adoloratta",3,172,20,24,2,1,63,110,0,4,114,110,114,0,"111245637992512403"
+<<<<<<< HEAD
+=======
+2397,"PRESIDENTE",124,"Italia",57,"Lombardía",0,2,"Bérgamo",1,"Bérgamo",3800,"Bérgamo",25125,"Instituto Paritario Imiberg",2,220,22,31,2,0,84,139,0,12,151,139,151,0,"111245738002512502"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 2401,"PRESIDENTE",124,"Italia",57,"Lombardía",0,2,"Bérgamo",1,"Bérgamo",3800,"Bérgamo",25125,"Instituto Paritario Imiberg",6,220,26,17,3,1,92,139,0,6,145,139,145,0,"111245738002512506"
 2402,"PRESIDENTE",124,"Italia",57,"Lombardía",0,2,"Bérgamo",1,"Bérgamo",3800,"Bérgamo",25125,"Instituto Paritario Imiberg",7,220,17,35,0,0,103,155,0,10,165,155,165,0,"111245738002512507"
 2410,"PRESIDENTE",124,"Italia",57,"Lombardía",0,3,"Milán",1,"Milán",3801,"Milán",25126,"Liceo Linguistico Manzoni",1,220,64,15,0,0,54,133,1,4,138,133,138,0,"111245738012512601"
@@ -429,6 +448,7 @@
 2420,"PRESIDENTE",124,"Italia",57,"Lombardía",0,3,"Milán",1,"Milán",3801,"Milán",25126,"Liceo Linguistico Manzoni",11,134,28,23,1,0,37,89,0,5,94,89,94,0,"111245738012512611"
 2421,"PRESIDENTE",129,"Japón",71,"Kanto",0,1,"Tokio",1,"Tokio",3814,"Tokio",25139,"Embajada",1,196,22,5,2,0,30,59,0,0,59,59,59,0,"111297138142513901"
 2422,"PRESIDENTE",154,"México",54,"México D.F.",0,1,"México D.F.",1,"México D.F.",3797,"México D.F.",25122,"Embajada",1,220,5,20,0,0,125,150,0,3,153,150,153,0,"111545437972512201"
+2423,"PRESIDENTE",154,"México",54,"México D.F.",0,1,"México D.F.",1,"México D.F.",3797,"México D.F.",25122,"Embajada",2,101,5,3,0,0,54,62,0,0,62,62,62,0,"111545437972512202"
 2425,"PRESIDENTE",181,"Paraguay",43,"Dist. Capital",0,1,"Distrito Capital",1,"Asunción",3786,"Asunción",25111,"Embajada",1,220,28,49,0,0,46,123,0,5,128,123,128,0,"111814337862511101"
 2426,"PRESIDENTE",181,"Paraguay",43,"Dist. Capital",0,1,"Distrito Capital",1,"Asunción",3786,"Asunción",25111,"Embajada",2,200,26,44,3,0,53,126,2,4,132,126,132,0,"111814337862511102"
 2428,"PRESIDENTE",182,"Perú",44,"Lima",0,1,"Lima",1,"Lima",3787,"Lima",25112,"Consulado",2,220,25,13,1,0,90,129,0,1,130,129,130,0,"111824437872511202"
@@ -444,6 +464,10 @@
 2442,"PRESIDENTE",213,"Suiza",77,"Ginebra",0,1,"Ginebra",1,"Ginebra",3820,"Ginebra",26120,"Centro Solidario Paquis",6,51,21,4,0,0,6,31,0,2,33,31,33,0,"112137738202612006"
 2443,"PRESIDENTE",233,"Uruguay",49,"Montevideo",0,1,"Montevideo",1,"Montevideo",3792,"Montevideo",25117,"Embajada",1,182,14,35,1,1,57,108,0,4,112,108,112,0,"112334937922511701"
 10003,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",1205,"Chaunaca",53,"Escuela Seccional De Chaunaca",2,81,0,60,1,0,2,63,3,3,69,63,69,0,"100320112050005302"
+<<<<<<< HEAD
+=======
+10013,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",1218,"Punilla",58,"Escuela Punilla",1,220,1,107,8,2,46,164,10,19,193,164,193,0,"100320112180005801"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 10014,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",1218,"Punilla",58,"Escuela Punilla",2,32,1,17,0,1,7,26,1,2,29,26,29,0,"100320112180005802"
 10024,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",1223,"Potolo",62,"U. Edu. Gualberto Villarroel",1,220,0,144,5,1,19,169,16,6,191,169,191,0,"100320112230006201"
 10025,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",1223,"Potolo",62,"U. Edu. Gualberto Villarroel",2,220,3,149,5,4,23,184,12,6,202,184,202,0,"100320112230006202"
@@ -539,6 +563,10 @@
 10139,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30001,"Facultad de Tecnología Médica (Temporal)",4,220,6,25,3,0,148,182,0,4,186,182,186,0,"100320127943000104"
 10140,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30001,"Facultad de Tecnología Médica (Temporal)",5,220,1,35,1,0,145,182,1,6,189,182,189,0,"100320127943000105"
 10142,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30001,"Facultad de Tecnología Médica (Temporal)",7,220,4,37,0,0,147,188,2,2,192,188,192,0,"100320127943000107"
+<<<<<<< HEAD
+=======
+10143,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30001,"Facultad de Tecnología Médica (Temporal)",8,220,5,31,1,0,151,188,0,10,198,188,198,0,"100320127943000108"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 10146,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30009,"Coliseo San José (Temporal)",1,220,1,29,2,4,158,194,1,6,201,194,201,0,"100320127943000901"
 10147,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30009,"Coliseo San José (Temporal)",2,220,7,30,0,0,150,187,2,7,196,187,196,0,"100320127943000902"
 10148,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30009,"Coliseo San José (Temporal)",3,220,3,37,2,0,152,194,1,4,199,194,199,0,"100320127943000903"
@@ -721,7 +749,14 @@
 10348,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",1,220,1,33,1,0,145,180,0,3,183,180,183,0,"100320127940040701"
 10349,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",2,220,3,33,1,1,154,192,2,4,198,192,198,0,"100320127940040702"
 10350,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",3,220,5,24,2,0,160,191,1,3,195,191,195,0,"100320127940040703"
+<<<<<<< HEAD
 10352,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",5,220,1,39,7,0,125,172,1,8,181,172,181,0,"100320127940040705"
+=======
+10351,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",4,220,3,39,2,0,146,190,1,1,192,190,192,0,"100320127940040704"
+10352,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",5,220,1,39,7,0,125,172,1,8,181,172,181,0,"100320127940040705"
+10353,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",6,220,5,27,2,1,151,186,2,10,198,186,198,0,"100320127940040706"
+10354,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",7,220,1,37,3,0,151,192,2,2,196,192,196,0,"100320127940040707"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 10355,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",8,220,2,38,0,1,149,190,0,4,194,190,194,0,"100320127940040708"
 10356,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",9,220,4,35,1,1,134,175,1,5,181,175,181,0,"100320127940040709"
 10357,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",10,220,4,41,5,0,136,186,1,6,193,186,193,0,"100320127940040710"
@@ -730,6 +765,10 @@
 10360,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",13,220,4,33,1,0,142,180,2,6,188,180,188,0,"100320127940040713"
 10361,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",14,220,8,37,2,1,134,182,0,5,187,182,187,0,"100320127940040714"
 10362,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",15,220,8,28,3,0,144,183,1,6,190,183,190,0,"100320127940040715"
+<<<<<<< HEAD
+=======
+10363,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",16,220,6,29,1,0,147,183,1,8,192,183,192,0,"100320127940040716"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 10364,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",17,220,6,28,1,0,158,193,0,5,198,193,198,0,"100320127940040717"
 10365,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",18,220,3,51,1,1,135,191,1,1,193,191,193,0,"100320127940040718"
 10366,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",407,"Estadium Patria",19,39,0,7,1,0,25,33,0,1,34,33,34,0,"100320127940040719"
@@ -768,7 +807,14 @@
 10408,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",230,"Unidad Educativa 6 de Junio",17,220,7,54,7,1,121,190,5,3,198,190,198,0,"100320127940023017"
 10409,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",230,"Unidad Educativa 6 de Junio",18,220,4,58,2,1,110,175,5,7,187,175,187,0,"100320127940023018"
 10410,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",230,"Unidad Educativa 6 de Junio",19,220,2,74,4,1,109,190,2,9,201,190,201,0,"100320127940023019"
+<<<<<<< HEAD
 10414,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",230,"Unidad Educativa 6 de Junio",23,220,4,52,3,1,122,182,4,7,193,182,193,0,"100320127940023023"
+=======
+10411,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",230,"Unidad Educativa 6 de Junio",20,220,3,44,2,0,133,182,3,6,191,182,191,0,"100320127940023020"
+10414,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",230,"Unidad Educativa 6 de Junio",23,220,4,52,3,1,122,182,4,7,193,182,193,0,"100320127940023023"
+10415,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",230,"Unidad Educativa 6 de Junio",24,220,1,65,5,0,87,158,1,41,200,158,200,0,"100320127940023024"
+10416,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",230,"Unidad Educativa 6 de Junio",25,47,1,9,0,0,33,43,0,4,47,43,47,0,"100320127940023025"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 10417,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25031,"Mercado Yurac Yurac",1,220,1,48,8,0,134,191,3,6,200,191,200,0,"100320127942503101"
 10419,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25031,"Mercado Yurac Yurac",3,220,1,51,4,4,123,183,0,11,194,183,194,0,"100320127942503103"
 10420,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25031,"Mercado Yurac Yurac",4,220,1,58,6,3,117,185,0,6,191,185,191,0,"100320127942503104"
@@ -1049,6 +1095,12 @@
 10744,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30015,"U.E. Gualberto Paredes (Temporal)",1,220,1,105,5,4,71,186,4,7,197,186,197,0,"100320127943001501"
 10745,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30015,"U.E. Gualberto Paredes (Temporal)",2,220,4,125,7,1,53,190,2,8,200,190,200,0,"100320127943001502"
 10746,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30015,"U.E. Gualberto Paredes (Temporal)",3,220,1,105,8,4,68,186,5,7,198,186,198,0,"100320127943001503"
+<<<<<<< HEAD
+=======
+10747,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30015,"U.E. Gualberto Paredes (Temporal)",4,220,3,114,7,6,63,193,4,4,201,193,201,0,"100320127943001504"
+10748,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30015,"U.E. Gualberto Paredes (Temporal)",5,220,5,107,7,2,62,183,6,13,202,183,202,0,"100320127943001505"
+10749,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30015,"U.E. Gualberto Paredes (Temporal)",6,220,2,96,7,1,76,182,5,6,193,182,193,0,"100320127943001506"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 10750,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30015,"U.E. Gualberto Paredes (Temporal)",7,220,1,134,3,2,54,194,3,10,207,194,207,0,"100320127943001507"
 10751,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30015,"U.E. Gualberto Paredes (Temporal)",8,220,0,126,2,2,48,178,3,7,188,178,188,0,"100320127943001508"
 10752,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",30015,"U.E. Gualberto Paredes (Temporal)",9,194,1,117,3,3,43,167,2,9,178,167,178,0,"100320127943001509"
@@ -1091,10 +1143,23 @@
 10795,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",409,"Campo Deportivo 20 de Octubre",8,220,4,57,2,1,130,194,1,3,198,194,198,0,"100320127940040908"
 10796,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",409,"Campo Deportivo 20 de Octubre",9,41,1,17,2,0,16,36,0,1,37,36,37,0,"100320127940040909"
 10797,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",1,220,2,111,5,3,45,166,5,32,203,166,203,0,"100320127942503201"
+<<<<<<< HEAD
 10799,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",3,220,2,136,10,3,37,188,6,11,205,188,205,0,"100320127942503203"
 10801,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",5,220,2,131,5,0,52,190,2,11,203,190,203,0,"100320127942503205"
 10802,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",6,220,2,138,5,2,37,184,4,14,202,184,202,0,"100320127942503206"
 10804,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",8,220,2,137,6,0,47,192,2,6,200,192,200,0,"100320127942503208"
+=======
+10798,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",2,220,0,135,11,0,46,192,4,9,205,192,205,0,"100320127942503202"
+10799,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",3,220,2,136,10,3,37,188,6,11,205,188,205,0,"100320127942503203"
+10800,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",4,220,1,119,10,2,49,181,8,12,201,181,201,0,"100320127942503204"
+10801,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",5,220,2,131,5,0,52,190,2,11,203,190,203,0,"100320127942503205"
+10802,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",6,220,2,138,5,2,37,184,4,14,202,184,202,0,"100320127942503206"
+10804,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",8,220,2,137,6,0,47,192,2,6,200,192,200,0,"100320127942503208"
+10805,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",9,220,2,129,14,4,46,195,1,9,205,195,205,0,"100320127942503209"
+10806,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",10,220,1,110,9,4,67,191,4,16,211,191,211,0,"100320127942503210"
+10807,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",11,220,1,111,9,6,64,191,7,7,205,191,205,0,"100320127942503211"
+10808,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",25032,"Unidad Educativa Alberto Bohorquez",12,173,1,116,6,5,27,155,2,6,163,155,163,0,"100320127942503212"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 10811,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",534,"Escuela Tucsupaya",3,220,7,65,3,1,113,189,2,5,196,189,196,0,"100320127940053403"
 10812,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",534,"Escuela Tucsupaya",4,220,2,77,3,1,102,185,3,12,200,185,200,0,"100320127940053404"
 10815,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",534,"Escuela Tucsupaya",7,220,2,55,7,0,129,193,0,7,200,193,200,0,"100320127940053407"
@@ -1213,11 +1278,19 @@
 10956,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",219,"U.E. Las Americas",10,220,3,99,16,0,69,187,2,10,199,187,199,0,"100320127940021910"
 10957,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",219,"U.E. Las Americas",11,220,4,72,6,3,99,184,6,5,195,184,195,0,"100320127940021911"
 10958,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",219,"U.E. Las Americas",12,220,3,78,3,1,59,144,2,51,197,144,197,0,"100320127940021912"
+<<<<<<< HEAD
+=======
+10960,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",219,"U.E. Las Americas",14,220,3,89,6,4,77,179,3,7,189,179,189,0,"100320127940021914"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 10961,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",219,"U.E. Las Americas",15,220,4,90,6,4,80,184,6,5,195,184,195,0,"100320127940021915"
 10963,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",219,"U.E. Las Americas",17,220,4,75,13,1,90,183,5,8,196,183,196,0,"100320127940021917"
 10965,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",219,"U.E. Las Americas",19,220,2,108,7,3,69,189,3,7,199,189,199,0,"100320127940021919"
 10966,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",219,"U.E. Las Americas",20,220,0,77,11,4,82,174,12,11,197,174,197,0,"100320127940021920"
 10968,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",219,"U.E. Las Americas",22,220,1,102,4,2,81,190,0,11,201,190,201,0,"100320127940021922"
+<<<<<<< HEAD
+=======
+10970,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",219,"U.E. Las Americas",24,220,3,68,12,2,105,190,2,5,197,190,197,0,"100320127940021924"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 10971,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",219,"U.E. Las Americas",25,220,2,79,7,0,103,191,4,7,202,191,202,0,"100320127940021925"
 10972,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",219,"U.E. Las Americas",26,220,0,88,11,0,88,187,4,8,199,187,199,0,"100320127940021926"
 10975,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",2794,"Sucre",511,"Salon Mult. Alto Loyola",2,220,0,73,8,1,96,178,4,8,190,178,190,0,"100320127940051102"
@@ -1287,6 +1360,28 @@
 11067,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",3821,"Alto Khora Khora",1,"U.E. Qhora Qhora Alta",5,61,0,30,2,0,17,49,1,4,54,49,54,0,"100320138210000105"
 11070,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",4350,"Kuchu Tambo",26050,"U.E. 9 de Marzo",2,220,1,179,4,6,13,203,6,5,214,203,214,0,"100320143502605002"
 11071,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",1,"Sucre",4350,"Kuchu Tambo",26050,"U.E. 9 de Marzo",3,38,0,28,2,0,2,32,4,0,36,32,36,0,"100320143502605003"
+<<<<<<< HEAD
+=======
+11080,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",2,"Yotala",1200,"Yotala",2,"Centro Educativo Santa Rosa",3,220,1,73,6,1,99,180,2,9,191,180,191,0,"100320112000000203"
+11087,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",2,"Yotala",1238,"Tuero",1,"Unidad Educativa Tuero Chico",1,127,1,92,1,0,10,104,3,6,113,104,113,0,"100320112380000101"
+11093,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,1,"Oropeza",2,"Yotala",3295,"Ñujchu",1,"Unidad Educativa German Busch",1,210,2,113,10,3,44,172,8,7,187,172,187,0,"100320132950000101"
+11210,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,3,"Zudáñez",2,"Presto",1287,"Presto",1,"Unidad Educativa Ricardo Mujia",2,220,1,139,2,1,24,167,13,10,190,167,190,0,"100320112870000102"
+11213,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,3,"Zudáñez",2,"Presto",1287,"Presto",1,"Unidad Educativa Ricardo Mujia",5,220,5,112,7,1,34,159,5,17,181,159,181,0,"100320112870000105"
+11214,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,3,"Zudáñez",2,"Presto",1287,"Presto",1,"Unidad Educativa Ricardo Mujia",6,220,1,134,7,0,16,158,10,20,188,158,188,0,"100320112870000106"
+11220,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,3,"Zudáñez",2,"Presto",1289,"Rodeo El Palmar",1,"Escuela José María Martínez",3,220,1,169,2,0,2,174,7,7,188,174,188,0,"100320112890000103"
+11224,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,3,"Zudáñez",2,"Presto",3830,"Puno Khasa",1,"Puesto de Salud Puno Khasa",1,198,0,139,2,2,11,154,4,3,161,154,161,0,"100320138300000101"
+11461,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,6,"Yamparáez",1,"Tarabuco",1354,"Tarabuco",1,"U. Edu. Rosalia Vda. De Antezana",3,220,1,159,4,0,21,185,4,7,196,185,196,0,"100320113540000103"
+11469,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,6,"Yamparáez",1,"Tarabuco",1354,"Tarabuco",2,"Colegio Aniceto Arce",3,220,1,133,6,1,30,171,5,8,184,171,184,0,"100320113540000203"
+11470,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,6,"Yamparáez",1,"Tarabuco",1354,"Tarabuco",2,"Colegio Aniceto Arce",4,220,1,115,8,1,37,162,17,10,189,162,189,0,"100320113540000204"
+11471,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,6,"Yamparáez",1,"Tarabuco",1354,"Tarabuco",2,"Colegio Aniceto Arce",5,220,1,130,4,0,34,169,13,5,187,169,187,0,"100320113540000205"
+11472,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,6,"Yamparáez",1,"Tarabuco",1354,"Tarabuco",2,"Colegio Aniceto Arce",6,220,2,142,3,1,35,183,9,11,203,183,203,0,"100320113540000206"
+11473,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,6,"Yamparáez",1,"Tarabuco",1354,"Tarabuco",2,"Colegio Aniceto Arce",7,220,0,141,4,1,30,176,6,7,189,176,189,0,"100320113540000207"
+11474,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,6,"Yamparáez",1,"Tarabuco",1354,"Tarabuco",2,"Colegio Aniceto Arce",8,226,4,148,4,2,28,186,4,6,196,186,196,0,"100320113540000208"
+11476,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,6,"Yamparáez",1,"Tarabuco",1355,"Cororo",1,"Colegio Nacional Mixto Bolivia",2,220,1,127,7,1,40,177,10,6,193,177,193,1,"100320113550000102"
+11485,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,6,"Yamparáez",1,"Tarabuco",2759,"La Cienega (Y)",1,"Unidad Educativa La Cienega",2,155,1,108,3,1,4,117,5,7,129,117,129,0,"100320127590000102"
+11511,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,6,"Yamparáez",2,"Yamparáez",1365,"Escana",1,"Colegio Gerardo Rios",1,220,4,134,1,0,39,178,8,4,190,178,190,0,"100320113650000101"
+11513,"PRESIDENTE",32,"Bolivia",1,"Chuquisaca",0,6,"Yamparáez",2,"Yamparáez",2959,"Pulqui Avaroa",1,"Unidad Educativa Pulki Avaroa",1,220,1,153,6,2,9,171,11,5,187,171,187,0,"100320129590000101"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 20007,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",101,"Esc. Ind. Pedro Domingo Murillo",7,220,2,89,3,0,100,194,0,3,197,194,197,0,"100320207290010107"
 20008,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",101,"Esc. Ind. Pedro Domingo Murillo",8,220,1,82,3,2,102,190,3,7,200,190,200,0,"100320207290010108"
 20009,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",101,"Esc. Ind. Pedro Domingo Murillo",9,220,1,71,5,1,118,196,2,3,201,196,201,0,"100320207290010109"
@@ -1338,6 +1433,10 @@
 20113,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",204,"Esc. Nicolas  Fernandez Naranjo",9,220,0,120,5,1,71,197,3,3,203,197,203,0,"100320207290020409"
 20114,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",204,"Esc. Nicolas  Fernandez Naranjo",10,220,0,125,2,3,62,192,0,4,196,192,196,0,"100320207290020410"
 20116,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",204,"Esc. Nicolas  Fernandez Naranjo",12,220,3,130,6,2,63,204,0,3,207,204,207,0,"100320207290020412"
+<<<<<<< HEAD
+=======
+20118,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",204,"Esc. Nicolas  Fernandez Naranjo",14,220,5,94,2,1,94,196,0,3,199,196,199,0,"100320207290020414"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 20149,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",205,"Esc. Sergio Suarez",3,220,1,108,4,0,89,202,0,5,207,202,207,0,"100320207290020503"
 20151,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",205,"Esc. Sergio Suarez",5,220,0,119,3,0,57,179,4,12,195,179,195,0,"100320207290020505"
 20153,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",205,"Esc. Sergio Suarez",7,220,0,119,5,1,70,195,2,4,201,195,201,0,"100320207290020507"
@@ -1372,6 +1471,10 @@
 20367,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",407,"Col. Felipe 2do. Guzman",9,220,0,53,3,0,124,180,2,5,187,180,187,0,"100320207290040709"
 20383,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25480,"Colegio Dora Schmidt",1,220,5,37,2,0,147,191,0,5,196,191,196,0,"100320207292548001"
 20384,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25480,"Colegio Dora Schmidt",2,220,0,43,0,0,143,186,0,9,195,186,195,0,"100320207292548002"
+<<<<<<< HEAD
+=======
+20385,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25480,"Colegio Dora Schmidt",3,220,3,33,1,0,149,186,3,4,193,186,193,0,"100320207292548003"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 20419,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",504,"Esc. Alfredo Vargas",17,220,1,83,0,1,103,188,0,5,193,188,193,0,"100320207290050417"
 20420,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",504,"Esc. Alfredo Vargas",18,220,1,95,4,2,96,198,0,3,201,198,201,0,"100320207290050418"
 20421,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",504,"Esc. Alfredo Vargas",19,220,0,125,5,1,65,196,0,5,201,196,201,0,"100320207290050419"
@@ -1557,6 +1660,9 @@
 21109,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",903,"Colegio Jerusalem",8,220,1,116,2,1,79,199,0,3,202,199,202,0,"100320207290090308"
 21111,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",903,"Colegio Jerusalem",10,220,1,130,3,3,63,200,2,2,204,200,204,0,"100320207290090310"
 21113,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",903,"Colegio Jerusalem",12,220,0,104,6,1,94,205,0,3,208,205,208,0,"100320207290090312"
+21156,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1006,"Polifuncional San Isidro (Iglesia San Isidro)",6,220,3,81,7,2,104,197,0,3,200,197,200,0,"100320207290100606"
+21157,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1006,"Polifuncional San Isidro (Iglesia San Isidro)",7,220,0,81,2,1,112,196,0,3,199,196,199,0,"100320207290100607"
+21158,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1006,"Polifuncional San Isidro (Iglesia San Isidro)",8,212,0,71,2,0,118,191,1,5,197,191,197,0,"100320207290100608"
 21184,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1010,"Colegio 6 de Junio",1,220,3,34,3,1,151,192,0,5,197,192,197,0,"100320207290101001"
 21185,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1010,"Colegio 6 de Junio",2,220,2,80,0,0,116,198,1,2,201,198,201,0,"100320207290101002"
 21187,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1010,"Colegio 6 de Junio",4,220,3,43,1,0,143,190,0,6,196,190,196,0,"100320207290101004"
@@ -1655,6 +1761,8 @@
 21607,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25054,"U.E. El Pedregal (Urb. Pedregal)",5,220,1,164,3,0,37,205,1,6,212,205,212,0,"100320207292505405"
 21609,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25054,"U.E. El Pedregal (Urb. Pedregal)",7,220,3,150,3,0,45,201,2,3,206,201,206,0,"100320207292505407"
 21611,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25054,"U.E. El Pedregal (Urb. Pedregal)",9,109,2,64,1,0,28,95,1,3,99,95,99,0,"100320207292505409"
+21619,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1405,"Escuela Chasquipampa",8,220,1,138,2,0,53,194,0,6,200,194,200,0,"100320207290140508"
+21625,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1405,"Escuela Chasquipampa",14,220,0,183,0,1,19,204,0,6,210,204,210,1,"100320207290140514"
 21651,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25728,"U.E. Bolivian High School",2,220,0,144,2,0,51,198,3,6,207,198,207,1,"100320207292572802"
 21654,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25728,"U.E. Bolivian High School",5,220,4,98,5,0,91,198,1,4,203,198,203,0,"100320207292572805"
 21657,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25728,"U.E. Bolivian High School",8,60,1,21,0,0,27,49,0,3,52,49,52,0,"100320207292572808"
@@ -1667,6 +1775,11 @@
 21684,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25031,"Centro de Capacitacion Inti Paxsi",9,220,1,101,1,0,99,202,0,1,203,202,203,0,"100320207292503109"
 21699,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1512,"Unidad Educativa Jupapina",5,220,2,103,2,0,79,186,1,3,190,186,190,0,"100320207290151205"
 21700,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1512,"Unidad Educativa Jupapina",6,220,0,157,2,1,31,191,6,7,204,191,204,0,"100320207290151206"
+<<<<<<< HEAD
+=======
+21701,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1512,"Unidad Educativa Jupapina",7,220,1,84,1,0,101,187,2,3,192,187,192,0,"100320207290151207"
+21702,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1512,"Unidad Educativa Jupapina",8,64,0,26,3,0,24,53,1,0,54,53,54,0,"100320207290151208"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 21853,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1703,"Colegio Amoretti",12,220,1,37,1,1,150,190,1,4,195,190,195,0,"100320207290170312"
 21855,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1703,"Colegio Amoretti",14,73,0,21,0,0,43,64,0,4,68,64,68,0,"100320207290170314"
 21860,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1704,"Kinder Nazario Pardo",5,220,8,76,4,1,100,189,2,7,198,189,198,0,"100320207290170405"
@@ -1677,6 +1790,11 @@
 21880,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1707,"Col. Gregorio Reynolds",15,220,2,94,1,1,97,195,1,6,202,195,202,0,"100320207290170715"
 21882,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1707,"Col. Gregorio Reynolds",17,220,1,37,1,0,148,187,0,7,194,187,194,0,"100320207290170717"
 21884,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1707,"Col. Gregorio Reynolds",19,220,0,38,1,0,146,185,2,4,191,185,191,0,"100320207290170719"
+<<<<<<< HEAD
+=======
+21899,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25037,"Escuela Agustin Aspiazu",14,220,0,55,3,1,120,179,0,8,187,179,187,0,"100320207292503714"
+21916,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25052,"Esc. Ecuador",11,220,3,23,1,0,161,188,0,1,189,188,189,0,"100320207292505211"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 21919,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1708,"Col. Amor de Dios",1,220,1,34,1,0,143,179,0,6,185,179,185,0,"100320207290170801"
 21920,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1708,"Col. Amor de Dios",2,220,1,24,0,0,165,190,1,1,192,190,192,0,"100320207290170802"
 21921,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1708,"Col. Amor de Dios",3,220,0,28,1,0,143,172,1,9,182,172,182,0,"100320207290170803"
@@ -1698,14 +1816,27 @@
 22016,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1804,"Esc. San Miguel",1,220,0,171,3,0,22,196,2,4,202,196,202,0,"100320207290180401"
 22017,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1804,"Esc. San Miguel",2,220,0,170,5,1,27,203,2,5,210,203,210,0,"100320207290180402"
 22018,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1804,"Esc. San Miguel",3,220,1,174,4,0,23,202,2,5,209,202,209,0,"100320207290180403"
+22026,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1901,"Escuela Republica de Japon",7,220,1,104,3,1,92,201,1,1,203,201,203,0,"100320207290190107"
+22027,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1901,"Escuela Republica de Japon",8,220,1,118,3,0,76,198,1,7,206,198,206,0,"100320207290190108"
 22038,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1902,"Col. Luis Espinal Camps",2,220,0,138,8,0,48,194,3,8,205,194,205,0,"100320207290190202"
 22039,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1902,"Col. Luis Espinal Camps",3,220,4,140,3,1,52,200,1,5,206,200,206,0,"100320207290190203"
 22042,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1902,"Col. Luis Espinal Camps",6,220,0,147,4,0,50,201,0,6,207,201,207,0,"100320207290190206"
 22044,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1902,"Col. Luis Espinal Camps",8,220,1,162,3,0,36,202,0,8,210,202,210,0,"100320207290190208"
 22045,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1902,"Col. Luis Espinal Camps",9,220,0,152,4,4,43,203,0,2,205,203,205,0,"100320207290190209"
+<<<<<<< HEAD
 22089,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1903,"Escuela Republica de Japon",12,220,0,127,2,0,64,193,2,10,205,193,205,0,"100320207290190312"
 22100,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1905,"Unid. Educ. Jaime Escalante",8,220,0,152,3,0,42,197,3,5,205,197,205,0,"100320207290190508"
 22101,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1905,"Unid. Educ. Jaime Escalante",9,220,1,150,2,2,46,201,1,6,208,201,208,0,"100320207290190509"
+=======
+22088,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1903,"Escuela Republica de Japon",11,220,4,117,2,1,69,193,0,11,204,193,204,0,"100320207290190311"
+22089,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1903,"Escuela Republica de Japon",12,220,0,127,2,0,64,193,2,10,205,193,205,0,"100320207290190312"
+22090,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1903,"Escuela Republica de Japon",13,220,1,80,2,0,0,199,1,7,207,199,207,116,"100320207290190313"
+22092,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1903,"Escuela Republica de Japon",15,172,0,78,2,0,69,149,0,5,154,149,154,0,"100320207290190315"
+22099,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1905,"Unid. Educ. Jaime Escalante",7,220,1,146,2,0,44,193,3,11,207,193,207,0,"100320207290190507"
+22100,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1905,"Unid. Educ. Jaime Escalante",8,220,0,152,3,0,42,197,3,5,205,197,205,0,"100320207290190508"
+22101,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1905,"Unid. Educ. Jaime Escalante",9,220,1,150,2,2,46,201,1,6,208,201,208,0,"100320207290190509"
+22102,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1905,"Unid. Educ. Jaime Escalante",10,220,1,147,6,0,50,204,0,1,205,204,205,0,"100320207290190510"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 22104,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1905,"Unid. Educ. Jaime Escalante",12,220,0,157,2,2,32,193,4,11,208,193,208,0,"100320207290190512"
 22105,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1905,"Unid. Educ. Jaime Escalante",13,220,1,158,2,2,37,200,1,5,206,200,206,0,"100320207290190513"
 22106,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1905,"Unid. Educ. Jaime Escalante",14,220,4,147,3,1,37,192,1,7,200,192,200,0,"100320207290190514"
@@ -1745,10 +1876,17 @@
 22204,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3020,"Unidad Educativa Carlos Medinacelli",8,220,2,95,2,1,100,200,0,2,202,200,202,0,"100320207290302008"
 22205,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3020,"Unidad Educativa Carlos Medinacelli",9,220,0,62,2,1,129,194,0,4,198,194,198,0,"100320207290302009"
 22207,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3020,"Unidad Educativa Carlos Medinacelli",11,220,0,81,3,2,106,192,1,9,202,192,202,0,"100320207290302011"
+22209,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3020,"Unidad Educativa Carlos Medinacelli",13,220,2,77,7,1,107,194,1,3,198,194,198,0,"100320207290302013"
 22216,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3020,"Unidad Educativa Carlos Medinacelli",20,220,0,68,2,0,126,196,0,3,199,196,199,0,"100320207290302020"
+22223,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",1701,"Liceo Bolivia",6,220,1,26,2,0,156,185,1,3,189,185,189,0,"100320207290170106"
 22225,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25036,"Colegio San Luis",1,220,2,69,1,0,127,199,0,7,206,199,206,0,"100320207292503601"
 22227,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25036,"Colegio San Luis",3,220,1,56,2,0,137,196,0,5,201,196,201,0,"100320207292503603"
 22230,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25036,"Colegio San Luis",6,220,0,56,2,0,132,190,1,8,199,190,199,0,"100320207292503606"
+<<<<<<< HEAD
+=======
+22232,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25036,"Colegio San Luis",8,220,1,81,3,0,106,191,0,6,197,191,197,0,"100320207292503608"
+22237,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25036,"Colegio San Luis",13,220,5,68,1,0,115,189,0,7,196,189,196,0,"100320207292503613"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 22239,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25036,"Colegio San Luis",15,220,1,76,3,0,123,203,1,3,207,203,207,0,"100320207292503615"
 22242,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25036,"Colegio San Luis",18,220,2,45,1,0,151,199,0,1,200,199,200,0,"100320207292503618"
 22243,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",25036,"Colegio San Luis",19,220,1,40,1,1,150,193,0,4,197,193,197,0,"100320207292503619"
@@ -1788,7 +1926,9 @@
 22387,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2207,"Col. San Martin",7,220,5,75,3,0,108,191,3,3,197,191,197,0,"100320207290220707"
 22389,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2207,"Col. San Martin",9,220,1,63,3,1,128,196,1,6,203,196,203,0,"100320207290220709"
 22396,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2208,"Col. Maria Auxiliadora",6,220,2,42,5,1,145,195,0,2,197,195,197,0,"100320207290220806"
+22405,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2302,"Esc. Eduardo Avaroa",3,220,1,72,7,3,120,203,0,4,207,203,207,0,"100320207290230203"
 22418,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3032,"Unidad Educativa Privada La Paz",1,220,2,94,5,2,92,195,0,3,198,195,198,0,"100320207290303201"
+22434,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",30033,"U.E. 16 de Julio (Temporal)",9,220,1,81,4,1,93,180,0,8,188,180,188,0,"100320207293003309"
 22438,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2305,"Esc. Gral. Jose Manuel Pando",2,220,1,111,4,0,80,196,0,2,198,196,198,0,"100320207290230502"
 22439,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2305,"Esc. Gral. Jose Manuel Pando",3,220,2,101,7,1,83,194,0,6,200,194,200,0,"100320207290230503"
 22440,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2305,"Esc. Gral. Jose Manuel Pando",4,220,2,91,5,2,100,200,1,6,207,200,207,0,"100320207290230504"
@@ -1805,6 +1945,11 @@
 22543,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2405,"Col. Daniel Sanchez Bustamante",15,220,0,127,7,1,56,191,2,4,197,191,197,0,"100320207290240515"
 22544,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2405,"Col. Daniel Sanchez Bustamante",16,220,0,100,4,0,83,187,1,8,196,187,196,0,"100320207290240516"
 22546,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2405,"Col. Daniel Sanchez Bustamante",18,220,1,122,13,0,54,190,1,6,197,190,197,0,"100320207290240518"
+22563,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2406,"Esc. Remberto Tapia",1,220,0,111,3,2,89,205,0,6,211,205,211,0,"100320207290240601"
+22565,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2406,"Esc. Remberto Tapia",3,220,0,108,3,2,97,210,0,2,212,210,212,0,"100320207290240603"
+22567,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2406,"Esc. Remberto Tapia",5,220,1,106,5,0,84,196,1,8,205,196,205,0,"100320207290240605"
+22569,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2406,"Esc. Remberto Tapia",7,220,2,116,6,0,80,204,0,2,206,204,206,0,"100320207290240607"
+22571,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2406,"Esc. Remberto Tapia",9,220,2,100,5,1,85,193,2,4,199,193,199,0,"100320207290240609"
 22607,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2502,"Esc. Club De Leones",5,220,1,109,6,0,89,205,1,4,210,205,210,0,"100320207290250205"
 22609,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2502,"Esc. Club De Leones",7,220,1,123,1,2,68,195,0,8,203,195,203,0,"100320207290250207"
 22611,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2502,"Esc. Club De Leones",9,220,1,136,2,1,59,199,2,7,208,199,208,0,"100320207290250209"
@@ -1879,8 +2024,17 @@
 22970,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2907,"Escuela Eloy Alvarez Plata",7,220,2,51,3,2,142,200,3,2,205,200,205,0,"100320207290290707"
 22971,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",2907,"Escuela Eloy Alvarez Plata",8,135,1,33,2,0,84,120,1,4,125,120,125,0,"100320207290290708"
 22985,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3001,"Esc. Gil Tapia Rada",14,220,1,133,1,1,62,198,1,5,204,198,204,0,"100320207290300114"
+<<<<<<< HEAD
 22998,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3002,"Kinder Bolivia",3,220,1,148,1,4,43,197,1,4,202,197,202,0,"100320207290300203"
 23000,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3002,"Kinder Bolivia",5,220,1,136,2,1,58,198,2,6,206,198,206,0,"100320207290300205"
+=======
+22986,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3001,"Esc. Gil Tapia Rada",15,220,4,83,3,0,98,188,1,6,195,188,195,0,"100320207290300115"
+22996,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3002,"Kinder Bolivia",1,220,2,121,6,1,68,198,5,6,209,198,209,0,"100320207290300201"
+22997,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3002,"Kinder Bolivia",2,220,2,119,4,0,63,188,2,12,202,188,202,0,"100320207290300202"
+22998,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3002,"Kinder Bolivia",3,220,1,148,1,4,43,197,1,4,202,197,202,0,"100320207290300203"
+23000,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3002,"Kinder Bolivia",5,220,1,136,2,1,58,198,2,6,206,198,206,0,"100320207290300205"
+23001,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3002,"Kinder Bolivia",6,220,2,129,3,1,71,206,0,3,209,206,209,0,"100320207290300206"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 23003,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3002,"Kinder Bolivia",8,220,2,129,4,3,58,196,2,9,207,196,207,0,"100320207290300208"
 23005,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",1,"Nuestra Señora de La Paz",729,"Nuestra Señora de La Paz",3002,"Kinder Bolivia",10,220,2,159,6,0,33,200,2,3,205,200,205,0,"100320207290300210"
 23131,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",4,"Achocalla",816,"Pucarani(Achocalla)",1,"U. E. Rene Barrientos Ortuño",1,220,0,168,2,0,28,198,3,0,201,198,201,0,"100320208160000101"
@@ -1890,13 +2044,24 @@
 23191,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",4,"Achocalla",2778,"Marquirivi (Murillo)",1,"U. E. Marquirivi",5,220,2,180,3,1,18,204,3,4,211,204,211,0,"100320227780000105"
 23192,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",4,"Achocalla",2778,"Marquirivi (Murillo)",1,"U. E. Marquirivi",6,220,0,170,4,0,22,196,3,7,206,196,206,0,"100320227780000106"
 23195,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",4,"Achocalla",2778,"Marquirivi (Murillo)",1,"U. E. Marquirivi",9,220,0,196,0,0,10,206,1,3,210,206,210,0,"100320227780000109"
+<<<<<<< HEAD
 23421,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",301,"Unidad Educativa Ingavi",11,220,1,169,2,1,21,194,2,6,202,194,202,0,"100320208200030111"
+=======
+23417,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",301,"Unidad Educativa Ingavi",7,220,1,171,5,0,20,197,3,9,209,197,209,0,"100320208200030107"
+23421,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",301,"Unidad Educativa Ingavi",11,220,1,169,2,1,21,194,2,6,202,194,202,0,"100320208200030111"
+23422,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",301,"Unidad Educativa Ingavi",12,220,2,176,6,2,20,206,1,4,211,206,211,0,"100320208200030112"
+23450,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",25043,"U.E. Tokio",13,220,1,176,1,1,25,204,2,5,211,204,211,0,"100320208202504313"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 23457,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",302,"Unidad Educativa Illimani",6,220,1,176,5,1,21,204,1,4,209,204,209,0,"100320208200030206"
 23483,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",303,"Escuela Rafael Pabon",2,220,0,176,6,2,15,199,1,4,204,199,204,0,"100320208200030302"
 23485,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",303,"Escuela Rafael Pabon",4,220,0,186,6,0,8,200,2,3,205,200,205,0,"100320208200030304"
 23486,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",303,"Escuela Rafael Pabon",5,220,2,167,8,2,19,198,0,9,207,198,207,0,"100320208200030305"
 23503,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",303,"Escuela Rafael Pabon",22,220,2,181,3,1,14,201,1,5,207,201,207,0,"100320208200030322"
 23505,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",303,"Escuela Rafael Pabon",24,220,0,174,3,1,17,195,1,6,202,195,202,0,"100320208200030324"
+<<<<<<< HEAD
+=======
+23909,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",701,"Unidad Educativa 12 de Octubre",3,220,2,104,7,0,80,193,1,8,202,193,202,0,"100320208200070103"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 23911,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",701,"Unidad Educativa 12 de Octubre",5,220,1,123,2,1,76,203,0,6,209,203,209,0,"100320208200070105"
 23912,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",701,"Unidad Educativa 12 de Octubre",6,220,1,126,3,1,63,194,1,6,201,194,201,0,"100320208200070106"
 23932,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",703,"Unidad Educativa Santiago I",2,220,0,130,2,0,67,199,3,4,206,199,206,0,"100320208200070302"
@@ -2035,7 +2200,14 @@
 25476,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",2004,"Unidad Educativa San Juan de Calama",18,220,2,140,0,1,52,195,3,1,199,195,199,0,"100320208200200418"
 25477,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",2004,"Unidad Educativa San Juan de Calama",19,220,1,161,1,1,35,199,1,2,202,199,202,0,"100320208200200419"
 25478,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",2004,"Unidad Educativa San Juan de Calama",20,93,0,63,0,0,23,86,1,1,88,86,88,0,"100320208200200420"
+<<<<<<< HEAD
 25490,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",2006,"Colegio Luis Espinal Camps (Aeropuerto)",5,220,0,167,2,2,25,196,1,3,200,196,200,0,"100320208200200605"
+=======
+25487,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",2006,"Colegio Luis Espinal Camps (Aeropuerto)",2,220,0,160,2,1,41,204,0,5,209,204,209,0,"100320208200200602"
+25488,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",2006,"Colegio Luis Espinal Camps (Aeropuerto)",3,220,1,149,5,0,42,197,1,5,203,197,203,0,"100320208200200603"
+25490,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",2006,"Colegio Luis Espinal Camps (Aeropuerto)",5,220,0,167,2,2,25,196,1,3,200,196,200,0,"100320208200200605"
+25491,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",2006,"Colegio Luis Espinal Camps (Aeropuerto)",6,220,1,156,4,1,40,202,0,4,206,202,206,0,"100320208200200606"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 25499,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",2006,"Colegio Luis Espinal Camps (Aeropuerto)",14,220,0,170,3,3,30,206,1,4,211,206,211,0,"100320208200200614"
 25500,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",2006,"Colegio Luis Espinal Camps (Aeropuerto)",15,220,2,163,2,2,35,204,0,7,211,204,211,0,"100320208200200615"
 25501,"PRESIDENTE",32,"Bolivia",2,"La Paz",0,1,"Murillo",5,"El Alto",820,"El Alto",2006,"Colegio Luis Espinal Camps (Aeropuerto)",16,220,1,151,5,1,41,199,3,0,202,199,202,0,"100320208200200616"
@@ -2102,6 +2274,11 @@
 30037,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",109,"Colegio Marista",1,220,5,50,1,0,140,196,2,6,204,196,204,0,"100320308210010901"
 30038,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",109,"Colegio Marista",2,220,2,43,0,1,144,190,3,4,197,190,197,0,"100320308210010902"
 30039,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",109,"Colegio Marista",3,220,5,41,1,1,147,195,21,4,220,195,220,0,"100320308210010903"
+<<<<<<< HEAD
+=======
+30041,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",109,"Colegio Marista",5,220,2,35,1,0,151,189,1,10,200,189,200,0,"100320308210010905"
+30042,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",109,"Colegio Marista",6,220,5,57,2,1,124,189,2,2,193,189,193,0,"100320308210010906"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 30052,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",109,"Colegio Marista",16,220,5,31,1,2,160,199,0,5,204,199,204,0,"100320308210010916"
 30053,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",109,"Colegio Marista",17,220,6,41,1,0,140,188,1,8,197,188,197,0,"100320308210010917"
 30054,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",109,"Colegio Marista",18,220,6,35,0,1,150,192,0,6,198,192,198,0,"100320308210010918"
@@ -2130,6 +2307,8 @@
 30140,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",144,"Colegio Aleman Santa Maria",9,220,5,19,2,0,151,177,2,4,183,177,183,0,"100320308210014409"
 30145,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",147,"Escuela Wilge Rodriguez",2,220,7,45,0,0,125,177,0,4,181,177,181,0,"100320308210014702"
 30149,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",147,"Escuela Wilge Rodriguez",6,46,1,7,1,0,32,41,0,1,42,41,42,0,"100320308210014706"
+30151,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",105,"Colegio Hispano Boliviano",2,220,8,42,3,0,131,184,1,5,190,184,190,0,"100320308210010502"
+30156,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",105,"Colegio Hispano Boliviano",7,220,2,65,0,0,117,184,1,3,188,184,188,0,"100320308210010507"
 30158,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",105,"Colegio Hispano Boliviano",9,220,4,48,2,0,136,190,0,4,194,190,194,0,"100320308210010509"
 30159,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",105,"Colegio Hispano Boliviano",10,220,7,43,3,0,129,182,1,4,187,182,187,0,"100320308210010510"
 30160,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",105,"Colegio Hispano Boliviano",11,220,4,49,3,1,119,176,0,8,184,176,184,0,"100320308210010511"
@@ -2337,6 +2516,7 @@
 30902,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",106,"Colegio Nacional Mixto Cochabamba",26,220,2,50,3,2,132,189,0,4,193,189,193,0,"100320308210010626"
 30906,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25920,"U. E. Cosmos",3,220,5,52,1,1,139,198,0,4,202,198,202,0,"100320308212592003"
 30915,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",125,"Colegio Branco Petricevic",7,220,7,61,1,0,124,193,0,5,198,193,198,0,"100320308210012507"
+30935,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",125,"Colegio Branco Petricevic",27,220,5,49,1,3,136,194,1,8,203,194,203,0,"100320308210012527"
 30937,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",125,"Colegio Branco Petricevic",29,220,4,47,1,1,131,184,1,7,192,184,192,0,"100320308210012529"
 30940,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",125,"Colegio Branco Petricevic",32,180,4,40,1,2,106,153,0,3,156,153,156,0,"100320308210012532"
 30942,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",203,"Colegio Luis Quintin Vila",2,220,6,40,0,1,143,190,1,7,198,190,198,0,"100320308210020302"
@@ -2375,6 +2555,10 @@
 31091,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",162,"Liceo Adela Zamudio",7,220,2,31,1,1,146,181,0,4,185,181,185,0,"100320308210016207"
 31092,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",162,"Liceo Adela Zamudio",8,220,5,54,2,0,129,190,0,4,194,190,194,0,"100320308210016208"
 31094,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",162,"Liceo Adela Zamudio",10,220,4,37,1,0,145,187,0,7,194,187,194,0,"100320308210016210"
+<<<<<<< HEAD
+=======
+31101,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",162,"Liceo Adela Zamudio",17,143,0,31,3,1,81,116,0,2,118,116,118,0,"100320308210016217"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 31102,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",218,"Unidad Educativa Nataniel Aguirre",1,220,2,64,3,1,116,186,2,6,194,186,194,0,"100320308210021801"
 31104,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",130,"Unidad Educativa Maria Emilia Riquelme (Ex Maria Cristina)",1,220,3,86,2,0,103,194,2,6,202,194,202,0,"100320308210013001"
 31105,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",130,"Unidad Educativa Maria Emilia Riquelme (Ex Maria Cristina)",2,220,2,78,1,0,109,190,3,10,203,190,203,0,"100320308210013002"
@@ -2496,11 +2680,18 @@
 31812,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",188,"Colegio Laura Vicuña",4,220,2,132,2,1,56,193,2,4,199,193,199,0,"100320308210018804"
 31816,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",246,"Unidad Educativa Antonio Diez",1,220,2,161,2,3,32,200,0,1,201,200,201,0,"100320308210024601"
 31833,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25880,"U. E. El Mirador",2,64,0,54,1,0,3,58,0,0,58,58,58,0,"100320308212588002"
+31945,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25929,"U. E. Patria Nueva",2,220,2,174,3,0,13,192,4,3,199,192,199,0,"100320308212592902"
+31951,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25929,"U. E. Patria Nueva",8,220,5,172,3,1,17,198,2,2,202,198,202,0,"100320308212592908"
 31954,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25929,"U. E. Patria Nueva",11,220,0,189,0,0,9,198,1,3,202,198,202,0,"100320308212592911"
 31956,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25929,"U. E. Patria Nueva",13,220,2,171,2,5,10,190,2,7,199,190,199,0,"100320308212592913"
 31957,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25929,"U. E. Patria Nueva",14,220,1,184,2,0,23,210,0,1,211,210,211,0,"100320308212592914"
 31958,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25929,"U. E. Patria Nueva",15,220,1,162,2,1,25,191,1,4,196,191,196,0,"100320308212592915"
 31959,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25929,"U. E. Patria Nueva",16,220,2,170,3,1,21,197,5,3,205,197,205,0,"100320308212592916"
+<<<<<<< HEAD
+=======
+31964,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25929,"U. E. Patria Nueva",21,220,2,165,3,3,29,202,1,4,207,202,207,0,"100320308212592921"
+31965,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25929,"U. E. Patria Nueva",22,220,0,161,4,1,25,191,3,4,198,191,198,0,"100320308212592922"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 31966,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25929,"U. E. Patria Nueva",23,220,0,170,2,2,26,200,1,2,203,200,203,0,"100320308212592923"
 31968,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",30079,"U.E. 1ro. De Mayo (Temporal)",2,220,2,175,3,1,14,195,1,6,202,195,202,0,"100320308213007902"
 31969,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",30079,"U.E. 1ro. De Mayo (Temporal)",3,220,1,160,2,1,25,189,2,6,197,189,197,0,"100320308213007903"
@@ -2565,6 +2756,10 @@
 32182,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25358,"U.E. Nacional San Isidro",5,220,0,185,3,0,11,199,2,4,205,199,205,0,"100320308212535805"
 32184,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25358,"U.E. Nacional San Isidro",7,220,3,189,2,0,12,206,0,2,208,206,208,0,"100320308212535807"
 32189,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25358,"U.E. Nacional San Isidro",12,220,0,182,5,0,9,196,2,3,201,196,201,0,"100320308212535812"
+<<<<<<< HEAD
+=======
+32191,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25358,"U.E. Nacional San Isidro",14,220,2,169,2,0,23,196,1,2,199,196,199,0,"100320308212535814"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 32194,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25358,"U.E. Nacional San Isidro",17,220,2,181,0,2,19,204,1,1,206,204,206,0,"100320308212535817"
 32198,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25879,"U. E. San Francisco Javier",1,220,0,163,5,1,18,187,3,8,198,187,198,0,"100320308212587901"
 32200,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,1,"Cercado",1,"Cochabamba",821,"Cochabamba",25879,"U. E. San Francisco Javier",3,220,2,170,5,2,15,194,0,4,198,194,198,0,"100320308212587903"
@@ -2682,6 +2877,10 @@
 33366,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",1,"Quillacollo",934,"Quillacollo",25036,"Escuela Simón Bolivar",2,220,4,86,3,0,90,183,1,3,187,183,187,0,"100320309342503602"
 33370,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",1,"Quillacollo",934,"Quillacollo",25036,"Escuela Simón Bolivar",6,220,2,85,2,0,96,185,2,11,198,185,198,0,"100320309342503606"
 33373,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",1,"Quillacollo",934,"Quillacollo",25036,"Escuela Simón Bolivar",9,220,4,113,1,1,79,198,2,3,203,198,203,0,"100320309342503609"
+<<<<<<< HEAD
+=======
+33376,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",1,"Quillacollo",934,"Quillacollo",25036,"Escuela Simón Bolivar",12,220,3,88,1,0,97,189,0,8,197,189,197,0,"100320309342503612"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 33381,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",1,"Quillacollo",934,"Quillacollo",25036,"Escuela Simón Bolivar",17,227,3,82,4,1,110,200,0,8,208,200,208,0,"100320309342503617"
 33400,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",1,"Quillacollo",934,"Quillacollo",25039,"Liceo América",19,220,3,60,3,0,123,189,1,7,197,189,197,0,"100320309342503919"
 33402,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",1,"Quillacollo",934,"Quillacollo",25039,"Liceo América",21,220,3,44,3,2,140,192,1,5,198,192,198,0,"100320309342503921"
@@ -2835,6 +3034,7 @@
 34319,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",5,"Colcapirhua",966,"Sumunpaya",9047,"Colegio Max Fernandez",16,220,1,70,3,0,120,194,0,5,199,194,199,0,"100320309660904716"
 34323,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",5,"Colcapirhua",966,"Sumunpaya",9047,"Colegio Max Fernandez",20,220,3,105,1,1,95,205,1,2,208,205,208,0,"100320309660904720"
 34325,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",5,"Colcapirhua",966,"Sumunpaya",9047,"Colegio Max Fernandez",22,220,2,70,1,0,104,177,4,7,188,177,188,0,"100320309660904722"
+34327,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",5,"Colcapirhua",966,"Sumunpaya",9047,"Colegio Max Fernandez",24,220,0,71,3,1,118,193,0,3,196,193,196,0,"100320309660904724"
 34331,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",5,"Colcapirhua",966,"Sumunpaya",9048,"Unidad Educativa Simon Bolivar (Sumunpaya)",1,220,1,147,3,0,40,191,0,6,197,191,197,0,"100320309660904801"
 34332,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",5,"Colcapirhua",966,"Sumunpaya",9048,"Unidad Educativa Simon Bolivar (Sumunpaya)",2,220,1,144,3,0,54,202,2,6,210,202,210,0,"100320309660904802"
 34338,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,9,"Quillacollo",5,"Colcapirhua",968,"Santa Rosa (Colcapirhua)",9051,"Unidad Educativa El Sausalito",2,220,1,82,2,1,107,193,1,7,201,193,201,0,"100320309680905102"
@@ -2898,6 +3098,7 @@
 34571,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",971,"Sacaba",1051,"Unidad Educativa Boliviano Británico",12,220,1,171,0,0,22,194,0,5,199,194,199,0,"100320309710105112"
 34573,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",971,"Sacaba",1051,"Unidad Educativa Boliviano Británico",14,220,2,172,3,0,18,195,4,4,203,195,203,0,"100320309710105114"
 34576,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",971,"Sacaba",1051,"Unidad Educativa Boliviano Británico",17,220,1,145,3,0,45,194,1,4,199,194,199,0,"100320309710105117"
+34578,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",971,"Sacaba",1051,"Unidad Educativa Boliviano Británico",19,220,0,151,4,1,34,190,1,6,197,190,197,0,"100320309710105119"
 34588,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",971,"Sacaba",25691,"U.E. El Moro",1,197,3,135,1,0,33,172,1,4,177,172,177,0,"100320309712569101"
 34591,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",971,"Sacaba",25928,"U. E. 27 de Mayo",1,220,1,170,1,1,16,189,7,5,201,189,201,0,"100320309712592801"
 34602,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",971,"Sacaba",25933,"U.E. República del Ecuador",2,220,2,158,2,0,41,203,1,7,211,203,211,0,"100320309712593302"
@@ -2905,6 +3106,10 @@
 34607,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",971,"Sacaba",25933,"U.E. República del Ecuador",7,220,3,165,3,0,27,198,4,4,206,198,206,0,"100320309712593307"
 34610,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",971,"Sacaba",25933,"U.E. República del Ecuador",10,220,1,156,3,1,37,198,2,8,208,198,208,0,"100320309712593310"
 34614,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",971,"Sacaba",25580,"U.E. Villa Clotilde",1,220,3,181,2,1,17,204,3,5,212,204,212,0,"100320309712558001"
+<<<<<<< HEAD
+=======
+34616,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",971,"Sacaba",25580,"U.E. Villa Clotilde",3,220,1,180,7,0,12,200,2,3,205,200,205,0,"100320309712558003"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 34618,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",972,"El Castillo",1005,"Escuela Jesus Terceros",1,220,3,46,4,1,137,191,0,2,193,191,193,0,"100320309720100501"
 34619,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",972,"El Castillo",1005,"Escuela Jesus Terceros",2,220,5,54,2,2,135,198,1,4,203,198,203,0,"100320309720100502"
 34620,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",972,"El Castillo",1005,"Escuela Jesus Terceros",3,220,4,48,2,0,145,199,0,3,202,199,202,0,"100320309720100503"
@@ -2916,6 +3121,7 @@
 34633,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",972,"El Castillo",1005,"Escuela Jesus Terceros",16,220,5,64,2,0,120,191,1,5,197,191,197,0,"100320309720100516"
 34634,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",972,"El Castillo",1005,"Escuela Jesus Terceros",17,220,3,70,0,1,120,194,1,6,201,194,201,0,"100320309720100517"
 34635,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",972,"El Castillo",1005,"Escuela Jesus Terceros",18,90,0,24,0,0,51,75,0,3,78,75,78,0,"100320309720100518"
+34636,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",973,"Quintanilla",1006,"Colegio Quintanilla",1,220,6,93,1,0,91,191,3,5,199,191,199,0,"100320309730100601"
 34637,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",973,"Quintanilla",1006,"Colegio Quintanilla",2,220,1,88,1,1,94,185,4,8,197,185,197,0,"100320309730100602"
 34640,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",973,"Quintanilla",1006,"Colegio Quintanilla",5,220,1,66,4,0,116,187,1,6,194,187,194,0,"100320309730100605"
 34641,"PRESIDENTE",32,"Bolivia",3,"Cochabamba",0,10,"Chapare",1,"Sacaba",973,"Quintanilla",1006,"Colegio Quintanilla",6,220,5,77,1,1,103,187,1,11,199,187,199,0,"100320309730100606"
@@ -3156,6 +3362,10 @@
 40159,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",31003,"U.E. Juana Azurduy de Padilla (Temporal)",4,214,2,61,1,3,118,185,2,7,194,185,194,0,"100320420593100304"
 40160,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",31005,"U.E. Nuestra Señora del Socavon (Temporal)",1,220,1,91,6,0,96,194,1,7,202,194,202,0,"100320420593100501"
 40161,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",31005,"U.E. Nuestra Señora del Socavon (Temporal)",2,220,1,55,2,2,135,195,0,5,200,195,200,0,"100320420593100502"
+<<<<<<< HEAD
+=======
+40162,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",31005,"U.E. Nuestra Señora del Socavon (Temporal)",3,220,5,78,5,3,107,198,0,5,203,198,203,0,"100320420593100503"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 40168,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",118,"Fac. De Derecho (Esc. 10 De Febrero)",2,220,4,54,2,2,134,196,0,5,201,196,201,0,"100320420590011802"
 40169,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",118,"Fac. De Derecho (Esc. 10 De Febrero)",3,220,1,39,3,2,136,181,3,3,187,181,187,0,"100320420590011803"
 40170,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",118,"Fac. De Derecho (Esc. 10 De Febrero)",4,123,1,23,3,1,76,104,1,3,108,104,108,0,"100320420590011804"
@@ -3255,6 +3465,10 @@
 40476,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",91,"U. Esc. Melvin Jones",9,220,0,92,3,0,106,201,0,5,206,201,206,0,"100320420590009109"
 40477,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",91,"U. Esc. Melvin Jones",10,220,3,69,4,1,114,191,2,4,197,191,197,0,"100320420590009110"
 40478,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",91,"U. Esc. Melvin Jones",11,84,0,26,0,1,49,76,1,2,79,76,79,0,"100320420590009111"
+<<<<<<< HEAD
+=======
+40479,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",31015,"Stadium  (Temporal)",1,220,2,47,4,2,131,186,2,9,197,186,197,0,"100320420593101501"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 40484,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",31015,"Stadium  (Temporal)",6,220,2,88,5,4,100,199,1,3,203,199,203,0,"100320420593101506"
 40485,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",31015,"Stadium  (Temporal)",7,220,2,68,2,2,122,196,1,6,203,196,203,0,"100320420593101507"
 40486,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",31015,"Stadium  (Temporal)",8,220,3,71,2,1,119,196,1,6,203,196,203,0,"100320420593101508"
@@ -3281,6 +3495,10 @@
 40542,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",138,"Col. Nal. Mixto Carmen Guzman De Mier",1,220,5,94,6,2,72,179,1,25,205,179,205,0,"100320420590013801"
 40543,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",138,"Col. Nal. Mixto Carmen Guzman De Mier",2,220,2,88,4,1,92,187,2,11,200,187,200,0,"100320420590013802"
 40544,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",138,"Col. Nal. Mixto Carmen Guzman De Mier",3,220,2,100,5,4,77,188,1,7,196,188,196,0,"100320420590013803"
+<<<<<<< HEAD
+=======
+40545,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",138,"Col. Nal. Mixto Carmen Guzman De Mier",4,220,7,89,5,1,96,198,1,7,206,198,206,0,"100320420590013804"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 40546,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",138,"Col. Nal. Mixto Carmen Guzman De Mier",5,220,4,110,3,1,80,198,0,8,206,198,206,0,"100320420590013805"
 40547,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",138,"Col. Nal. Mixto Carmen Guzman De Mier",6,220,1,108,8,0,79,197,0,4,201,197,201,1,"100320420590013806"
 40549,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",138,"Col. Nal. Mixto Carmen Guzman De Mier",8,220,1,102,6,4,87,200,2,6,208,200,208,0,"100320420590013808"
@@ -3348,6 +3566,22 @@
 40728,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",107,"Col. Particular Naciones Unidas",5,220,1,92,3,2,97,195,0,3,198,195,198,0,"100320420590010705"
 40729,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",107,"Col. Particular Naciones Unidas",6,220,1,90,0,2,106,199,1,4,204,199,204,0,"100320420590010706"
 40730,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",107,"Col. Particular Naciones Unidas",7,220,4,86,3,0,95,188,3,8,199,188,199,0,"100320420590010707"
+<<<<<<< HEAD
+=======
+40786,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",132,"Kinder Edith Zamora De Paz",7,220,3,108,5,4,72,192,0,3,195,192,195,0,"100320420590013207"
+40787,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",132,"Kinder Edith Zamora De Paz",8,220,3,121,6,2,56,188,1,11,200,188,200,0,"100320420590013208"
+40788,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",132,"Kinder Edith Zamora De Paz",9,220,3,120,8,2,55,188,2,5,195,188,195,0,"100320420590013209"
+40789,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",132,"Kinder Edith Zamora De Paz",10,220,2,134,5,1,57,199,2,2,203,199,203,0,"100320420590013210"
+40790,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",132,"Kinder Edith Zamora De Paz",11,220,1,150,3,2,32,188,1,3,192,188,192,0,"100320420590013211"
+40791,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",132,"Kinder Edith Zamora De Paz",12,125,0,82,4,2,22,110,0,3,113,110,113,0,"100320420590013212"
+40797,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",133,"U. Esc. San Ignacio De Loyola",1,220,2,86,2,2,106,198,0,8,206,198,206,0,"100320420590013301"
+40799,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",133,"U. Esc. San Ignacio De Loyola",3,220,2,76,6,1,106,191,4,5,200,191,200,0,"100320420590013303"
+40800,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",133,"U. Esc. San Ignacio De Loyola",4,220,4,86,2,1,103,196,1,7,204,196,204,0,"100320420590013304"
+40801,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",133,"U. Esc. San Ignacio De Loyola",5,220,1,82,7,4,95,189,1,7,197,189,197,0,"100320420590013305"
+40802,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",133,"U. Esc. San Ignacio De Loyola",6,220,4,102,5,4,91,206,1,4,211,206,211,0,"100320420590013306"
+40805,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",133,"U. Esc. San Ignacio De Loyola",9,220,2,89,5,3,95,194,2,3,199,194,199,0,"100320420590013309"
+40806,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",133,"U. Esc. San Ignacio De Loyola",10,220,0,84,9,3,98,194,3,5,202,194,202,0,"100320420590013310"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 40821,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",31017,"Parroquia Nuestra señora del Rosario (Temporal)",1,220,2,85,4,1,108,200,0,2,202,200,202,0,"100320420593101701"
 40822,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",31017,"Parroquia Nuestra señora del Rosario (Temporal)",2,220,0,83,5,1,109,198,4,2,204,198,204,0,"100320420593101702"
 40823,"PRESIDENTE",32,"Bolivia",4,"Oruro",0,1,"Cercado",1,"Oruro",2059,"Oruro",31017,"Parroquia Nuestra señora del Rosario (Temporal)",3,220,2,79,5,2,110,198,2,3,203,198,203,0,"100320420593101703"
@@ -4910,6 +5144,7 @@
 70263,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",32056,"Unidad Educativa Santa Ana D (Temporal)",9,220,128,23,0,1,33,185,2,5,192,185,192,0,"100320722343205609"
 70265,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",32056,"Unidad Educativa Santa Ana D (Temporal)",11,220,138,22,1,1,30,192,1,6,199,192,199,0,"100320722343205611"
 70266,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",32056,"Unidad Educativa Santa Ana D (Temporal)",12,183,107,8,2,1,37,155,1,3,159,155,159,0,"100320722343205612"
+70270,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",5002,"Esc. German Busch",4,220,143,12,1,0,32,188,1,5,194,188,194,0,"100320722340500204"
 70271,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",5002,"Esc. German Busch",5,220,142,14,0,0,33,189,0,7,196,189,196,0,"100320722340500205"
 70272,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",5002,"Esc. German Busch",6,220,138,10,4,0,31,184,1,2,187,184,187,1,"100320722340500206"
 70293,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",25418,"Modulo Educativo German Busch",1,220,132,20,0,1,35,188,0,4,192,188,192,0,"100320722342541801"
@@ -4955,6 +5190,7 @@
 70376,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",5010,"Esc. Jose Mariano Serrano",3,220,122,14,0,0,65,201,3,3,207,201,207,0,"100320722340501003"
 70377,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",5010,"Esc. Jose Mariano Serrano",4,220,107,13,2,0,73,195,0,2,197,195,197,0,"100320722340501004"
 70378,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",5010,"Esc. Jose Mariano Serrano",5,220,110,11,0,0,73,194,1,5,200,194,200,0,"100320722340501005"
+70381,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",5010,"Esc. Jose Mariano Serrano",8,220,108,20,0,0,69,197,2,3,202,197,202,0,"100320722340501008"
 70386,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",5028,"Col. Juan La Borde Morel",3,220,120,32,1,0,38,191,0,7,198,191,198,0,"100320722340502803"
 70388,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",5028,"Col. Juan La Borde Morel",5,220,132,26,1,0,40,199,0,3,202,199,202,0,"100320722340502805"
 70389,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",5028,"Col. Juan La Borde Morel",6,220,140,20,2,0,30,192,0,3,195,192,195,0,"100320722340502806"
@@ -5230,6 +5466,10 @@
 71041,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",3010,"Col. El Pajonal",9,220,129,22,1,0,48,200,1,6,207,200,207,0,"100320722340301009"
 71044,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",3011,"Colegio Nestor Suarez",2,220,116,31,0,0,60,207,0,5,212,207,212,0,"100320722340301102"
 71051,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",3011,"Colegio Nestor Suarez",9,220,136,29,1,0,26,192,1,4,197,192,197,0,"100320722340301109"
+<<<<<<< HEAD
+=======
+71054,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",3011,"Colegio Nestor Suarez",12,220,115,30,1,0,48,194,1,5,200,194,200,0,"100320722340301112"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 71058,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",3011,"Colegio Nestor Suarez",16,220,127,31,0,1,28,187,2,5,194,187,194,0,"100320722340301116"
 71059,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",3011,"Colegio Nestor Suarez",17,220,135,28,3,1,27,194,1,7,202,194,202,0,"100320722340301117"
 71061,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",3011,"Colegio Nestor Suarez",19,220,100,44,1,0,45,190,0,9,199,190,199,0,"100320722340301119"
@@ -5334,6 +5574,10 @@
 71314,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11082,"Modulo Rancho Nuevo",3,220,97,42,4,0,44,187,1,8,196,187,196,0,"100320722341108203"
 71324,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11082,"Modulo Rancho Nuevo",13,220,124,30,2,0,20,176,3,7,186,176,186,0,"100320722341108213"
 71325,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11082,"Modulo Rancho Nuevo",14,220,78,61,2,1,44,186,2,6,194,186,194,0,"100320722341108214"
+<<<<<<< HEAD
+=======
+71330,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11082,"Modulo Rancho Nuevo",19,220,105,46,2,1,28,182,0,7,189,182,189,0,"100320722341108219"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 71353,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",32031,"Modulo 10 de Octubre (Temporal)",22,220,95,61,2,1,29,188,1,6,195,188,195,0,"100320722343203122"
 71357,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",32031,"Modulo 10 de Octubre (Temporal)",26,220,89,63,2,1,35,190,0,9,199,190,199,0,"100320722343203126"
 71359,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",32031,"Modulo 10 de Octubre (Temporal)",28,220,118,46,2,0,22,188,1,3,192,188,192,0,"100320722343203128"
@@ -5381,11 +5625,16 @@
 71462,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6015,"Col. Esc. Gral. Ismael Montes Gamboa",8,220,97,62,3,0,32,194,0,10,204,194,204,0,"100320722340601508"
 71463,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6015,"Col. Esc. Gral. Ismael Montes Gamboa",9,220,96,50,0,0,40,186,1,11,198,186,198,0,"100320722340601509"
 71464,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6015,"Col. Esc. Gral. Ismael Montes Gamboa",10,220,65,83,5,1,35,189,3,4,196,189,196,0,"100320722340601510"
+71468,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6015,"Col. Esc. Gral. Ismael Montes Gamboa",14,220,83,75,2,0,28,188,1,4,193,188,193,0,"100320722340601514"
+71469,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6015,"Col. Esc. Gral. Ismael Montes Gamboa",15,220,36,125,3,1,17,182,2,11,195,182,195,0,"100320722340601515"
+71470,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6015,"Col. Esc. Gral. Ismael Montes Gamboa",16,220,71,92,4,0,29,196,2,9,207,196,207,0,"100320722340601516"
+71480,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6015,"Col. Esc. Gral. Ismael Montes Gamboa",26,220,101,50,4,0,35,190,1,2,193,190,193,0,"100320722340601526"
 71483,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6015,"Col. Esc. Gral. Ismael Montes Gamboa",29,220,77,74,3,0,26,180,0,14,194,180,194,0,"100320722340601529"
 71484,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6015,"Col. Esc. Gral. Ismael Montes Gamboa",30,220,73,88,0,0,30,191,0,6,197,191,197,0,"100320722340601530"
 71485,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6015,"Col. Esc. Gral. Ismael Montes Gamboa",31,26,2,15,2,0,4,23,0,0,23,23,23,0,"100320722340601531"
 71488,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11070,"Urkupiña",3,220,86,60,2,0,34,182,1,4,187,182,187,0,"100320722341107003"
 71490,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11070,"Urkupiña",5,28,8,10,0,0,5,23,0,3,26,23,26,0,"100320722341107005"
+71491,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11062,"U.E. Arca De Noe",1,220,85,41,3,1,36,166,0,37,203,166,203,0,"100320722341106201"
 71492,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11062,"U.E. Arca De Noe",2,220,106,48,2,1,4,162,19,19,200,162,200,1,"100320722341106202"
 71493,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11062,"U.E. Arca De Noe",3,220,91,56,0,0,41,188,2,11,201,188,201,0,"100320722341106203"
 71494,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11062,"U.E. Arca De Noe",4,220,91,55,1,0,33,180,1,10,191,180,191,0,"100320722341106204"
@@ -5503,6 +5752,7 @@
 71861,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6004,"Col.  Pedro Añez",25,220,95,50,6,0,36,187,1,4,192,187,192,0,"100320722340600425"
 71862,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6004,"Col.  Pedro Añez",26,220,96,59,1,1,27,184,1,7,192,184,192,0,"100320722340600426"
 71863,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6004,"Col.  Pedro Añez",27,47,21,9,0,0,12,42,0,1,43,42,43,0,"100320722340600427"
+71867,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6008,"Col. Educativo Cotoca",1,220,89,54,3,1,31,178,1,3,182,178,182,0,"100320722340600801"
 71869,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6008,"Col. Educativo Cotoca",3,220,92,72,0,0,26,190,2,4,196,190,196,0,"100320722340600803"
 71870,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6008,"Col. Educativo Cotoca",4,220,82,66,1,1,26,176,0,15,191,176,191,0,"100320722340600804"
 71871,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6008,"Col. Educativo Cotoca",5,220,49,102,6,0,35,192,0,9,201,192,201,0,"100320722340600805"
@@ -5538,7 +5788,14 @@
 71991,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",7012,"Col. Pampa De La Cruz",3,220,118,37,0,1,35,192,1,4,197,192,197,1,"100320722340701203"
 71993,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",7012,"Col. Pampa De La Cruz",5,220,118,33,1,0,33,185,2,9,196,185,196,0,"100320722340701205"
 71994,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",7012,"Col. Pampa De La Cruz",6,220,112,37,0,0,30,179,4,15,198,179,198,0,"100320722340701206"
+<<<<<<< HEAD
 72001,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",7012,"Col. Pampa De La Cruz",13,220,135,27,3,2,22,189,4,8,201,189,201,0,"100320722340701213"
+=======
+71997,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",7012,"Col. Pampa De La Cruz",9,220,125,25,2,0,39,191,0,11,202,191,202,0,"100320722340701209"
+71998,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",7012,"Col. Pampa De La Cruz",10,220,122,19,4,0,36,181,0,6,187,181,187,0,"100320722340701210"
+72001,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",7012,"Col. Pampa De La Cruz",13,220,135,27,3,2,22,189,4,8,201,189,201,0,"100320722340701213"
+72002,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",7012,"Col. Pampa De La Cruz",14,220,121,40,1,0,23,185,1,14,200,185,200,0,"100320722340701214"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 72004,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",25434,"U.E. Hacia La Cumbre",1,220,117,46,2,0,29,194,0,6,200,194,200,0,"100320722342543401"
 72005,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",25434,"U.E. Hacia La Cumbre",2,220,131,32,0,0,31,194,1,7,202,194,202,0,"100320722342543402"
 72006,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",25434,"U.E. Hacia La Cumbre",3,220,131,29,0,0,30,190,2,4,196,190,196,0,"100320722342543403"
@@ -5614,6 +5871,7 @@
 72200,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6000,"Col. Sor Maria Cristina Perez",26,220,165,9,0,0,30,204,0,5,209,204,209,0,"100320722340600026"
 72201,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6000,"Col. Sor Maria Cristina Perez",27,220,147,18,1,0,20,186,2,10,198,186,198,0,"100320722340600027"
 72202,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6000,"Col. Sor Maria Cristina Perez",28,220,127,19,3,0,38,187,0,5,192,187,192,0,"100320722340600028"
+72207,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6000,"Col. Sor Maria Cristina Perez",33,220,164,15,2,0,16,197,0,6,203,197,203,0,"100320722340600033"
 72216,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",7026,"Colegio Bertha Cuellar",1,220,126,29,0,0,37,192,0,5,197,192,197,0,"100320722340702601"
 72217,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",7026,"Colegio Bertha Cuellar",2,220,120,33,5,0,28,186,0,6,192,186,192,0,"100320722340702602"
 72218,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",7026,"Colegio Bertha Cuellar",3,220,123,21,0,0,45,189,0,4,193,189,193,0,"100320722340702603"
@@ -5622,6 +5880,7 @@
 72222,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11084,"Kinder Ferroviario",1,220,137,19,0,0,38,194,0,4,198,194,198,0,"100320722341108401"
 72228,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6001,"U. E. Carlos La Torre",5,220,102,59,0,0,23,184,1,12,197,184,197,0,"100320722340600105"
 72233,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6001,"U. E. Carlos La Torre",10,220,136,30,0,1,21,188,7,5,200,188,200,0,"100320722340600110"
+72236,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6001,"U. E. Carlos La Torre",13,220,133,18,2,1,30,184,2,6,192,184,192,0,"100320722340600113"
 72251,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6002,"Col. Pampa De La Isla",8,220,128,31,0,1,27,187,1,1,189,187,189,0,"100320722340600208"
 72252,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6002,"Col. Pampa De La Isla",9,220,108,51,2,1,22,184,2,3,189,184,189,0,"100320722340600209"
 72254,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",6002,"Col. Pampa De La Isla",11,220,101,37,3,1,39,181,1,7,189,181,189,0,"100320722340600211"
@@ -5831,6 +6090,7 @@
 72933,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",8016,"Col. Esc. Virgen De Urkupina",9,220,23,140,1,0,20,184,2,11,197,184,197,0,"100320722340801609"
 72934,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",8016,"Col. Esc. Virgen De Urkupina",10,220,61,94,3,0,28,186,4,7,197,186,197,0,"100320722340801610"
 72936,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",8016,"Col. Esc. Virgen De Urkupina",12,220,44,119,2,0,19,184,2,13,199,184,199,0,"100320722340801612"
+72952,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",8016,"Col. Esc. Virgen De Urkupina",28,220,55,106,2,0,20,183,2,9,194,183,194,0,"100320722340801628"
 72960,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11065,"U.E. Sixto Suarez Navarro",1,220,31,93,2,0,26,152,12,33,197,152,197,0,"100320722341106501"
 72963,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11065,"U.E. Sixto Suarez Navarro",4,220,49,82,5,0,20,156,4,45,205,156,205,0,"100320722341106504"
 72965,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11065,"U.E. Sixto Suarez Navarro",6,220,52,95,9,0,35,191,2,12,205,191,205,0,"100320722341106506"
@@ -5930,6 +6190,10 @@
 73222,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10020,"Col. Escuela El Fuerte",29,220,83,75,1,0,24,183,3,6,192,183,192,0,"100320722341002029"
 73223,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10020,"Col. Escuela El Fuerte",30,220,79,69,2,1,36,187,2,8,197,187,197,0,"100320722341002030"
 73225,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10020,"Col. Escuela El Fuerte",32,220,70,86,3,1,28,188,1,5,194,188,194,0,"100320722341002032"
+<<<<<<< HEAD
+=======
+73233,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10030,"Col. Esc.  Amsterdan",3,220,37,125,5,0,26,193,0,4,197,193,197,0,"100320722341003003"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 73236,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10030,"Col. Esc.  Amsterdan",6,220,52,91,1,1,29,174,1,9,184,174,184,0,"100320722341003006"
 73238,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10030,"Col. Esc.  Amsterdan",8,220,55,101,4,0,24,184,0,9,193,184,193,0,"100320722341003008"
 73239,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10030,"Col. Esc.  Amsterdan",9,220,50,113,1,1,22,187,1,9,197,187,197,0,"100320722341003009"
@@ -5953,6 +6217,10 @@
 73311,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10029,"Col. San Francisco Sur",14,220,76,71,2,0,30,180,0,11,191,180,191,1,"100320722341002914"
 73314,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10029,"Col. San Francisco Sur",17,220,65,90,2,2,35,194,2,7,203,194,203,0,"100320722341002917"
 73317,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10029,"Col. San Francisco Sur",20,220,65,82,3,0,30,180,1,6,187,180,187,0,"100320722341002920"
+<<<<<<< HEAD
+=======
+73319,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10029,"Col. San Francisco Sur",22,220,44,102,2,2,29,179,0,7,186,179,186,0,"100320722341002922"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 73329,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10023,"Colegio Ignacio Warnes",7,220,51,100,1,0,29,181,3,5,189,181,189,0,"100320722341002307"
 73352,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11078,"Angelina Rivera",7,220,92,44,2,0,50,188,3,2,193,188,193,0,"100320722341107807"
 73353,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11078,"Angelina Rivera",8,189,79,52,1,0,28,160,1,7,168,160,168,0,"100320722341107808"
@@ -5962,6 +6230,10 @@
 73357,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10024,"Col. Modulo # 5 Elva Antelo Jordan",4,220,85,62,1,1,40,189,3,7,199,189,199,0,"100320722341002404"
 73358,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10024,"Col. Modulo # 5 Elva Antelo Jordan",5,220,36,118,1,1,32,188,2,1,191,188,191,0,"100320722341002405"
 73367,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10024,"Col. Modulo # 5 Elva Antelo Jordan",14,220,69,90,4,0,21,186,1,7,194,186,194,2,"100320722341002414"
+<<<<<<< HEAD
+=======
+73399,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10040,"Col. Luis Espinal Campos",25,220,61,79,5,2,37,184,2,11,197,184,197,0,"100320722341004025"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 73400,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10040,"Col. Luis Espinal Campos",26,220,78,92,1,0,26,197,1,5,203,197,203,0,"100320722341004026"
 73402,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10040,"Col. Luis Espinal Campos",28,220,90,62,2,0,34,188,2,11,201,188,201,0,"100320722341004028"
 73403,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10040,"Col. Luis Espinal Campos",29,220,56,83,6,1,41,187,3,9,199,187,199,0,"100320722341004029"
@@ -5973,6 +6245,10 @@
 73425,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10027,"Col. Escuela Poly Villarroel",11,132,64,43,3,0,11,121,1,3,125,121,125,0,"100320722341002711"
 73432,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10028,"Col. Escuela Bolivia Holanda",7,220,24,128,4,0,22,179,2,21,202,179,202,1,"100320722341002807"
 73439,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10028,"Col. Escuela Bolivia Holanda",14,220,21,134,3,1,18,177,3,12,192,177,192,0,"100320722341002814"
+<<<<<<< HEAD
+=======
+73440,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10028,"Col. Escuela Bolivia Holanda",15,220,43,106,1,0,28,178,5,4,187,178,187,0,"100320722341002815"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 73445,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10028,"Col. Escuela Bolivia Holanda",20,220,36,127,4,0,21,188,2,6,196,188,196,0,"100320722341002820"
 73453,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",3026,"Col. Normandia Josefina Balsamo",1,220,77,105,0,0,22,204,1,4,209,204,209,0,"100320722340302601"
 73455,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",3026,"Col. Normandia Josefina Balsamo",3,220,58,116,2,2,16,194,3,2,199,194,199,0,"100320722340302603"
@@ -5992,6 +6268,10 @@
 73519,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",8023,"Col. Castilla La Mancha",46,220,86,69,2,1,30,188,3,8,199,188,199,0,"100320722340802346"
 73520,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",8023,"Col. Castilla La Mancha",47,85,12,41,1,0,16,70,0,3,73,70,73,0,"100320722340802347"
 73529,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11088,"U.E. 19 de Marzo",1,220,50,118,2,1,23,194,3,9,206,194,206,0,"100320722341108801"
+<<<<<<< HEAD
+=======
+73537,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11089,"U.E. Villa Moderna",1,220,55,102,0,0,25,182,0,13,195,182,195,0,"100320722341108901"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 73544,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11090,"U.E. San Diego de Samaria",1,220,61,96,3,0,25,185,5,8,198,185,198,0,"100320722341109001"
 73546,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11090,"U.E. San Diego de Samaria",3,220,59,102,3,2,29,195,3,5,203,195,203,0,"100320722341109003"
 73549,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11090,"U.E. San Diego de Samaria",6,155,47,62,2,0,17,128,2,2,132,128,132,0,"100320722341109006"
@@ -6172,6 +6452,7 @@
 73931,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",9,"Col. Esc. Tierras Nuevas El Carmen",40,220,59,94,0,1,32,186,1,6,193,186,193,0,"100320722340000940"
 73933,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",9,"Col. Esc. Tierras Nuevas El Carmen",42,220,59,88,5,1,41,194,0,6,200,194,200,0,"100320722340000942"
 73934,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",9,"Col. Esc. Tierras Nuevas El Carmen",43,30,7,18,0,0,2,27,0,1,28,27,28,0,"100320722340000943"
+73939,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",11074,"Misiones De Jesus",5,220,75,75,0,0,31,181,2,8,191,181,191,0,"100320722341107405"
 73945,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",25436,"Kinder Cariñosito",4,220,76,68,3,0,39,186,0,7,193,186,193,0,"100320722342543604"
 73947,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",25436,"Kinder Cariñosito",6,48,10,24,0,1,7,42,0,0,42,42,42,0,"100320722342543606"
 73950,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",25658,"U.E. San Marcos",3,220,73,62,3,1,35,174,2,8,184,174,184,0,"100320722342565803"
@@ -6447,6 +6728,7 @@
 74592,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",4003,"Col. UV. La Madre",21,220,130,30,0,0,33,193,0,4,197,193,197,0,"100320722340400321"
 74600,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10001,"U.E. Union y Progreso",2,220,76,60,3,0,44,183,2,35,220,183,220,0,"100320722341000102"
 74601,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10001,"U.E. Union y Progreso",3,220,59,83,2,1,35,180,2,9,191,180,191,0,"100320722341000103"
+74603,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10001,"U.E. Union y Progreso",5,220,56,81,4,0,43,184,2,3,189,184,189,0,"100320722341000105"
 74613,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10001,"U.E. Union y Progreso",15,220,70,78,2,0,32,182,0,38,220,182,220,0,"100320722341000115"
 74614,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10001,"U.E. Union y Progreso",16,220,91,61,2,0,35,189,4,2,195,189,195,0,"100320722341000116"
 74615,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",2234,"Santa Cruz de la Sierra",10001,"U.E. Union y Progreso",17,220,56,85,2,1,32,176,0,16,192,176,192,0,"100320722341000117"
@@ -6634,7 +6916,19 @@
 75072,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",4034,"Villa Viana",25365,"U.E. Thevenet De Viana",1,220,68,86,7,0,27,188,1,11,200,188,200,0,"100320740342536501"
 75073,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",4034,"Villa Viana",25365,"U.E. Thevenet De Viana",2,220,57,105,1,0,24,187,1,10,198,187,198,0,"100320740342536502"
 75074,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",1,"Santa Cruz de La Sierra",4034,"Villa Viana",25365,"U.E. Thevenet De Viana",3,220,58,100,5,1,23,187,8,6,201,187,201,0,"100320740342536503"
+<<<<<<< HEAD
 78096,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,10,"Obispo Santistéban",1,"Montero",2443,"Villa Fátima (Guabirá)",21015,"Col. Nacional Guabira",17,220,93,70,2,0,20,185,2,2,189,185,189,0,"100320724432101517"
+=======
+75597,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",4,"La Guardia",2255,"Kilómetro Doce",11045,"U.E. Angel Foianini Banzer II",4,132,45,38,1,0,27,111,0,1,112,111,112,0,"100320722551104504"
+75682,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",4,"La Guardia",2856,"Simon Bolivar",11040,"Escuela Maestro Pitagoras",14,220,52,100,2,0,38,192,2,7,201,192,201,0,"100320728561104014"
+75794,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,1,"Andrés Ibáñez",5,"El Torno",2259,"Puerto Rico (Ibañez)",11010,"Escuela Puerto Rico",7,220,28,123,3,0,21,175,6,9,190,175,190,0,"100320722591101007"
+78058,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,10,"Obispo Santistéban",1,"Montero",2442,"Montero",25459,"U.E. Juancito Pinto",9,220,29,135,4,0,24,192,2,5,199,192,199,0,"100320724422545909"
+78066,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,10,"Obispo Santistéban",1,"Montero",2443,"Villa Fátima (Guabirá)",1016,"Col. Juan Zabala",2,220,114,46,2,0,23,185,1,10,196,185,196,0,"100320724430101602"
+78096,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,10,"Obispo Santistéban",1,"Montero",2443,"Villa Fátima (Guabirá)",21015,"Col. Nacional Guabira",17,220,93,70,2,0,20,185,2,2,189,185,189,0,"100320724432101517"
+78097,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,10,"Obispo Santistéban",1,"Montero",2443,"Villa Fátima (Guabirá)",21015,"Col. Nacional Guabira",18,35,15,15,2,0,1,33,0,0,33,33,33,0,"100320724432101518"
+78099,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,10,"Obispo Santistéban",1,"Montero",2443,"Villa Fátima (Guabirá)",32057,"Coliseo Boliviano Guabira (Temporal)",2,220,92,64,5,1,25,187,2,3,192,187,192,0,"100320724433205702"
+78733,"PRESIDENTE",32,"Bolivia",7,"Santa Cruz",0,13,"Manuel María Caballero",1,"Comarapa",3370,"La Palizada",19016,"Esc. U.E. La Palizada",2,220,18,137,4,1,29,189,5,4,198,189,198,0,"100320733701901602"
+>>>>>>> de15037f4bf712c345e5043c2edd2fb57b18d275
 80001,"PRESIDENTE",32,"Bolivia",8,"Beni",0,1,"Cercado",1,"Trinidad",2526,"Trinidad",1,"U.E. Liceo Mario Saielly",1,220,36,45,2,1,90,174,1,8,183,174,183,0,"100320825260000101"
 80002,"PRESIDENTE",32,"Bolivia",8,"Beni",0,1,"Cercado",1,"Trinidad",2526,"Trinidad",1,"U.E. Liceo Mario Saielly",2,220,24,45,1,1,113,184,1,7,192,184,192,0,"100320825260000102"
 80003,"PRESIDENTE",32,"Bolivia",8,"Beni",0,1,"Cercado",1,"Trinidad",2526,"Trinidad",1,"U.E. Liceo Mario Saielly",3,220,37,62,4,1,82,186,4,7,197,186,197,0,"100320825260000103"
@@ -7103,6 +7397,10 @@
 90157,"PRESIDENTE",32,"Bolivia",9,"Pando",0,1,"Nicolás Suárez",1,"Cobija",2773,"Cobija",25938,"U.E. Héroes de la Distancia",2,220,66,40,3,0,72,181,4,3,188,181,188,0,"100320927732593802"
 90158,"PRESIDENTE",32,"Bolivia",9,"Pando",0,1,"Nicolás Suárez",1,"Cobija",2773,"Cobija",25938,"U.E. Héroes de la Distancia",3,220,48,54,4,0,59,165,0,6,171,165,171,0,"100320927732593803"
 90159,"PRESIDENTE",32,"Bolivia",9,"Pando",0,1,"Nicolás Suárez",1,"Cobija",2773,"Cobija",25938,"U.E. Héroes de la Distancia",4,220,54,53,1,0,64,172,2,8,182,172,182,0,"100320927732593804"
+90169,"PRESIDENTE",32,"Bolivia",9,"Pando",0,1,"Nicolás Suárez",1,"Cobija",2773,"Cobija",25040,"U. E. Manuela Rojas",8,220,45,69,1,1,52,168,2,6,176,168,176,0,"100320927732504008"
+90170,"PRESIDENTE",32,"Bolivia",9,"Pando",0,1,"Nicolás Suárez",1,"Cobija",2773,"Cobija",25040,"U. E. Manuela Rojas",9,220,62,37,9,0,61,169,4,12,185,169,185,0,"100320927732504009"
+90172,"PRESIDENTE",32,"Bolivia",9,"Pando",0,1,"Nicolás Suárez",1,"Cobija",2773,"Cobija",25040,"U. E. Manuela Rojas",11,220,62,64,5,1,40,172,6,8,186,172,186,0,"100320927732504011"
+90173,"PRESIDENTE",32,"Bolivia",9,"Pando",0,1,"Nicolás Suárez",1,"Cobija",2773,"Cobija",25040,"U. E. Manuela Rojas",12,220,70,46,5,0,50,171,4,13,188,171,188,0,"100320927732504012"
 90178,"PRESIDENTE",32,"Bolivia",9,"Pando",0,1,"Nicolás Suárez",1,"Cobija",2773,"Cobija",25041,"U. E. Simon Bolivar",2,220,51,83,4,1,42,181,3,6,190,181,190,0,"100320927732504102"
 90179,"PRESIDENTE",32,"Bolivia",9,"Pando",0,1,"Nicolás Suárez",1,"Cobija",2773,"Cobija",25041,"U. E. Simon Bolivar",3,220,52,82,9,0,42,185,7,7,199,185,199,0,"100320927732504103"
 90180,"PRESIDENTE",32,"Bolivia",9,"Pando",0,1,"Nicolás Suárez",1,"Cobija",2773,"Cobija",25041,"U. E. Simon Bolivar",4,220,48,83,7,0,55,193,0,5,198,193,198,0,"100320927732504104"
