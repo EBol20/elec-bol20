@@ -69,11 +69,11 @@ translate_and_export_comp_dat = function(filename, file_ext,filepath, savepath){
   
   #ARCHIVE DATA
   write.csv(mydata , file = paste0(savepath,archive_name),
-            row.names = FALSE, quote = TRUE)
+            row.names = FALSE, quote = TRUE,fileEncoding="UTF-8")
   
   #ACTUAL DATA
   write.csv(mydata , file = paste0(savepath,name_active),
-            row.names = FALSE, quote = TRUE)
+            row.names = FALSE, quote = TRUE,fileEncoding="UTF-8")
   
   return(mydata)
 }#translate_and_export_comp_dat
