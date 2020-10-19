@@ -267,6 +267,7 @@ mesas_2020 = read.csv(paste0(here::here(),"/../datos_1_intermedios/2020/z010R_ge
 mydata = read.csv(paste0(here::here(),"/../datos_1_intermedios/2020/comp/exportacion_EG2020_actual.csv"),colClasses = "character")
 
 mydata = mydata %>%
+  dplyr::filter(CANDIDATURA == "PRESIDENTE")%>%
   mutate_at(vars(!one_of("ID_MESA")),.funs = as.numeric)%>%
   mutate(vv = get_perc(VV,HAB))%>%
   mutate_at(c("BL","NU","MAS","CC","CREEMOS","FPV","PAN_BOL"), 
