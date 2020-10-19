@@ -1,6 +1,20 @@
 # Visualización y análisis de las Elecciones generales de Bolivia 2020
 
 ## Elecciones generales Bolivia 2020 
+
+#### Datos en tiempo real
+
+<iframe src="Ejemplos/z060_carto_map_mas_c0_2020c.html"
+    sandbox="allow-same-origin allow-scripts"
+    width="100%"
+    height="500"
+    scrolling="no"
+    seamless="seamless"
+    frameborder="0">
+</iframe>
+
+[Ver en tamaño completo](Ejemplos/z060_carto_map_mas_c0_2020c.html)
+
 Cartograma diferencia MAS - CC 2020 (Datos en proceso)
 
 [Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
@@ -16,18 +30,6 @@ El tono de color azul o naranja es claro cuando la diferencia en porcentajes es 
 
 ![Leyenda un recinto](img/Leyenda_un_recinto.png)
 
-#### Datos en tiempo real
-
-<iframe src="Ejemplos/z060_carto_map_mas_c0_2020c.html"
-    sandbox="allow-same-origin allow-scripts"
-    width="100%"
-    height="500"
-    scrolling="no"
-    seamless="seamless"
-    frameborder="0">
-</iframe>
-
-[Ver en tamaño completo](Ejemplos/z060_carto_map_mas_c0_2020c.html)
 
 
 
