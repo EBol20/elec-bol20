@@ -1,6 +1,6 @@
 # Visualización y análisis de las Elecciones generales de Bolivia 2020
 
-  ######Sitio optimizado para computadoras de escritorio
+###### Sitio optimizado para computadoras de escritorio
 
 ## Elecciones generales Bolivia 2020 
 
