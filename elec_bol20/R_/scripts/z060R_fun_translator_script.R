@@ -3,7 +3,7 @@ library(data.table)
 library(readxl)
 
 ###----USER INPUT ONLY HERE #####
-filename = "exportacion_EG2020_20201018_204655_2811385803455459461" # name of file to be translated
+filename = "exportacion_EG2020_20201018_210655_8531895912569904707" # name of file to be translated
 file_ext = ".csv" #either ".csv" or ".xlsx". 
 filepath = paste0(here::here(),"/../datos_0_crudos/2020/comp/") #path to file to be translated
 savepath = paste0(here::here(),"/../datos_1_intermedios/2020/comp/") #path to where the file is to be saved
@@ -77,7 +77,6 @@ translate_and_export_comp_dat = function(filename, file_ext,filepath, savepath){
   
   return(mydata)
 }#translate_and_export_comp_dat
-
 
 
 #running the function
