@@ -377,3 +377,26 @@ class CartoPlots:
             bokeh.plotting.show(layout)
 
         return data
+
+# def download_file(url):
+#     local_filename = url.split('/')[-1]
+#     r = requests.get(url, stream=True)
+#     with open(local_filename, 'wb') as f:
+#         for chunk in r.iter_content(chunk_size=1024):
+#             if chunk:
+#                 f.write(chunk)
+#     return local_filename
+#
+# wd.get('https://www.dnb.no/bedrift/markets/analyser/arkiv/anbefalteaksjer.html')
+# time.sleep(5)
+#
+# pdfLinks = wd.find_elements_by_css_selector('.moduleItemPdf > a')
+#
+# for linkElement in pdfLinks:
+#     filename=download_file(linkElement.get_attribute("href"))
+#     print(filename)
+#
+#
+#
+# time.sleep(5)
+# wd.quit()
