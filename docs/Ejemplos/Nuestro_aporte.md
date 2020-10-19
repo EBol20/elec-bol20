@@ -7,4 +7,4 @@ Publicaremos datos y visualizaciones a medida que avance el conteo oficial. Cabe
  
 En el marco de una cultura de datos abiertos, ponemos a disposición las herramientas y el código empleado aquí. 
 
-Estaremos trabajando simultáneamente a la publicación de datos oficiales del TSE por lo tanto son posibles los retrasos y las omisiones. Te pedimos puedas colaborar con la difusión, comentarios y aportes a nuestra metodología y presentación de datos aquí o usando el #datosMuyWaso.  Esperamos que nuestra iniciativa contribuya abiertamente al monitoreo, exploración y análisis del conteo de votos en estas elecciones.
+Estaremos trabajando simultáneamente a la publicación de datos oficiales del TSE por lo tanto son posibles los retrasos y las omisiones. Te pedimos puedas colaborar con la difusión, comentarios y aportes a nuestra metodología y presentación de datos aquí o usando el #MuyWasoEbol20.  Esperamos que nuestra iniciativa contribuya abiertamente al monitoreo, exploración y análisis del conteo de votos en estas elecciones.
