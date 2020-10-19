@@ -1,8 +1,9 @@
 <iframe 
 src="graficas_htmls/z037_cc_latest.html" 
     sandbox="allow-same-origin allow-scripts"
+    width="100%"
 onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">
-width="100%"
+
 </iframe>
 
 
@@ -10,8 +11,9 @@ width="100%"
 <iframe 
 src="graficas_htmls/z037_cc_latest.html" 
     sandbox="allow-same-origin allow-scripts"
-onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';">
-width="500"
+    width="500"
+onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';"
+
 </iframe>
 
 
