@@ -402,7 +402,7 @@ layout = bokeh.layouts.gridplot(
     , merge_tools=False,
     sizing_mode='scale_width'
 )
-layout.width = 800
+layout.max_width = 700
 # layout = bokeh.layouts.column([slider, cart_fig])
 
 cart_fig.x_range.start = CXS
