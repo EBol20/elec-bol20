@@ -142,18 +142,18 @@ p.title.text = ''
 x = den1[den1.index>=0]['mid'].mean()
 p.text(x=[x],y=[140],text=['Nacional'])
 
-an = .4
+an = .35
 x = den1[den1.index==0]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad baja'],angle=an, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad baja (0-50)'],angle=an, text_font_size="8pt")
 
 x = den1[den1.index==1]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad media'],angle=an, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad media (50-500)'],angle=an, text_font_size="8pt")
 
 x = den1[den1.index==2]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad moderada'],angle=an, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad moderada (500-1500)'],angle=an, text_font_size="8pt")
 
 x = den1[den1.index==3]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad alta'],angle=an, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad alta > 1500'],angle=an, text_font_size="8pt")
 
 x = den1[den1.index<0]['mid'].mean()
 p.text(x=[x],y=[110],text=['Exterior'],text_align='center')
@@ -166,8 +166,8 @@ p.y_range.start=0
 p.y_range.end=160
 p.yaxis.axis_label="Porcentaje"
 ppp=den1['counted'].sum()/den1['HAB'].sum() * 100
-p.title.text = f'Porcentage de votos computados por densidad (total computado={ppp:0.1f}%)'
-p.xaxis.axis_label=f'Porcentage total de votos computados = ({ppp:0.1f}%)'
+p.title.text = f'Porcentaje de votos computados por densidad (total computado={ppp:0.1f}%)'
+p.xaxis.axis_label=f'Porcentaje total de votos computados = ({ppp:0.1f}%)'
 p.toolbar.logo = None
 p.toolbar_location = None
 
@@ -203,7 +203,7 @@ r.vbar(x='i', top='per', width=0.9, source=source,
 r.xgrid.grid_line_color = None
 r.y_range.start = 0
 r.y_range.end = np.ceil(res['per'].max()/20)*20
-r.title.text = f'Porcentaje por partido sobre el total de votos válidos computados ({ppp:0.1f}%)'
+r.title.text = f'Porcentaje sobre el total de votos válidos computados ({ppp:0.1f}%)'
 
 l0 = bokeh.layouts.column(p,r)
 lay = bokeh.layouts.row([l0,f])
