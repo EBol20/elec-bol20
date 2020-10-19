@@ -1,8 +1,22 @@
 # Visualización y análisis de las Elecciones generales de Bolivia 2020
 
+###### Sitio optimizado para computadoras de escritorio
+
 ## Elecciones generales Bolivia 2020 
 
 #### Datos en tiempo real
+
+El panel brinda información completa sobre el avance del cómputo oficial de votos. 
+
+El primer diagrama de barras muestra el porcentaje de votos válidos computados por partido político. 
+
+El segundo diagrama muestra el avance del cómputo oficial de votos en Bolivia y el exterior en relación a la densidad de votantes habilitados por kilómetro cuadrado. Puede entenderse que las zonas de mayor densidad de votantes (mayor a 1500) son las zonas metropolitanas del país. 
+
+El tercer cartograma muestra de dónde provienen las mesas computadas y dónde están las mesas que aún no se han contabilizado oficialmente. Cada uno de estos gráficos se actualiza constantemente con la información oficial del cómputo que realiza el TSE por lo que la variación en el tiempo depende de la disponibilidad de los datos en la página: [https://computo.oep.org.bo/](https://computo.oep.org.bo/) 
+
+
+
+
 
 <iframe src="Ejemplos/z050_panel.html"
     sandbox="allow-same-origin allow-scripts"
@@ -12,15 +26,12 @@
     seamless="seamless"
     frameborder="0">
 </iframe>
-El panel brinda información completa sobre el avance del cómputo oficial de votos. El primer diagrama de barras muestra el porcentaje de votos válidos computados por partido político. 
-
-El segundo diagrama muestra el avance del cómputo oficial de votos en Bolivia y el exterior en relación a la densidad de votantes habilitados por kilómetro cuadrado. Puede entenderse que las zonas de mayor densidad de votantes (mayor a 1500) son las zonas metropolitanas del país.
-
-Por último, el cartograma del final muestra de dónde provienen las mesas computadas y dónde están las mesas que aún no se han contabilizado oficialmente. Cada uno de estos gráficos se actualiza constantemente con la información oficial del cómputo que realiza el TSE por lo que la variación en el tiempo depende de la disponibilidad de los datos en la página: 
-[https://computo.oep.org.bo/](https://computo.oep.org.bo/)
 
 
-<iframe src="Ejemplos/z060_carto_map_mas_c0_2020c.html"
+
+## Cartograma diferencia MAS - CC 2020
+
+<iframe src="graficas_htmls/z037_d_mas_cc_latest.html"
     sandbox="allow-same-origin allow-scripts"
     width="80%"
     height="1600"
@@ -29,16 +40,9 @@ Por último, el cartograma del final muestra de dónde provienen las mesas compu
     frameborder="0">
 </iframe>
 
-[Ver en tamaño completo](Ejemplos/z060_carto_map_mas_c0_2020c.html)
+[Ver en tamaño completo](graficas_htmls/z037_d_mas_cc_latest.html)
 
 
-
-
-Cartograma diferencia MAS - CC 2020 (Datos en proceso)
-
-[Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
-
-[Densidad de votantes en el territorio](Ejemplos/Densidad.md)
 
 
 
@@ -52,7 +56,11 @@ El tono de color azul o naranja es claro cuando la diferencia en porcentajes es 
 ![Leyenda un recinto](img/Leyenda_un_recinto.png)
 
 
+## Cartograma densidad votacional
 
+[Cartograma densidad votacional 2020](Ejemplos/z040_densidad2020.html)
+
+[Densidad de votantes en el territorio](Ejemplos/Densidad.md)
 
 
 
@@ -77,4 +85,6 @@ El tono de color azul o naranja es claro cuando la diferencia en porcentajes es 
 
 ## Sobre nosotros
 [Nuestro aporte](Ejemplos/Nuestro_aporte.md)
+
+###### [pruebas](index2_borrador.md) 
 

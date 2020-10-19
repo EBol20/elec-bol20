@@ -660,10 +660,10 @@ def get_bolivian_time(diff_utc):
     : return:
          dictionary: str_val, datetime_val
     """
-    diff = -4 -diff_utc
-    current_time_LOC = datetime.datetime.now()
+    diff = -4
+    current_time_UTC = datetime.datetime.utcnow()
     horas_added = datetime.timedelta(hours=diff)
-    current_time_BOT = current_time_LOC + horas_added
+    current_time_BOT = current_time_UTC + horas_added
     timeBOT = current_time_BOT.strftime("%Y%m%d%H%M%S")
     bolivian_time = {
         "str_val":timeBOT,
