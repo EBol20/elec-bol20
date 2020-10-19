@@ -98,7 +98,7 @@ den = gr[['HAB']].sum()
 den['cum'] = den['HAB'].cumsum()
 tot = den['HAB'].sum()
 den['mid'] = den['cum'] - den['HAB']/2
-den['top'] = 1 
+den['top'] = 1
 den['width'] = den['HAB']-(tot*.01)
 den2 = den.copy()
 
@@ -117,11 +117,11 @@ den1.loc[-1,'mid'] = den1.loc[-1,'mid'] - 1000000
 # %%
 df2[df2['COUNT']]['HAB'].sum()
 
-def _t(s): 
+def _t(s):
     if np.isnan(s): s=0
     return f'{s:0.1f}'
 
-def _t1(s): 
+def _t1(s):
     if np.isnan(s): s=0
     return f'{s:0.0f}'
 
@@ -147,16 +147,16 @@ p.text(x=[x],y=[140],text=['Nacional'])
 
 an = .35
 x = den1[den1.index==0]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad baja (0-50)'],angle=an, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad baja (0-50)'],angle=an, text_font_size="5pt")
 
 x = den1[den1.index==1]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad media (50-500)'],angle=an, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad media (50-500)'],angle=an, text_font_size="5pt")
 
 x = den1[den1.index==2]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad moderada (500-1500)'],angle=an, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad moderada (500-1500)'],angle=an, text_font_size="5pt")
 
 x = den1[den1.index==3]['mid'].mean()
-p.text(x=[x],y=[101],text=['Densidad alta > 1500'],angle=an, text_font_size="8pt")
+p.text(x=[x],y=[101],text=['Densidad alta > 1500'],angle=an, text_font_size="5pt")
 
 x = den1[den1.index<0]['mid'].mean()
 p.text(x=[x],y=[110],text=['Exterior'],text_align='center')
@@ -181,11 +181,11 @@ for l,r in den1.iterrows():
         x = r['mid'] + 400000
     else:
         x = r['mid']
-    
+
     p.text(x=x,y=[r['tc']],text=[r['text']],text_align='center',text_font_size="8pt")
-    
-    
-    
+
+
+
 _c = ['CREEMOS',	'MAS',	'FPV',	'PAN_BOL',	'CC']
 dd= df2[[*_c,'VV']].copy()
 res = dd[_c].sum()/dd['VV'].sum()*100
@@ -208,9 +208,13 @@ r.y_range.start = 0
 r.y_range.end = np.ceil(res['per'].max()/20)*20
 r.title.text = f'Porcentaje sobre el total de votos válidos computados ({ppp:0.1f}%)'
 
-l0 = bokeh.layouts.column(p,r)
-lay = bokeh.layouts.row([l0,f])
-# lay = p 
+l0 = bokeh.layouts.column([p,r,f],sizing_mode='scale_width')
+lay = l0
+# lay = bokeh.layouts.row([l0,f],
+#                         sizing_mode='scale_width'
+#                         )
+lay.max_width = 1000
+# lay = p
 bokeh.plotting.show(lay)
 # %%
 
