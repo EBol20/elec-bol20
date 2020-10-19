@@ -22,7 +22,7 @@ Por último, el cartograma del final muestra de dónde provienen las mesas compu
 
 <iframe src="Ejemplos/z060_carto_map_mas_c0_2020c.html"
     sandbox="allow-same-origin allow-scripts"
-    width="100%"
+    width="80%"
     height="1400"
     scrolling="no"
     seamless="seamless"
