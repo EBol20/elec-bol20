@@ -22,7 +22,7 @@
     .sidenav a {
       padding: 6px 8px 6px 16px;
       text-decoration: none;
-      font-size: 25px;
+      font-size: 22px;
       color: #2196F3;
       display: block;
     }
@@ -32,9 +32,20 @@
     }
 
     .main {
-      margin-left: 300px; /* Same width as the sidebar + left position in px */
+      margin-left: 300px;
       font-size: 28px; /* Increased text to enable scrolling */
       padding: 0px 10px;
+    }
+    .main .contenedor{
+      width: 100%;
+    }
+    .main .contenedor .titulo{
+      font-size: 26px;
+      color: #064579;
+    }
+    hr{
+      width: 100%;
+      border: 1px solid black;
     }
 
     @media screen and (max-height: 450px) {
@@ -45,7 +56,7 @@
 </head>
 <body>
   <div class="sidenav">
-    <a href="#diff">Diferencia CC - MAS</a>
+    <a href="#d_mas_cc">Diferencia CC - MAS</a>
     <a href="#d_mas_creemos">Diferencia CREEMOS - MAS</a>
     <a href="#mas">MAS-IPSP</a>
     <a href="#cc">CC</a>
@@ -56,75 +67,142 @@
     <a href="https://ebol20.github.io/elec-bol20/">Volver a principal</a>
   </div>
   <div class="main">
-    <iframe id="diff" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_d_mas_cc_latest.html"
-            sandbox="allow-same-origin allow-scripts"
-            width="80%"
-            height="800"
-            scrolling="no"
-            seamless="seamless"
-            frameborder="0">
-    </iframe>
-    <iframe id="d_mas_creemos" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_d_mas_creemos_latest.html"
-            sandbox="allow-same-origin allow-scripts"
-            width="80%"
-            height="800"
-            scrolling="no"
-            seamless="seamless"
-            frameborder="0">
-    </iframe>
+    <div class="contenedor">
+      <div class="titulo" id="d_mas_cc">
+        <p>Diferencia de votos porcentual (por recinto) entre MAS-IPSP y CC</p>
+      </div>
+      <hr>
+      <div class="carto">
+        <iframe  src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_d_mas_cc_latest.html"
+                sandbox="allow-same-origin allow-scripts"
+                width="80%"
+                height="800"
+                scrolling="no"
+                seamless="seamless"
+                frameborder="0">
+        </iframe>
+      </div>
+    </div>
+    <div class="contenedor">
+      <div class="titulo" id="d_mas_creemos" >
+        <p>Diferencia de votos porcentual (por recinto) entre MAS-IPSP y CREEMOS</p>
+      </div>
+      <hr>
+      <div class="carto">
+        <iframe src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_d_mas_creemos_latest.html"
+                sandbox="allow-same-origin allow-scripts"
+                width="80%"
+                height="800"
+                scrolling="no"
+                seamless="seamless"
+                frameborder="0">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="contenedor">
+      <div class="titulo" id="mas">
+        <p>Porcentaje de votos por recinto para MAS-IPSP</p>
+      </div>
+      <hr>
+      <div class="carto">
+        <iframe  src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_mas_latest.html"
+                sandbox="allow-same-origin allow-scripts"
+                width="80%"
+                height="800"
+                scrolling="no"
+                seamless="seamless"
+                frameborder="0">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="contenedor">
+      <div class="titulo" id="cc">
+        <p>Porcentaje de votos por recinto para CC</p>
+      </div>
+      <hr>
+      <div class="carto">
+        <iframe  src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_cc_latest.html"
+                sandbox="allow-same-origin allow-scripts"
+                width="80%"
+                height="800"
+                scrolling="no"
+                seamless="seamless"
+                frameborder="0">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="contenedor" >
+      <div class="titulo" id="creemos">
+        <p>Porcentaje de votos por recinto para CREEMOS</p>
+      </div>
+      <hr>
+      <div class="carto">
+        <iframe  src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_creemos_latest.html"
+                sandbox="allow-same-origin allow-scripts"
+                width="80%"
+                height="800"
+                scrolling="no"
+                seamless="seamless"
+                frameborder="0">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="contenedor">
+      <div class="titulo" id="fpv">
+        <p>Porcentaje de votos por recinto para FPV</p>
+      </div>
+      <hr>
+      <div class="carto">
+        <iframe  src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_fpv_latest.html"
+                sandbox="allow-same-origin allow-scripts"
+                width="80%"
+                height="800"
+                scrolling="no"
+                seamless="seamless"
+                frameborder="0">
+        </iframe>
+      </div>
+    </div>
+    <div class="contenedor">
+      <div class="titulo" class="carto">
+        <p>Porcentaje de votos por recinto para PAN-BOL</p>
+      </div>
+      <hr>
+      <div >
+        <iframe id="pan_bol" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_pan_bol_latest.html"
+                sandbox="allow-same-origin allow-scripts"
+                width="80%"
+                height="800"
+                scrolling="no"
+                seamless="seamless"
+                frameborder="0">
+        </iframe>
+      </div>
+    </div>
 
 
 
-    <iframe id="mas" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_mas_latest.html"
-            sandbox="allow-same-origin allow-scripts"
-            width="80%"
-            height="800"
-            scrolling="no"
-            seamless="seamless"
-            frameborder="0">
-    </iframe>
 
 
 
-    <iframe id="cc" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_cc_latest.html"
-            sandbox="allow-same-origin allow-scripts"
-            width="80%"
-            height="800"
-            scrolling="no"
-            seamless="seamless"
-            frameborder="0">
-    </iframe>
 
 
 
-    <iframe id="creemos" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_creemos_latest.html"
-            sandbox="allow-same-origin allow-scripts"
-            width="80%"
-            height="800"
-            scrolling="no"
-            seamless="seamless"
-            frameborder="0">
-    </iframe>
 
 
-    <iframe id="fpv" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_fpv_latest.html"
-            sandbox="allow-same-origin allow-scripts"
-            width="80%"
-            height="800"
-            scrolling="no"
-            seamless="seamless"
-            frameborder="0">
-    </iframe>
 
 
-    <iframe id="pan_bol" src="https://ebol20.github.io/elec-bol20/graficas_htmls/z037_pan_bol_latest.html"
-            sandbox="allow-same-origin allow-scripts"
-            width="80%"
-            height="800"
-            scrolling="no"
-            seamless="seamless"
-            frameborder="0">
-    </iframe>
+
+
+
+
+
+
+
 
   </div>
 

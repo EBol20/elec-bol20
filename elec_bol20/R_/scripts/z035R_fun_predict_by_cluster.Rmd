@@ -1,0 +1,220 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+library(tidyverse)
+library(data.table)
+```
+
+
+```{r}
+#clustermodel function
+
+#' predict_by_cluster
+#'
+#' @param vote_data Dataframe containing the counted votes. Must contain the columns given in the "summarized_cols" arguments. Must contain one column of all habilitados HAB and of all valid votes VV. Must also contain an identifier column given in the "identifier" argument.
+# mesa_info : this has to contain the number of "habilitados" per identifier (given in the identifier argument), under the name of "HAB" @param mesa_info 
+#' @param cluster_def this has to contain the cluster assignation of the "mesas". Has to contain  a "cluster"" column and an identifier column, normally "ID_MESA"
+#' @param identifier by which identifier should the above frames be merged? Usually "ID_MESA"
+#' @param summarized_cols at which columns should be summarized? Usually, enter here the names of the PERCENTAGE columns for the different parties, for example "cc", "mas", etc.
+#'
+#' @return A list of 5 elements:
+# element 1: Total habilitados by cluster. (This depends only on cluster assignement and geopatron)
+# element 2: Absolute counted votes by clusted for parties given in "summarized_cols". 
+# element 3: mean votes per cluster as fraction of VV for the parties given in "summarized_cols"
+# element 4: The prediction of the end result, as one row of a dataframe, coming with standard deviation and standard error. CARE: Those measures of uncertainty seem to be not suitable to correctly assess the uncertainty of the final result estimation. 
+# element 5: The predicted total number of valid votes, at a count of 100% (this will be lower than the total number of "habilitados")
+#In most of the cases, you will be interested in the 4th element.
+#' @export
+#'
+#' @examples #For the prediction only: predict_by_cluster(mydata, dat_2019_final, cluster_mask, "ID_MESA",c("cc","mas","pdc"))[[3]]
+predict_by_cluster_2 = function(vote_data, mesa_info, cluster_def, identifier, summarized_cols, uncertainty_sigmas){
+  
+  percentage_colnames = paste0(summarized_cols,"_perc")
+
+  vote_data_perc = vote_data %>%
+    mutate(vv = VV/HAB*100)%>%
+    mutate_at(summarized_cols, 
+              .funs = list(perc = ~ ./VV*100))
+  
+
+  #getting total habilitados by cluster
+  total_by_cluster = dplyr::full_join(mesa_info, cluster_def, by = identifier) %>%
+    dplyr::group_by(cluster)%>%
+    dplyr::summarise(HAB = sum(HAB,na.rm=T))%>%
+    na.omit()
+  
+  #allvalid = sum(total_by_cluster$VV) # usually not used. We use the estimated total VV instead
+  allvotes = sum(total_by_cluster$HAB) # usually not used. We use the estimated total VV instead
+  
+  #combining
+  mydata_combined = dplyr::full_join(vote_data_perc, cluster_def, by = identifier)
+  
+  #total votes that arrived by cluster
+  cluster_total_vote = mydata_combined %>%
+    dplyr::group_by(cluster)%>%
+    dplyr::summarise_at(c(summarized_cols,"VV"), .funs = list(sum = ~ sum(.,na.rm=T)))
+  
+  #getting the mean (along with sd and standard error) vote for already counted clusters
+  cluster_mean_vote = mydata_combined %>%
+    dplyr::group_by(cluster)%>%
+    dplyr::summarise_at(c(percentage_colnames,"vv"),
+                        .funs = list(mean =~ mean(.,na.rm=T),
+                                     sd = ~ sd(.,na.rm=T),
+                                     sterr = ~ sd(.,na.rm=T)/sqrt(sum(!is.na(.)))))
+  
+  
+  build_prediction = function(dataframe, what, normalizer){#the magic happens here
+    out = dataframe %>%
+      na.omit()%>%
+      mutate_at(vars(contains(what)),
+                .funs = list(pred = ~ (./100) * (vv_mean/100)*HAB))%>%
+      dplyr::select(contains(paste0(what, "_pred")))%>%
+                      dplyr::summarise_all(sum)%>%
+                      mutate_all(.funs = ~ ./normalizer)
+    return(out)
+  }
+
+  
+  #merging
+  myframe = dplyr::full_join(total_by_cluster,cluster_mean_vote,by="cluster")
+  #getting total predicted valid votes
+  total_predicted_VV = sum(myframe$HAB * myframe$vv_mean/100,na.rm=T)
+  
+  
+  #end result prediction
+  myprediction_mean = build_prediction(myframe,"mean", total_predicted_VV)
+  myprediction_sd = build_prediction(myframe,"sd", total_predicted_VV)
+  myprediction_sterr = build_prediction(myframe,"sterr", total_predicted_VV)
+  
+  
+  ########
+  #FINAL PART computing the uncerrtainty with a monte-carlo type of procedure
+  #######
+  runlist = list()
+  for (i in 1:50){
+    set.seed(i)
+    runlist[[i]] = mydata_combined %>%
+      dplyr::sample_frac(., 0.5)%>%
+      dplyr::group_by(cluster)%>%
+      dplyr::summarise_at(c(percentage_colnames,"vv"),
+                          .funs = list(mean =~ mean(.,na.rm=T)))
+  }
+  uncertainty_frame = do.call("rbind", runlist)%>%
+    dplyr::group_by(cluster)%>%
+    dplyr::summarise_all(sd)
+  
+  #function for computing confidence interval
+  get_upper_lower = function(meanframe, uncertainty_frame, which, sigmas){
+    meanframe = meanframe %>%
+      dplyr::select(c("cluster", contains("mean")))%>%
+      mutate(cluster = as.numeric(cluster))%>%
+      arrange(cluster)
+    uncertainty_frame = uncertainty_frame %>%
+      mutate(cluster = as.numeric(cluster))%>%
+      arrange(cluster)
+    
+    if (length(meanframe$cluster) != length(uncertainty_frame$cluster)){
+      return(meanframe*NA)
+    } 
+    clustervec = meanframe$cluster
+    
+    meanframe = meanframe %>% dplyr::select(!one_of("cluster"))%>%
+      mutate_all(as.numeric)
+    uncertainty_frame = uncertainty_frame %>% dplyr::select(!one_of("cluster"))%>%
+      mutate_all(as.numeric)
+
+    if (which == "lower"){
+      outframe = meanframe - sigmas*uncertainty_frame
+    } else if (which == "upper"){
+      outframe = meanframe + sigmas*uncertainty_frame
+    } else {return(NA)}
+    
+    return(outframe %>% mutate(cluster = clustervec))
+  }#get_upper_lower
+  
+  cluster_mean_vote_lower = get_upper_lower(cluster_mean_vote, uncertainty_frame,"lower", uncertainty_sigmas)
+  cluster_mean_vote_upper = get_upper_lower(cluster_mean_vote, uncertainty_frame,"upper", uncertainty_sigmas)
+
+  #computing the upper and lower predictions
+  myframe_lower = dplyr::full_join(total_by_cluster %>% mutate(cluster =as.numeric(cluster)),
+                                   cluster_mean_vote_lower,by="cluster")%>%
+    na.omit()
+  
+  myframe_upper = dplyr::full_join(total_by_cluster %>% mutate(cluster =as.numeric(cluster)),
+                                   cluster_mean_vote_upper,by="cluster")%>%
+    na.omit()
+  
+  
+  myprediction_lower = build_prediction(myframe_lower,"mean", total_predicted_VV)
+  myprediction_upper = build_prediction(myframe_upper,"mean", total_predicted_VV)
+  names(myprediction_lower)  = gsub("mean","lower",names(myprediction_lower))
+  names(myprediction_upper)  = gsub("mean","upper",names(myprediction_upper))
+  
+  
+  #######################uncertainty calculated
+  
+  #stiching all together.
+  myprediction = cbind(myprediction_mean, myprediction_sd,myprediction_sterr, myprediction_lower, myprediction_upper)
+  
+  return(list(total_by_cluster, cluster_total_vote,
+              cluster_mean_vote, uncertainty_frame,myprediction, total_predicted_VV))
+}#predict_by_cluster
+
+
+
+#importing the cluster mask
+cluster_mask = read.csv(paste0(here::here(),"/../datos_1_intermedios/cluster_definition/2019_clustered_10.csv"), colClasses = "character")%>%
+  dplyr::select(ID_MESA, cluster)
+
+mesas_2020 = read.csv(paste0(here::here(),"/../datos_1_intermedios/2020/z010R_geopadron_mesas_2020_ALL.csv"),colClasses = "character")%>%
+  mutate_at(c("HAB"),as.numeric)
+
+
+mydata = read.csv(paste0(here::here(),"/../datos_1_intermedios/2020/comp/exportacion_EG2020_actual.csv"),colClasses = "character")
+
+mydata = mydata %>%
+  dplyr::filter(CANDIDATURA == "PRESIDENTE")%>%
+  mutate_at(vars(!one_of("ID_MESA")),.funs = as.numeric)%>%
+  {.}
+
+testprediction = predict_by_cluster_2(mydata, mesas_2020, cluster_mask, "ID_MESA",
+                                      c("BL","NU","MAS","CC","CREEMOS","FPV","PAN_BOL"), 2)
+#testprediction[[1]]
+#testprediction[[2]]
+#testprediction[[3]]
+#testprediction[[4]]
+testprediction[[5]]
+
+```
+```{r}
+helpdata = testprediction[[5]]%>%
+  dplyr::select(contains("MAS") | contains("CC"))%>%
+  dplyr::select(!contains("sd") & !contains("sterr"))
+
+helpdata2 = helpdata %>%
+  dplyr::select(contains("MAS"))
+names(helpdata2) = gsub("MAS_","",names(helpdata2))
+helpdata2 = helpdata2 %>% mutate("party"= "MAS")
+
+helpdata3 = helpdata %>%
+  dplyr::select(contains("CC"))
+names(helpdata3) = gsub("CC_","",names(helpdata3))
+helpdata3 = helpdata3 %>% mutate("party"= "CC")
+
+plotadata = rbind(helpdata2, helpdata3)
+
+ggplot(data=plotadata, aes(x=party))+
+  geom_point(aes(y = perc_mean_pred))+
+  geom_errorbar(aes(ymin = perc_lower_pred, ymax = perc_upper_pred))
+```
+
+
