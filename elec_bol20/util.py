@@ -207,6 +207,14 @@ P_GRAD_MAS = [*bokeh.palettes.Blues7[::-1]]
 P_GRAD_CREEMOS = [*bokeh.palettes.Reds8[::-1]]
 P_GRAD_PANBOL = [*bokeh.palettes.YlOrRd8[::-1]]
 
+C_DIC = {
+    'CC':P_GRAD_CC[-2],
+    'FPV':P_GRAD_FPV[-2],
+    'MAS':P_GRAD_MAS[-1],
+    'CREEMOS':P_GRAD_CREEMOS[-1],
+    'PAN_BOL':P_GRAD_PANBOL[-1],
+}
+
 # %%
 # FUNCTIONS
 

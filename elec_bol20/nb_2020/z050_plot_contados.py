@@ -65,7 +65,7 @@ sr1 = bokeh.models.ColumnDataSource(s1)
 sr2 = bokeh.models.ColumnDataSource(s2)
 
 
-f = bokeh.plotting.figure(output_backend="webgl")
+f = bokeh.plotting.figure(output_backend="webgl",height=500,width=500)
 f.scatter(x='xj',y='yj',source = sr2,color=COL_FALTA,radius=.05, alpha=1, legend_label='Mesas faltantes (haz click)')
 f.scatter(x='xj',y='yj',source = sr1,color=COL_LLEGO,radius=.05, alpha=1, legend_label='Mesas computadas (haz click)')
 f.legend.click_policy="hide"
@@ -133,14 +133,14 @@ den1['text'] = den1.apply(_t2,axis=1)
 # %%
 
 
-p = bokeh.plotting.figure(height=400)
+p = bokeh.plotting.figure(height=250)
 # fi = bokeh.plotting.figure()
 p.vbar(x=den1['mid'],width=den1['width'],top=den1['top'],color=COL_FALTA)
 p.vbar(x=den1['mid'],width=den1['width'],top=den1['top_c'],color=COL_LLEGO)
 p.title.text = ''
 
 x = den1[den1.index>=0]['mid'].mean()
-p.text(x=[x],y=[120],text=['Nacional'])
+p.text(x=[x],y=[140],text=['Nacional'])
 
 an = .4
 x = den1[den1.index==0]['mid'].mean()
@@ -163,10 +163,10 @@ p.ygrid.visible = False
 f.yaxis.visible = False
 f.yaxis.visible = False
 p.y_range.start=0
-p.y_range.end=130
-p.yaxis.axis_label="Porcentage"
+p.y_range.end=160
+p.yaxis.axis_label="Porcentaje"
 ppp=den1['counted'].sum()/den1['HAB'].sum() * 100
-p.title.text = f'Porcentage de votos computados divididos por densidad (total computado={ppp:0.1f}%)'
+p.title.text = f'Porcentage de votos computados por densidad (total computado={ppp:0.1f}%)'
 p.xaxis.axis_label=f'Porcentage total de votos computados = ({ppp:0.1f}%)'
 p.toolbar.logo = None
 p.toolbar_location = None
@@ -180,19 +180,38 @@ for l,r in den1.iterrows():
         x = r['mid']
     
     p.text(x=x,y=[r['tc']],text=[r['text']],text_align='center',text_font_size="8pt")
-
-lay = bokeh.layouts.row([p,f])
-# lay = p 
-bokeh.plotting.show(lay)
-# %%
+    
+    
+    
 _c = ['CREEMOS',	'MAS',	'FPV',	'PAN_BOL',	'CC']
 dd= df2[[*_c,'VV']].copy()
 res = dd[_c].sum()/dd['VV'].sum()*100
 res.name = 'per'
 res.index.name ='party'
 res= res.reset_index()
-res
+res['i'] =  res.index+.5
+se = pd.Series(ebu.C_DIC)
+se.name='colors'
+res = pd.merge(res,se,left_on='party',right_index=True)
 
+source = ColumnDataSource(res)
+
+r = figure(x_range=res['party'], toolbar_location=None,height=250)
+r.vbar(x='i', top='per', width=0.9, source=source,
+       line_color='white', fill_color=factor_cmap('party', palette=res['colors'], factors=res['party']))
+
+r.xgrid.grid_line_color = None
+r.y_range.start = 0
+r.y_range.end = np.ceil(res['per'].max()/20)*20
+r.title.text = f'Porcentaje por partido sobre el total de votos válidos computados ({ppp:0.1f}%)'
+
+l0 = bokeh.layouts.column(p,r)
+lay = bokeh.layouts.row([l0,f])
+# lay = p 
+bokeh.plotting.show(lay)
+# %%
+
+res
 
 
 # %%
@@ -207,17 +226,7 @@ from bokeh.transform import factor_cmap
 fruits = ['Apples', 'Pears', 'Nectarines', 'Plums', 'Grapes', 'Strawberries']
 counts = [5, 3, 4, 2, 4, 6]
 
-source = ColumnDataSource(res)
 
-p = figure(x_range=fruits, plot_height=350, toolbar_location=None, title="Fruit Counts")
-p.vbar(x='index', top='per', width=0.9, source=source, legend_field="party",
-       line_color='white', fill_color=factor_cmap('party', palette=Spectral6, factors=res['party']))
-
-p.xgrid.grid_line_color = None
-p.y_range.start = 0
-p.y_range.end = 9
-p.legend.orientation = "horizontal"
-p.legend.location = "top_center"
 
 show(p)
 
@@ -225,6 +234,15 @@ show(p)
 den1['tc']=den1['top_c'].apply(_t)
 den1['tv']=den1['counted'].apply(_t1)
 den1['text'] = den1.apply(_t2,axis=1)
+
+# %%
+P_GRAD_CC 
+P_GRAD_FPV 
+P_GRAD_MAS 
+P_GRAD_CREEMOS 
+P_GRAD_PANBOL
+
+# %%
 
 # %%
 
