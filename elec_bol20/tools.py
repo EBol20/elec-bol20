@@ -370,9 +370,9 @@ class CartoPlots:
 
         # layout = row(column(slider, cart_f),map_f)
         layout = bokeh.layouts.gridplot(
-            [[slider], [cart_fig], [map_fig]], sizing_mode='scale_width',
+            [[slider, None], [cart_fig, map_fig]], sizing_mode='scale_width',
             merge_tools=False)
-        layout.max_width = 800
+        layout.max_width = 1400
         # layout = bokeh.layouts.column([slider, cart_fig])
 
         cart_fig.x_range.start = self.CXS
