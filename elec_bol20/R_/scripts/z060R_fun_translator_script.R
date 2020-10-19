@@ -3,7 +3,7 @@ library(data.table)
 library(readxl)
 
 ###----USER INPUT ONLY HERE #####
-filename = "exportacion_EG2020_20201018_215216_5376653832335715498" # name of file to be translated
+filename = "exportacion_EG2020_20201018_221041_3043747835830959828" # name of file to be translated
 file_ext = ".csv" #either ".csv" or ".xlsx". 
 filepath = paste0(here::here(),"/../datos_0_crudos/2020/comp/") #path to file to be translated
 savepath = paste0(here::here(),"/../datos_1_intermedios/2020/comp/") #path to where the file is to be saved
@@ -66,6 +66,8 @@ translate_and_export_comp_dat = function(filename, file_ext,filepath, savepath){
     mutate(ADN = NULL, LIBRE_21 = NULL, JUNTOS = NULL)%>%
     dplyr::mutate(ID_MESA = build_mesa_ID(PAIS,ID_PAIS, ID_DEPARTAMENTO, ID_LOCALIDAD,
                                           ID_RECI, NUMERO_MESA))
+  
+  message(paste0("Writing files to: ", savepath))
   
   #ARCHIVE DATA
   write.csv(mydata , file = paste0(savepath,archive_name),
