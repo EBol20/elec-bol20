@@ -3,7 +3,7 @@ library(data.table)
 library(readxl)
 
 ###----USER INPUT ONLY HERE #####
-filename = "exportacion_EG2020_20201018_202655_8014546445166085676" # name of file to be translated
+filename = "exportacion_EG2020_20201018_205655_8171784176029630405" # name of file to be translated
 file_ext = ".csv" #either ".csv" or ".xlsx". 
 filepath = paste0(here::here(),"/../datos_0_crudos/2020/comp/") #path to file to be translated
 savepath = paste0(here::here(),"/../datos_1_intermedios/2020/comp/") #path to where the file is to be saved
@@ -21,7 +21,7 @@ translate_and_export_comp_dat = function(filename, file_ext,filepath, savepath){
     mystring = ifelse(pais == "Bolivia", paste0(mystring,"0"), paste0(mystring,"1"))
     
     mystring =paste0(mystring, str_pad(paisnum, 3, pad = "0"))
-    mystring = paste0(mystring, str_pad(ciunum, 3, pad = "0"))
+    mystring = paste0(mystring, str_pad(ciunum, 2, pad = "0"))
     mystring = paste0(mystring, str_pad(idloc, 4, pad = "0"))
     mystring = paste0(mystring, str_pad(recnum, 5, pad = "0"))
     mystring = paste0(mystring, str_pad(mesanum, 2, pad = "0"))
@@ -69,26 +69,14 @@ translate_and_export_comp_dat = function(filename, file_ext,filepath, savepath){
   
   #ARCHIVE DATA
   write.csv(mydata , file = paste0(savepath,archive_name),
-            row.names = FALSE, quote = TRUE)
+            row.names = FALSE, quote = TRUE,fileEncoding="UTF-8")
   
   #ACTUAL DATA
   write.csv(mydata , file = paste0(savepath,name_active),
-            row.names = FALSE, quote = TRUE)
+            row.names = FALSE, quote = TRUE,fileEncoding="UTF-8")
   
   return(mydata)
 }#translate_and_export_comp_dat
-
-build_mesa_ID =function(pais, paisnum,ciunum, idloc, recnum, mesanum ){
-  mystring = "1"
-  mystring = ifelse(pais == "Bolivia", paste0(mystring,"0"), paste0(mystring,"1"))
-  
-  mystring =paste0(mystring, str_pad(paisnum, 3, pad = "0"))
-  mystring = paste0(mystring, str_pad(ciunum, 3, pad = "0"))
-  mystring = paste0(mystring, str_pad(idloc, 4, pad = "0"))
-  mystring = paste0(mystring, str_pad(recnum, 5, pad = "0"))
-  mystring = paste0(mystring, str_pad(mesanum, 2, pad = "0"))
-  return(mystring)
-}
 
 
 #running the function
