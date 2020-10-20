@@ -13,6 +13,8 @@
 # ---
 
 # %%
+
+# %%
 from elec_bol20 import *
 import elec_bol20.util as ebu
 
@@ -37,6 +39,11 @@ df.index = df.index.astype(np.int64)
 cart = os.path.join(ebu.DATA_PATH1_2020,'z030_carto_xy.csv')
 cart = pd.read_csv(cart).set_index('ID_RECI')
 cart.index = cart.index.astype(np.int64)
+
+cart = os.path.join(ebu.DATA_PATH1_2020,'z030_carto_xy.csv')
+cart = pd.read_csv(cart).set_index('ID_RECI')
+cart.index = cart.index.astype(np.int64)
+
 
 _mean = ['X', 'Y']
 _sum = ['BL_perc_mean', 'NU_perc_mean',

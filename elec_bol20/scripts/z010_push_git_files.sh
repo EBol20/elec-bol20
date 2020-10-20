@@ -23,7 +23,7 @@ elec_bol20/datos_1_intermedios/2020/comp/*.csv \
 elec_bol20/datos_0_crudos/2020/comp/*.xlsx \
 docs/Ejemplos/z050_panel.html \
 
-
+git pull --no-edit
 git push origin master
 
 
