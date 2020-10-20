@@ -1,7 +1,7 @@
 Cartograma densidad votacional 2020
 <iframe src="Ejemplos/z040_densidad2020.html"
     sandbox="allow-same-origin allow-scripts"
-    width="110%" 
+    width="120%" 
     height="650"   
     scrolling="no"
     seamless="seamless"
