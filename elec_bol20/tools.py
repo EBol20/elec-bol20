@@ -176,7 +176,9 @@ class CartoPlots:
         :param path: file out
         :return: df
         """
-        da_col = ['HAB','PAIS','MUN','REC','X','Y','LAT','LON','x','y']
+        da_col = ['HAB','PAIS','MUN','REC','X','Y','LAT','LON','x','y',
+                  'r','r2','GX','GY'
+                  ]
 
         cart_init_val = self.CART_SLIDER_INIT  # add slider
         self.process_data(cart_init_val, data)
@@ -188,9 +190,13 @@ class CartoPlots:
             frente = "d_mas_cc"
             f1 = 'mas_o_cc'
             f2 = 'ad_mas_cc'
+            _p = 'mas'
+            _p1 = 'cc'
             da_col.append(frente)
             da_col.append(f1)
             da_col.append(f2)
+            da_col.append(_p)
+            da_col.append(_p1)
         if frente == "d_mas_creemos":
             low = self.C_BAR_LOW
             high = self.C_BAR_HIGH
@@ -199,13 +205,18 @@ class CartoPlots:
             da_col.append(frente)
             da_col.append(f1)
             da_col.append(f2)
+            da_col.append('mas')
+            da_col.append('creemos')
+
+        da_col.append(frente)
+
 
 
         cm = linear_cmap(frente, palette=palette, low=low, high=high)
 
 
 
-        # data = data[da_col]
+        data = data[da_col]
         source_master = ColumnDataSource(data)
         source_red_map = ColumnDataSource({'gx': [], 'gy': []})
         # la, lo = ebu.get_la_lo_bolivia()
