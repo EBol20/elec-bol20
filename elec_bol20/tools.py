@@ -377,20 +377,19 @@ class CartoPlots:
         cart_fig.yaxis.major_label_text_font_size = '0pt'
         # turn off y-axis tick labels
         nam = 'z037_' + frente + '_' + name_file + '.html'
+        nam_lat = 'z037_' + frente + '_' + 'latest' + '.html'
         nam1 = os.path.join(path, nam)
-        bokeh.plotting.output_file(
-            nam1)
+
         nam2 = os.path.join(os.path.dirname(ebu.DIR), 'docs',
                             'graficas_htmls',
-                            nam)
-        bokeh.plotting.output_file(nam2)
+                            nam_lat)
+        # bokeh.plotting.output_file(nam2)
         if show_plot:
 
             bokeh.plotting.show(layout)
 
-        else:
-            bokeh.plotting.save(layout, nam1)
-            bokeh.plotting.save(layout, nam2)
+        bokeh.plotting.save(layout, nam1)
+        bokeh.plotting.save(layout, nam2)
 
         return data
 

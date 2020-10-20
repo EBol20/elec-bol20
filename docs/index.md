@@ -17,7 +17,7 @@ El tercer gráfico es un [cartograma](Ejemplos/que_es_un_cartograma.md) que mues
 
 <iframe src="Ejemplos/z050_panel.html"
     sandbox="allow-same-origin allow-scripts"
-    width="90%"
+    width="85%"
     height="1600"
     scrolling="no"
     seamless="seamless"
@@ -30,7 +30,7 @@ El tercer gráfico es un [cartograma](Ejemplos/que_es_un_cartograma.md) que mues
 
 <iframe src="graficas_htmls/z037_d_mas_cc_latest.html"
     sandbox="allow-same-origin allow-scripts"
-    width="95%" 
+    width="110%" 
     height="650"   
     scrolling="no"
     seamless="seamless"
