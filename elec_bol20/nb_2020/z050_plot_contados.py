@@ -8,7 +8,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.4.0
+#       jupytext_version: 1.6.0
 #   kernelspec:
 #     display_name: ebol20
 #     language: python
@@ -131,6 +131,10 @@ den1['top_c'] = den1['counted'] / den1['HAB'] * 100
 
 # %%
 den1.loc[-1, 'mid'] = den1.loc[-1, 'mid'] - 1000000
+
+# %%
+
+# %%
 
 # %%
 df2[df2['COUNT']]['HAB'].sum()
@@ -298,6 +302,8 @@ bokeh.plotting.save(l0,FILE_OUT)
 
 # %%
 ebu.get_bolivian_time(0)
+
+# %%
 
 # %%
 

@@ -53,7 +53,7 @@ GET_HEADERS = {
 }
 
 # %%
-POST_PAYLOAD = {'tipoArchivo': "EXCEL"}
+POST_PAYLOAD = {'tipoArchivo': "CSV"}
 
 # %%
 while True:
@@ -77,6 +77,13 @@ while True:
         makedirs(dirname(out_path), exist_ok=True)
         open(out_path, 'wb').write(r.content)
 
+
+    pp = pd.read_csv(out_path,
+                escapechar=r'"', 
+                encoding='ISO-8859-1'
+               )
+    pp.to_csv(out_path)
+
     a,b = out_path.split('.')
     c = os.path.dirname(a)+'/'
     a = os.path.basename(a)
@@ -87,21 +94,14 @@ while True:
     import subprocess
     l = ['Rscript' ,'--vanilla' ,f'{s}', f'{a}', f'{b}', f'{c}', f'{d}']
     p = subprocess.run(l,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-    
+
     print('going to sleep')
-    time.sleep(SLEEP_SECONDS_PER_LOOP) # 10 min.
+#     time.sleep(SLEEP_SECONDS_PER_LOOP) # 10 min.
+
+# %%
+
 
 
     
-
-# %%
-
-# %%
-
-
-
-# %%
-
-# %%
 
 # %%
