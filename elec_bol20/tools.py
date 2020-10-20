@@ -1,11 +1,11 @@
-from elec_bol20 import *
-import elec_bol20.util as ebu
 import bokeh.layouts
-from bokeh.models import ColumnDataSource, CustomJS, Slider
-from bokeh.plotting import Figure, output_file, show
 import bokeh.tile_providers
+from bokeh.models import ColumnDataSource, CustomJS, Slider
+from bokeh.plotting import Figure
 from bokeh.transform import linear_cmap
-from bokeh.transform import log_cmap
+
+import elec_bol20.util as ebu
+from elec_bol20 import *
 
 
 # ###### abrir los datos
@@ -27,7 +27,7 @@ class CartoPlots:
     C_BAR_HIGH = 80
     C_BAR_LOW = -80
     PALETTE = ebu.P_DIF
-    CART_SLIDER_INIT = .5
+    CART_SLIDER_INIT = .98
     FILE_OUT = ebu.DIR + '/htlml_1_intermedios/2020/'
 
     MAP_CIRCLE_SIZE_OFFSET = 5
@@ -36,7 +36,7 @@ class CartoPlots:
     BAR_TITLE_DIC = {
         "d_mas_cc": "CC < diferencia [%] > MAS",
         "diff": "CC < diferencia [%] > MAS",
-        "d_mas_creemos":"CREEMOS < diferencia [%] > MAS",
+        "d_mas_creemos": "CREEMOS < diferencia [%] > MAS",
         "cc": "CC [%]",
         "mas": "MAS-IPSP [%]",
         "creemos": "CREEMOS [%]",
@@ -123,10 +123,16 @@ class CartoPlots:
     def __init__(self):
         pass
 
-    def load_file(self, df, _mean=['X', 'Y', 'LAT', 'LON', 'DEN', ],
-                  _sum=['HAB', 'CC', 'MAS', 'PDC', 'VV'],
-                  _first=['PAIS', 'REC', 'MUN', 'BOL']):
+    def load_file(self, df, _mean=None,
+                  _sum=None,
+                  _first=None):
         # agrupamos por recinto
+        if _first is None:
+            _first = ['PAIS', 'REC', 'MUN', 'BOL']
+        if _sum is None:
+            _sum = ['HAB', 'CC', 'MAS', 'PDC', 'VV']
+        if _mean is None:
+            _mean = ['X', 'Y', 'LAT', 'LON', 'DEN', ]
         _gr = df.groupby('ID_RECI')
         rec_df = _gr[_mean].mean()
         rec_df[_sum] = _gr[_sum].sum()
@@ -167,8 +173,10 @@ class CartoPlots:
         :param name_file: default:test
         :param low: cmap low limit: default: -80
         :param high: cmap high limit: defauilt: +80.
+        :param path: file out
         :return: df
         """
+
         if frente == "diff":
             low = self.C_BAR_LOW
             high = self.C_BAR_HIGH
@@ -177,43 +185,15 @@ class CartoPlots:
             low = self.C_BAR_LOW
             high = self.C_BAR_HIGH
 
-        bokeh.plotting.output_file(
-            path + 'z037_' + frente + '_' + name_file + '.html')
-        bokeh.plotting.output_file(
-            os.path.join(
-                os.path.dirname(ebu.DIR), 'docs',
-                'graficas_htmls',
-                'z037_' + frente + '_' + 'latest' + '.html'
-            ))
-
-        cart_init_val = self.CART_SLIDER_INIT  # add slider
-        data['x'] = data['LON'] * (1 - cart_init_val) + data[
-            'X'] * cart_init_val
-        data['y'] = data['LAT'] * (1 - cart_init_val) + data[
-            'Y'] * cart_init_val
         cm = linear_cmap(frente, palette=palette, low=low, high=high)
+        cart_init_val = self.CART_SLIDER_INIT  # add slider
 
-        data['mas'] = data['MAS'] / data['VV'] * 100
-        data['cc'] = data['CC'] / data['VV'] * 100
-        data['creemos'] = data['CREEMOS'] / data['VV'] * 100
-        data['fpv'] = data['FPV'] / data['VV'] * 100
-        data['pan_bol'] = data['PAN_BOL'] / data['VV'] * 100
-
-        data['ad_mas_cc'] = data['d_mas_cc'].abs()
-        data['mas_o_cc'] = 'n'
-        data.loc[data['d_mas_cc'] >= 0, 'mas_o_cc'] = 'MAS'
-        data.loc[data['d_mas_cc'] < 0, 'mas_o_cc'] = 'CC'
-
-        data['ad_mas_creemos'] = data['d_mas_creemos'].abs()
-        data['mas_o_creemos'] = 'n'
-        data.loc[data['d_mas_creemos'] >= 0, 'mas_o_creemos'] = 'MAS'
-        data.loc[data['d_mas_creemos'] < 0, 'mas_o_creemos'] = 'CREEMOS'
-
+        self.process_data(cart_init_val, data)
 
         source_master = ColumnDataSource(data)
         source_red_map = ColumnDataSource({'gx': [], 'gy': []})
-        la, lo = ebu.get_la_lo_bolivia()
-        source_bol = ColumnDataSource({'la': la, 'lo': lo})
+        # la, lo = ebu.get_la_lo_bolivia()
+        # source_bol = ColumnDataSource({'la': la, 'lo': lo})
         # source_red_car = ColumnDataSource({'lo': [], 'la': []})
 
         # JS CODE
@@ -225,30 +205,6 @@ class CartoPlots:
                 data['gy'].push(source_master.data.GY[indices[i]])
         }
         source_red_map.data = data
-        """
-
-        code_draw_red_car = """
-        const data = {'lo': [], 'la': []}
-        const indices = cb_data.index.indices
-        for (var i = 0; i < indices.length; i++) {
-                data['lo'].push(source_master.data.x[indices[i]])
-                data['la'].push(source_master.data.y[indices[i]])
-        }
-        source_red_car.data = data
-        """
-
-        code_merged = """
-        const data_map = {'lo': [], 'la': []}
-        const data_car = {'gx': [], 'gy': []}
-        const indices = cb_data.index.indices
-        for (var i = 0; i < indices.length; i++) {
-                data_map['lo'].push(source_master.data.x[indices[i]])
-                data_map['la'].push(source_master.data.y[indices[i]])
-                data_car['gx'].push(source_master.data.GX[indices[i]])
-                data_car['gy'].push(source_master.data.GY[indices[i]])
-        }
-        source_red_car.data = data_car
-        source_red_map.data = data_map
         """
 
         code_slider = """
@@ -269,23 +225,39 @@ class CartoPlots:
 
         # FIGURES
         curr_time = ebu.get_bolivian_time(-3)
-        # from datetime import datetime
-        # curr_time = datetime.utcnow()
 
         pw = self.FIG_WIDTH
-        cart_fig = Figure(plot_width=pw, plot_height=pw, output_backend="webgl",
 
-                          )
+        callback_red_map = CustomJS(
+            args={'source_master': source_master,
+                  'source_red_map': source_red_map, },
+            code=code_draw_red_map)
+
+        hover_cart = bokeh.models.HoverTool(
+            tooltips=self.TOOL_TIP_DIC[frente],
+            callback=callback_red_map,
+            # renderers = [red_scat_car]
+
+        )
+
+        cart_fig = Figure(plot_width=pw, plot_height=pw,
+                          output_backend="webgl", )
+        cart_fig.background_fill_color = "grey"
+        cart_fig.background_fill_alpha = .5
+        cart_fig.scatter('x', 'y', source=source_master, radius='r', color=cm)
+        cart_fig.add_tools(hover_cart, )
+
+        title = "Última actualización: " + curr_time["datetime_val"].strftime(
+            "%Y-%m-%d %H:%M") + "BOT"
+
+
         map_fig = Figure(plot_width=pw, plot_height=pw,
                          x_axis_type='mercator',
                          y_axis_type='mercator',
                          output_backend="webgl",
-                         title="Última actualización: " + curr_time[
-                             "datetime_val"].strftime(
-                             "%Y-%m-%d %H:%M") + "BOT",
+                         title=title,
                          )
-        cart_fig.background_fill_color = "grey"
-        cart_fig.background_fill_alpha = .5
+
         # cb_fig = bokeh.plotting.Figure(plot_height=pw,plot_width=)
         # cb_fig.toolbar.logo = None
         # cb_fig.toolbar_location = None
@@ -305,25 +277,20 @@ class CartoPlots:
 
         # todo if we wont use map then we nee to delete the source
         # cart_fig.line('lo', 'la', source=source_bol, color='black')
-        cart_fig.scatter('x', 'y', source=source_master, radius='r',
-                         color=cm
-                         )
 
+        # noinspection PyUnusedLocal
         red_scat_map = map_fig.circle_cross('gx', 'gy',
                                             source=source_red_map,
-                                            #                                color='red',
                                             fill_color=None,
-                                            #                                line_color='green',
                                             size=20,
                                             line_color="white",
                                             line_width=4
                                             )
 
+        # noinspection PyUnusedLocal
         red_scat_map = map_fig.circle_cross('gx', 'gy',
                                             source=source_red_map,
-                                            #                                color='red',
                                             fill_color=None,
-                                            #                                line_color='green',
                                             size=20,
                                             line_color="red",
                                             line_width=1
@@ -334,27 +301,14 @@ class CartoPlots:
         # add a hover tool that sets the link data for a hovered circle
 
         # callbacks
-        callback_red_map = CustomJS(
-            args={'source_master': source_master,
-                  'source_red_map': source_red_map,
-                  # 'source_red_car':source_red_car
-                  },
-            code=code_draw_red_map)
+
         # code = code_merged)
 
         # callback_red_car = CustomJS(
-        #     args={'source_master': source_master, 'source_red_car': source_red_car},
-        #     code=code_draw_red_car)
+        # args={'source_master': source_master, 'source_red_car': source_red_car},
+        # code=code_draw_red_car)
 
         # tools
-
-        hover_cart = bokeh.models.HoverTool(
-            tooltips=self.TOOL_TIP_DIC[frente],
-            callback=callback_red_map,
-            # renderers = [red_scat_car]
-
-        )
-        cart_fig.add_tools(hover_cart, )
 
         hover_map = bokeh.models.HoverTool(
             tooltips=self.TOOL_TIP_DIC[frente],
@@ -375,7 +329,8 @@ class CartoPlots:
         ml = {int(i): str(np.abs(i)) for i in np.arange(-80, 81, 20)}
         cb = bokeh.models.ColorBar(
             color_mapper=cm['transform'],
-            width=int(.9 * 450),
+            # width=int(.9 * 450),
+            width='auto',
             location=(0, 0),
             #     title="DEN (N/km^2)",
             # title=(BAR_TITLE),
@@ -410,16 +365,53 @@ class CartoPlots:
         map_fig.y_range.start = _ll[1][0]
         map_fig.y_range.end = _ll[1][1]
 
-        cart_fig.xaxis.major_tick_line_color = None  # turn off x-axis major ticks
-        cart_fig.xaxis.minor_tick_line_color = None  # turn off x-axis minor ticks
-        cart_fig.yaxis.major_tick_line_color = None  # turn off y-axis major ticks
+        cart_fig.xaxis.major_tick_line_color = None
+        # turn off x-axis major ticks
+        cart_fig.xaxis.minor_tick_line_color = None
+        # turn off x-axis minor ticks
+        cart_fig.yaxis.major_tick_line_color = None
+        # turn off y-axis major ticks
         cart_fig.yaxis.minor_tick_line_color = None
-        cart_fig.xaxis.major_label_text_font_size = '0pt'  # turn off x-axis tick labels
-        cart_fig.yaxis.major_label_text_font_size = '0pt'  # turn off y-axis tick labels
+        cart_fig.xaxis.major_label_text_font_size = '0pt'
+        # turn off x-axis tick labels
+        cart_fig.yaxis.major_label_text_font_size = '0pt'
+        # turn off y-axis tick labels
+        nam = 'z037_' + frente + '_' + name_file + '.html'
+        nam1 = os.path.join(path, nam)
+        bokeh.plotting.output_file(
+            nam1)
+        nam2 = os.path.join(os.path.dirname(ebu.DIR), 'docs',
+                            'graficas_htmls',
+                            nam)
+        bokeh.plotting.output_file(nam2)
         if show_plot:
+
             bokeh.plotting.show(layout)
 
+        else:
+            bokeh.plotting.save(layout, nam1)
+            bokeh.plotting.save(layout, nam2)
+
         return data
+
+    def process_data(self, cart_init_val, data):
+        data['x'] = data['LON'] * (1 - cart_init_val) + data[
+            'X'] * cart_init_val
+        data['y'] = data['LAT'] * (1 - cart_init_val) + data[
+            'Y'] * cart_init_val
+        data['mas'] = data['MAS'] / data['VV'] * 100
+        data['cc'] = data['CC'] / data['VV'] * 100
+        data['creemos'] = data['CREEMOS'] / data['VV'] * 100
+        data['fpv'] = data['FPV'] / data['VV'] * 100
+        data['pan_bol'] = data['PAN_BOL'] / data['VV'] * 100
+        data['ad_mas_cc'] = data['d_mas_cc'].abs()
+        data['mas_o_cc'] = 'n'
+        data.loc[data['d_mas_cc'] >= 0, 'mas_o_cc'] = 'MAS'
+        data.loc[data['d_mas_cc'] < 0, 'mas_o_cc'] = 'CC'
+        data['ad_mas_creemos'] = data['d_mas_creemos'].abs()
+        data['mas_o_creemos'] = 'n'
+        data.loc[data['d_mas_creemos'] >= 0, 'mas_o_creemos'] = 'MAS'
+        data.loc[data['d_mas_creemos'] < 0, 'mas_o_creemos'] = 'CREEMOS'
 
 # def download_file(url):
 #     local_filename = url.split('/')[-1]

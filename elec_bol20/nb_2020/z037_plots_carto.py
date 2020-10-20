@@ -29,14 +29,14 @@ goal_dir = os.path.join(os.getcwd(), "../../my_dir")
 # x4 = z.plot_carto_single(y, 'creemos', ebu.P_GRAD_CREEMOS, path=path_cart_maps, name_file=bot_time, low=0, high=100, show_plot=False)
 # x5 = z.plot_carto_single(y, 'pan_bol', ebu.P_GRAD_PANBOL, path=path_cart_maps, name_file=bot_time, low=0, high=100, show_plot=False)
 # x6 = z.plot_carto_single(y, 'fpv', ebu.P_GRAD_FPV, path=path_cart_maps, name_file=bot_time, low=0, high=100, show_plot=False)
-
-x1 = z.plot_carto_single(y, 'diff', ebu.P_DIF, name_file=bot_time, low=0, high=100)
-x2 = z.plot_carto_single(y, 'mas', ebu.P_GRAD_MAS, name_file=bot_time, low=0, high=np.ceil(y["mas"].max()))
-x3 = z.plot_carto_single(y, 'cc', ebu.P_GRAD_CC, name_file=bot_time, low=0, high=np.ceil(y["cc"].max()))
-x4 = z.plot_carto_single(y, 'creemos', ebu.P_GRAD_CREEMOS, name_file=bot_time, low=0, high=np.ceil(y["creemos"].max()))
-x5 = z.plot_carto_single(y, 'pan_bol', ebu.P_GRAD_PANBOL, name_file=bot_time, low=0, high=np.ceil(y["pan_bol"].max()))
-x6 = z.plot_carto_single(y, 'fpv', ebu.P_GRAD_FPV, name_file=bot_time, low=0, high=np.ceil(y["fpv"].max()))
-x7 = z.plot_carto_single(y, 'd_mas_creemos', ebu.P_DIF_MAS_CREEMOS, name_file=bot_time)
+show_plot = True
+x1 = z.plot_carto_single(y, 'diff', ebu.P_DIF, name_file=bot_time, low=0, high=100,show_plot=show_plot)
+# x2 = z.plot_carto_single(y, 'mas', ebu.P_GRAD_MAS, name_file=bot_time, low=0, high=np.ceil(y["mas"].max()),show_plot=show_plot)
+# x3 = z.plot_carto_single(y, 'cc', ebu.P_GRAD_CC, name_file=bot_time, low=0, high=np.ceil(y["cc"].max()),show_plot=show_plot)
+# x4 = z.plot_carto_single(y, 'creemos', ebu.P_GRAD_CREEMOS, name_file=bot_time, low=0, high=np.ceil(y["creemos"].max()),show_plot=show_plot)
+# x5 = z.plot_carto_single(y, 'pan_bol', ebu.P_GRAD_PANBOL, name_file=bot_time, low=0, high=np.ceil(y["pan_bol"].max()),show_plot=show_plot)
+# x6 = z.plot_carto_single(y, 'fpv', ebu.P_GRAD_FPV, name_file=bot_time, low=0, high=np.ceil(y["fpv"].max()),show_plot=show_plot)
+# x7 = z.plot_carto_single(y, 'd_mas_creemos', ebu.P_DIF_MAS_CREEMOS, name_file=bot_time,show_plot=show_plot)
 
 
 # %%
