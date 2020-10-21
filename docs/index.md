@@ -36,6 +36,8 @@ El tono de color azul o naranja es claro cuando la diferencia en porcentajes es 
 
 ##### Puedes ver el voto de cada partido y las comparaciones MAS-CC o MAS-CREEMOS haciedo click en [Ver en tamaño completo, y por partido](graficas_htmls/z037_summary_latest.html)
 
+##### También te invitamos a ver un aporte fantástico de [Mauricio Foronda](https://mauforonda.github.io/elecciones2020/) con una mapa sencillo de navegar
+
 <iframe src="graficas_htmls/z037_d_mas_cc_latest.html"
     sandbox="allow-same-origin allow-scripts"
     width="110%" 
