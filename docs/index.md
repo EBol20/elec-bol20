@@ -1,3 +1,4 @@
+{% include '/_includes/analytics.html' %}
 # Visualización y análisis de las Elecciones generales de Bolivia 2020
 
 ###### Sitio optimizado para computadoras de escritorio
