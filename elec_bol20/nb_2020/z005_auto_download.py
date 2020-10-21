@@ -13,6 +13,7 @@ import requests
 import json
 import elec_bol20.util as ebu
 import os
+import pandas as pd
 
 
 # %%
