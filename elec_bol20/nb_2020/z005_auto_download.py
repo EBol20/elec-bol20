@@ -97,7 +97,7 @@ while True:
     p = subprocess.run(l,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
 
     print('going to sleep')
-#     time.sleep(SLEEP_SECONDS_PER_LOOP) # 10 min.
+    time.sleep(SLEEP_SECONDS_PER_LOOP) # 10 min.
 
 # %%
 
