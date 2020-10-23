@@ -20,8 +20,8 @@ Equipo responsable del modelo de datos y organización del repositorio
 
 - Ana Lucía Velasco / Análisis político 
 - Huascar Morales / Difusión y datos geográficos 
-- Nicole Aliaga / Edición y creación de textos y contenido
-- Yecid Aliaga Badani / Textos y contenido
+- Nicole Aliaga / Edición de textos y contenido
+- Yecid Aliaga Badani / Edición de textos y contenido
 
 ### La página y el contenido pueden ser citados con formato APA como: 
 
