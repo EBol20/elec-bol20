@@ -55,6 +55,18 @@ pd.DataFrame(df[['VV_20','VV_19','HAB_20','HAB_19']].sum(),columns=['VOTANTES'])
 
 # %% code_folding=[0]
 # Fig. 1
+import warnings
+warnings.filterwarnings("ignore", category=RuntimeWarning)
+df1 = cluster_analysis(df=df)
+
+nm_dic = df1.groupby(CLUS).count().iloc[:,0].to_dict()
+nm_dic = {b:f'{b}\n$_{{({nm_dic[b]} \mathrm{{\ mesas}})}}$' for a,b in CLUS_DIC.items()}
+mel = pd.melt(df1[[*COLUMNS_CLUS, CLUS]], id_vars=CLUS)
+# mel[CLUS] = mel[CLUS].apply(lambda r: nm_dic[r])
+
+
+mea = df1[[*COLUMNS_CLUS,CLUS]].groupby(CLUS).mean()
+mea['SUM'] = mea.sum(axis=1)
 f, ax = plt.subplots(figsize=(8, 4.5), dpi=100)
 sns.barplot(x=CLUS, y='value', data=mel, hue='variable',
             order=nm_dic.keys(), ci='sd');
@@ -72,18 +84,6 @@ sns.despine(ax=ax,offset=10,bottom=True)
 
 # %% code_folding=[0]
 # Tabla 2
-import warnings
-warnings.filterwarnings("ignore", category=RuntimeWarning)
-df1 = cluster_analysis(df=df)
-
-nm_dic = df1.groupby(CLUS).count().iloc[:,0].to_dict()
-nm_dic = {b:f'{b}\n$_{{({nm_dic[b]} \mathrm{{\ mesas}})}}$' for a,b in CLUS_DIC.items()}
-mel = pd.melt(df1[[*COLUMNS_CLUS, CLUS]], id_vars=CLUS)
-# mel[CLUS] = mel[CLUS].apply(lambda r: nm_dic[r])
-
-
-mea = df1[[*COLUMNS_CLUS,CLUS]].groupby(CLUS).mean()
-mea['SUM'] = mea.sum(axis=1)
 mea.round()
 
 # %% [markdown]
