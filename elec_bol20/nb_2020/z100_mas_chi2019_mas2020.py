@@ -25,7 +25,9 @@
 # <div style="text-align: right">Texto: Ana Lucía Velasco</div>
 # <div style="text-align: right">Análisis de datos: Diego Aliaga</div>
 # <div style="text-align: right">Edición: Huascar Morales, Yecid Aliaga, Nicole Aliaga</div>
-#
+
+# %% [markdown]
+# [código fuente](https://github.com/EBol20/elec-bol20/blob/master/elec_bol20/nb_2020/z100_mas_chi2019_mas2020.ipynb)
 
 # %% code_folding=[0]
 # Importar librerías

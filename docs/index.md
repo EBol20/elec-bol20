@@ -4,6 +4,8 @@
 #####  [Quienes somos y cómo citar este aporte](Ejemplos/Nuestro_aporte.md)
 ###### Sitio optimizado para computadoras de escritorio
 
+### [Artículos en preparación](articulos)
+
 ## Elecciones generales Bolivia 2020 
 
 El panel brinda información completa sobre el avance del cómputo oficial de votos. Contamos con una [guía de usuarios](Ejemplos/Guia_de_uso.md) para que puedas aprovechar mejor la información y herramientas.
