@@ -13,6 +13,6 @@ venv_elecbol20/
 .Rhistory
 *.egg-info
 
-z100_mas_chi2019_mas2020.ipynb
-z100_mas_chi2019_mas2020.py
-z100_mas_chi2019_mas2020_fun.py
+#z100_mas_chi2019_mas2020.ipynb
+#z100_mas_chi2019_mas2020.py
+#z100_mas_chi2019_mas2020_fun.py
