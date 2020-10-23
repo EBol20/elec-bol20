@@ -17,7 +17,7 @@
 # # ¿Qué pasó en las elecciones?
 # HIPOTESIS NO. 1: EL FACTOR CHI
 
-# %% code_folding=[]
+# %% code_folding=[0]
 # Importar librerías
 from elec_bol20.nb_2020.z100_mas_chi2019_mas2020_fun import *
 
@@ -51,16 +51,24 @@ pd.DataFrame(df[['VV_20','VV_19','HAB_20','HAB_19']].sum(),columns=['VOTANTES'])
 # ### Figura 1 
 # Diferencias entre 2020 y 2019 para (a) CHI, (b) MAS. Además, en (c): (MAS20-MAS19) + (CHI20-CHI19)
 
-# %% code_folding=[0]
+# %% [markdown] heading_collapsed=true
+# ### hide
+
+# %% code_folding=[0] hidden=true
 # Fig. 1
 plot_3_comparison(df=df)
+
+# %% [markdown]
+# ### texto
 
 # %% [markdown]
 # La siguiente información es obtenida realizando un análisis de clusters. Este análisis nos ha permitido poder comparar el comportamiento de las mesas de votación entre el 2019 y el 2020. Hemos juntado en grupos llamados “clusters” a las mesas que tuvieron un comportamiento similar para poder realizar la comparación que deseábamos. En cada cluster hemos sacado la diferencia de votación que cada partido tuvo entre las elecciones del 2019 y las del 2020. Así, si el MAS hubiera obtenido 100% de votos en una mesa el año 2019 y 70% de votos en esa misma mesa el año 2020, tendríamos la diferencia 30%. Para aquellos partidos que participaron de las elecciones de 2019 pero no del 2020 la diferencia es del 100% y para los partidos que participaron de las elecciones del 2020 pero no en las del 2019 la diferencia es de 0%. Los resultados de ese análisis se ven así
 #
 
 # %% code_folding=[0]
-# Tabla 2
+
+# %% code_folding=[0]
+# Fig. 2
 import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning)
 df1 = cluster_analysis(df=df)
@@ -72,11 +80,6 @@ mel = pd.melt(df1[[*COLUMNS_CLUS, CLUS]], id_vars=CLUS)
 
 
 mea = df1[[*COLUMNS_CLUS,CLUS]].groupby(CLUS).mean()
-mea['SUM'] = mea.sum(axis=1)
-mea.round()
-
-# %% code_folding=[0]
-# Fig. 2
 f, ax = plt.subplots(figsize=(8, 4.5), dpi=100)
 sns.barplot(x=CLUS, y='value', data=mel, hue='variable',
             order=nm_dic.keys(), ci='sd');
@@ -88,6 +91,12 @@ rr=ax.set_xticklabels(labs)
 ax.set_ylim(-60,100)
 sns.despine(ax=ax,offset=10,bottom=True)
 
+
+# %% code_folding=[0]
+# Tabla 2
+
+mea['SUM'] = mea.sum(axis=1)
+mea.round()
 
 # %% [markdown]
 # En este gráfico podemos ver lo siguiente: por debajo de la línea de 0, podemos ver el porcentaje de los votos que se perdieron el 2019; y por encima de la línea de cero, podemos ver a dónde fueron a parar estos votos. Es así que podemos ver 5 casos interesantes. El primer caso es el del cluster 0. Aquí podemos ver que tanto la agrupación 21F como Chi y el Movimiento al Socialismo perdieron votos y estos fueron a parar a Comunidad Ciudadana y a Creemos. Sin embargo, por la altura de las barras, podemos ver que fueron muy pocos los votantes que decidieron dejar de votar por el MAS y decidieron darle su voto a Carlos Mesa o a Fernando Camacho. La mayoría son ex votantes de CHI o de 21F. Entonces, quienes se han desencantado con el MAS y decidieron dar su apoyo a CC o a Creemos sí existen, pero son casos excepcionales. 
