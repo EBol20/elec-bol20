@@ -1,4 +1,20 @@
+
+### Quienes somos y cómo citar el proyecto
+
+El equipo se compone de 7 personas:
+- Diego Aliaga, Grover Salvatierra y Alkuin Koenig / equipo responsable del modelo de datos y organización del repositorio
+
+- Ana Lucía Velasco / Análisis político 
+- Huascar Morales / Difusión y datos geográficos 
+- Nicole Aliaga / Edición y creación de textos y contenido
+- Yecid Aliaga Badani / Textos y contenido
+
+### La página y el contenido pueden ser citados con formato APA como: 
+
+Aliaga, D. et al. (2020). Visualización y análisis de las Elecciones generales de Bolivia 2020. Repositorio: elec-bol20. Recuperado de https://ebol20.github.io/elec-bol20/
+
 # Nuestro aporte
+
 Con el objetivo de informar responsablemente a la población, buscamos desplegar información gráfica de los datos oficiales del conteo de votos en las Elecciones Generales en Bolivia 2020. 
 
 Para monitorear y analizar el comportamiento electoral se decidió trabajar con información proveniente del Sistema de Difusión de Resultados Preliminares (DIREPRE) sin embargo, debido a la decisión del Tribunal Supremo Electoral (TSE) de no poner en funcionamiento el servicio del DIREPRE, se ha optado por emplear los datos del conteo oficial de votos disponibles en: [OEP](https://computo.oep.org.bo/)   
