@@ -15,7 +15,7 @@
 
 # %% [markdown]
 # # ¿Qué pasó en las elecciones? 
-# HIPOTESIS NO. 1: EL FACTOR CHI
+# HIPÓTESIS NO. 1: EL FACTOR CHI
 #
 
 # %% [markdown]
