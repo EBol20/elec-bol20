@@ -67,7 +67,7 @@ sns.despine(ax=ax,offset=10,bottom=True)
 
 
 # %% [markdown]
-# <center>Fig. 1: Porcentaje del cambio de votos para cada mesa entre 2020 y 2019 por cluster. Las líneas negras muestran la desviación estandard<center>
+# <center>Fig. 1: Porcentaje del cambio de votos para cada mesa entre 2020 y 2019 por cluster. Las líneas negras muestran la desviación estandard. * NB= nulos blancos <center>
 
 # %% code_folding=[0]
 # Tabla 2
@@ -91,7 +91,7 @@ mea.round()
 # %% [markdown]
 # En este gráfico (Fig. 1) podemos ver lo siguiente: por debajo de la línea de 0, vemos el porcentaje de los votos que se perdieron el 2019; y por encima de la línea de cero, vemos a dónde fueron a parar estos votos. Es así que mostramos 5 casos interesantes. Los primeros dos casos son los de los clusters ++MAS y +MAS. El primero muestra cerca a 7 mil mesas de votación y el segundo cerca a 11 mil mesas. En el primer caso el MAS se beneficia de un gran número de votos de Chi, Carlos Mesa y votos nulos y blancos, en ese orden. Creemos parece beneficiarse de una cantidad pequeña de votos que quedaron cautivos por la retirada de la sigla del 21F (este es nuestro supuesto dada la afinidad política).
 #
-# En los siguientes clusters +CRE y ++CRE podemos ver los casos en los que la agrupación Creemos ha obtenido votos y de donde los obtuvo. Ambos clusters están compuestos de cerca a 8000 mesas de sufragio. En ambos casos vemos como antiguos votantes de CC, de 21F y de Chi, en ese orden, beneficiaron en mayor y abrumadora medida a Creemos y, en una pequeña minoría, al MAS. De estos datos podemos ver que aquellos votantes que se han desencantado con el MAS y decidieron dar su apoyo a CC o a Creemos sí existen, pero son casos excepcionales, el caso más común es el ex votante de Chi que decide dar su voto al MAS y ex votantes de CC que deciden dar su voto a Creemos.
+# En los siguientes clusters +CRE y ++CRE podemos ver los casos en los que la agrupación Creemos ha obtenido votos y de dónde los obtuvo. Ambos clusters están compuestos de cerca a 8 mil mesas de sufragio. En ambos casos vemos cómo antiguos votantes de CC, de 21F y de Chi, en ese orden, beneficiaron en mayor y abrumadora medida a Creemos y, en una pequeña minoría, al MAS. De estos datos podemos ver que aquellos votantes que se han desencantado con el MAS y decidieron dar su apoyo a CC o a Creemos sí existen, pero son casos excepcionales, el caso más común es el ex votante de Chi que decide dar su voto al MAS y ex votantes de CC que deciden dar su voto a Creemos.
 #
 # Resumiendo: ¿Cómo cambió el voto entre el 2019 al 2020? Principalmente, el 7.30% de votación que perdió Chi el 2020 fue abrumadoramente hacia el MAS y en menor medida a Creemos, y en mucha menor medida a CC. El segundo cambio evidente es que Creemos recogió la votación de la agrupación 21F, poco de la votación de Chi y menos aún de votantes del MAS, pero logró atraer a un importante porcentaje del voto de CC. Podemos ver los siguientes datos en números absolutos en el siguiente gráfico y tabla (Fig. 2, Tabla 3).
 
@@ -143,7 +143,7 @@ plot_clusters_carto(df1=df1);
 #
 # Si bien resulta evidente que la candidatura de Fernando Camacho y Marco Pumari significaron una importante merma de votos para los candidatos de Comunidad Ciudadana; aún así, este fenómeno no permite, por sí solo, explicar cómo el MAS logró subir tanto su porcentaje de votación en la reciente contienda electoral. El dato final del cómputo 2020 dejó sorprendidos a analistas y estrategas, parece ser que en los análisis vertidos hasta ahora se han estado olvidando del factor Chi.
 #
-# PD: En las gráficas podemos ver que los votos nulos y blancos también jugaron un rol importante, que debe ser explicado aparte. Esto será expuesto en un siguiente artículo.
+# En las gráficas podemos ver que los votos nulos y blancos también jugaron un rol importante, que debe ser explicado aparte. Esto será expuesto en un siguiente artículo o versión.
 
 
 # %% [markdown]
@@ -193,12 +193,12 @@ for a,A in pl_dic.items():
     _pl(axf[2],c,st[i]);i=i+1
 
 # %% [markdown]
-# <center>Fig. 4: Panel A muestra un histograma de diferencias de voto por mesa entre 2020 y 2019 para CHI. El panel B hace lo mismo para MAS. El panel C es el resultado de (MAS20-MAS19) + (CHI20-CHI19). Los paneles  D, E y F muestran lo mismo que A, B y C pero para CC y MAS.
+# <center>Fig. S1: Panel A muestra un histograma de diferencias de voto por mesa entre 2020 y 2019 para CHI. El panel B hace lo mismo para MAS. El panel C es el resultado de (MAS20-MAS19) + (CHI20-CHI19). Los paneles  D, E y F muestran lo mismo que A, B y C pero para CC y MAS.
 # sasdf
 #     <center>
 
 # %% [markdown]
-# En la Fig. 4, se puede apreciar la diferencia de la cantidad de votos que recibió Chi el año 2020 y 2019. A la izquierda del punto medio marcado por el cero se muestra donde perdió votos, y a la derecha, los votos ganados por Chi el año 2020. Al lado (B), hacemos el mismo ejercicio para el MAS. En el tercer panel (C) sobreponemos las diferencias de votos sacados entre el 2019 y el 2020 por ambos candidatos y podemos apreciar que se equilibran entre sí. En otras palabras el promedio y la media de B es 14 votos por mesa mientras que el promedio de C es 1 voto por mesa. Es decir, la perdida de CHI llega a explicar 13 de los 14 votos ganados por MAS.
+# En la Fig. S1, se puede apreciar la diferencia de la cantidad de votos que recibió Chi el año 2020 y 2019. A la izquierda del punto medio marcado por el cero se muestra dónde perdió votos, y a la derecha, los votos ganados por Chi el año 2020. Al lado (B), hacemos el mismo ejercicio para el MAS. En el tercer panel (C) sobreponemos las diferencias de votos sacados entre el 2019 y el 2020 por ambos candidatos y podemos apreciar que se equilibran entre sí. En otras palabras el promedio y la media de B es 14 votos por mesa mientras que el promedio de C es 1 voto por mesa. Es decir, la pérdida de CHI llega a explicar 13 de los 14 votos ganados por MAS.
 # Hemos repetido el mismo ejercicio para CC y el MAS, en la segunda línea de gráficos. Aquí podemos ver que al comparar los votos obtenidos por el MAS y CC tanto el 2019 como en el 2020, ambos no se equilibran entre sí. Esto demuestra que la diferencia de la votación del MAS obtenida este año, en comparación a la obtenida el año pasado se explica mucho mejor por una migración de votos de Chi al MAS, que por una migración de votos de CC al MAS.
 #
 #
@@ -206,5 +206,8 @@ for a,A in pl_dic.items():
 # %%
 # Fig. A 1
 plot_3_comparison(df=df);
+
+# %% [markdown]
+# <center>Fig S2. En al panel A se oberva la diferencia de CHI20 y CHI19 por mesa electoral. En el panel B hacemos el mismo ejercicio para MAS. Pot último, en el panel C hacemos la suma A + B, es decir, tratamos de ver cuán bien el aumento de MAS es explicado por la derrota de CHI.<center>
 
 # %%
