@@ -22,7 +22,7 @@
 # Primera versión: 23 de Octubre de 2020 (en desarrollo)
 
 # %% [markdown]
-# <div style="text-align: right">Texto: Ana Lucía Velasco</div>
+# <div style="text-align: right">Texto: Ana Lucía Velasco (avelascou@gmail.com)</div>
 # <div style="text-align: right">Análisis de datos: Diego Aliaga</div>
 # <div style="text-align: right">Edición: Huascar Morales, Yecid Aliaga, Nicole Aliaga</div>
 
