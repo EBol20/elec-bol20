@@ -2,12 +2,13 @@
 ### Quienes somos y cómo citar el proyecto
 
 El equipo se compone de 7 personas:
-- Diego Aliaga, Grover Salvatierra y Alkuin Koenig / equipo responsable del modelo de datos y organización del repositorio
+- Diego Aliaga, Grover Salvatierra y Alkuin Koenig 
+Equipo responsable del modelo de datos y organización del repositorio
 
--- Ana Lucía Velasco / Análisis político 
--- Huascar Morales / Difusión y datos geográficos 
--- Nicole Aliaga / Edición y creación de textos y contenido
--- Yecid Aliaga Badani / Textos y contenido
+- Ana Lucía Velasco / Análisis político 
+- Huascar Morales / Difusión y datos geográficos 
+- Nicole Aliaga / Edición y creación de textos y contenido
+- Yecid Aliaga Badani / Textos y contenido
 
 ### La página y el contenido pueden ser citados con formato APA como: 
 
