@@ -53,22 +53,6 @@ pd.DataFrame(df[['VV_20','VV_19','HAB_20','HAB_19']].sum(),columns=['VOTANTES'])
 # que cada partido tuvo entre las elecciones del 2019 y las del 2020 es similar. Así, si el MAS hubiera obtenido 100% de votos en una mesa el año 2019 y 70% de votos en esa misma mesa el año 2020, tendríamos la diferencia 30%. Para aquellos partidos que participaron de las elecciones de 2019 pero no del 2020 la diferencia es igual al negativo del valor de 2019 y para los partidos que participaron de las elecciones del 2020 pero no en las del 2019 la diferencia es igual al valor de 2020. Los resultados de ese análisis se ven en la Tabla 1 y Fig. 1.
 
 # %% code_folding=[0]
-# Tabla 2
-import warnings
-warnings.filterwarnings("ignore", category=RuntimeWarning)
-df1 = cluster_analysis(df=df)
-
-nm_dic = df1.groupby(CLUS).count().iloc[:,0].to_dict()
-nm_dic = {b:f'{b}\n$_{{({nm_dic[b]} \mathrm{{\ mesas}})}}$' for a,b in CLUS_DIC.items()}
-mel = pd.melt(df1[[*COLUMNS_CLUS, CLUS]], id_vars=CLUS)
-# mel[CLUS] = mel[CLUS].apply(lambda r: nm_dic[r])
-
-
-mea = df1[[*COLUMNS_CLUS,CLUS]].groupby(CLUS).mean()
-mea['SUM'] = mea.sum(axis=1)
-mea.round()
-
-# %% code_folding=[0]
 # Fig. 1
 f, ax = plt.subplots(figsize=(8, 4.5), dpi=100)
 sns.barplot(x=CLUS, y='value', data=mel, hue='variable',
@@ -84,6 +68,25 @@ sns.despine(ax=ax,offset=10,bottom=True)
 
 # %% [markdown]
 # <center>Fig. 1: Porcentaje del cambio de votos para cada mesa entre 2020 y 2019 por cluster. Las líneas negras muestran la desviación estandard<center>
+
+# %% code_folding=[0]
+# Tabla 2
+import warnings
+warnings.filterwarnings("ignore", category=RuntimeWarning)
+df1 = cluster_analysis(df=df)
+
+nm_dic = df1.groupby(CLUS).count().iloc[:,0].to_dict()
+nm_dic = {b:f'{b}\n$_{{({nm_dic[b]} \mathrm{{\ mesas}})}}$' for a,b in CLUS_DIC.items()}
+mel = pd.melt(df1[[*COLUMNS_CLUS, CLUS]], id_vars=CLUS)
+# mel[CLUS] = mel[CLUS].apply(lambda r: nm_dic[r])
+
+
+mea = df1[[*COLUMNS_CLUS,CLUS]].groupby(CLUS).mean()
+mea['SUM'] = mea.sum(axis=1)
+mea.round()
+
+# %% [markdown]
+# <center>Tabla 2: Porcentajes de votos mostrados en la Fig. 1. <center>
 
 # %% [markdown]
 # En este gráfico (Fig. 1) podemos ver lo siguiente: por debajo de la línea de 0, vemos el porcentaje de los votos que se perdieron el 2019; y por encima de la línea de cero, vemos a dónde fueron a parar estos votos. Es así que mostramos 5 casos interesantes. Los primeros dos casos son los de los clusters ++MAS y +MAS. El primero muestra cerca a 7 mil mesas de votación y el segundo cerca a 11 mil mesas. En el primer caso el MAS se beneficia de un gran número de votos de Chi, Carlos Mesa y votos nulos y blancos, en ese orden. Creemos parece beneficiarse de una cantidad pequeña de votos que quedaron cautivos por la retirada de la sigla del 21F (este es nuestro supuesto dada la afinidad política).
