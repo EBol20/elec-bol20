@@ -28,6 +28,7 @@
 
 # %% [markdown]
 # [código fuente](https://github.com/EBol20/elec-bol20/blob/master/elec_bol20/nb_2020/z100_mas_chi2019_mas2020.ipynb)
+#
 
 # %% code_folding=[0]
 # Importar librerías
