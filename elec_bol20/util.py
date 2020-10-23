@@ -171,7 +171,7 @@ TRAD_2019_COMP = {
     # 'PAN-BOL',
     'Votos Válidos': 'VV',
     'Blancos':'BL',
-    'Nulos':'NL'
+    'Nulos':'NU'
     # 'id_rec',
     # 'check_validos',
     # 'total_votes',
