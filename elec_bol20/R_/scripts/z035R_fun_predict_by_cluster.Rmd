@@ -224,6 +224,59 @@ ggplot(data=plotdata, aes(x=PARTY, fill = PARTY))+
   theme(panel.grid.major.x = element_blank())
 ```
 
+Creating the prediction timeseries for the whole comp
+```{r}
+dir(paste0("../../datos_1_intermedios/2020"))
+
+comp_dat = read.csv(paste0("../../datos_1_intermedios/2020/z110_concat_full_comp.csv"), colClasses = "character") %>%
+  dplyr::filter(CANDIDATURA == "PRESIDENTE")%>%
+  mutate_at(vars(!one_of("ID_MESA")),.funs = as.numeric)%>%
+  {.}
+
+```
+
+```{r}
+#importing the cluster mask
+cluster_mask = read.csv(paste0(here::here(),"/../datos_1_intermedios/cluster_definition/2019_clustered_10.csv"), colClasses = "character")%>%
+  dplyr::select(ID_MESA, cluster)
+
+mesas_2020 = read.csv(paste0(here::here(),"/../datos_1_intermedios/2020/z010R_geopadron_mesas_2020_ALL.csv"),colClasses = "character")%>%
+  mutate_at(c("HAB"),as.numeric)
+
+mybreaks = c(seq(1,9,1), seq(10,20,2), seq(25, 100,5))
+mylist = list()
+for (i in 1:length(mybreaks)){
+  mythresh = mybreaks[i]
+  mydata = comp_dat %>% dplyr::filter(P_COMP <= mythresh)
+  
+  
+  myprediction = predict_by_cluster_2(mydata, mesas_2020, cluster_mask, "ID_MESA",
+                                      c("BL","NU","MAS","CC","CREEMOS","FPV","PAN_BOL"), 2)
+  mylist[[i]] = myprediction[[6]]%>%
+    mutate(thresh = mythresh)
+  
+}
+  
+prediction_timeframe = do.call("rbind", mylist)
+```
+
+```{r}
+plotdata = prediction_timeframe %>%
+  dplyr::filter(PARTY != "vv")
+
+ggplot(data=plotdata, aes(x=thresh, y=mean_perc_best*100, col=PARTY))+
+  geom_ribbon(aes(x=thresh,ymin = mean_perc_lower*100, ymax = mean_perc_upper*100, fill=PARTY),linetype=0,alpha=0.3)+
+  geom_line()+
+  geom_point()+
+  scale_y_continuous(breaks=seq(0,1,0.05)*100)+
+  scale_x_continuous(breaks = seq(0,100,10))+
+  labs(title = "clustermodel prediction timeline",
+       x = "percentage of votes counted",
+       y="predicted election outcome [%]")
+
+```
+
+
 
 
 
