@@ -237,7 +237,7 @@ comp_dat = read.csv(paste0("../../datos_1_intermedios/2020/z110_concat_full_comp
 
 ```{r}
 #importing the cluster mask
-cluster_mask = read.csv(paste0(here::here(),"/../datos_1_intermedios/cluster_definition/2019_clustered_10.csv"), colClasses = "character")%>%
+cluster_mask = read.csv(paste0(here::here(),"/../datos_1_intermedios/cluster_definition/z020R_2019_clustered_ALLPARTIES_11.csv"), colClasses = "character")%>%
   dplyr::select(ID_MESA, cluster)
 
 mesas_2020 = read.csv(paste0(here::here(),"/../datos_1_intermedios/2020/z010R_geopadron_mesas_2020_ALL.csv"),colClasses = "character")%>%
@@ -269,7 +269,9 @@ ggplot(data=plotdata, aes(x=thresh, y=mean_perc_best*100, col=PARTY))+
   geom_line()+
   geom_point()+
   scale_y_continuous(breaks=seq(0,1,0.05)*100)+
-  scale_x_continuous(breaks = seq(0,100,10))+
+  scale_x_continuous(breaks = seq(0,100,10), 
+                    # limits = c(20,100)
+                     )+
   labs(title = "clustermodel prediction timeline",
        x = "percentage of votes counted",
        y="predicted election outcome [%]")
