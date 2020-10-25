@@ -1,5 +1,5 @@
 ---
-title: "R Notebook"
+title: "Predict by cluster function"
 output:
   html_document:
     df_print: paged
@@ -122,9 +122,8 @@ predict_by_cluster_2 = function(vote_data, mesa_info, cluster_def, identifier, s
       mutate(cluster = as.numeric(cluster))%>%
       arrange(cluster)
     
-    if (length(meanframe$cluster) != length(uncertainty_frame$cluster)){
-      return(meanframe*NA)
-    } 
+    if (length(meanframe$cluster) != length(uncertainty_frame$cluster)){return(meanframe*NA)}#not all clusters there 
+    
     clustervec = meanframe$cluster
     
     meanframe = meanframe %>% dplyr::select(!one_of("cluster"))%>%
@@ -154,23 +153,46 @@ predict_by_cluster_2 = function(vote_data, mesa_info, cluster_def, identifier, s
     na.omit()
   
   
-  myprediction_lower = build_prediction(myframe_lower,"mean", total_predicted_VV)
-  myprediction_upper = build_prediction(myframe_upper,"mean", total_predicted_VV)
-  names(myprediction_lower)  = gsub("mean","lower",names(myprediction_lower))
-  names(myprediction_upper)  = gsub("mean","upper",names(myprediction_upper))
-  
+  myprediction_lower = build_prediction(myframe_lower,"mean", total_predicted_VV)%>%
+    dplyr::rename_all(function(x){return(gsub("mean","lower",x))})
+  myprediction_upper = build_prediction(myframe_upper,"mean", total_predicted_VV)%>%
+    dplyr::rename_all(function(x){return(gsub("mean","upper",x))})
   
   #######################uncertainty calculated
   
-  #stiching all together.
-  myprediction = cbind(myprediction_mean, myprediction_sd,myprediction_sterr, myprediction_lower, myprediction_upper)
+  #stiching all together, wide format
+  myprediction_wide = cbind(myprediction_mean, myprediction_sd,
+                            myprediction_sterr, myprediction_lower, myprediction_upper)
+  
+  #stiching all together, long format
+  myprediction_mean_long = myprediction_mean %>%
+    dplyr::rename_all(function(x){return(gsub("_perc_mean_pred","",x))})%>%
+    dplyr::rename_all(function(x){return(gsub("_mean_pred","",x))})%>%
+    tidyr::gather(value = "mean_perc_best", key = "PARTY")
+  
+  myprediction_lower_long = myprediction_lower %>%
+    dplyr::rename_all(function(x){return(gsub("_perc_lower_pred","",x))})%>%
+    dplyr::rename_all(function(x){return(gsub("_lower_pred","",x))})%>%
+    tidyr::gather(value = "mean_perc_lower", key = "PARTY")
+  
+  myprediction_upper_long = myprediction_upper %>%
+    dplyr::rename_all(function(x){return(gsub("_perc_upper_pred","",x))})%>%
+    dplyr::rename_all(function(x){return(gsub("_upper_pred","",x))})%>%
+    tidyr::gather(value = "mean_perc_upper", key = "PARTY")
+    
+  myprediction_long = dplyr::full_join(myprediction_mean_long, myprediction_lower_long, by ="PARTY")%>%
+    dplyr::full_join(.,myprediction_upper_long, by = "PARTY")
+  
+  ####------------------------
   
   return(list(total_by_cluster, cluster_total_vote,
-              cluster_mean_vote, uncertainty_frame,myprediction, total_predicted_VV))
-}#predict_by_cluster
+              cluster_mean_vote, uncertainty_frame,myprediction_wide, myprediction_long,total_predicted_VV))
+}#predict_by_cluster_2
 
+```
 
-
+applying this function
+```{r}
 #importing the cluster mask
 cluster_mask = read.csv(paste0(here::here(),"/../datos_1_intermedios/cluster_definition/2019_clustered_10.csv"), colClasses = "character")%>%
   dplyr::select(ID_MESA, cluster)
@@ -188,33 +210,20 @@ mydata = mydata %>%
 
 testprediction = predict_by_cluster_2(mydata, mesas_2020, cluster_mask, "ID_MESA",
                                       c("BL","NU","MAS","CC","CREEMOS","FPV","PAN_BOL"), 2)
-#testprediction[[1]]
-#testprediction[[2]]
-#testprediction[[3]]
-#testprediction[[4]]
-testprediction[[5]]
-
 ```
 ```{r}
-helpdata = testprediction[[5]]%>%
-  dplyr::select(contains("MAS") | contains("CC"))%>%
-  dplyr::select(!contains("sd") & !contains("sterr"))
+plotdata = testprediction[[6]] %>%
+  dplyr::filter(!(PARTY %in% c("vv")))%>%
+  {.}
 
-helpdata2 = helpdata %>%
-  dplyr::select(contains("MAS"))
-names(helpdata2) = gsub("MAS_","",names(helpdata2))
-helpdata2 = helpdata2 %>% mutate("party"= "MAS")
-
-helpdata3 = helpdata %>%
-  dplyr::select(contains("CC"))
-names(helpdata3) = gsub("CC_","",names(helpdata3))
-helpdata3 = helpdata3 %>% mutate("party"= "CC")
-
-plotadata = rbind(helpdata2, helpdata3)
-
-ggplot(data=plotadata, aes(x=party))+
-  geom_point(aes(y = perc_mean_pred))+
-  geom_errorbar(aes(ymin = perc_lower_pred, ymax = perc_upper_pred))
+ggplot(data=plotdata, aes(x=PARTY, fill = PARTY))+
+  geom_col(aes(y=mean_perc_best))+
+  geom_errorbar(aes(ymin = mean_perc_lower, ymax = mean_perc_upper))+
+  scale_y_continuous(breaks = seq(0,1,0.05))+
+  labs(title = "cluster model predict", y = "fraction of votes")+
+  theme(panel.grid.major.x = element_blank())
 ```
+
+
 
 
