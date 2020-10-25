@@ -1,0 +1,25 @@
+
+*** These modified files were found in JOE when it aborted on Fri Oct 23 23:08:40 2020
+*** JOE was aborted by UNIX signal 1
+
+*** File '(Unnamed)'
+syntax
+
+*** File '(Unnamed)'
+root
+
+*** File '(Unnamed)'
+/home/user/elec-bol20/.git/MERGE_MSG
+
+*** File '/home/user/elec-bol20/.git/MERGE_MSG'
+wqqqqMerge bra	nch 'master' of https://github.com/EBol20/elec-bol20
+# Please enter a commit message to explain why this merge is necessary,
+# especially if it merges an updated upstream into a topic branch.
+#
+# Lines starting with '#' will be ignored, and an empty message aborts
+# the comm2
+*** File '* Startup Log *'
+Processing '/etc/joe/editorrc'...
+Processing '/etc/joe/ftyperc'...
+Finished processing /etc/joe/ftyperc
+Finished processing /etc/joe/editorrc
