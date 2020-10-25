@@ -2,6 +2,7 @@ import elec_bol20 as eb
 from elec_bol20 import *
 from scipy.ndimage import gaussian_filter
 import datetime
+
 # %%
 # CONSTANTS
 
@@ -19,11 +20,9 @@ DATA_PATH1 = os.path.join(DIR, 'datos_1_intermedios')
 DATA_PATH2 = os.path.join(DIR, 'datos_2_finales')
 DATA_FIG_OUT = os.path.join(DIR, 'figuras_out')
 
-
-
-DATA_PATH0_2020 = os.path.join(DATA_PATH0,'2020')
-DATA_PATH1_2020 = os.path.join(DATA_PATH1,'2020')
-DATA_PATH2_2020 = os.path.join(DATA_PATH2,'2020')
+DATA_PATH0_2020 = os.path.join(DATA_PATH0, '2020')
+DATA_PATH1_2020 = os.path.join(DATA_PATH1, '2020')
+DATA_PATH2_2020 = os.path.join(DATA_PATH2, '2020')
 
 FULL_COMP_CONCAT_CSV = os.path.join(
     DATA_PATH1_2020, 'z110_concat_full_comp.csv')
@@ -37,8 +36,8 @@ GEO_PATH_V1 = os.path.join(DATA_PATH0, '2020', 'geo2020.xlsx')
 CSV_CART_2019 = os.path.join(DATA_PATH1, '2019', 'cart_reci.csv')
 CSV_RES_2019_COMP = os.path.join(DATA_PATH0, '2019', 'final_comp.csv')
 
-DEN_LIMS  = [0, 50, 500, 1500, 10000]
-DEN_CODES = [0,1,2,3]
+DEN_LIMS = [0, 50, 500, 1500, 10000]
+DEN_CODES = [0, 1, 2, 3]
 
 COL_STANDARD = [
     "LAT", "LON",
@@ -64,24 +63,23 @@ COL_STANDARD = [
     "MUN",  # nombre municipio,
     "_p",  # prediccion
     "_r",  # residual,
-    "P_COMP", # percentil de llegafa COMP
-    "P_TREP", # percentil de llegafa TREP
+    "P_COMP",  # percentil de llegafa COMP
+    "P_TREP",  # percentil de llegafa TREP
 ]
 
-
 TRAD_2019_PER_COMP = {
-    'Código Mesa':'ID_MESA',
+    'Código Mesa': 'ID_MESA',
     # 'p1',
     # 'p2',
-    'pm':'P_COMP',
+    'pm': 'P_COMP',
     # pj'
 }
 TRAD_2019_PER_TREP = {
-    'Código Mesa':'ID_MESA',
+    'Código Mesa': 'ID_MESA',
     # 'p1',
     # 'p2',
-    'pm':'P_TREP',
-    'pj':'PJ_TREP'
+    'pm': 'P_TREP',
+    'pj': 'PJ_TREP'
 }
 TRAD_2019_ESTAD_NAC = {
     # 'RECI' : ,
@@ -170,13 +168,13 @@ TRAD_2019_COMP = {
     # 'MTS',
     # 'UCS',
     'MAS - IPSP': 'MAS',
-    '21F':'21F',
+    '21F': '21F',
     'PDC': 'PDC',
     # 'MNR',
     # 'PAN-BOL',
     'Votos Válidos': 'VV',
-    'Blancos':'BL',
-    'Nulos':'NU'
+    'Blancos': 'BL',
+    'Nulos': 'NU'
     # 'id_rec',
     # 'check_validos',
     # 'total_votes',
@@ -196,7 +194,7 @@ TOOL_TIPS1 = [
     ('PAIS', '@PAIS'),
     ('MUN', '@MUN'),
     ('REC', '@REC'),
-    ('MAS - CC %' , '@d_mas_cc')
+    ('MAS - CC %', '@d_mas_cc')
     # ('PAIS', '@PAIS'),
 ]
 
@@ -215,20 +213,21 @@ P_GRAD_CREEMOS = [*bokeh.palettes.Reds8[::-1]]
 P_GRAD_PANBOL = [*bokeh.palettes.YlOrRd8[::-1]]
 
 C_DIC = {
-    'CC':P_GRAD_CC[-2],
-    'FPV':P_GRAD_FPV[-2],
-    'MAS':P_GRAD_MAS[-1],
-    'CREEMOS':P_GRAD_CREEMOS[-1],
-    'PAN_BOL':P_GRAD_PANBOL[-1],
+    'CC': P_GRAD_CC[-2],
+    'FPV': P_GRAD_FPV[-2],
+    'MAS': P_GRAD_MAS[-1],
+    'CREEMOS': P_GRAD_CREEMOS[-1],
+    'PAN_BOL': P_GRAD_PANBOL[-1],
 }
 
 P_DIC = {
-    'CC':P_GRAD_CC,
-    'FPV':P_GRAD_FPV,
-    'MAS':P_GRAD_MAS,
-    'CREEMOS':P_GRAD_CREEMOS,
-    'PAN_BOL':P_GRAD_PANBOL,
+    'CC': P_GRAD_CC,
+    'FPV': P_GRAD_FPV,
+    'MAS': P_GRAD_MAS,
+    'CREEMOS': P_GRAD_CREEMOS,
+    'PAN_BOL': P_GRAD_PANBOL,
 }
+
 
 # %%
 # FUNCTIONS
@@ -281,11 +280,12 @@ def run_cart(_ds, x, y, x_out, y_out):
     _y, _x = __ds.shape
     # %%
     import subprocess
-    cart_cmd = [CART_CMD,f'{_x}',f'{_y}',dat_in,dat_out]
+    cart_cmd = [CART_CMD, f'{_x}', f'{_y}', dat_in, dat_out]
     list_files = subprocess.run(cart_cmd,
-        stdout=subprocess.PIPE, text=True, stderr=subprocess.PIPE
+                                stdout=subprocess.PIPE, text=True,
+                                stderr=subprocess.PIPE
 
-    )
+                                )
     # print(cart_cmd)
     print(list_files.stderr)
     # %%
@@ -309,7 +309,8 @@ def get_transform(ds_g, npd, x, y, lo_range, la_range, x_out, y_out):
     return ds_transform
 
 
-def get_carto_df(N, _r, data0, sigma_gauss, x0, x1, x_range, y0, y1, y_range, fun,
+def get_carto_df(N, _r, data0, sigma_gauss, x0, x1, x_range, y0, y1, y_range,
+                 fun,
                  rad=10):
     x_center, y_center = get_xy_center(data0, N, x0, y0)
     ds, xx_range, yy_range = get_rec_hist(
@@ -385,8 +386,8 @@ def traductor_df(path, _dic):
 
 
 def rescale_xy(ndf2, x0='x0', y0='y0', x3='x3', y3='y3', X='X', Y='Y',
-               fx = 1.5,
-               fy = 1.5
+               fx=1.5,
+               fy=1.5
                ):
     x_med = (ndf2[x0] * ndf2['HAB']).sum() / ndf2['HAB'].sum()
     x_std = ndf2[x0].std()
@@ -419,9 +420,9 @@ def predictor(
     v_p = v + '_p'
     lint = LinearNDInterpolator(ts_df[[x, y]], ts_df[v_hab])
     nint = NearestNDInterpolator(ts_df[[x, y]], ts_df[v_hab])
-    p_df[v_hab+'l'] = lint(p_df[[x, y]])
-    p_df[v_hab+'n'] = nint(p_df[[x, y]])
-    p_df[v_hab] = p_df[v_hab+'l'].fillna(p_df[v_hab+'n'])
+    p_df[v_hab + 'l'] = lint(p_df[[x, y]])
+    p_df[v_hab + 'n'] = nint(p_df[[x, y]])
+    p_df[v_hab] = p_df[v_hab + 'l'].fillna(p_df[v_hab + 'n'])
     v_p = v + '_' + 'p'
     p_df[v_p] = p_df[v_hab] * p_df[hab]
     # todo check what to do with the nans+
@@ -434,11 +435,13 @@ def calculate_density():
     # todo
     pass
 
-def open_combine_2020()-> pd.DataFrame:
+
+def open_combine_2020() -> pd.DataFrame:
     '''
     Combina estadistica nacional y exterior.
     :return: dataframe
     '''
+
 
 def open_combine_2019() -> pd.DataFrame:
     '''
@@ -467,6 +470,7 @@ def open_combine_2019() -> pd.DataFrame:
 
     df = df.reset_index().set_index('ID_MESA')
     return df
+
 
 def partition_df(df, p, random_state=None):
     '''
@@ -562,52 +566,51 @@ def get_la_lo_bolivia():
                                           category='cultural',
                                           name='admin_0_countries')
 
-
     # %%
     gp = geopandas.read_file(shpfilename)
-    pol_bo = gp[gp['NAME']=='Bolivia']['geometry'].iloc[0]
+    pol_bo = gp[gp['NAME'] == 'Bolivia']['geometry'].iloc[0]
 
     # %%
-    lo,la = pol_bo.boundary.xy
+    lo, la = pol_bo.boundary.xy
     lo = lo.tolist()
     la = la.tolist()
     return la, lo
 
 
 def get_dens_from_hab(f: pd.DataFrame):
-
     lam = f['LAT'].min()
     laM = f['LAT'].max()
     lom = f['LON'].min()
     loM = f['LON'].max()
 
     R = .05
-    lam = np.floor(lam/R)* R - R
-    laM = np.ceil(laM/R)* R + R
+    lam = np.floor(lam / R) * R - R
+    laM = np.ceil(laM / R) * R + R
 
-    lom = np.floor(lom/R)* R - R
-    loM = np.ceil(loM/R)* R + R
-
-    # %%
-    lo_range = np.arange(lom,loM+R/2,R)
-    la_range = np.arange(lam,laM+R/2,R)
-    lo_lab = lo_range[:-1] + R/2
-    la_lab = la_range[:-1] + R/2
+    lom = np.floor(lom / R) * R - R
+    loM = np.ceil(loM / R) * R + R
 
     # %%
+    lo_range = np.arange(lom, loM + R / 2, R)
+    la_range = np.arange(lam, laM + R / 2, R)
+    lo_lab = lo_range[:-1] + R / 2
+    la_lab = la_range[:-1] + R / 2
 
     # %%
-    d,_,_ = np.histogram2d(f['LON'],f['LAT'],bins=(lo_range,la_range),weights=f['HAB'])
+
+    # %%
+    d, _, _ = np.histogram2d(f['LON'], f['LAT'], bins=(lo_range, la_range),
+                             weights=f['HAB'])
 
     from scipy.ndimage import gaussian_filter as gf
-    d1 = gf(d,sigma=.5)
+    d1 = gf(d, sigma=.5)
 
     # %%
-    ar = xr.DataArray(d1.T,dims= ['LAT','LON'] , coords={'LAT':la_lab,'LON':lo_lab})
+    ar = xr.DataArray(d1.T, dims=['LAT', 'LON'],
+                      coords={'LAT': la_lab, 'LON': lo_lab})
 
     # %%
-    de = ar/(R*R * 100 * 100)
-
+    de = ar / (R * R * 100 * 100)
 
     # %%
     LA = xr.DataArray(f['LAT'], dims=f.index.name)
@@ -615,55 +618,59 @@ def get_dens_from_hab(f: pd.DataFrame):
 
     # %%
     de.name = 'DEN'
-    res = de.interp({'LAT':LA,'LON':LO}).to_dataframe()
+    res = de.interp({'LAT': LA, 'LON': LO}).to_dataframe()
     f_out = f.copy()
     f_out['DEN'] = res['DEN']
     return f_out
 
 
-
 ###########################
 
-def get_dataframe_2020(path='comp/exportacion_EG2020_actual.csv'):
+def get_dataframe_2020(
+        path='comp/exportacion_EG2020_actual.csv'
+        , col2keep=None):
+    if col2keep is None:
+        col2keep = ['VV', 'BL', 'NU', 'VOTO_EMITIDO', 'CREEMOS', 'MAS', 'FPV',
+                    'PAN_BOL', 'CC', 'NUA', 'HAB']
     p = os.path.join(DATA_PATH1_2020, path)
     df_comp = pd.read_csv(p).set_index('ID_MESA')
     b_ = df_comp["CANDIDATURA"] == "PRESIDENTE"
     df_comp = df_comp[b_]
-    co = ['VV', 'BL', 'NU', 'VOTO_EMITIDO','CREEMOS', 'MAS', 'FPV',
-          'PAN_BOL', 'CC','NUA','HAB']
+    co = col2keep
     df_comp = df_comp[co]
 
-    df_comp['ID_RECI'] = (df_comp.index/100).astype(np.int64)
+    df_comp['ID_RECI'] = (df_comp.index / 100).astype(np.int64)
     df_comp['COUNT'] = True
 
-
-    p = os.path.join(eb.util.DATA_PATH1_2020,'z010R_geopadron_mesas_2020_ALL.csv')
+    p = os.path.join(eb.util.DATA_PATH1_2020,
+                     'z010R_geopadron_mesas_2020_ALL.csv')
     df_all = pd.read_csv(p).set_index('ID_MESA')
-    #['ID_RECI', 'ID_MESA', 'HAB', 'INHAB']
+    # ['ID_RECI', 'ID_MESA', 'HAB', 'INHAB']
 
     df_all['VV'] = 0
     df_all['COUNT'] = False
 
-    p = os.path.join(eb.util.DATA_PATH1_2020,'z020_geopadron_recintos_2020_ALL_DEN.csv')
+    p = os.path.join(eb.util.DATA_PATH1_2020,
+                     'z020_geopadron_recintos_2020_ALL_DEN.csv')
     df_den = pd.read_csv(p).set_index('ID_RECI')
-    #['ID_RECI', 'LAT', 'LON', 'HAB', 'INHAB', 'PAIS', 'N_MESAS', 'REC',
+    # ['ID_RECI', 'LAT', 'LON', 'HAB', 'INHAB', 'PAIS', 'N_MESAS', 'REC',
     # 'MUN', 'BOL', 'CIU', 'PROV', 'DEP', 'URB', 'DEN_C', 'DEN']
 
     df_den = df_den[['LAT', 'LON', 'PAIS', 'N_MESAS', 'REC',
                      'MUN', 'BOL', 'CIU', 'PROV', 'DEP', 'URB', 'DEN_C', 'DEN']]
 
-    _s  = df_comp.index.isin(df_all.index)
+    _s = df_comp.index.isin(df_all.index)
     assert (~_s).sum() == 0
 
     b = ~df_all.index.isin(df_comp.index)
     df_trim = df_all[b]
     assert len(df_all) - len(df_comp) == len(df_trim)
-    df_concat = pd.concat([df_comp,df_trim])
-    df_full = df_concat.join(df_den,how='left',on='ID_RECI')
-    p = os.path.join(eb.util.DATA_PATH1_2020,'z030_carto_xy.csv')
+    df_concat = pd.concat([df_comp, df_trim])
+    df_full = df_concat.join(df_den, how='left', on='ID_RECI')
+    p = os.path.join(eb.util.DATA_PATH1_2020, 'z030_carto_xy.csv')
     df_xy = pd.read_csv(p).set_index('ID_RECI')
-    df2 = df_full.join(df_xy,on='ID_RECI',how='left')
-    res = pd.cut(df2['DEN'],eb.util.DEN_LIMS,labels=eb.util.DEN_CODES)
+    df2 = df_full.join(df_xy, on='ID_RECI', how='left')
+    res = pd.cut(df2['DEN'], eb.util.DEN_LIMS, labels=eb.util.DEN_CODES)
     df2['DEN_CODES'] = res.astype(int)
     return df2
 
@@ -681,8 +688,7 @@ def get_bolivian_time(diff_utc):
     current_time_BOT = current_time_UTC + horas_added
     timeBOT = current_time_BOT.strftime("%Y%m%d%H%M%S")
     bolivian_time = {
-        "str_val":timeBOT,
+        "str_val": timeBOT,
         "datetime_val": current_time_BOT
     }
     return bolivian_time
-
