@@ -68,10 +68,18 @@ def get_df():
     df = pd.merge(
         df19, df20, left_on='ID_MESA', right_on='ID_MESA',
         suffixes=['_19', '_20'],
-        # how='inner'
+        how='inner'
     )
     # clean 0 vote tables from last election
     df = df[df['VV_19'] > 0]
+    df = df[df['VV_20'] > 0]
+
+    _b1 = np.abs(df['LAT_20'] - df['LAT_19'])<.1
+    df = df[_b1]
+
+    _b1 = np.abs(df['LON_20'] - df['LON_19'])<.1
+    df = df[_b1]
+
     df['mas_20'] = df['MAS_20'] / df['VV_20'] * 100
     df['mas_19'] = df['MAS_19'] / df['VV_19'] * 100
     df[DMAS] = df['mas_20'] - df['mas_19']
