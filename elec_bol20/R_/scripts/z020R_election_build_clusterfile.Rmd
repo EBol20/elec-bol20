@@ -53,7 +53,9 @@ mesa_info_nac = mesa_info_nac%>%
 mesa_info = rbind(mesa_info_nac, mesa_info_ext)
 
 dat_2019_final = dat_2019_final %>%
-  dplyr::mutate_at(c("MAS","CC","PDC","BL","NL","VV","VT", "HAB"), .funs = as.numeric)
+  dplyr::mutate_at(c("MAS","CC","PDC","BL","NL","X21F",
+                     "UCS", "MTS", "FPV", "MNR", "PAN.BOL",
+                     "VV","VT", "HAB"), .funs = as.numeric)
 
 ```
 
@@ -112,6 +114,7 @@ cluster_and_bind = function(dataframe, IDcolumn, usecols, nclusters){
 }#cluster_and_bind
 ```
 
+#without 21F
 ```{r}
 #here, it would probably be more correct to obtain all the percentages by dividing through the "VT" (Votos totales) column, but I saw that there are big irregularities in that column. There seem to be less irregularities in the valid votes (VV) column, that's why I will select this. 
 dat_2019_final_m = dat_2019_final %>%
@@ -124,7 +127,37 @@ names(dat_2019_final_m) = plyr::revalue(names(dat_2019_final_m),
 
 
 cluster_results = cluster_and_bind(dat_2019_final_m, "ID_MESA", 
-                                     c("cc","mas","pdc","BL_perc","NL_perc"),4)
+                                     c("cc","mas","pdc","BL_perc","NL_perc"),10)
+cluster_mask = cluster_results[[2]]
+
+#####output here
+clustermask_out = cluster_mask %>%
+  dplyr::mutate(ID_RECI = substr(as.character(ID_MESA),1,16))%>%
+  dplyr::full_join(., mesa_info, by = "ID_RECI")%>%
+  dplyr::select(ID_MESA, LAT, LON, cluster)
+
+# write.csv(clustermask_out, file =
+#             paste0(here::here(),
+#                    "/../datos_1_intermedios/cluster_definition/z020R_2019_clustered_10.csv"),
+#           row.names = FALSE)
+
+```
+
+#with 21F
+```{r}
+#here, it would probably be more correct to obtain all the percentages by dividing through the "VT" (Votos totales) column, but I saw that there are big irregularities in that column. There seem to be less irregularities in the valid votes (VV) column, that's why I will select this. 
+dat_2019_final_m = dat_2019_final %>%
+  mutate_at(c("CC","MAS", "PDC", "X21F","VV"), .funs = list(perc =~ get_perc(.,VV)))%>%
+  mutate_at(c("BL","NL"),.funs = list(perc =~ get_perc(.,VV)))
+names(dat_2019_final_m) = plyr::revalue(names(dat_2019_final_m),
+                                              c("MAS_perc" = "mas",
+                                                "CC_perc" = "cc",
+                                                "PDC_perc" = "pdc",
+                                                "X21F_perc" = "x21f"))
+
+
+cluster_results = cluster_and_bind(dat_2019_final_m, "ID_MESA", 
+                                     c("cc","mas","pdc","x21f","BL_perc","NL_perc"),20)
 cluster_mask = cluster_results[[2]]
 
 #####output here
@@ -135,7 +168,41 @@ clustermask_out = cluster_mask %>%
 
 write.csv(clustermask_out, file =
             paste0(here::here(),
-                   "/../datos_1_intermedios/cluster_definition/z020R_2019_clustered_4.csv"),
+                   "/../datos_1_intermedios/cluster_definition/z020R_2019_clustered_21F_20.csv"),
+          row.names = FALSE)
+
+```
+
+
+#with all parties
+```{r}
+#here, it would probably be more correct to obtain all the percentages by dividing through the "VT" (Votos totales) column, but I saw that there are big irregularities in that column. There seem to be less irregularities in the valid votes (VV) column, that's why I will select this. 
+dat_2019_final_m = dat_2019_final %>%
+  mutate_at(c("CC","MAS", "PDC", "X21F","UCS", "MTS", "FPV", 
+              "MNR", "PAN.BOL","VV"), .funs = list(perc =~ get_perc(.,VV)))%>%
+  mutate_at(c("BL","NL"),.funs = list(perc =~ get_perc(.,VV)))
+names(dat_2019_final_m) = plyr::revalue(names(dat_2019_final_m),
+                                              c("MAS_perc" = "mas",
+                                                "CC_perc" = "cc",
+                                                "PDC_perc" = "pdc",
+                                                "X21F_perc" = "x21f"))
+
+
+cluster_results = cluster_and_bind(dat_2019_final_m, "ID_MESA", 
+                                   c("cc","mas","pdc","x21f","UCS_perc", "MTS_perc", "FPV_perc", "MNR_perc",
+                                     "PAN.BOL_perc",
+                                     "BL_perc","NL_perc"),11)
+cluster_mask = cluster_results[[2]]
+
+#####output here
+clustermask_out = cluster_mask %>%
+  dplyr::mutate(ID_RECI = substr(as.character(ID_MESA),1,16))%>%
+  dplyr::full_join(., mesa_info, by = "ID_RECI")%>%
+  dplyr::select(ID_MESA, LAT, LON, cluster)
+
+write.csv(clustermask_out, file =
+            paste0(here::here(),
+                   "/../datos_1_intermedios/cluster_definition/z020R_2019_clustered_ALLPARTIES_11.csv"),
           row.names = FALSE)
 
 ```
