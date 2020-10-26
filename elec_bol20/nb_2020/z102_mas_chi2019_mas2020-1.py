@@ -266,3 +266,11 @@ plot_3_comparison(df=df);
 # <center>Fig S2. En al panel A se oberva la diferencia de CHI20 y CHI19 por mesa electoral. En el panel B hacemos el mismo ejercicio para MAS. Pot último, en el panel C hacemos la suma A + B, es decir, tratamos de ver cuán bien el aumento de MAS es explicado por la derrota de CHI.<center>
 
 # %%
+
+# %%
+path = os.path.join(ebu.DIR,'nb_2020','z102_mas_chi2019_mas2020-1.ipynb')
+phtml = path.replace('.ipynb','.html')
+# !jupyter nbconvert --to html_hc  --TemplateExporter.exclude_input=True --no-prompt {path}
+# !open {phtml}
+
+# %%
