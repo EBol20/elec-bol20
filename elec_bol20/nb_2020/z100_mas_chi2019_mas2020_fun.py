@@ -26,9 +26,10 @@ DCRE = 'CRE20 - CRE19'
 D21F = '21F20 - 21F19'
 DCC = 'CC20 - CC19'
 DNB = 'NB20 - NB19'
+DOTROS = 'OTROS20 - OTROS19'
 
-
-COLUMNS_CLUS = [DMAS, DCC, DCRE, D21F, DCHI, DNB]
+COLUMNS_CLUS = [DMAS, DCC, DCRE, D21F, DCHI, DNB, DOTROS]
+def _fff(): pass
 DMAS_M_DCHI = f'({DMAS}) + ({DCHI})'
 DMAS_M_DCC = f'({DMAS}) + ({DCC})'
 DMAS_M_D21F = f'({DMAS}) + ({D21F})'
@@ -60,52 +61,76 @@ CLUS = 'Cluster'
 
 
 # FUNCS
-def get_df():
 
-    # global df
+def get_df_simple():
     df20 = ebu.get_dataframe_2020()
+
     df19 = ebu.open_combine_2019()
+
     df = pd.merge(
-        df19, df20, left_on='ID_MESA', right_on='ID_MESA',
+        df19, df20, left_index=True, right_index=True,
         suffixes=['_19', '_20'],
         how='inner'
     )
+    return df
+
+
+def get_df():
+    # global df
+    VV_20 = 'VV_20'
+    VV_19 = 'VV_19'
+    df = get_df_simple()
     # clean 0 vote tables from last election
-    df = df[df['VV_19'] > 0]
-    df = df[df['VV_20'] > 0]
+    df = df[df[VV_19] > 0]
+    df = df[df[VV_20] > 0]
 
-    _b1 = np.abs(df['LAT_20'] - df['LAT_19'])<.1
+    _b1 = np.abs(df['LAT_20'] - df['LAT_19']) < .1
     df = df[_b1]
 
-    _b1 = np.abs(df['LON_20'] - df['LON_19'])<.1
+    _b1 = np.abs(df['LON_20'] - df['LON_19']) < .1
     df = df[_b1]
 
-    df['mas_20'] = df['MAS_20'] / df['VV_20'] * 100
-    df['mas_19'] = df['MAS_19'] / df['VV_19'] * 100
+    VT_20 = 'VT_20'
+    VT_19 = 'VT_19'
+
+    df['NB_20'] = (df['NUA'] + df['NU_20'] + df['BL_20'])
+    df['NB_19'] = (df['NU_19'] + df['BL_19'])
+
+    df[VT_20] = df['NU_20'] + df['NUA'] + df['BL_20'] + df[VV_20]
+    df['OTROS_20'] = df[VT_20] - df['MAS_20'] \
+                     - df['FPV'] - df['CC_20'] - df['CREEMOS'] - df['NB_20']
+
+    df[VT_19] = df['NU_19'] + df['BL_19'] + df[VV_19]
+    df['OTROS_19'] = df[VT_19] - df['MAS_19'] - df['PDC'] - df['CC_19'] \
+                     - df['21F'] - df['NB_19']
+
+    df['mas_20'] = df['MAS_20'] / df[VT_20] * 100
+    df['mas_19'] = df['MAS_19'] / df[VT_19] * 100
     df[DMAS] = df['mas_20'] - df['mas_19']
 
-    df['chi_20'] = df['FPV'] / df['VV_20'] * 100
-    df['chi_19'] = df['PDC'] / df['VV_19'] * 100
+    df['chi_20'] = df['FPV'] / df[VT_20] * 100
+    df['chi_19'] = df['PDC'] / df[VT_19] * 100
     df[DCHI] = df['chi_20'] - df['chi_19']
 
-    df['cc_20'] = df['CC_20'] / df['VV_20'] * 100
-    df['cc_19'] = df['CC_19'] / df['VV_19'] * 100
+    df['cc_20'] = df['CC_20'] / df[VT_20] * 100
+    df['cc_19'] = df['CC_19'] / df[VT_19] * 100
     df[DCC] = df['cc_20'] - df['cc_19']
 
-    df['creemos_20'] = df['CREEMOS'] / df['VV_20'] * 100
+    df['creemos_20'] = df['CREEMOS'] / df[VT_20] * 100
     df['creemos_19'] = 0
     df[DCRE] = df['creemos_20'] - df['creemos_19']
 
     df['21f_20'] = 0
-    df['21f_19'] = df['21F'] / df['VV_19'] * 100
+    df['21f_19'] = df['21F'] / df[VT_19] * 100
     df[D21F] = df['21f_20'] - df['21f_19']
 
-
-    df['nb_20'] = (df['NUA']+df['BL_20']) / df['VV_20'] * 100
-    df['nb_19'] = (df['NU_19']+df['BL_19']) / df['VV_19'] * 100
+    df['nb_20'] = df['NB_20'] / df[VT_20] * 100
+    df['nb_19'] = df['NB_19'] / df[VT_19] * 100
     df[DNB] = df['nb_20'] - df['nb_19']
 
-
+    df['dotros_20'] = df['OTROS_20'] / df[VT_20] * 100
+    df['dotros_19'] = df['OTROS_19'] / df[VT_19] * 100
+    df[DOTROS] = df['dotros_20'] - df['dotros_19']
 
     LEN = len(df)
     # add jitter to the tables
@@ -146,21 +171,20 @@ def plot_scatter(*, sr, HW, VAR, CMIN, CMAX, PAL):
 
 
 def plot_clusters_carto(*, df1):
-
     f = bokeh.plotting.figure()
 
     f.background_fill_color = "gainsboro"
     for i, l in enumerate(CLUS_DIC.values()):
         sr = bokeh.models.ColumnDataSource(df1[df1[CLUS] == l])
         f.scatter('xj', 'yj', source=sr, color=COLORS[i],
-                  legend_label=l + ' (haz clic)',radius=.02)
+                  legend_label=l + ' (haz clic)', radius=.02)
 
     f.legend.click_policy = "hide"
 
     TOOL_TIP = [
-        (CLUS,f'@{CLUS}'),
-        *[(v+'[%]',f'@{{{v}}}{{0}}') for v in COLUMNS_CLUS],
-        ('----','----')
+        (CLUS, f'@{CLUS}'),
+        *[(v + '[%]', f'@{{{v}}}{{0}}') for v in COLUMNS_CLUS],
+        ('----', '----')
     ]
 
     ho = bokeh.models.HoverTool(
@@ -168,8 +192,6 @@ def plot_clusters_carto(*, df1):
     )
 
     f.add_tools(ho)
-
-
 
     bokeh.plotting.show(f)
     return f
@@ -191,24 +213,27 @@ def plot_3_comparison(*, df):
     bokeh.plotting.show(lay)
 
 
-def cluster_analysis(*, df):
+def cluster_analysis(*, df, n=5, seed=123,cl = CLUS_DIC):
     from sklearn.cluster import KMeans
-    seed = 123
-
     cols = COLUMNS_CLUS
+
     df1 = df[[*cols, 'xj', 'yj', 'VV_20']].dropna(how='any', axis=0)
-    N = 5
-    kmeans = KMeans(n_clusters=N, random_state=seed).fit(df1[cols])
+    N = n
+    kmeans = KMeans(n_clusters=N, random_state=seed,
+                    n_init=20
+                    ).fit(df1[cols])
 
     # %%
-    cen = pd.DataFrame(kmeans.cluster_centers_, columns=cols).sort_values(DMAS,
-                                                                          ascending=False)
+    cen = pd.DataFrame(kmeans.cluster_centers_, columns=cols
+                       ).sort_values(DMAS,
+                                     ascending=False)
     kmeans = KMeans(n_clusters=N, random_state=seed, init=cen).fit(df1[cols])
-    cen = pd.DataFrame(kmeans.cluster_centers_, columns=cols).sort_values(DMAS,
-                                                                          ascending=False)
+    cen = pd.DataFrame(kmeans.cluster_centers_, columns=cols
+                       ).sort_values(DMAS,
+                                     ascending=False)
 
     # %%
-    cl = CLUS_DIC
+
 
     # %%
 

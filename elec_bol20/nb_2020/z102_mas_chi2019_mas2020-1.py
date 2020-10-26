@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.4.0
+#       jupytext_version: 1.6.0
 #   kernelspec:
 #     display_name: ebol20
 #     language: python
@@ -28,7 +28,6 @@
 # %% [markdown]
 # <div style="text-align: right">Texto: Ana Lucía Velasco (avelascou@gmail.com)</div>
 # <div style="text-align: right">Análisis de datos: Diego Aliaga</div>
-# <div style="text-align: right">Edición: Huascar Morales, Yecid Aliaga, Nicole Aliaga</div>
 
 # %% [markdown]
 # [código fuente](https://github.com/EBol20/elec-bol20/blob/master/elec_bol20/nb_2020/z100_mas_chi2019_mas2020.ipynb)
@@ -38,15 +37,43 @@
 # Importar librerías
 from elec_bol20.nb_2020.z100_mas_chi2019_mas2020_fun import *
 
+import matplotlib.pyplot as plt
+from IPython.display import set_matplotlib_formats
+set_matplotlib_formats('svg')
+
 # %% [markdown]
 # Los resultados de las últimas elecciones presidenciales en Bolivia han generado mucha sorpresa en la población boliviana. Después de un final ajustado en el referéndum de la re-postulación del binomio Evo-Álvaro el año 2016 y de las controversiales elecciones nacionales del 2019, las expectativas sobre los resultados de las elecciones del 2020 eran muy altas. El margen de diferencia en el resultado final de las elecciones 2020 ha causado sorpresa. A pesar de esto, un breve análisis comparativo entre los datos oficiales de la elección del 2020 y la elección del 2019 arroja pistas interesantes que nos ayudan a entender mejor lo que pasó en las últimas elecciones.
 #
 # La primera hipótesis que trataremos aquí es la que hemos denominado como “el factor CHI”.
 
+# %%
+df20 = ebu.get_dataframe_2020()
+
+df20['i2'] = df20.index
+
+
+
+df19 = ebu.open_combine_2019()
+df19['i0'] = df19.index
+
+df = pd.merge(
+    df19, df20, left_index=True, right_index=True,
+    suffixes=['_19', '_20'],
+    how='inner'
+)
+
+# %%
+(df['i2'] - df['i0']).sum()
+
+# %%
+
 # %% code_folding=[0]
 # Tabla 1
 df = get_df()
 
+# %%
+
+# %% code_folding=[0]
 pd.DataFrame(df[['VV_20','VV_19','HAB_20','HAB_19']].sum(),columns=['VOTANTES'])
 
 # %% [markdown]
@@ -67,17 +94,25 @@ pd.DataFrame(df[['VV_20','VV_19','HAB_20','HAB_19']].sum(),columns=['VOTANTES'])
 # Fig. 1
 import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning)
-df1 = cluster_analysis(df=df)
 
+m=5
+# cools = {i:i for i in range(m)}
+# CLUS_DIC=cools
+df1 = cluster_analysis(df=df,seed = 1,n=m)
+
+
+# %% code_folding=[0]
 nm_dic = df1.groupby(CLUS).count().iloc[:,0].to_dict()
 nm_dic = {b:f'{b}\n$_{{({nm_dic[b]} \mathrm{{\ mesas}})}}$' for a,b in CLUS_DIC.items()}
 mel = pd.melt(df1[[*COLUMNS_CLUS, CLUS]], id_vars=CLUS)
 # mel[CLUS] = mel[CLUS].apply(lambda r: nm_dic[r])
 
 
+# %% code_folding=[0]
+# CLUS_DIC = {0: '++MAS', 1: '+MAS', 2: '+CRE', 3: '++CRE', 4: '+CC'}
 mea = df1[[*COLUMNS_CLUS,CLUS]].groupby(CLUS).mean()
 mea['SUM'] = mea.sum(axis=1)
-f, ax = plt.subplots(figsize=(8, 4.5), dpi=100)
+f, ax = plt.subplots(figsize=(8, 4))
 sns.barplot(x=CLUS, y='value', data=mel, hue='variable',
             order=nm_dic.keys(), ci='sd');
 ax.set_ylabel('$\mathrm{DELTA}_{20-19}$ [% por mesa]');
@@ -85,7 +120,8 @@ ax.set_ylabel('$\mathrm{DELTA}_{20-19}$ [% por mesa]');
 labs = ax.get_xticklabels()
 labs = [matplotlib.text.Text(i.get_position(),text=nm_dic[i.get_text()]) for i in labs]
 rr=ax.set_xticklabels(labs)
-ax.set_ylim(-60,100)
+ax.set_ylim(-60,90)
+ax.set_xlim(-.5,7)
 sns.despine(ax=ax,offset=10,bottom=True)
 
 
@@ -125,6 +161,7 @@ sns.barplot(x=CLUS, y='value', data=mel1.reset_index(), hue='variable',
 ax.set_ylabel('$\mathrm{DELTA}_{20-19}$ [Número de Votos]');
 
 ax.set_ylim(-300000,600000)
+ax.set_xlim(-.5,6)
 sns.despine(ax=ax,offset=10,bottom=True)
 
 
@@ -135,13 +172,18 @@ sns.despine(ax=ax,offset=10,bottom=True)
 # Tabla 3
 tab=mel1.round().astype(int)
 tab=tab.reset_index().set_index([CLUS,'variable']).unstack()
-tab['value'].T
+tab=tab['value'].T
+tab= pd.DataFrame(tab.to_dict()).T
+tab['SUM'] = tab.sum(axis=1)
+tab
 
 # %% [markdown]
 # <center>Tabla 3: Cantidad de votos mostrados en la Fig. 2.<center>
 
 # %% code_folding=[0]
 # Fig. 3
+bokeh.plotting.reset_output()
+bokeh.plotting.output_notebook()
 plot_clusters_carto(df1=df1);
 
 # %% [markdown]

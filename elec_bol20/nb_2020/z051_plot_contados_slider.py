@@ -54,6 +54,7 @@ COL_FALTA = '#db2879'
 ## MAIN
 bokeh.plotting.output_notebook()
 
+
 # bokeh.plotting.output_file(os.path.join(os.path.dirname(ebu.DIR),
 #                                         PATH_OUT))
 # bokeh.plotting.output_notebook()
@@ -61,7 +62,6 @@ bokeh.plotting.output_notebook()
 ### FUNS
 
 def main(df2):
-
     cols = ['yj', 'xj', 'PAIS', 'MUN', 'REC', 'HAB', 'COU']
 
     df2 = process_data(df2)
@@ -73,11 +73,9 @@ def main(df2):
     sr1 = bokeh.models.ColumnDataSource(s1)
     sr2 = bokeh.models.ColumnDataSource(s2)
 
-
     fig_carto = plot_fig_carto(sr1, sr2)
     fig_bar_dens = plot_fig_bar_dens(den1, ppp)
     fig_party = plot_fig_party(df2, ppp)
-
 
     l0 = bokeh.layouts.column([fig_party, fig_bar_dens, fig_carto],
                               sizing_mode='scale_width')
@@ -279,8 +277,6 @@ def process_data(df2):
     return df2
 
 
-
-
 df2 = ebu.get_dataframe_2020(
     path=ebu.FULL_COMP_CONCAT_CSV,
     col2keep=['VV', 'BL', 'NU', 'VOTO_EMITIDO', 'CREEMOS', 'MAS', 'FPV',
@@ -290,40 +286,189 @@ df2 = ebu.get_dataframe_2020(
 main(df2)
 
 # %%
+_df['P_COMP']
 
 # %%
-ss = bokeh.plotting.ColumnDataSource(df2[['xj','yj']])
+df2.columns
 
 # %%
-slider = bokeh.models.Slider(start=0,end=100,value=1,step=5,title='%')
+IS = 5
+_df = df2[['xj', 'yj','P_COMP']].copy()
+_df = _df.dropna(how='any')
+RR = .1
+_df['pr'] = RR
+_df['r'] = RR
+
+_df.loc[_df['P_COMP']>IS,'pr'] = 0
+_df = _df.sort_values('P_COMP')
+
+TT = [
+    ('pr','@pr')
+]
+
+ht = bokeh.models.HoverTool(
+    tooltips = TT
+)
+
+ss = bokeh.plotting.ColumnDataSource(_df[['xj', 'yj','P_COMP','pr','r']])
+
+slider = bokeh.models.Slider(
+    start=0, end=100, value=10, step=IS, 
+                             title='Porcentaje computado')
 cb = bokeh.models.CustomJS(
-    args=dict(ss=ss,slider=slider),
-    code = """
+    args=dict(ss=ss, slider=slider),
+    code="""
     const data=ss.data;
-    const v=ss.value
-    const x = data['xj']
-    const y = data['yj']
-    for (var i=0)
+    const v=slider.value
+    const P_COMP = data['P_COMP']
+    const pr = data['pr']
+    const r = data['r']
+    for (var i = 0;i < P_COMP.length; i++){
+ 
+        if (P_COMP[i]<v) {
+            pr[i] = r[i]
+            
+        } else {
+            pr[i] = 0
+        }
+    }
     
     ss.change.emit()
     
     """
 )
 
-# %%
+slider.js_on_change('value', cb)
+bokeh.plotting.reset_output()
 bokeh.plotting.output_notebook()
 f = bokeh.plotting.figure(output_backend="webgl")
-f.scatter(x='xj',y='yj',source=ss, )
-ly = bokeh.plotting.Column(f,slider)
+f.circle(x='xj', y='yj', source=ss, radius='pr', line_width=0, alpha=.5 )
+f.add_tools(ht)
+ly = bokeh.plotting.Column(f, slider)
 bokeh.plotting.show(ly)
 
 # %%
+df3 = df2.copy()
+df3['mun_id'] = np.floor(df3.index/1e9).astype(np.int64)
+gr = df3.groupby('mun_id')
+ll = []
+for l,t in gr:
+    tt = t[['MUN']].copy()
+    boo =tt['MUN'].drop_duplicates()
+    n = len(boo)
+    l_ = pd.DataFrame([[0,n]],columns=['MUN','N'])
+
+    
+    ll.append(l_)
+nd = pd.concat(ll)
+nd.describe()
+
+# %%
+cols =['PAIS','DEP','PROV','MUN']
+gdf.columns
 
 # %%
 
 
 # %%
+gdf = gdf.set_geometry(pdt)
+
+# %%
+gdf.columns
+
+# %%
+
+# %%
+colors = sns.color_palette('Set1',len(dis))
+
+# %%
+df2.columns
+
+# %%
+import geopandas as gp
+import shapely as sh
+gdf = gp.GeoDataFrame(df2)
+# pdt = gdf.apply(lambda r: sh.geometry.Point(r['LON'],r['LAT']),axis=1)
+pdt = gdf.apply(lambda r: sh.geometry.Point(r['X'],r['Y']),axis=1)
+gdf = gdf.set_geometry(pdt)
+dis = gdf.dissolve(by=cols)
+dis['DEN_CODES'] = gdf.groupby(cols)['DEN_CODES'].median()
+dis['HAB'] = gdf.groupby(cols)['HAB'].sum()
+
+dis = dis.iloc[::1]
+dis = dis.set_geometry(dis['geometry'].buffer(.2).simplify(.1))
+
+
+# %%
+gs = dis.reset_index()[['geometry','MUN','HAB','DEN_CODES']].to_json()
+
+# %%
+sr = bokeh.models.GeoJSONDataSource(geojson=gs)
+cm = bokeh.transform.linear_cmap('DEN_CODES',palette=bokeh.palettes.Viridis6,low=0,high=3)
+f.add_tools(ht)
+f = bokeh.plotting.figure()
+ht=bokeh.models.HoverTool(tooltips=[('MUN','@MUN'),('DC','@DEN_CODES'),('HAB','@HAB'),('--','--')])
+states = f.patches('xs','ys', source = sr,
+                   fill_color = cm,
+                   line_color = 'gray', 
+                   line_width = 0.25, 
+                   fill_alpha = .5,
+                  hover_fill_color="firebrick"
+                  )
+f.add_tools(ht)
+bokeh.plotting.output_file('/tmp/go_to_sleep.html')
+bokeh.plotting.show(f)
+
 
 
 # %%
 
+# %%
+
+# %%
+
+# %%
+pp = gp.read_file('/Volumes/mbProD/Downloads/Municipios339.shp')
+pp = pp.sample(ll)
+pp = pp.reset_index(drop=True)
+pp = pp.set_geometry(pp.simplify(.02))
+# pp
+
+# %%
+pp
+
+# %%
+ll = len(pp)
+
+cc = [*bokeh.palettes.magma(256),*bokeh.palettes.viridis(ll-256)]
+
+# %%
+pp['POBLACION']=pp['POBLACION'].astype(np.double)
+pp = pp[pp['POBLACION']>=0]
+ma = pp['POBLACION'].max()
+
+# %%
+ma
+
+# %%
+sr = bokeh.models.GeoJSONDataSource(geojson=pp.reset_index()[['index','geometry','NOM_MUN','POBLACION']].to_json())
+cm = bokeh.transform.linear_cmap('POBLACION',palette=bokeh.palettes.Viridis256,low=0,high=ma)
+f.add_tools(ht)
+f = bokeh.plotting.figure()
+ht=bokeh.models.HoverTool(tooltips=[('MUN','@NOM_MUN'),('DC','@DEN_CODES'),('HAB','@POBLACION'),('--','--')])
+states = f.patches('xs','ys', source = sr,
+                   fill_color = cm,
+                   line_color = 'gray', 
+                   line_width = 0.25, 
+                   fill_alpha = 1,
+                  hover_fill_color="firebrick"
+                  )
+f.add_tools(ht)
+bokeh.plotting.output_file('/tmp/go_to_sleep.html')
+bokeh.plotting.show(f)
+
+# %%
+
+# %%
+
+# %%

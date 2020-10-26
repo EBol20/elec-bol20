@@ -38,7 +38,7 @@ Por ejemplo, si en un recinto el MAS logra el 58% de los votos y CC logra el 40%
 
 El tono de color azul o naranja es claro cuando la diferencia en porcentajes es menor. Cuando la diferencia en porcentajes es muy grande, el tono se oscurece. Esto permite reconocer rápida e intuitivamente la diferencia en la preferencia electoral de cada recinto.
 
-##### Puedes ver el voto de cada partido y las comparaciones MAS-CC o MAS-CREEMOS haciedo click en [Ver en tamaño completo, y por partido](graficas_htmls/z037_summary_latest.html)
+### Puedes ver el voto de cada partido y las comparaciones MAS-CC o MAS-CREEMOS haciedo click en **[ver en tamaño completo, y por partido](graficas_htmls/z037_summary_latest.html)**
 
 ##### También te invitamos a ver un aporte fantástico de [Mauricio Foronda](https://mauforonda.github.io/elecciones2020/) con una mapa sencillo de navegar
 
