@@ -1,10 +1,12 @@
 # Visualización y análisis de las Elecciones generales de Bolivia 2020
 
-
-#####  [Quienes somos y cómo citar este aporte](Ejemplos/Nuestro_aporte.md)
 ###### Sitio optimizado para computadoras de escritorio
 
+#####  [Quienes somos y cómo citar este aporte](Ejemplos/Nuestro_aporte.md)
+
 ### [Artículos en preparación](articulos)
+
+### Visita el repositorio: https://github.com/EBol20/elec-bol20
 
 ## Elecciones generales Bolivia 2020 
 
