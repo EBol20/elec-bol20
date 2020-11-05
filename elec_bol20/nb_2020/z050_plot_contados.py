@@ -45,7 +45,7 @@ MIN_WITH = 700
 MAX_WITH = 800
 PATH_OUT = 'docs/Ejemplos/z050_panel.html'
 FILE_OUT = os.path.join(os.path.dirname(ebu.DIR),
-                                        PATH_OUT)
+                        PATH_OUT)
 
 COL_LLEGO = '#aaaaaa'
 COL_FALTA = '#db2879'
@@ -60,7 +60,6 @@ COL_FALTA = '#db2879'
 # %%
 df2 = ebu.get_dataframe_2020()
 
-
 # %%
 
 
@@ -70,11 +69,7 @@ df2 = ebu.get_dataframe_2020()
 # %%
 bokeh.plotting.output_notebook()
 
-ll = len(df2)
-np.random.seed(100)
-df2['xj'] = df2['X'] + np.random.rand(ll) * .5
-np.random.seed(200)
-df2['yj'] = df2['Y'] + np.random.rand(ll) * .5
+df2 = ebu.add_jitter(df2)
 cols = ['yj', 'xj', 'PAIS', 'MUN', 'REC', 'HAB', 'COU']
 
 df2['COU'] = 'No'
@@ -85,7 +80,8 @@ s2 = df2[~df2['COUNT']][cols]
 sr1 = bokeh.models.ColumnDataSource(s1)
 sr2 = bokeh.models.ColumnDataSource(s2)
 
-fig_carto = bokeh.plotting.figure(output_backend="webgl", height=H_CARTO, width=W_CARTO)
+fig_carto = bokeh.plotting.figure(output_backend="webgl", height=H_CARTO,
+                                  width=W_CARTO)
 fig_carto.scatter(x='xj', y='yj', source=sr2, color=COL_FALTA, radius=.05,
                   alpha=1,
                   legend_label='Mesas por computar (haz click)')
@@ -252,7 +248,7 @@ fig_party.text(x=res['i'], y=res['per'], text=res['t'], text_align='center')
 fig_party.xgrid.grid_line_color = None
 fig_party.y_range.start = 0
 fig_party.y_range.end = np.ceil(res['per'].max() / 20) * 20
-fig_party.title.text =\
+fig_party.title.text = \
     f'Porcentaje sobre el total de votos válidos computados ({ppp:0.1f}%)'
 
 TOOL_TIP = [
@@ -275,7 +271,8 @@ hover_map = bokeh.models.HoverTool(
 )
 fig_carto.add_tools(hover_map)
 
-l0 = bokeh.layouts.column([fig_party, fig_bar_dens,fig_carto],sizing_mode='scale_width')
+l0 = bokeh.layouts.column([fig_party, fig_bar_dens, fig_carto],
+                          sizing_mode='scale_width')
 # l0 = bokeh.layouts.row([row, fig_carto],
 #                           sizing_mode='scale_width')
 
@@ -293,12 +290,11 @@ l0.min_width = MIN_WITH
 # %%
 bokeh.plotting.show(lay, browser=BROWSER)
 
-
 # %% [markdown]
 # ## save
 
 # %%
-bokeh.plotting.save(l0,FILE_OUT)
+bokeh.plotting.save(l0, FILE_OUT)
 
 # %%
 ebu.get_bolivian_time(0)

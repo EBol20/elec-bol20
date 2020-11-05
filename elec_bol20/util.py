@@ -404,33 +404,6 @@ def rescale_xy(ndf2, x0='x0', y0='y0', x3='x3', y3='y3', X='X', Y='Y',
     return ndf2
 
 
-def predictor(
-        train_df: pd.DataFrame,
-        predict_df: pd.DataFrame,
-        x, y, hab, v):
-    """
-    """
-    t_df = train_df[[x, y, hab, v]].copy()
-    p_df = predict_df[[x, y, hab]].copy()
-    ts_df = t_df.groupby([x, y]).sum()
-    v_hab = v + '_' + hab
-    ts_df[v_hab] = (ts_df[v] / ts_df[hab])
-    ts_df = ts_df.reset_index()
-    from scipy.interpolate import LinearNDInterpolator, NearestNDInterpolator
-    v_p = v + '_p'
-    lint = LinearNDInterpolator(ts_df[[x, y]], ts_df[v_hab])
-    nint = NearestNDInterpolator(ts_df[[x, y]], ts_df[v_hab])
-    p_df[v_hab + 'l'] = lint(p_df[[x, y]])
-    p_df[v_hab + 'n'] = nint(p_df[[x, y]])
-    p_df[v_hab] = p_df[v_hab + 'l'].fillna(p_df[v_hab + 'n'])
-    v_p = v + '_' + 'p'
-    p_df[v_p] = p_df[v_hab] * p_df[hab]
-    # todo check what to do with the nans+
-    n_nans = p_df[v_p].isnull().value_counts()
-    # print(f'n nans: {n_nans}')
-    return p_df[v_p]
-
-
 def calculate_density():
     # todo
     pass
@@ -441,6 +414,8 @@ def open_combine_2020() -> pd.DataFrame:
     Combina estadistica nacional y exterior.
     :return: dataframe
     '''
+
+    return get_dataframe_2020()
 
 
 def open_combine_2019() -> pd.DataFrame:
@@ -481,7 +456,7 @@ def partition_df(df, p, random_state=None):
     :return:
     '''
     _index = df.index.name
-    _df = df.reset_index()
+    _df:pd.Dataframe = df.reset_index()
     if random_state:
         rs = {'random_state': random_state}
     else:
@@ -628,28 +603,37 @@ def get_dens_from_hab(f: pd.DataFrame):
 
 def get_dataframe_2020(
         path='comp/exportacion_EG2020_actual.csv'
-        , col2keep=None):
+        , col2keep=None,
+        jitter=False
+):
+    # open comp df
+    p = os.path.join(DATA_PATH1_2020, path)
+    df_comp = pd.read_csv(p).set_index('ID_MESA')
+
+    # filter presidente
+    b_ = df_comp["CANDIDATURA"] == "PRESIDENTE"
+    df_comp = df_comp[b_]
+
+    # filter colummns
     if col2keep is None:
         col2keep = ['VV', 'BL', 'NU', 'VOTO_EMITIDO', 'CREEMOS', 'MAS', 'FPV',
                     'PAN_BOL', 'CC', 'NUA', 'HAB']
-    p = os.path.join(DATA_PATH1_2020, path)
-    df_comp = pd.read_csv(p).set_index('ID_MESA')
-    b_ = df_comp["CANDIDATURA"] == "PRESIDENTE"
-    df_comp = df_comp[b_]
     co = col2keep
     df_comp = df_comp[co]
 
+    # make sure index is in the right format
     df_comp['ID_RECI'] = (df_comp.index / 100).astype(np.int64)
     df_comp['COUNT'] = True
 
+    # open geopadron
     p = os.path.join(eb.util.DATA_PATH1_2020,
                      'z010R_geopadron_mesas_2020_ALL.csv')
     df_all = pd.read_csv(p).set_index('ID_MESA')
-    # ['ID_RECI', 'ID_MESA', 'HAB', 'INHAB']
-
     df_all['VV'] = 0
     df_all['COUNT'] = False
+    # ['ID_RECI', 'ID_MESA', 'HAB', 'INHAB']
 
+    # open density
     p = os.path.join(eb.util.DATA_PATH1_2020,
                      'z020_geopadron_recintos_2020_ALL_DEN.csv')
     df_den = pd.read_csv(p).set_index('ID_RECI')
@@ -659,6 +643,7 @@ def get_dataframe_2020(
     df_den = df_den[['LAT', 'LON', 'PAIS', 'N_MESAS', 'REC',
                      'MUN', 'BOL', 'CIU', 'PROV', 'DEP', 'URB', 'DEN_C', 'DEN']]
 
+    # comcat df comp and df trim amd df den
     _s = df_comp.index.isin(df_all.index)
     assert (~_s).sum() == 0
 
@@ -667,11 +652,20 @@ def get_dataframe_2020(
     assert len(df_all) - len(df_comp) == len(df_trim)
     df_concat = pd.concat([df_comp, df_trim])
     df_full = df_concat.join(df_den, how='left', on='ID_RECI')
+
+    # combine with carto xy
     p = os.path.join(eb.util.DATA_PATH1_2020, 'z030_carto_xy.csv')
     df_xy = pd.read_csv(p).set_index('ID_RECI')
     df2 = df_full.join(df_xy, on='ID_RECI', how='left')
+
+    # add den_codes
     res = pd.cut(df2['DEN'], eb.util.DEN_LIMS, labels=eb.util.DEN_CODES)
     df2['DEN_CODES'] = res.astype(int)
+
+    # add jitter
+    if jitter:
+        df2 = add_jitter(df2)
+
     return df2
 
 
@@ -692,3 +686,120 @@ def get_bolivian_time(diff_utc):
         "datetime_val": current_time_BOT
     }
     return bolivian_time
+
+
+def predictor(
+        train_df: pd.DataFrame,
+        predict_df: pd.DataFrame,
+        x, y, hab, v):
+    """
+    """
+    t_df = train_df[[x, y, hab, v]].copy()
+    p_df = predict_df[[x, y, hab]].copy()
+    ts_df = t_df.groupby([x, y]).sum()
+    v_hab = v + '_' + hab
+    ts_df[v_hab] = (ts_df[v] / ts_df[hab])
+    ts_df = ts_df.reset_index()
+    from scipy.interpolate import LinearNDInterpolator, NearestNDInterpolator
+    v_p = v + '_p'
+    lint = LinearNDInterpolator(ts_df[[x, y]], ts_df[v_hab])
+    nint = NearestNDInterpolator(ts_df[[x, y]], ts_df[v_hab])
+    p_df[v_hab + 'l'] = lint(p_df[[x, y]])
+    p_df[v_hab + 'n'] = nint(p_df[[x, y]])
+    p_df[v_hab] = p_df[v_hab + 'l'].fillna(p_df[v_hab + 'n'])
+    v_p = v + '_' + 'p'
+    p_df[v_p] = p_df[v_hab] * p_df[hab]
+    # todo check what to do with the nans+
+    n_nans = p_df[v_p].isnull().value_counts()
+    # print(f'n nans: {n_nans}')
+    return p_df[v_p]
+
+
+def var_predictor(df, var, pred_mask='COUNT'):
+    df_12 = df.copy()
+    df_1 = df_12[df_12[pred_mask]]
+    df_2 = df_12[~df_12[pred_mask]]
+    # MAS_p  = predictor(df_1,df_2,'X','Y','HAB','MAS')
+    VAR = predictor(df_1, df_2, 'X', 'Y', 'HAB', var)
+    VV_p = predictor(df_1, df_2, 'X', 'Y', 'HAB', 'VV')
+    return VAR, VV_p, df_1
+
+
+def single_pred(*, df, var, pred_mask='COUNT'):
+    VAR, VV_p, df_1 = var_predictor(df, var, pred_mask=pred_mask)
+    # actual_dmascc = df_12[VAR].sum() / df_12['VV'].sum() * 100
+
+    a = df_1[var].sum()
+    b = VAR.sum()
+    c = df_1['VV'].sum()
+    d = VV_p.sum()
+    cal_var = (a + b) / (c + d) * 100
+    dic_ret = {
+        'pred': cal_var,
+        # 'actual': actual_dmascc
+    }
+    return dic_ret
+
+
+def predict_train_test_set(*, df, rr, var):
+    test, train = partition_df(df, rr)
+    VAR = predictor(train, test, 'X', 'Y', 'HAB', var)
+    VV_p = predictor(train, test, 'X', 'Y', 'HAB', 'VV')
+    actual_dmascc = df[var].sum() / df['VV'].sum() * 100
+
+    a = train[var].sum()
+    b = VAR.sum()
+    c = train['VV'].sum()
+    d = VV_p.sum()
+    calc_dmascc = (a + b) / (c + d) * 100
+    return actual_dmascc - calc_dmascc
+
+
+def monte_carlo_predictions(*, df, var, n=2):
+    df_R = df[df['COUNT']].copy()
+    r = df[df['COUNT']]['HAB'].sum() / df['HAB'].sum()
+
+    dif = []
+    for i in range(n):
+        d = predict_train_test_set(df=df_R, rr=r, var=var)
+
+        dif.append(d)
+    return dif
+
+
+def add_jitter(df: pd.DataFrame,
+               xj='xj', yj='yj', X='X', Y='Y',
+               jitter=.5):
+    ll = len(df)
+    np.random.seed(100)
+    df[xj] = df[X] + np.random.rand(ll) * jitter
+    np.random.seed(200)
+    df[yj] = df[Y] + np.random.rand(ll) * jitter
+    return df
+
+
+def open_full_comp2020(jitter=False):
+    df = pd.read_csv(FULL_COMP_CONCAT_CSV)
+    if jitter:
+        df = add_jitter(df)
+    return df
+
+
+def get_full_combined_2020():
+    df0 = get_dataframe_2020(jitter=True)
+    pd.DataFrame(df0.columns)
+
+    df = open_full_comp2020(jitter=False)
+
+    assert df['ID_MESA'].duplicated().sum() == 0
+    df = df[['ID_MESA', 'P_COMP', 'TIMESTAMP']].set_index('ID_MESA')
+
+    dff = df0.join(df, on='ID_MESA')
+
+    print('last', 'comp', 'merged')
+    print(len(df0), len(df), len(dff))
+
+    dff = dff[dff['VV'] > 0]
+
+    assert dff['P_COMP'].isna().sum() == 0
+    return dff

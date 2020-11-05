@@ -66,6 +66,7 @@ df = pd.merge(
 (df['i2'] - df['i0']).sum()
 
 # %%
+df
 
 # %% code_folding=[0]
 # Tabla 1
@@ -90,7 +91,7 @@ pd.DataFrame(df[['VV_20','VV_19','HAB_20','HAB_19']].sum(),columns=['VOTANTES'])
 #
 # Los resultados de este análisis también se ven reflejados en la Tabla 2.
 
-# %% code_folding=[0]
+# %% code_folding=[]
 # Fig. 1
 import warnings
 warnings.filterwarnings("ignore", category=RuntimeWarning)
@@ -100,19 +101,15 @@ m=5
 # CLUS_DIC=cools
 df1 = cluster_analysis(df=df,seed = 1,n=m)
 
-
-# %% code_folding=[0]
 nm_dic = df1.groupby(CLUS).count().iloc[:,0].to_dict()
 nm_dic = {b:f'{b}\n$_{{({nm_dic[b]} \mathrm{{\ mesas}})}}$' for a,b in CLUS_DIC.items()}
 mel = pd.melt(df1[[*COLUMNS_CLUS, CLUS]], id_vars=CLUS)
 # mel[CLUS] = mel[CLUS].apply(lambda r: nm_dic[r])
 
-
-# %% code_folding=[0]
 # CLUS_DIC = {0: '++MAS', 1: '+MAS', 2: '+CRE', 3: '++CRE', 4: '+CC'}
 mea = df1[[*COLUMNS_CLUS,CLUS]].groupby(CLUS).mean()
 mea['SUM'] = mea.sum(axis=1)
-f, ax = plt.subplots(figsize=(8, 4))
+f, ax = plt.subplots(figsize=(8, 4),dpi=300)
 sns.barplot(x=CLUS, y='value', data=mel, hue='variable',
             order=nm_dic.keys(), ci='sd');
 ax.set_ylabel('$\mathrm{DELTA}_{20-19}$ [% por mesa]');
@@ -124,6 +121,94 @@ ax.set_ylim(-60,90)
 ax.set_xlim(-.5,7)
 sns.despine(ax=ax,offset=10,bottom=True)
 
+
+# %% code_folding=[0]
+nm_dic = df1.groupby(CLUS).count().iloc[:,0].to_dict()
+nm_dic = {b:f'{b}\n$_{{({nm_dic[b]} \mathrm{{\ mesas}})}}$' for a,b in CLUS_DIC.items()}
+mel = pd.melt(df1[[*COLUMNS_CLUS, CLUS]], id_vars=CLUS)
+# mel[CLUS] = mel[CLUS].apply(lambda r: nm_dic[r])
+
+
+# %% code_folding=[]
+# CLUS_DIC = {0: '++MAS', 1: '+MAS', 2: '+CRE', 3: '++CRE', 4: '+CC'}
+mea = df1[[*COLUMNS_CLUS,CLUS]].groupby(CLUS).mean()
+mea['SUM'] = mea.sum(axis=1)
+f, ax = plt.subplots(figsize=(8, 4),dpi=200)
+sns.barplot(x=CLUS, y='value', data=mel, hue='variable',
+            order=nm_dic.keys(), ci='sd');
+ax.set_ylabel('$\mathrm{DELTA}_{20-19}$ [% por mesa]');
+
+labs = ax.get_xticklabels()
+labs = [matplotlib.text.Text(i.get_position(),text=nm_dic[i.get_text()]) for i in labs]
+rr=ax.set_xticklabels(labs)
+ax.set_ylim(-60,90)
+ax.set_xlim(-.5,7)
+sns.despine(ax=ax,offset=10,bottom=True)
+
+
+# %%
+
+# %%
+def ss(i,y0,y1):
+    ax.set_ylim(y0,y1)
+    ax.set_xlim(i-.5,i+.5)
+    f.set_figwidth(1)
+    f.set_figheight(2)
+    ax.legend([])
+    return f
+
+
+# %%
+ss(0,-20,40)
+
+# %%
+ss(1,-10,20)
+
+# %%
+ss(2,-40,60)
+
+# %%
+ss(3,-60,70)
+
+# %%
+ss(4,-10,15)
+
+# %%
+df1.columns
+
+# %%
+df['clus'] = df1['Cluster']
+
+
+# %%
+df.columns
+
+# %%
+cols = ['mas_19','mas_20','cc_19','cc_20','creemos_19','creemos_20','21f_19','21f_20',
+   'chi_19','chi_20','dotros_19','dotros_20','nb_19','nb_20'
+   ]
+
+# %%
+cc = sns.color_palette("tab10",n_colors=7)
+nc = []
+for c in cc:
+    nc.append(np.array(c)*1)
+    nc.append(c)
+
+
+# %%
+def _plt(cl = '++MAS',i=101):
+    f,ax = plt.subplots(figsize=(2.5,3),dpi=200)
+    _dd = df[df['clus'] == cl].iloc[i][cols]
+    _dd.plot.barh(color= nc,ax=ax)
+    ax.set_xlabel('%')
+_plt('++MAS')
+
+# %%
+_plt('++CRE')
+
+# %%
+_plt('+CC',i=200)
 
 # %% [markdown]
 # <center>Fig. 1: Porcentaje del cambio de votos para cada mesa entre 2020 y 2019 por cluster. Las líneas negras muestran la desviación estandard. * NB= nulos blancos <center>
@@ -144,7 +229,9 @@ mea.round()
 #
 # Resumiendo: ¿Cómo cambió el voto entre el 2019 al 2020? Principalmente, el 7.30% de votación que perdió Chi el 2020 fue en mayor medida hacia el MAS y en menor medida a Creemos, y en mucha menor medida a CC. El segundo cambio evidente es que Creemos recogió la votación de la agrupación 21F, poco de la votación de Chi y menos aún de votantes del MAS, pero logró atraer a un importante porcentaje del voto de CC. Podemos ver los siguientes datos en números absolutos en el siguiente gráfico y tabla (Fig. 2, Tabla 3).
 
-# %% code_folding=[0]
+# %%
+
+# %% code_folding=[]
 # Fig. 2
 ds = df1.copy()
 ds[COLUMNS_CLUS] = df1[COLUMNS_CLUS].multiply(df1['VV_20'], axis=0) / 100
@@ -155,7 +242,7 @@ mel1 = mel1.groupby([CLUS, 'variable']).sum()
 
 
 # noinspection PyRedeclaration
-f, ax = plt.subplots(figsize=(8, 4.5), dpi=100)
+f, ax = plt.subplots(figsize=(8, 4.5), dpi=200)
 sns.barplot(x=CLUS, y='value', data=mel1.reset_index(), hue='variable',
             order=CLUS_DIC.values(), hue_order=COLUMNS_CLUS);
 ax.set_ylabel('$\mathrm{DELTA}_{20-19}$ [Número de Votos]');
@@ -165,10 +252,34 @@ ax.set_xlim(-.5,6)
 sns.despine(ax=ax,offset=10,bottom=True)
 
 
+# %%
+ds
+
+# %%
+# Fig. 2
+ds = df1.copy()
+ds[COLUMNS_CLUS] = df1[COLUMNS_CLUS].multiply(df1['VV_20'], axis=0) / 100 / 5557961 * 100
+
+
+mel1 = pd.melt(ds[[*COLUMNS_CLUS, CLUS]], id_vars=CLUS)
+mel1 = mel1.groupby([CLUS, 'variable']).sum()
+
+
+
+# noinspection PyRedeclaration
+f, ax = plt.subplots(figsize=(8, 4.5), dpi=100)
+sns.barplot(x=CLUS, y='value', data=mel1.reset_index(), hue='variable',
+            order=CLUS_DIC.values(), hue_order=COLUMNS_CLUS);
+ax.set_ylabel('$\mathrm{DELTA}_{20-19}$ [%]');
+
+ax.set_ylim(-6,10)
+ax.set_xlim(-.5,6)
+sns.despine(ax=ax,offset=10,bottom=True)
+
 # %% [markdown]
 # <center>Fig 2. Cambio de voto en valor absoluto para cada cluster mostrado en la Fig. 1.<center>
 
-# %% code_folding=[0]
+# %% code_folding=[]
 # Tabla 3
 tab=mel1.round().astype(int)
 tab=tab.reset_index().set_index([CLUS,'variable']).unstack()
@@ -176,6 +287,30 @@ tab=tab['value'].T
 tab= pd.DataFrame(tab.to_dict()).T
 tab['SUM'] = tab.sum(axis=1)
 tab
+
+# %%
+# Tabla 3
+tab=(mel1)
+tab=tab.reset_index().set_index([CLUS,'variable']).unstack()
+tab=tab['value'].T
+tab= pd.DataFrame(tab.to_dict()).T
+tab['SUM'] = tab.sum(axis=1)
+tab = tab.T
+tab['SUM'] = tab.sum(axis=1)
+tab = tab.T
+tab = (tab/5557961 * 100*10).round()/10
+tab
+
+# %%
+sns.heatmap(tab.T.iloc[:-1,:-1],annot=True,center=0,cmap = 'RdBu_r')
+
+# %%
+a = df['MAS_20'].sum()/df['VV_20'].sum()*100
+
+# %%
+b = df['MAS_19'].sum()/df['VV_19'].sum()*100
+
+a-b
 
 # %% [markdown]
 # <center>Tabla 3: Cantidad de votos mostrados en la Fig. 2.<center>
@@ -272,5 +407,11 @@ path = os.path.join(ebu.DIR,'nb_2020','z102_mas_chi2019_mas2020-1.ipynb')
 phtml = path.replace('.ipynb','.html')
 # !jupyter nbconvert --to html_hc  --TemplateExporter.exclude_input=True --no-prompt {path}
 # !open {phtml}
+
+# %%
+
+# %%
+
+# %%
 
 # %%
