@@ -8,7 +8,8 @@
 ### Presentaciones  
   - Ciencia Política y Gestión Pública UMSA
   ([Video](https://www.facebook.com/CienciaPoliticaOficial/videos/3588038667922499),
-  [PDF](presentaciones/webinar_umsa_diego_aliaga.pdf)) 
+  [PDF](presentaciones/webinar_umsa_diego_aliaga.pdf))
+
 ### Visita el repositorio: [https://github.com/EBol20/elec-bol20](https://github.com/EBol20/elec-bol20)
 
 ## Elecciones generales Bolivia 2020 
