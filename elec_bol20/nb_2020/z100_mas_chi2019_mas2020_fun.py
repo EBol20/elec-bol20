@@ -83,13 +83,18 @@ def get_df():
     # clean 0 vote tables from last election
     df = df[df[VV_19] > 0]
     df = df[df[VV_20] > 0]
+    LEN = len(df)
 
+
+    # region compare only tables that are not farther than .1 lat lon
     _b1 = np.abs(df['LAT_20'] - df['LAT_19']) < .1
     df = df[_b1]
 
     _b1 = np.abs(df['LON_20'] - df['LON_19']) < .1
     df = df[_b1]
+    # endregion
 
+    # region dif 2020 and 2019
     VT_20 = 'VT_20'
     VT_19 = 'VT_19'
 
@@ -131,18 +136,27 @@ def get_df():
     df['dotros_20'] = df['OTROS_20'] / df[VT_20] * 100
     df['dotros_19'] = df['OTROS_19'] / df[VT_19] * 100
     df[DOTROS] = df['dotros_20'] - df['dotros_19']
+    # endregion
 
-    LEN = len(df)
-    # add jitter to the tables
+    #region add jitter to the tables
     df['xj'] = df['X_20'] + (np.random.randn(LEN) - .5) * .002 * np.sqrt(
         df['DEN_20'])
     df['yj'] = df['Y_20'] + (np.random.randn(LEN) - .5) * .002 * np.sqrt(
         df['DEN_20'])
+    #endregion
+
+    # region get differences
     df[DMAS_M_DCHI] = df[DMAS] + df[DCHI]
     df[DMAS_M_DCC] = df[DMAS] + df[DCC]
     df[DMAS_M_D21F] = df[DMAS] + df[D21F]
+    # endregion
+
+    # size s for plots
     df['s'] = np.sqrt(df['HAB_20'] / 45000)
+
+    # sort values
     df = df.sort_values('DEN_20')
+
     return df
 
 
